@@ -32,6 +32,7 @@ endpointEvents.beforeSending(config => {
   headers["os"] = apiOS;
 });
 
+// onSuccess comment
 endpointEvents.onSuccess((response: AxiosResponse) => {
   if (response.data.data) {
     response.data = response.data.data;
