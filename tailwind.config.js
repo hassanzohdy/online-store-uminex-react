@@ -54,9 +54,16 @@ export const theme = {
       filterLavender: "Lavender",
       filterLightBlue: "LightBlue",
       filterMidnightBlue: "MidnightBlue",
-
       filterPurple: "Purple",
-
+      aqua:`#40c1df`,
+      purple: `#3c5b9b`,
+      hotRed:`#eb281d`,
+      hotPink:`#e92e2e`,
+      black:`#222`,
+      darkBlue:`#203864`,
+      lightYellow: `#f6ea3c`,
+      darkRed:`#fa001a`,
+      lightAqua: `#33b8e8`,
 
 
     },
