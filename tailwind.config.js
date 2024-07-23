@@ -68,6 +68,7 @@ export const theme = {
       overlay:`#000000b3`,
       borderLight: `#e5e8ec`,
       lightRed:`#EFEFEF`,
+      lightGreen:`#EFEFEF`,
 
 
     },
