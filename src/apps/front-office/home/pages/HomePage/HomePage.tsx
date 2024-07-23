@@ -47,6 +47,7 @@ export default function HomePage() {
         <br />
         <UpdateCounterButton />
         <DisplayCounter />
+        <h1>Testing New Branch</h1>
       </div>
     </>
   );
