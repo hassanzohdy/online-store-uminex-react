@@ -1,10 +1,10 @@
 {
-    "user": {
-        "en": "User",
-        "ar": "مستخدم"
-    },
-    "admin": {
-        "en": "Admin",
-        "ar": "إداري"
-    }
+  "user": {
+    "en": "User",
+    "ar": "مستخدم"
+  },
+  "admin": {
+    "en": "Admin",
+    "ar": "إداري"
+  }
 }
