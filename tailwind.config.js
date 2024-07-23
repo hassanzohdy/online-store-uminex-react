@@ -31,17 +31,33 @@ export const theme = {
       "accordion-up": "accordion-up 0.2s ease-out",
     },
     colors: {
-      bodyBg: `#f1f5f6`,
-      textBody: `#515d66`,
-      main: `#212529`,
+      lightGray: `#f1f5f6`,
+      gray: `#515d66`,
+      primary: `#212529`,
       secondary: `#dd3842`,
-      linkHover: `#2b38d1`,
-      scrollbar: `#8d979e`,
-      starProduct: `#ffb800`,
-      btnProductHover: `#ffffff`,
-      labelNew: `#008a00`,
-      labelOut: `#ef262c`,
-      bgStatus: `#f3f4f6`,
+      purple: `#2b38d1`,
+      darkGray: `#8d979e`,
+      white: `#ffffff`,
+      green: `#008a00`,
+      red: `#ef262c`,
+      darkRed: `#ef262c`,
+      light: `#f3f4f6`,
+      yellow: `#ffb800`,
+    },
+    fontSize: {
+      "xs": "0.75rem", // 12px
+      "sm": "0.875rem", // 14px
+      "base": "1rem", // 16px
+      "lg": "1.125rem", // 18px
+      "xl": "1.25rem", // 20px
+      "2xl": "1.5rem", // 24px
+      "3xl": "1.688rem", // 27px
+      "4xl": "1.875rem", // 30px
+      "5xl": "2rem", // 32px
+      "6xl": "2.25rem", // 36px
+      "7xl": "3rem", // 48px
+      "8xl": "3.75rem", // 60px
+    
     },
   },
 };
