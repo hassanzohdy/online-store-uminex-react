@@ -35,7 +35,7 @@ export const theme = {
       gray: `#515d66`,
       primary: `#212529`,
       secondary: `#dd3842`,
-      purple: `#2b38d1`,
+      blue: `#2b38d1`,
       darkGray: `#8d979e`,
       white: `#ffffff`,
       green: `#008a00`,
