@@ -41,8 +41,24 @@ export const theme = {
       green: `#008a00`,
       red: `#ef262c`,
       darkRed: `#ef262c`,
+      orange: `#ff6128`,
+      pink:`#ea0d42`,
       light: `#f3f4f6`,
       yellow: `#ffb800`,
+      gold:`#f8ba26`,
+      filterBlack: "black",
+      filterBlue: "blue",
+      filterDarkSeaGreen: "DarkSeaGreen",
+      filterDeepSkyBlue: "DeepSkyBlue",
+      filterGhostWhite: "GhostWhite",
+      filterLavender: "Lavender",
+      filterLightBlue: "LightBlue",
+      filterMidnightBlue: "MidnightBlue",
+
+      filterPurple: "Purple",
+
+
+
     },
     fontSize: {
       "xs": "0.75rem", // 12px
