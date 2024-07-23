@@ -45,7 +45,8 @@ export const theme = {
       yellow: `#ffb800`,
     },
     fontSize: {
-      "xs": "0.813rem", // 13px
+      "xs": "0.75rem", // 12px
+      // "xs": "0.813rem", // 13px
       "sm": "0.875rem", // 14px
       "base": "1rem", // 16px
       "lg": "1.125rem", // 18px
