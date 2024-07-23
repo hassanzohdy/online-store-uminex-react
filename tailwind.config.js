@@ -67,6 +67,7 @@ export const theme = {
       lightAqua: `#33b8e8`,
       overlay:`#000000b3`,
       borderLight: `#e5e8ec`,
+      lightRed:`#EFEFEF`,
 
 
     },
