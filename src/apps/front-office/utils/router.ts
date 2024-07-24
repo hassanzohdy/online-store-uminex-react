@@ -2,7 +2,7 @@ import router, { Route } from "@mongez/react-router";
 import {
   Guardian,
   ReverseGuardian,
-} from "apps/front-office/account/middleware";
+} from "@/apps/front-office/account/middleware";
 import BaseLayout from "../design-system/layouts/BaseLayout";
 // import AccountLayout from "../design-system/layouts/AccountLayout";
 

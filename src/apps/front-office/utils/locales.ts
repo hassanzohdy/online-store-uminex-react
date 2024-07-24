@@ -1,5 +1,5 @@
 import { groupedTranslations, trans } from "@mongez/localization";
-import mainTranslation from "shared/localization/index.json";
+import mainTranslation from "@/shared/localization/index.json";
 
 // DO NOT IMPORT IT IF THE PROJECT IS NOT LARGE
 groupedTranslations(mainTranslation);

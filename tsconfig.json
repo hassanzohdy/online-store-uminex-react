@@ -17,13 +17,14 @@
     "baseUrl": "./",
     "noEmit": true,
     "paths": {
-      "apps/*": ["./src/apps/*"],
-      "shared/*": ["./src/shared/*"],
-      "design-system": ["src/apps/front-office/design-system"],
-      "design-system/*": ["src/apps/front-office/design-system/*"],
-      "assets/*": ["./src/shared/assets/*"],
-      "user": ["src/apps/front-office/account/user"],
-      "app/*": ["src/apps/front-office/*"]
+      // "apps/*": ["./src/apps/*"],
+      // "shared/*": ["./src/shared/*"],
+      // "design-system": ["src/apps/front-office/design-system"],
+      // "assets/*": ["./src/shared/assets/*"],
+      // "user": ["src/apps/front-office/account/user"],
+      // "app/*": ["src/apps/front-office/*"],
+      // "design-system/*": ["src/apps/front-office/design-system/*"],
+      "@/*": ["./src/*"]
     },
     "jsx": "react-jsx",
     "plugins": [

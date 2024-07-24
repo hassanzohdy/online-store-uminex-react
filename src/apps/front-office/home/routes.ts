@@ -1,7 +1,7 @@
-import { publicRoutes } from "apps/front-office/utils/router";
-import URLS from "apps/front-office/utils/urls";
-import NotFoundPage from "design-system/layouts/NotFoundPage";
+import { publicRoutes } from "@/apps/front-office/utils/router";
+import URLS from "@/apps/front-office/utils/urls";
 import HomePage from "./pages/HomePage";
+import NotFoundPage from "../design-system/layouts/NotFoundPage";
 
 publicRoutes([
   {
