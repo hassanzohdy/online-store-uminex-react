@@ -1,0 +1,31 @@
+name: ESLint
+
+on:
+  push:
+    branches:
+      - '**'
+  pull_request:
+    branches:
+      - '**'
+
+jobs:
+  eslint:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20' # Use the Node.js version that your project requires
+
+    - name: Install dependencies
+      run: yarn install # Or use npm install if you're using npm
+
+    - name: Run ESLint
+      run: yarn fix --max-warnings 0
+
+    - name: Typescript check
+      run: yarn tsc
