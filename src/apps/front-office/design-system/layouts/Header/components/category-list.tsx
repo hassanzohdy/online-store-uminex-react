@@ -7,7 +7,7 @@ import {
 } from "@/apps/front-office/design-system/components/ui/dropdown-menu";
 import { Link } from "@mongez/react-router";
 import { FiMenu } from "react-icons/fi";
-import { Separator } from "../../../components/ui/separator";
+import { Separator } from "@/apps/front-office/design-system/components/ui/separator";
 
 const categories = [
   {

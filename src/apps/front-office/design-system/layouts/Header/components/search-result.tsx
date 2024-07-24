@@ -1,6 +1,6 @@
 import { Link } from "@mongez/react-router";
 import { useEffect, useState } from "react";
-import { Button } from "../../../components/ui/button";
+import { Button } from "@/apps/front-office/design-system/components/ui/button";
 import SkeletonCard from "./skeleton-card";
 import { ScrollArea } from "@/apps/front-office/design-system/components/ui/scroll-area"
 

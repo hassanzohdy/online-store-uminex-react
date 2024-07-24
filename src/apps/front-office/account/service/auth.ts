@@ -1,4 +1,4 @@
-import endpoint from "shared/endpoint";
+import endpoint from "@/shared/endpoint";
 
 /**
  * Get Guest token
