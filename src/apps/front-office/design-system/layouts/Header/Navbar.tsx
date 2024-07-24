@@ -1,9 +1,9 @@
-import discountSvg from "shared/assets/images/discount.svg";
 import { Link } from "@mongez/react-router";
 import { useState } from "react";
 import { FaAngleDown } from "react-icons/fa";
-import SearchInput from "./components/search-input";
+import discountSvg from "shared/assets/images/discount.svg";
 import CategoryList from "./components/category-list";
+import SearchInput from "./components/search-input";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,7 +11,7 @@ const Navbar = () => {
     <div className="w-full py-5">
       <div className="hidden xl:flex items-center justify-between">
         <div className="flex items-center gap-4 w-full">
-          <CategoryList/>
+          <CategoryList />
           <ul className="flex items-center gap-8">
             <li className="text-slate-800 text-sm font-semibold hover:hover:text-[#2b38d1]">
               <Link href="/">Home</Link>
@@ -34,19 +34,23 @@ const Navbar = () => {
                   onMouseLeave={() => setIsOpen(false)}
                   className="absolute left-0 top-5 bg-white rounded-md p-4
                    shadow-md w-[200px] flex flex-col items-start gap-3">
-                  <li className="text-slate-500 font-medium text-sm hover:text-[#2b38d1]
+                  <li
+                    className="text-slate-500 font-medium text-sm hover:text-[#2b38d1]
                    hover:ml-3 transition-all">
                     <Link href="/about">About Us</Link>
                   </li>
-                  <li className="text-slate-500 font-medium text-sm hover:text-[#2b38d1]
+                  <li
+                    className="text-slate-500 font-medium text-sm hover:text-[#2b38d1]
                    hover:ml-3 transition-all">
                     <Link href="/faq">FAQ</Link>
                   </li>
-                  <li className="text-slate-500 font-medium text-sm hover:text-[#2b38d1]
+                  <li
+                    className="text-slate-500 font-medium text-sm hover:text-[#2b38d1]
                    hover:ml-3 transition-all">
                     <Link href="/terms">Terms & Conditions</Link>
                   </li>
-                  <li className="text-slate-500 font-medium text-sm hover:text-[#2b38d1]
+                  <li
+                    className="text-slate-500 font-medium text-sm hover:text-[#2b38d1]
                    hover:ml-3 transition-all">
                     <Link href="/team">Our Team</Link>
                   </li>

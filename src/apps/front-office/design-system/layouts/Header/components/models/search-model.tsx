@@ -7,9 +7,9 @@ import {
   DialogTrigger,
 } from "apps/front-office/design-system/components/ui/dialog";
 import { Input } from "apps/front-office/design-system/components/ui/input";
-import { cn } from "../../../../lib/utils";
 import { ChangeEvent, useState } from "react";
 import { CiSearch } from "react-icons/ci";
+import { cn } from "../../../../lib/utils";
 import SearchResult from "../search-result";
 
 const SearchModel = () => {

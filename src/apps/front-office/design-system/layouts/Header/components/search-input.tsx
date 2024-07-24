@@ -1,7 +1,7 @@
 import { Button } from "apps/front-office/design-system/components/ui/button";
 import { Input } from "apps/front-office/design-system/components/ui/input";
-import { cn } from "../../../lib/utils";
 import { ChangeEvent, useState } from "react";
+import { cn } from "../../../lib/utils";
 import CategoryMenu from "./category-menu";
 import SearchResult from "./search-result";
 
@@ -13,14 +13,14 @@ const SearchInput = () => {
     setValue(inputValue);
   };
 
-  const selectCategory = (category:string) =>{
+  const selectCategory = (category: string) => {
     setValue(category);
-  }
+  };
 
   return (
     <div className="flex items-center gap-2 w-full relative">
       <div className="absolute left-0 hidden xl:block w-full max-w-[200px]">
-        <CategoryMenu selectCategory={selectCategory}/>
+        <CategoryMenu selectCategory={selectCategory} />
       </div>
       <Input
         placeholder="Search For Products..."
@@ -35,7 +35,7 @@ const SearchInput = () => {
       </Button>
       <div
         className={cn(
-          "absolute top-full left-0 w-full border z-50 ",
+          "absolute top-full left-0 w-full border border-slate-200 z-50 ",
           value === "" && "hidden",
         )}>
         <SearchResult value={value} />

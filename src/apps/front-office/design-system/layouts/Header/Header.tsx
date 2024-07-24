@@ -1,13 +1,13 @@
 import { Link } from "@mongez/react-router";
+import { Button } from "apps/front-office/design-system/components/ui/button";
 import { AiOutlineUser } from "react-icons/ai";
 import { FaRegHeart } from "react-icons/fa";
-import { Button } from "apps/front-office/design-system/components/ui/button";
+import { formatPrice } from "../../lib/formatPrice";
 import Logo from "./components/Logo";
 import SearchInput from "./components/search-input";
 import CartSheetSidebar from "./components/sheets/cart-sidebar-sheet";
-import WishListSheetSidebar from "./components/sheets/wishlist-sidebar-sheet";
-import { formatPrice } from "../../lib/formatPrice";
 import MobileSidebarSheet from "./components/sheets/mobile-sidebar-sheet";
+import WishListSheetSidebar from "./components/sheets/wishlist-sidebar-sheet";
 
 export default function Header() {
   return (
@@ -46,7 +46,9 @@ export default function Header() {
             <CartSheetSidebar />
             <div className="hidden xl:flex flex-col items-start">
               <span className="text-xs text-slate-600">Cart</span>
-              <p className="text-sm font-medium text-slate-800 p-0">{formatPrice(0)}</p>
+              <p className="text-sm font-medium text-slate-800 p-0">
+                {formatPrice(0)}
+              </p>
             </div>
           </div>
         </div>

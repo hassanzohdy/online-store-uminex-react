@@ -67,7 +67,7 @@ const CategoryMenu = ({ selectCategory }: CategoryMenuProps) => {
       <DropdownMenuTrigger asChild>
         <Button
           variant={"ghost"}
-          className="flex items-center justify-between w-full max-w-[200px] border-r-2 rounded-none">
+          className="flex items-center justify-between w-full max-w-[200px] border-r-2 border-slate-200 rounded-none">
           <span className="text-md font-medium text-slate-700">
             All Categories
           </span>

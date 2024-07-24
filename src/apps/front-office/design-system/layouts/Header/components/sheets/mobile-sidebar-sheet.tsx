@@ -1,3 +1,4 @@
+import { Link } from "@mongez/react-router";
 import { Button } from "apps/front-office/design-system/components/ui/button";
 import {
   DialogHeader,
@@ -9,14 +10,13 @@ import {
   SheetContent,
   SheetTrigger,
 } from "apps/front-office/design-system/components/ui/sheet";
-import { Link } from "@mongez/react-router";
 import { FaRegHeart } from "react-icons/fa";
 import { FiLayers, FiUsers } from "react-icons/fi";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoLogOutOutline } from "react-icons/io5";
 import CompareModel from "../models/compare-model";
-import WishListSheetSidebar from "./wishlist-sidebar-sheet";
 import SearchModel from "../models/search-model";
+import WishListSheetSidebar from "./wishlist-sidebar-sheet";
 
 const MobileSidebarSheet = () => {
   const user: any = null;
@@ -26,7 +26,9 @@ const MobileSidebarSheet = () => {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant={"ghost"} className="hover:bg-transparent block xl:hidden">
+        <Button
+          variant={"ghost"}
+          className="hover:bg-transparent block xl:hidden">
           <GiHamburgerMenu className="h-7 w-7 text-slate-800 " />
         </Button>
       </SheetTrigger>

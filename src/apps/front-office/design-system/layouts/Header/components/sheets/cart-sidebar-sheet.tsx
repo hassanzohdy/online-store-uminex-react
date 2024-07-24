@@ -1,3 +1,5 @@
+import { Link } from "@mongez/react-router";
+import { Button } from "apps/front-office/design-system/components/ui/button";
 import {
   Sheet,
   SheetContent,
@@ -5,10 +7,8 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "apps/front-office/design-system/components/ui/sheet";
-import EmptyCartIcon from "shared/assets/images/empty-cart.svg";
-import { Link } from "@mongez/react-router";
 import { IoCartOutline } from "react-icons/io5";
-import { Button } from "apps/front-office/design-system/components/ui/button";
+import EmptyCartIcon from "shared/assets/images/empty-cart.svg";
 const CartSheetSidebar = () => {
   const cartItems = [];
   return (
@@ -39,7 +39,11 @@ const CartSheetSidebar = () => {
             <p className="text-sm font-medium text-slate-800 ">
               Your Cart is Empty
             </p>
-            <Button asChild variant={"primary"} size={"lg"} className="rounded-full">
+            <Button
+              asChild
+              variant={"primary"}
+              size={"lg"}
+              className="rounded-full">
               <Link to="/collections/all">Return To The Shop</Link>
             </Button>
           </div>
