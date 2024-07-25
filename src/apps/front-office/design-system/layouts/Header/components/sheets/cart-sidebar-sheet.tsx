@@ -17,11 +17,13 @@ const CartSheetSidebar = () => {
         <Button variant={"ghost"} className="hover:bg-transparent">
           <div className="relative">
             <IoCartOutline className="h-8 w-8 text-slate-700" />
-            <span
-              className="absolute -top-1 -right-2 bg-rose-600 text-slate-50
-             rounded-full w-[16px] h-[16px] text-xs">
-              0
-            </span>
+            <div
+              className="absolute -top-1 -right-2 bg-red rounded-full 
+              w-[18px] h-[18px] flex items-center justify-center">
+              <span className="text-xs text-center text-slate-50">
+                {cartItems.length}
+              </span>
+            </div>
           </div>
         </Button>
       </SheetTrigger>

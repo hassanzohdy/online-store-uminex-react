@@ -56,7 +56,6 @@ const SearchModel = () => {
             <SearchResult value={value} />
           </div>
         </div>
-        
       </DialogContent>
     </Dialog>
   );

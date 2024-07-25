@@ -73,7 +73,8 @@ const CategoryList = () => {
       <DropdownMenuTrigger asChild>
         <Button
           variant={"ghost"}
-          className="flex items-center justify-start w-full max-w-[270px] border-r-[2px] border-slate-200 rounded-none pl-0">
+          className="flex items-center justify-start w-full max-w-[270px] border-r-[2px]
+           border-slate-200 rounded-none pl-0 hover:bg-transparent">
           <FiMenu className="w-5 h-5 mr-2" />
           <span className="text-md font-medium text-slate-700">
             Browse All Categories
