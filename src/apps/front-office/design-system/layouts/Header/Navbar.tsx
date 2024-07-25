@@ -1,10 +1,10 @@
+import { trans } from "@mongez/localization";
 import { Link } from "@mongez/react-router";
 import { useState } from "react";
 import { FaAngleDown } from "react-icons/fa";
 import discountSvg from "shared/assets/images/discount.svg";
 import CategoryList from "./components/category-list";
 import SearchInput from "./components/search-input";
-import { trans } from "@mongez/localization";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);

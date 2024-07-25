@@ -1,14 +1,14 @@
 {
-    "compare":{
-        "en":"COMPARE",
-        "ar":"المقارنه"
-    },
-    "emptyCompareList":{
-        "en":"No products to compare",
-        "ar":"لا توجد منتجات للمقارنة"
-    },
-    "searchModelTitle":{
-        "en":"WHAT ARE YOU LOOKING FOR?",
-        "ar":"ما الذي تبحث عنه؟"
-    }
+  "compare": {
+    "en": "COMPARE",
+    "ar": "المقارنه"
+  },
+  "emptyCompareList": {
+    "en": "No products to compare",
+    "ar": "لا توجد منتجات للمقارنة"
+  },
+  "searchModelTitle": {
+    "en": "WHAT ARE YOU LOOKING FOR?",
+    "ar": "ما الذي تبحث عنه؟"
+  }
 }

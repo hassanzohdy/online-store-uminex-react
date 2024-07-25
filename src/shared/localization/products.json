@@ -1,10 +1,10 @@
 {
-    "notFoundProducts":{
-        "en":"There are no products matching your keywords",
-        "ar":"لا توجد منتجات تتوافق مع بحثك"
-    },
-    "notFoundProduct":{
-        "en":"Product Not Found",
-        "ar":"المنتج غير موجود"
-    }
+  "notFoundProducts": {
+    "en": "There are no products matching your keywords",
+    "ar": "لا توجد منتجات تتوافق مع بحثك"
+  },
+  "notFoundProduct": {
+    "en": "Product Not Found",
+    "ar": "المنتج غير موجود"
+  }
 }

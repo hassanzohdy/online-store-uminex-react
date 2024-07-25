@@ -1,3 +1,5 @@
+import { trans } from "@mongez/localization";
+import { current } from "@mongez/react";
 import { Link } from "@mongez/react-router";
 import { Button } from "apps/front-office/design-system/components/ui/button";
 import {
@@ -17,12 +19,12 @@ import { IoLogOutOutline } from "react-icons/io5";
 import CompareModel from "../models/compare-model";
 import SearchModel from "../models/search-model";
 import WishListSheetSidebar from "./wishlist-sidebar-sheet";
-import { trans } from "@mongez/localization";
 
 const MobileSidebarSheet = () => {
   const user: any = null;
   const wishListItems = [];
   const compareItems = [];
+  const language = current("localeCode");
 
   return (
     <Sheet>
@@ -34,7 +36,7 @@ const MobileSidebarSheet = () => {
         </Button>
       </SheetTrigger>
 
-      <SheetContent side={"left"}>
+      <SheetContent side={language === "ar" ? "right" : "left"}>
         <DialogHeader>
           <DialogTitle></DialogTitle>
         </DialogHeader>
@@ -54,7 +56,7 @@ const MobileSidebarSheet = () => {
                 <Link
                   href={"/login"}
                   className="text-[15px] font-medium text-slate-900">
-                  {trans('login')}
+                  {trans("login")}
                 </Link>
               </div>
             )}
@@ -69,12 +71,15 @@ const MobileSidebarSheet = () => {
                   </div>
                 </Link>
                 <div className="flex items-center gap-2">
-                  Welcome
-                  <Link
-                    href={"/account"}
-                    className="text-[15px] font-medium text-slate-900 underline">
-                    {user.username}
-                  </Link>
+                  {trans("welcomeBack", {
+                    name: (
+                      <Link
+                        href={"/account"}
+                        className="text-[15px] font-medium text-slate-900 underline">
+                        {user.username}
+                      </Link>
+                    ),
+                  })}
                 </div>
               </div>
             )}

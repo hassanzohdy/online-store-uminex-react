@@ -1,11 +1,11 @@
 import { groupedTranslations, trans } from "@mongez/localization";
+import AuthTranslation from "shared/localization/auth.json";
 import ButtonsTranslation from "shared/localization/buttons.json";
 import cartAndWishlistTranslation from "shared/localization/cart-wishlist.json";
-import NavbarTranslation from "shared/localization/navbar.json";
-import AuthTranslation from "shared/localization/auth.json";
 import IndexTranslation from "shared/localization/index.json";
-import ModelsTranslation from "shared/localization/models.json";
 import InputsTranslation from "shared/localization/inputs.json";
+import ModelsTranslation from "shared/localization/models.json";
+import NavbarTranslation from "shared/localization/navbar.json";
 import ProductsTranslation from "shared/localization/products.json";
 
 // DO NOT IMPORT IT IF THE PROJECT IS NOT LARGE

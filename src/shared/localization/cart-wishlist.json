@@ -7,16 +7,16 @@
     "en": "Shopping Cart",
     "ar": "سلة التسوق"
   },
-  "emptyCart":{
+  "emptyCart": {
     "en": "Your Cart is Empty",
     "ar": "سلة التسوق فارغة"
   },
-  "wishlist":{
+  "wishlist": {
     "en": "My Wishlist",
     "ar": "قائمتي المفضلة"
   },
-  "emptyWishlist":{
-    "en":"Your Wishlist is Empty",
-    "ar":"قائمتك المفضله فارغه"
+  "emptyWishlist": {
+    "en": "Your Wishlist is Empty",
+    "ar": "قائمتك المفضله فارغه"
   }
 }

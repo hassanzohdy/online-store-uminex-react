@@ -1,4 +1,5 @@
 import { trans } from "@mongez/localization";
+import { current } from "@mongez/react";
 import { Link } from "@mongez/react-router";
 import { Button } from "apps/front-office/design-system/components/ui/button";
 import {
@@ -12,6 +13,8 @@ import { IoCartOutline } from "react-icons/io5";
 import EmptyCartIcon from "shared/assets/images/empty-cart.svg";
 const CartSheetSidebar = () => {
   const cartItems = [];
+  const language= current("localeCode");
+
   return (
     <Sheet>
       <SheetTrigger asChild>
@@ -28,7 +31,7 @@ const CartSheetSidebar = () => {
           </div>
         </Button>
       </SheetTrigger>
-      <SheetContent className="p-0">
+      <SheetContent className="p-0" side={language==="ar"?"left":"right"}>
         <SheetHeader className="bg-slate-100 p-3">
           <SheetTitle className="text-slate-900 font-semibold text-md">
             {trans("shoppingCart")}
