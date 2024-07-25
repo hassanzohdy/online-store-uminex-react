@@ -4,6 +4,7 @@ import { FaAngleDown } from "react-icons/fa";
 import discountSvg from "shared/assets/images/discount.svg";
 import CategoryList from "./components/category-list";
 import SearchInput from "./components/search-input";
+import { trans } from "@mongez/localization";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,10 +15,10 @@ const Navbar = () => {
           <CategoryList />
           <ul className="flex items-center gap-8">
             <li className="text-slate-800 text-sm font-semibold hover:hover:text-blue">
-              <Link href="/">Home</Link>
+              <Link href="/">{trans("home")}</Link>
             </li>
             <li className="text-slate-800 text-sm font-semibold hover:hover:text-blue">
-              <Link href="/collections/all">Shop</Link>
+              <Link href="/collections/all">{trans("shop")}</Link>
             </li>
             <div className="relative">
               <li
@@ -25,7 +26,7 @@ const Navbar = () => {
                  flex items-center cursor-pointer"
                 onMouseEnter={() => setIsOpen(true)}
                 onMouseLeave={() => setIsOpen(false)}>
-                Pages
+                {trans("pages")}
                 <FaAngleDown className="w-3 h-3 text-slate-600 ml-2" />
               </li>
               {isOpen && (
@@ -37,38 +38,38 @@ const Navbar = () => {
                   <li
                     className="text-slate-500 font-medium text-sm hover:text-blue
                    hover:ml-3 transition-all">
-                    <Link href="/about">About Us</Link>
+                    <Link href="/about">{trans("about")}</Link>
                   </li>
                   <li
                     className="text-slate-500 font-medium text-sm hover:text-blue
                    hover:ml-3 transition-all">
-                    <Link href="/faq">FAQ</Link>
+                    <Link href="/faq">{trans("faq")}</Link>
                   </li>
                   <li
                     className="text-slate-500 font-medium text-sm hover:text-blue
                    hover:ml-3 transition-all">
-                    <Link href="/terms">Terms & Conditions</Link>
+                    <Link href="/terms">{trans("terms")}</Link>
                   </li>
                   <li
                     className="text-slate-500 font-medium text-sm hover:text-blue
                    hover:ml-3 transition-all">
-                    <Link href="/team">Our Team</Link>
+                    <Link href="/team">{trans("team")}</Link>
                   </li>
                 </ul>
               )}
             </div>
             <li className="text-slate-800 text-sm font-semibold hover:hover:text-blue">
-              <Link href="/contact">Contact Us</Link>
+              <Link href="/contact">{trans("contact")}</Link>
             </li>
             <li className="text-slate-800 text-sm font-semibold hover:hover:text-blue">
-              <Link href="/blogs">Blog</Link>
+              <Link href="/blogs">{trans("blog")}</Link>
             </li>
           </ul>
         </div>
         <div className="flex items-center gap-2 min-w-[250px]">
           <img src={discountSvg} alt="discount" />
           <span className="text-slate-800 font-semibold hover:text-blue transition">
-            Sale $20 Off Your First Order.
+            {trans("sale")}
           </span>
         </div>
       </div>

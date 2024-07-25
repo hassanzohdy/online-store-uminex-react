@@ -1,3 +1,4 @@
+import { trans } from "@mongez/localization";
 import { Link } from "@mongez/react-router";
 import { Button } from "apps/front-office/design-system/components/ui/button";
 import {
@@ -30,7 +31,7 @@ const CartSheetSidebar = () => {
       <SheetContent className="p-0">
         <SheetHeader className="bg-slate-100 p-3">
           <SheetTitle className="text-slate-900 font-semibold text-md">
-            Shopping Cart
+            {trans("shoppingCart")}
           </SheetTitle>
         </SheetHeader>
         {cartItems.length > 0 ? (
@@ -39,14 +40,14 @@ const CartSheetSidebar = () => {
           <div className="flex items-center justify-center flex-col gap-5 py-5">
             <img src={EmptyCartIcon} alt="empty cart" />
             <p className="text-sm font-medium text-slate-800 ">
-              Your Cart is Empty
+              {trans("emptyCart")}
             </p>
             <Button
               asChild
               variant={"primary"}
               size={"lg"}
               className="rounded-full">
-              <Link to="/collections/all">Return To The Shop</Link>
+              <Link to="/collections/all">{trans("emptyCartBtn")}</Link>
             </Button>
           </div>
         )}

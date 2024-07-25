@@ -11,6 +11,7 @@ import { ChangeEvent, useState } from "react";
 import { CiSearch } from "react-icons/ci";
 import { cn } from "../../../../lib/utils";
 import SearchResult from "../search-result";
+import { trans } from "@mongez/localization";
 
 const SearchModel = () => {
   const [value, setValue] = useState("");
@@ -24,7 +25,7 @@ const SearchModel = () => {
     <Dialog>
       <DialogTrigger asChild>
         <div className="relative w-full">
-          <Input placeholder="Search" className="rounded-full" />
+          <Input placeholder={trans("searchInputModelPlaceholder")} className="rounded-full" />
           <Button
             variant={"ghost"}
             className="rounded-full absolute right-0 top-0"
@@ -37,11 +38,11 @@ const SearchModel = () => {
         className="min-h-screen min-w-full flex flex-col gap-5
        items-center justify-start py-20 mt-6">
         <DialogHeader>
-          <DialogTitle>WHAT ARE YOU LOOKING FOR?</DialogTitle>
+          <DialogTitle>{trans("searchModelTitle")}</DialogTitle>
         </DialogHeader>
         <div className="relative w-full">
           <Input
-            placeholder="Search"
+            placeholder={trans("searchInputModelPlaceholder")}
             className="rounded-md h-10 border-slate-300"
             onChange={storeInputValue}
             type="search"

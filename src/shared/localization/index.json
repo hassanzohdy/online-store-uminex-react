@@ -19,6 +19,14 @@
     "en": "All",
     "ar": "الكل"
   },
+  "allCategories":{
+    "en": "All Categories",
+    "ar": "كل التصنيفات"
+  },
+  "topBannerTitle":{
+    "en": "Special offer: enjoy 3 months of shopify for $1/month",
+    "ar": "عرض خاص: استمتع بـ 3 أشهر من Shopify مقابل $1/شهر"
+  },
   "metadata": {
     "en": "Metadata",
     "ar": "بيانات التعريف"

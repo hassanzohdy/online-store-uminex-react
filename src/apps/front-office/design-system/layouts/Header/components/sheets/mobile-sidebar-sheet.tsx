@@ -17,6 +17,7 @@ import { IoLogOutOutline } from "react-icons/io5";
 import CompareModel from "../models/compare-model";
 import SearchModel from "../models/search-model";
 import WishListSheetSidebar from "./wishlist-sidebar-sheet";
+import { trans } from "@mongez/localization";
 
 const MobileSidebarSheet = () => {
   const user: any = null;
@@ -40,7 +41,7 @@ const MobileSidebarSheet = () => {
         <div className="flex flex-col items-start gap-4 my-5">
           <div className="flex flex-col items-center gap-4 justify-center w-full">
             <h1 className="font-semibold text-slate-900 text-lg text-center">
-              What Are You Looking For?
+              {trans("searchModelTitle")}
             </h1>
             <SearchModel />
           </div>
@@ -53,7 +54,7 @@ const MobileSidebarSheet = () => {
                 <Link
                   href={"/login"}
                   className="text-[15px] font-medium text-slate-900">
-                  Login/Register
+                  {trans('login')}
                 </Link>
               </div>
             )}
@@ -64,7 +65,7 @@ const MobileSidebarSheet = () => {
                   className="text-[15px] font-medium text-slate-900">
                   <div className="flex items-center">
                     <IoLogOutOutline className="w-4 h-4 mr-2" />
-                    Logout
+                    {trans("logout")}
                   </div>
                 </Link>
                 <div className="flex items-center gap-2">
@@ -82,7 +83,7 @@ const MobileSidebarSheet = () => {
               <Link
                 href={"/"}
                 className="text-[15px] font-medium text-slate-900">
-                Home
+                {trans("home")}
               </Link>
             </div>
             <Separator className="my-2" />
@@ -90,7 +91,7 @@ const MobileSidebarSheet = () => {
               <Link
                 href={"/collections/all"}
                 className="text-[15px] font-medium text-slate-900">
-                Shop
+                {trans("shop")}
               </Link>
             </div>
             <Separator className="my-2" />
@@ -98,7 +99,7 @@ const MobileSidebarSheet = () => {
               <Link
                 href={"/blogs"}
                 className="text-[15px] font-medium text-slate-900">
-                Blog
+                {trans("blog")}
               </Link>
             </div>
             <Separator className="my-2" />
@@ -108,7 +109,7 @@ const MobileSidebarSheet = () => {
                   <FaRegHeart className="w-4 h-4 mr-2" />
                 </div>
                 <h1 className="text-[15px] font-medium text-slate-900">
-                  WishList ( {wishListItems.length} )
+                  {trans("wishlist")} ( {wishListItems.length} )
                 </h1>
               </div>
             </WishListSheetSidebar>
@@ -119,7 +120,7 @@ const MobileSidebarSheet = () => {
                   <FiLayers className="w-4 h-4 mr-2" />
                 </div>
                 <h1 className="text-[15px] font-medium text-slate-900 ">
-                  Compare ( {compareItems.length} )
+                  {trans("compare")} ( {compareItems.length} )
                 </h1>
               </div>
             </CompareModel>
@@ -128,7 +129,7 @@ const MobileSidebarSheet = () => {
               <Link
                 href={"/contact"}
                 className="text-[15px] font-medium text-slate-900">
-                Contact us
+                {trans("contact")}
               </Link>
             </div>
           </div>

@@ -4,6 +4,7 @@ import { ChangeEvent, useState } from "react";
 import { cn } from "../../../lib/utils";
 import CategoryMenu from "./category-menu";
 import SearchResult from "./search-result";
+import { trans } from "@mongez/localization";
 
 const SearchInput = () => {
   const [value, setValue] = useState("");
@@ -23,7 +24,7 @@ const SearchInput = () => {
         <CategoryMenu selectCategory={selectCategory} />
       </div>
       <Input
-        placeholder="Search For Products..."
+        placeholder={trans("searchInputPlaceholder")}
         className="border outline-none focus:outline-none focus-visible:ring-0
              focus:ring-0 focus:ring-offset-0 inset-y-0 w-full xl:pl-52 pr-28 h-12"
         onChange={storeInputValue}
@@ -31,7 +32,7 @@ const SearchInput = () => {
         value={value}
       />
       <Button variant={"primary"} size={"lg"} className="absolute right-0">
-        Search
+        {trans("searchBtn")}
       </Button>
       <div
         className={cn(

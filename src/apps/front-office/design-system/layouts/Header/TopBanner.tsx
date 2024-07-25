@@ -1,3 +1,4 @@
+import { trans } from "@mongez/localization";
 import { AiFillThunderbolt } from "react-icons/ai";
 
 const TopBanner = () => {
@@ -6,25 +7,25 @@ const TopBanner = () => {
       <div className="flex items-center min-w-[350px] truncate">
         <AiFillThunderbolt className="h-5 w-5 mr-2 text-light" />
         <p className="text-light text-sm">
-          Special offer: enjoy 3 months of shopify for $1/month
+          {trans("topBannerTitle")}
         </p>
       </div>
       <div className="flex items-center min-w-[350px] truncate">
         <AiFillThunderbolt className="h-5 w-5 mr-2 text-light" />
         <p className="text-light text-sm">
-          Special offer: enjoy 3 months of shopify for $1/month
+          {trans("topBannerTitle")}
         </p>
       </div>
       <div className="flex items-center min-w-[350px] truncate">
         <AiFillThunderbolt className="h-5 w-5 mr-2 text-light" />
         <p className="text-light text-sm">
-          Special offer: enjoy 3 months of shopify for $1/month
+          {trans("topBannerTitle")}
         </p>
       </div>
       <div className="flex items-center min-w-[350px] truncate">
         <AiFillThunderbolt className="h-5 w-5 mr-2 text-light" />
         <p className="text-light text-sm">
-          Special offer: enjoy 3 months of shopify for $1/month
+          {trans("topBannerTitle")}
         </p>
       </div>
     </div>

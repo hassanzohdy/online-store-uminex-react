@@ -1,3 +1,4 @@
+import { trans } from "@mongez/localization";
 import {
   Sheet,
   SheetContent,
@@ -14,7 +15,7 @@ const WishListSheetSidebar = ({ children }: { children: React.ReactNode }) => {
       <SheetContent className="p-0">
         <SheetHeader className="bg-slate-100 p-3">
           <SheetTitle className="text-slate-900 font-semibold text-md">
-            My WishList
+            {trans("wishlist")}
           </SheetTitle>
         </SheetHeader>
         {wishItems.length > 0 ? (
@@ -23,7 +24,7 @@ const WishListSheetSidebar = ({ children }: { children: React.ReactNode }) => {
           <div className="flex items-center justify-center flex-col gap-5 py-5">
             <img src={EmptyWishList} alt="empty cart" />
             <p className="text-sm font-medium text-slate-800 ">
-              Your WishList is Empty
+              {trans("emptyWishlist")}
             </p>
           </div>
         )}

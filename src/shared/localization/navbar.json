@@ -1,0 +1,46 @@
+{
+    "home": {
+        "en": "Home",
+        "ar": "الرئيسيه"
+    },
+    "shop": {
+        "en": "Shop",
+        "ar": "المتجر"
+    },
+    "pages": {
+        "en": "Pages",
+        "ar": "صفحات"
+    },
+    "about": {
+        "en": "About Us",
+        "ar": "معلومات عنا"
+    },
+    "faq": {
+        "en": "FAQ",
+        "ar": "الأسئلة الشائعة"
+    },
+    "terms": {
+        "en": "Terms & Conditions",
+        "ar": "الشروط والأحكام"
+    },
+    "team": {
+        "en": "Our Team",
+        "ar": "فريقنا"
+    },
+    "contact": {
+        "en": "Contact Us",
+        "ar": "اتصل بنا"
+    },
+    "blog": {
+        "en": "Blog",
+        "ar": "مدونة"
+    },
+    "sale": {
+        "en": "Sale $20 Off Your First Order.",
+        "ar": "خصم 20 دولار على طلبك الأول."
+    },
+    "browse": {
+        "en": "Browse All Categories",
+        "ar": "تصفح جميع الفئات"
+    }
+}

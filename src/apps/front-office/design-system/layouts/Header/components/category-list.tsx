@@ -1,3 +1,4 @@
+import { trans } from "@mongez/localization";
 import { Link } from "@mongez/react-router";
 import { Button } from "apps/front-office/design-system/components/ui/button";
 import {
@@ -77,7 +78,7 @@ const CategoryList = () => {
            border-slate-200 rounded-none pl-0 hover:bg-transparent">
           <FiMenu className="w-5 h-5 mr-2" />
           <span className="text-md font-medium text-slate-700">
-            Browse All Categories
+            {trans("browse")}
           </span>
         </Button>
       </DropdownMenuTrigger>
@@ -87,7 +88,9 @@ const CategoryList = () => {
         className="w-[270px] shadow-none pt-2">
         {categories.map(category => (
           <div key={category.value}>
-            <DropdownMenuItem className="text-[14px] cursor-pointer hover:bg-transparent py-1 font-normal text-black">
+            <DropdownMenuItem
+              className="text-[14px] cursor-pointer hover:bg-transparent
+             py-1 font-normal text-black">
               <Link href={category.url}>{category.label}</Link>
             </DropdownMenuItem>
             <Separator className="my-2" />

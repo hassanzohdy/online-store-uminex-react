@@ -8,6 +8,7 @@ import SearchInput from "./components/search-input";
 import CartSheetSidebar from "./components/sheets/cart-sidebar-sheet";
 import MobileSidebarSheet from "./components/sheets/mobile-sidebar-sheet";
 import WishListSheetSidebar from "./components/sheets/wishlist-sidebar-sheet";
+import { trans } from "@mongez/localization";
 
 export default function Header() {
   return (
@@ -23,10 +24,8 @@ export default function Header() {
             <Link href="/account/login" className="flex items-center gap-2">
               <AiOutlineUser className="h-8 w-8 text-primary" />
               <div className="flex flex-col items-start">
-                <span className="text-xs text-slate-600">Login</span>
-                <p className="text-sm font-medium text-primary p-0">
-                  Account
-                </p>
+                <span className="text-xs text-slate-600">{trans("login")}</span>
+                <p className="text-sm font-medium text-primary p-0">{trans("account")}</p>
               </div>
             </Link>
             <WishListSheetSidebar>
@@ -45,7 +44,7 @@ export default function Header() {
           <div className="flex items-center">
             <CartSheetSidebar />
             <div className="hidden xl:flex flex-col items-start">
-              <span className="text-xs text-slate-600">Cart</span>
+              <span className="text-xs text-slate-600">{trans("cart")}</span>
               <p className="text-sm font-medium text-primary p-0">
                 {formatPrice(0)}
               </p>

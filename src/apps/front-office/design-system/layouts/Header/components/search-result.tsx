@@ -3,6 +3,7 @@ import { Button } from "apps/front-office/design-system/components/ui/button";
 import { ScrollArea } from "apps/front-office/design-system/components/ui/scroll-area";
 import { useEffect, useState } from "react";
 import SkeletonCard from "./skeleton-card";
+import { trans } from "@mongez/localization";
 
 type SearchResultProps = {
   value: string;
@@ -59,13 +60,13 @@ const SearchResult = ({ value }: SearchResultProps) => {
                 variant={"secondary"}
                 onClick={() => {}}
                 className="w-full h-12 hover:bg-black hover:text-white transition">
-                <Link href="#">View All ({filteredProducts.length - 5})</Link>
+                <Link href="#">{trans("viewAllBtn")} ({filteredProducts.length - 5})</Link>
               </Button>
             )}
           </>
         ) : (
           <div className="text-sm text-gray-600">
-            There are no products matching your keywords
+            {trans("notFoundProducts")}
           </div>
         )}
       </div>

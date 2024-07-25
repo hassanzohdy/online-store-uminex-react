@@ -1,0 +1,14 @@
+{
+  "searchBtn": {
+    "en": "Search",
+    "ar": "ابحث"
+  },
+  "emptyCartBtn": {
+    "en": "Return to Shop",
+    "ar": "الرجوع الي المتجر"
+  },
+  "viewAllBtn":{
+    "en": "View All",
+    "ar": "عرض الكل"
+  }
+}
