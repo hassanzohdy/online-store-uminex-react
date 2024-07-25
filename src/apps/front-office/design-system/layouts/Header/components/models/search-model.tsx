@@ -35,7 +35,7 @@ const SearchModel = () => {
       </DialogTrigger>
       <DialogContent
         className="min-h-screen min-w-full flex flex-col gap-5
-       items-center justify-start py-20">
+       items-center justify-start py-20 mt-6">
         <DialogHeader>
           <DialogTitle>WHAT ARE YOU LOOKING FOR?</DialogTitle>
         </DialogHeader>
@@ -56,6 +56,7 @@ const SearchModel = () => {
             <SearchResult value={value} />
           </div>
         </div>
+        
       </DialogContent>
     </Dialog>
   );

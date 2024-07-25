@@ -13,15 +13,15 @@ const Navbar = () => {
         <div className="flex items-center gap-4 w-full">
           <CategoryList />
           <ul className="flex items-center gap-8">
-            <li className="text-slate-800 text-sm font-semibold hover:hover:text-[#2b38d1]">
+            <li className="text-slate-800 text-sm font-semibold hover:hover:text-blue">
               <Link href="/">Home</Link>
             </li>
-            <li className="text-slate-800 text-sm font-semibold hover:hover:text-[#2b38d1]">
+            <li className="text-slate-800 text-sm font-semibold hover:hover:text-blue">
               <Link href="/collections/all">Shop</Link>
             </li>
             <div className="relative">
               <li
-                className="text-slate-800 text-sm font-semibold hover:hover:text-[#2b38d1]
+                className="text-slate-800 text-sm font-semibold hover:hover:text-blue
                  flex items-center cursor-pointer"
                 onMouseEnter={() => setIsOpen(true)}
                 onMouseLeave={() => setIsOpen(false)}>
@@ -35,39 +35,39 @@ const Navbar = () => {
                   className="absolute left-0 top-5 bg-white rounded-md p-4
                    shadow-md w-[200px] flex flex-col items-start gap-3">
                   <li
-                    className="text-slate-500 font-medium text-sm hover:text-[#2b38d1]
+                    className="text-slate-500 font-medium text-sm hover:text-blue
                    hover:ml-3 transition-all">
                     <Link href="/about">About Us</Link>
                   </li>
                   <li
-                    className="text-slate-500 font-medium text-sm hover:text-[#2b38d1]
+                    className="text-slate-500 font-medium text-sm hover:text-blue
                    hover:ml-3 transition-all">
                     <Link href="/faq">FAQ</Link>
                   </li>
                   <li
-                    className="text-slate-500 font-medium text-sm hover:text-[#2b38d1]
+                    className="text-slate-500 font-medium text-sm hover:text-blue
                    hover:ml-3 transition-all">
                     <Link href="/terms">Terms & Conditions</Link>
                   </li>
                   <li
-                    className="text-slate-500 font-medium text-sm hover:text-[#2b38d1]
+                    className="text-slate-500 font-medium text-sm hover:text-blue
                    hover:ml-3 transition-all">
                     <Link href="/team">Our Team</Link>
                   </li>
                 </ul>
               )}
             </div>
-            <li className="text-slate-800 text-sm font-semibold hover:hover:text-[#2b38d1]">
+            <li className="text-slate-800 text-sm font-semibold hover:hover:text-blue">
               <Link href="/contact">Contact Us</Link>
             </li>
-            <li className="text-slate-800 text-sm font-semibold hover:hover:text-[#2b38d1]">
+            <li className="text-slate-800 text-sm font-semibold hover:hover:text-blue">
               <Link href="/blogs">Blog</Link>
             </li>
           </ul>
         </div>
         <div className="flex items-center gap-2 min-w-[250px]">
           <img src={discountSvg} alt="discount" />
-          <span className="text-slate-800 font-semibold hover:text-[#2b38d1] transition">
+          <span className="text-slate-800 font-semibold hover:text-blue transition">
             Sale $20 Off Your First Order.
           </span>
         </div>

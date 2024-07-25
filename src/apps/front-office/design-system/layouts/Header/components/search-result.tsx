@@ -37,10 +37,10 @@ const SearchResult = ({ value }: SearchResultProps) => {
   }, [value]);
 
   return (
-    <ScrollArea className="w-full h-[400px] bg-white">
+    <ScrollArea className="w-full h-[380px] bg-white">
       <div className="flex flex-col items-start gap-5 py-5 px-7">
         {loading ? (
-          Array.from({ length: 4 }).map((_, index) => (
+          Array.from({ length: 5 }).map((_, index) => (
             <SkeletonCard key={index} />
           ))
         ) : filteredProducts.length > 0 ? (
