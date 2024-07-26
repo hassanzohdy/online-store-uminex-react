@@ -86,6 +86,9 @@ export default {
         "7xl": "3rem", // 48px
         "8xl": "3.75rem", // 60px
       },
+      screens:{
+        "mobile": "450px"
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],
