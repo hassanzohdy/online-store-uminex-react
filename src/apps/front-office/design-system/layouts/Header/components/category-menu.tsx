@@ -14,10 +14,6 @@ type CategoryMenuProps = {
 
 const categories = [
   {
-    label: "All Categories",
-    value: "all",
-  },
-  {
     label: "Accessories",
     value: "accessories",
   },

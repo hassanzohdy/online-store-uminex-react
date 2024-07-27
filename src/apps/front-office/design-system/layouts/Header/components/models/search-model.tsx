@@ -1,5 +1,4 @@
 import { trans } from "@mongez/localization";
-import { Button } from "apps/front-office/design-system/components/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -9,7 +8,6 @@ import {
 } from "apps/front-office/design-system/components/ui/dialog";
 import { Input } from "apps/front-office/design-system/components/ui/input";
 import { ChangeEvent, useState } from "react";
-import { CiSearch } from "react-icons/ci";
 import { cn } from "../../../../lib/utils";
 import SearchResult from "../search-result";
 
@@ -29,7 +27,6 @@ const SearchModel = () => {
             placeholder={trans("searchInputModelPlaceHolder")}
             className="rounded-full"
           />
-          
         </div>
       </DialogTrigger>
       <DialogContent

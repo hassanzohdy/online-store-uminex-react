@@ -3,7 +3,7 @@ import { Link } from "@mongez/react-router";
 import { Button } from "apps/front-office/design-system/components/ui/button";
 import { AiOutlineUser } from "react-icons/ai";
 import { FaRegHeart } from "react-icons/fa";
-import { formatPrice } from "../../lib/formatPrice";
+import { formatNumber, formatPrice } from "../../lib/formats";
 import Logo from "./components/Logo";
 import SearchInput from "./components/search-input";
 import CartSheetSidebar from "./components/sheets/cart-sidebar-sheet";
@@ -11,6 +11,7 @@ import MobileSidebarSheet from "./components/sheets/mobile-sidebar-sheet";
 import WishListSheetSidebar from "./components/sheets/wishlist-sidebar-sheet";
 
 export default function Header() {
+  const wishlistItems = [];
   return (
     <div className="w-full py-6">
       <div className="w-full flex items-center justify-between">
@@ -34,11 +35,15 @@ export default function Header() {
               <Button variant={"ghost"} className="hover:bg-transparent">
                 <div className="relative">
                   <FaRegHeart className="h-7 w-7 text-primary" />
-                  <div
-                    className="absolute -top-1 -right-2 bg-red rounded-full
-                   w-[18px] h-[18px] flex items-center justify-center">
-                    <span className="text-xs text-center text-slate-50">0</span>
-                  </div>
+                  {wishlistItems.length>0 && (
+                    <div
+                      className="absolute -top-1 -right-2 bg-red rounded-full
+                    w-[18px] h-[18px] flex items-center justify-center">
+                      <span className="text-xs text-center text-slate-50">
+                        {formatNumber(wishlistItems.length)}
+                      </span>
+                    </div>
+                  )}
                 </div>
               </Button>
             </WishListSheetSidebar>

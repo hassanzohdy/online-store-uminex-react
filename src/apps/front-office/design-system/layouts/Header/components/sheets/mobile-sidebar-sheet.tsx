@@ -19,6 +19,7 @@ import { IoLogOutOutline } from "react-icons/io5";
 import CompareModel from "../models/compare-model";
 import SearchModel from "../models/search-model";
 import WishListSheetSidebar from "./wishlist-sidebar-sheet";
+import { formatNumber } from "apps/front-office/design-system/lib/formats";
 
 const MobileSidebarSheet = () => {
   const user: any = null;
@@ -114,7 +115,7 @@ const MobileSidebarSheet = () => {
                   <FaRegHeart className="w-4 h-4 mr-2" />
                 </div>
                 <h1 className="text-[15px] font-medium text-slate-900">
-                  {trans("wishlist")} ( {wishListItems.length} )
+                  {trans("wishlist")} ( {formatNumber(wishListItems.length)} )
                 </h1>
               </div>
             </WishListSheetSidebar>
@@ -125,7 +126,7 @@ const MobileSidebarSheet = () => {
                   <FiLayers className="w-4 h-4 mr-2" />
                 </div>
                 <h1 className="text-[15px] font-medium text-slate-900 ">
-                  {trans("compare")} ( {compareItems.length} )
+                  {trans("compare")} ( {formatNumber(compareItems.length)} )
                 </h1>
               </div>
             </CompareModel>
