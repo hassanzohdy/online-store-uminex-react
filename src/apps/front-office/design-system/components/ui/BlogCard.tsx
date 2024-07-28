@@ -1,8 +1,4 @@
 import { Link } from "@mongez/react-router";
-import blog_img_1 from "../../../../../shared/assets/images/blogImages/blog_img_1.jpg";
-import blog_img_2 from "../../../../../shared/assets/images/blogImages/blog_img_2.jpg";
-import blog_img_3 from "../../../../../shared/assets/images/blogImages/blog_img_3.jpg";
-import blog_img_4 from "../../../../../shared/assets/images/blogImages/blog_img_4.jpg";
 type blogDataProps = {
   id: number;
   tag: string;
@@ -21,7 +17,8 @@ const blogData: blogDataProps[] = [
       "iPad Pro is the fastest device of its kind. It’s designed to take full advantage of next‑level performance and custom technologies like the advanced image signal processor and unified memory architecture of M1. And with the incredible power efficiency of M1.",
     author: "ALO Support",
     date: "Mar 7, 2022",
-    image: blog_img_1,
+    image:
+      "https://demo-uminex.myshopify.com/cdn/shop/articles/9_b58d4bd6-a8d0-4a96-85c7-48a054e291ae_360x.png?v=1677830384",
   },
   {
     id: 2,
@@ -31,7 +28,8 @@ const blogData: blogDataProps[] = [
       "iPad Pro is the fastest device of its kind. It’s designed to take full advantage of next‑level performance and custom technologies like the advanced image signal processor and unified memory architecture of M1. And with the incredible power efficiency of M1.",
     author: "ALO Support",
     date: "Sep 7, 2022",
-    image: blog_img_2,
+    image:
+      "https://demo-uminex.myshopify.com/cdn/shop/articles/11_f093b36c-8dc6-4a65-b57c-b1f4a2f9eee2_360x.png?v=1677830460",
   },
   {
     id: 3,
@@ -41,7 +39,8 @@ const blogData: blogDataProps[] = [
       "iPad Pro is the fastest device of its kind. It’s designed to take full advantage of next‑level performance and custom technologies like the advanced image signal processor and unified memory architecture of M1. And with the incredible power efficiency of M1.",
     author: "ALO Support",
     date: "Oct 7, 2023",
-    image: blog_img_3,
+    image:
+      "https://demo-uminex.myshopify.com/cdn/shop/articles/10_cc1abdba-a10a-4889-8b57-88133851a0ba_360x.png?v=1677830513",
   },
   {
     id: 4,
@@ -51,7 +50,8 @@ const blogData: blogDataProps[] = [
       "iPad Pro is the fastest device of its kind. It’s designed to take full advantage of next‑level performance and custom technologies like the advanced image signal processor and unified memory architecture of M1. And with the incredible power efficiency of M1.",
     author: "ALO Support",
     date: "Mar 5, 2024",
-    image: blog_img_4,
+    image:
+      "https://demo-uminex.myshopify.com/cdn/shop/articles/5_f75a4b19-2ba7-4f01-aa01-dd535a40219c_360x.png?v=1677830028",
   },
 ];
 function truncateText(text: string, maxLength?: number) {
@@ -61,7 +61,7 @@ function truncateText(text: string, maxLength?: number) {
   }
   return text;
 }
-const BlogCard = () => {
+export default function BlogCard() {
   return (
     <div className="py-5 grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
       {blogData &&
@@ -106,6 +106,4 @@ const BlogCard = () => {
         ))}
     </div>
   );
-};
-
-export default BlogCard;
+}
