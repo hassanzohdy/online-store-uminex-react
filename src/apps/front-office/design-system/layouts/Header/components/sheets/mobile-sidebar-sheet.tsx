@@ -12,6 +12,7 @@ import {
   SheetContent,
   SheetTrigger,
 } from "apps/front-office/design-system/components/ui/sheet";
+import { formatNumber } from "apps/front-office/design-system/lib/formats";
 import { FaRegHeart } from "react-icons/fa";
 import { FiLayers, FiUsers } from "react-icons/fi";
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -19,7 +20,9 @@ import { IoLogOutOutline } from "react-icons/io5";
 import CompareModel from "../models/compare-model";
 import SearchModel from "../models/search-model";
 import WishListSheetSidebar from "./wishlist-sidebar-sheet";
-import { formatNumber } from "apps/front-office/design-system/lib/formats";
+import LanguageCurrencyConverterHeader from "../../LanguageCurrencyConverterHeader";
+import LanguageConverter from "../language-converter";
+import CurrencyConverter from "../currency-converter";
 
 const MobileSidebarSheet = () => {
   const user: any = null;
@@ -84,7 +87,7 @@ const MobileSidebarSheet = () => {
                 </div>
               </div>
             )}
-            <Separator className="my-2" />
+            <Separator className="my-1" />
             <div className="flex items-center gap-1">
               <Link
                 href={"/"}
@@ -92,7 +95,7 @@ const MobileSidebarSheet = () => {
                 {trans("home")}
               </Link>
             </div>
-            <Separator className="my-2" />
+            <Separator className="my-1" />
             <div className="flex items-center gap-1">
               <Link
                 href={"/collections/all"}
@@ -100,7 +103,7 @@ const MobileSidebarSheet = () => {
                 {trans("shop")}
               </Link>
             </div>
-            <Separator className="my-2" />
+            <Separator className="my-1" />
             <div className="flex items-center gap-1">
               <Link
                 href={"/blogs"}
@@ -108,29 +111,29 @@ const MobileSidebarSheet = () => {
                 {trans("blog")}
               </Link>
             </div>
-            <Separator className="my-2" />
+            <Separator className="my-1" />
             <WishListSheetSidebar>
               <div className="flex items-center gap-1">
                 <div className="flex items-center gap-2">
                   <FaRegHeart className="w-4 h-4 mr-2" />
                 </div>
-                <h1 className="text-[15px] font-medium text-slate-900">
+                <h1 className="text-[14px] font-medium text-slate-900">
                   {trans("wishlist")} ( {formatNumber(wishListItems.length)} )
                 </h1>
               </div>
             </WishListSheetSidebar>
-            <Separator className="my-2" />
+            <Separator className="my-1" />
             <CompareModel>
               <div className="flex items-center gap-1">
                 <div className="flex items-center gap-2">
                   <FiLayers className="w-4 h-4 mr-2" />
                 </div>
-                <h1 className="text-[15px] font-medium text-slate-900 ">
+                <h1 className="text-[14px] font-medium text-slate-900 ">
                   {trans("compare")} ( {formatNumber(compareItems.length)} )
                 </h1>
               </div>
             </CompareModel>
-            <Separator className="my-2" />
+            <Separator className="my-1" />
             <div className="flex items-center gap-1">
               <Link
                 href={"/contact"}
@@ -138,6 +141,12 @@ const MobileSidebarSheet = () => {
                 {trans("contact")}
               </Link>
             </div>
+            <Separator className="" />
+            <div className="flex items-center gap-1 justify-between w-full">
+             <LanguageConverter/>
+             <CurrencyConverter/>
+            </div>
+            <Separator className="" />
           </div>
         </div>
       </SheetContent>

@@ -17,7 +17,7 @@ export default function BaseLayout({ children }: BaseLayoutProps) {
     <div className="w-full">
       <div className="bg-white">
         <TopBanner />
-        <div className="w-full max-w-[1450px] mx-auto px-4">
+        <div className="w-full max-w-[1450px] mx-auto px-4 hidden xl:block">
           <LanguageCurrencyConverterHeader />
         </div>
         <Separator />

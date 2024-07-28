@@ -7,51 +7,16 @@ import {
   DropdownMenuTrigger,
 } from "apps/front-office/design-system/components/ui/dropdown-menu";
 import { FaAngleDown } from "react-icons/fa";
+import { useCategories } from "apps/front-office/design-system/hooks/use-categories";
 
 type CategoryMenuProps = {
   selectCategory: (value: string) => void;
 };
 
-const categories = [
-  {
-    label: "Accessories",
-    value: "accessories",
-  },
-  {
-    label: "Clothing",
-    value: "clothing",
-  },
-  {
-    label: "Electronics",
-    value: "electronics",
-  },
-  {
-    label: "Bags For Men",
-    value: "bags-for-men",
-  },
-  {
-    label: "Bags For Women",
-    value: "bags-for-women",
-  },
-  {
-    label: "Cameras",
-    value: "Cameras",
-  },
-  {
-    label: "Laptops",
-    value: "Laptops",
-  },
-  {
-    label: "Smartphones",
-    value: "Smartphones",
-  },
-  {
-    label: "Headphones",
-    value: "Headphones",
-  },
-];
-
 const CategoryMenu = ({ selectCategory }: CategoryMenuProps) => {
+  
+  const {categories} = useCategories()
+
   const selectCategoryFunction = (value: string) => {
     if (value.trim() === "all") {
       selectCategory("");
@@ -65,8 +30,7 @@ const CategoryMenu = ({ selectCategory }: CategoryMenuProps) => {
       <DropdownMenuTrigger asChild>
         <Button
           variant={"ghost"}
-          className="flex items-center justify-between w-full max-w-[200px] border-r-2
-           border-slate-200 rounded-none">
+          className="flex items-center justify-between w-full max-w-[200px] border-r-2 border-slate-200 rounded-none">
           <span className="text-md font-medium text-slate-700">
             {trans("allCategories")}
           </span>
@@ -74,6 +38,12 @@ const CategoryMenu = ({ selectCategory }: CategoryMenuProps) => {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent side="bottom" align="start" className="w-[200px]">
+        <DropdownMenuItem
+          key="all"
+          onClick={() => selectCategoryFunction("all")}
+          className="text-[14px] cursor-pointer hover:bg-transparent py-1 font-normal text-black">
+          {trans("allCategories")}
+        </DropdownMenuItem>
         {categories.map(category => (
           <DropdownMenuItem
             key={category.value}
