@@ -1,8 +1,8 @@
-import discountSvg from "../../../../../shared/assets/images/discount-outline.svg";
-import itemsSvg from "../../../../../shared/assets/images/items.svg";
-import paymentSvg from "../../../../../shared/assets/images/payment.svg";
-import shippingSvg from "../../../../../shared/assets/images/shipping.svg";
-import supportSvg from "../../../../../shared/assets/images/support.svg";
+import discountSvg from "shared/assets/images/discount-outline.svg";
+import itemsSvg from "shared/assets/images/items.svg";
+import paymentSvg from "shared/assets/images/payment.svg";
+import shippingSvg from "shared/assets/images/shipping.svg";
+import supportSvg from "shared/assets/images/support.svg";
 type featuresDataProps = {
   icon: string;
   title: string;
@@ -35,7 +35,7 @@ const featuresData: featuresDataProps[] = [
     description: "From Handpicked Sellers",
   },
 ];
-const FeatureCard = () => {
+export default function FeatureCard() {
   return (
     <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-10 py-10">
       {featuresData &&
@@ -58,6 +58,4 @@ const FeatureCard = () => {
         ))}
     </div>
   );
-};
-
-export default FeatureCard;
+}
