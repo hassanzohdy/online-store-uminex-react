@@ -12,7 +12,8 @@ const DialogPortal = DialogPrimitive.Portal;
 
 const DialogClose = DialogPrimitive.Close;
 
-interface DialogOverlayProps extends React.ComponentPropsWithoutRef<typeof DialogPrimitive.Overlay> {
+interface DialogOverlayProps
+  extends React.ComponentPropsWithoutRef<typeof DialogPrimitive.Overlay> {
   className?: string;
 }
 
@@ -31,7 +32,8 @@ const DialogOverlay = React.forwardRef<
 ));
 DialogOverlay.displayName = DialogPrimitive.Overlay.displayName;
 
-interface DialogContentProps extends React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content> {
+interface DialogContentProps
+  extends React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content> {
   className?: string;
 }
 
@@ -62,10 +64,7 @@ interface DialogHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string;
 }
 
-const DialogHeader = ({
-  className,
-  ...props
-}: DialogHeaderProps) => (
+const DialogHeader = ({ className, ...props }: DialogHeaderProps) => (
   <div
     className={cn(
       "flex flex-col space-y-1.5 text-center sm:text-left",
@@ -80,10 +79,7 @@ interface DialogFooterProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string;
 }
 
-const DialogFooter = ({
-  className,
-  ...props
-}: DialogFooterProps) => (
+const DialogFooter = ({ className, ...props }: DialogFooterProps) => (
   <div
     className={cn(
       "flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2",
@@ -94,7 +90,8 @@ const DialogFooter = ({
 );
 DialogFooter.displayName = "DialogFooter";
 
-interface DialogTitleProps extends React.ComponentPropsWithoutRef<typeof DialogPrimitive.Title> {
+interface DialogTitleProps
+  extends React.ComponentPropsWithoutRef<typeof DialogPrimitive.Title> {
   className?: string;
 }
 
@@ -113,7 +110,8 @@ const DialogTitle = React.forwardRef<
 ));
 DialogTitle.displayName = DialogPrimitive.Title.displayName;
 
-interface DialogDescriptionProps extends React.ComponentPropsWithoutRef<typeof DialogPrimitive.Description> {
+interface DialogDescriptionProps
+  extends React.ComponentPropsWithoutRef<typeof DialogPrimitive.Description> {
   className?: string;
 }
 

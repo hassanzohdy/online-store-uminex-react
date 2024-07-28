@@ -1,3 +1,4 @@
+import { trans } from "@mongez/localization";
 import {
   Dialog,
   DialogContent,
@@ -13,11 +14,11 @@ const CompareModel = ({ children }: { children: React.ReactNode }) => {
       <DialogContent className="flex flex-col gap-5 items-center justify-start p-0 min-h-[200px]">
         <DialogHeader className="w-full bg-slate-100 py-3">
           <DialogTitle className="text-slate-800 text-center">
-            COMPARE
+            {trans("compare")}
           </DialogTitle>
         </DialogHeader>
         <div className="w-full text-center h-full mt-auto py-3">
-          No Products To Compare
+          {trans("emptyCompareList")}
         </div>
       </DialogContent>
     </Dialog>

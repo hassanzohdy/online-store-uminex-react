@@ -1,3 +1,4 @@
+import { trans } from "@mongez/localization";
 import { Button } from "apps/front-office/design-system/components/ui/button";
 import {
   DropdownMenu,
@@ -10,11 +11,8 @@ import { FaAngleDown } from "react-icons/fa";
 type CategoryMenuProps = {
   selectCategory: (value: string) => void;
 };
+
 const categories = [
-  {
-    label: "All Categories",
-    value: "all",
-  },
   {
     label: "Accessories",
     value: "accessories",
@@ -67,9 +65,10 @@ const CategoryMenu = ({ selectCategory }: CategoryMenuProps) => {
       <DropdownMenuTrigger asChild>
         <Button
           variant={"ghost"}
-          className="flex items-center justify-between w-full max-w-[200px] border-r-2 border-slate-200 rounded-none">
+          className="flex items-center justify-between w-full max-w-[200px] border-r-2
+           border-slate-200 rounded-none">
           <span className="text-md font-medium text-slate-700">
-            All Categories
+            {trans("allCategories")}
           </span>
           <FaAngleDown className="w-4 h-4 text-slate-500" />
         </Button>

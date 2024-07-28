@@ -1,0 +1,10 @@
+{
+  "searchInputPlaceholder": {
+    "en": "Search For Products...",
+    "ar": "ابحث عن منتجات..."
+  },
+  "searchInputModelPlaceHolder": {
+    "en": "Search...",
+    "ar": "ابحث..."
+  }
+}
