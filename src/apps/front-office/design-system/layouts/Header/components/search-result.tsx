@@ -1,3 +1,4 @@
+import { trans } from "@mongez/localization";
 import { Link } from "@mongez/react-router";
 import { Button } from "apps/front-office/design-system/components/ui/button";
 import { ScrollArea } from "apps/front-office/design-system/components/ui/scroll-area";
@@ -37,10 +38,10 @@ const SearchResult = ({ value }: SearchResultProps) => {
   }, [value]);
 
   return (
-    <ScrollArea className="w-full h-[400px] bg-white">
+    <ScrollArea className="w-full h-[380px] bg-white">
       <div className="flex flex-col items-start gap-5 py-5 px-7">
         {loading ? (
-          Array.from({ length: 4 }).map((_, index) => (
+          Array.from({ length: 5 }).map((_, index) => (
             <SkeletonCard key={index} />
           ))
         ) : filteredProducts.length > 0 ? (
@@ -59,13 +60,15 @@ const SearchResult = ({ value }: SearchResultProps) => {
                 variant={"secondary"}
                 onClick={() => {}}
                 className="w-full h-12 hover:bg-black hover:text-white transition">
-                <Link href="#">View All ({filteredProducts.length - 5})</Link>
+                <Link href="#">
+                  {trans("viewAllBtn")} ({filteredProducts.length - 5})
+                </Link>
               </Button>
             )}
           </>
         ) : (
           <div className="text-sm text-gray-600">
-            There are no products matching your keywords
+            {trans("notFoundProducts")}
           </div>
         )}
       </div>
