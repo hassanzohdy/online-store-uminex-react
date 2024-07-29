@@ -1,6 +1,6 @@
 import { preload } from "@mongez/react-utils";
+import CategoryList from "apps/front-office/home/components/CategoryList";
 import { getHome } from "apps/front-office/home/services/home-service";
-import CategoryList from "../../components/CategoryList";
 import "./HomePage.css";
 
 function _HomePage() {
