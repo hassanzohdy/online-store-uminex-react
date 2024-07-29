@@ -80,9 +80,7 @@ const CategoryList = () => {
           className={cn(
             "flex items-center justify-start w-full max-w-[270px] ",
             "border-slate-200 rounded-none pl-0 hover:bg-transparent",
-            currentLanguage === "en"
-             ? "border-r-[2px]"
-              : "border-l-[2px]"
+            currentLanguage === "en" ? "border-r-[2px]" : "border-l-[2px]",
           )}>
           <FiMenu className="w-5 h-5 mx-2" />
           <span className="text-md font-medium text-slate-700">
