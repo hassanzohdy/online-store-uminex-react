@@ -19,6 +19,10 @@
     {
       "entry": ["/about-us", "/privacy-policy", "/terms-conditions"],
       "name": "informative-pages"
+    },
+    {
+      "entry": ["/cart"],
+      "name": "cart"
     }
   ]
 }

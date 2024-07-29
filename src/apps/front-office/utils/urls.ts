@@ -8,10 +8,11 @@ const URLS = {
     viewRoute: "/blog/:id/:slug",
     view: (post: any) => `/blog/${post.id}/${post.slug}`,
   },
-  products:{
-    root:"/collection",
+  products: {
+    root: "/collection",
   },
   faq: "/faq",
+  cart: "/cart",
   auth: {
     login: "/login",
     forgetPassword: "/forget-password",
