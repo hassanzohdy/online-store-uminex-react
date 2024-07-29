@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getProducts } from "../layouts/Header/services/header-service";
+import { getProducts } from "../layouts/Header/services/header-services";
 
 type Product = {
   name: string;

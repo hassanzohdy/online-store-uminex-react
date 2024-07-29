@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getCategories } from "../layouts/Header/services/header-service";
+import { getCategories } from "../layouts/Header/services/header-services";
 
 type Category = {
   id: string;
@@ -7,7 +7,7 @@ type Category = {
   value: string;
 };
 
-export const useCategories = () => {
+export const useCategory = () => {
   const [categories, setCategories] = useState<Category[]>([]);
   useEffect(() => {
     const fetchCategories = async () => {

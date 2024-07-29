@@ -83,7 +83,7 @@ export function getProducts(query: string) {
   });
 }
 
-const mock = (data: any, promiseCallback: any) => {
+const mock = (data: any, promiseCallback: ()=>any) => {
   if (useApi) {
     return promiseCallback();
   }

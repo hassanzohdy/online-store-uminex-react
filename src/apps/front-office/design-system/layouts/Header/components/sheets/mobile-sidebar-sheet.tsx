@@ -17,12 +17,11 @@ import { FaRegHeart } from "react-icons/fa";
 import { FiLayers, FiUsers } from "react-icons/fi";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoLogOutOutline } from "react-icons/io5";
-import CompareModel from "../models/compare-model";
-import SearchModel from "../models/search-model";
 import WishListSheetSidebar from "./wishlist-sidebar-sheet";
-import LanguageCurrencyConverterHeader from "../../LanguageCurrencyConverterHeader";
 import LanguageConverter from "../language-converter";
 import CurrencyConverter from "../currency-converter";
+import SearchModel from "apps/front-office/design-system/components/models/search-model";
+import CompareModel from "apps/front-office/design-system/components/models/compare-model";
 
 const MobileSidebarSheet = () => {
   const user: any = null;

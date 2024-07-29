@@ -2,8 +2,8 @@ import { trans } from "@mongez/localization";
 import { Link } from "@mongez/react-router";
 import { Button } from "apps/front-office/design-system/components/ui/button";
 import { ScrollArea } from "apps/front-office/design-system/components/ui/scroll-area";
-import SkeletonCard from "./skeleton-card";
-import { useProducts } from "apps/front-office/design-system/hooks/use-products";
+import SkeletonCard from "./skeleton-header-card";
+import { useProducts } from "apps/front-office/design-system/hooks/use-product";
 
 type SearchResultProps = {
   value: string;

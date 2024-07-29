@@ -3,8 +3,8 @@ import { Link } from "@mongez/react-router";
 import { useState } from "react";
 import { FaAngleDown } from "react-icons/fa";
 import discountSvg from "shared/assets/images/discount.svg";
-import CategoryList from "./components/category-list";
 import SearchInput from "./components/search-input";
+import CategoryLists from "./components/category-list";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,7 +12,7 @@ const Navbar = () => {
     <div className="w-full py-5">
       <div className="hidden xl:flex items-center justify-between">
         <div className="flex items-center gap-4 w-full">
-          <CategoryList />
+          <CategoryLists />
           <ul className="flex items-center gap-8">
             <li className="text-slate-800 text-sm font-semibold hover:hover:text-blue">
               <Link href="/">{trans("home")}</Link>
@@ -73,7 +73,7 @@ const Navbar = () => {
           </span>
         </div>
       </div>
-      <div className="flex xl:hidden ">
+      <div className="flex xl:hidden mx-1">
         <SearchInput />
       </div>
     </div>

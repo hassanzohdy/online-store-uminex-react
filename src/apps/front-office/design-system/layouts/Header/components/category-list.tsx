@@ -9,16 +9,16 @@ import {
   DropdownMenuTrigger,
 } from "apps/front-office/design-system/components/ui/dropdown-menu";
 import { Separator } from "apps/front-office/design-system/components/ui/separator";
+import { useCategory } from "apps/front-office/design-system/hooks/use-category";
 import { cn } from "apps/front-office/design-system/lib/utils";
 import { FiMenu } from "react-icons/fi";
-import { useCategories } from "apps/front-office/design-system/hooks/use-categories";
 
 
 
-const CategoryList = () => {
+const CategoryLists = () => {
   const currentLanguage = current("localeCode");
 
-  const {categories} = useCategories()
+  const {categories} = useCategory()
 
   return (
     <DropdownMenu>
@@ -55,4 +55,4 @@ const CategoryList = () => {
   );
 };
 
-export default CategoryList;
+export default CategoryLists;

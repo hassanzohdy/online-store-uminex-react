@@ -6,8 +6,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "apps/front-office/design-system/components/ui/dropdown-menu";
+import { useCategory } from "apps/front-office/design-system/hooks/use-category";
 import { FaAngleDown } from "react-icons/fa";
-import { useCategories } from "apps/front-office/design-system/hooks/use-categories";
 
 type CategoryMenuProps = {
   selectCategory: (value: string) => void;
@@ -15,7 +15,7 @@ type CategoryMenuProps = {
 
 const CategoryMenu = ({ selectCategory }: CategoryMenuProps) => {
   
-  const {categories} = useCategories()
+  const {categories} = useCategory()
 
   const selectCategoryFunction = (value: string) => {
     if (value.trim() === "all") {
