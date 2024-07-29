@@ -1,14 +1,14 @@
 {
-    "US":{
-        "en":"United States",
-        "ar":"الولايات المتحده الامريكيه"
-    },
-    "EG":{
-        "en":"Egypt",
-        "ar":"مصر"
-    },
-    "EGCurrency":{
-        "en":"LE",
-        "ar":"ج.م"
-    }
+  "US": {
+    "en": "United States",
+    "ar": "الولايات المتحده الامريكيه"
+  },
+  "EG": {
+    "en": "Egypt",
+    "ar": "مصر"
+  },
+  "EGCurrency": {
+    "en": "LE",
+    "ar": "ج.م"
+  }
 }

@@ -42,7 +42,7 @@ const CurrencyConverter = () => {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
-        {currencies.map((currency) => (
+        {currencies.map(currency => (
           <DropdownMenuItem
             key={currency}
             className={cn(
@@ -50,7 +50,6 @@ const CurrencyConverter = () => {
               currency === currentCurrency
                 ? "bg-slate-100 text-slate-900"
                 : "text-slate-700",
-              
             )}
             onClick={() => changeCurrency(currency)}>
             <Button

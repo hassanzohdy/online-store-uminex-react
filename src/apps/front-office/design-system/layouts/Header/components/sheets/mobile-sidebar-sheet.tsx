@@ -12,6 +12,7 @@ import {
   SheetContent,
   SheetTrigger,
 } from "apps/front-office/design-system/components/ui/sheet";
+import { formatNumber } from "apps/front-office/design-system/lib/formats";
 import { FaRegHeart } from "react-icons/fa";
 import { FiLayers, FiUsers } from "react-icons/fi";
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -19,7 +20,6 @@ import { IoLogOutOutline } from "react-icons/io5";
 import CompareModel from "../models/compare-model";
 import SearchModel from "../models/search-model";
 import WishListSheetSidebar from "./wishlist-sidebar-sheet";
-import { formatNumber } from "apps/front-office/design-system/lib/formats";
 
 const MobileSidebarSheet = () => {
   const user: any = null;

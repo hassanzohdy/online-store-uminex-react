@@ -37,20 +37,21 @@ const LanguageConverter = () => {
           <span className="text-sm font-medium text-slate-700">
             {language === "en" ? "English" : "العربيه"}
           </span>
-          <FaAngleDown className="mx-2 text-slate-600"/>
+          <FaAngleDown className="mx-2 text-slate-600" />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
         {locales.map(locale => (
           <DropdownMenuItem
             key={locale.localeCode}
-            className={cn("py-1 cursor-pointer flex items-center gap-3 w-full px-0" , 
-                locale.localeCode === language? "bg-slate-100 text-slate-900" : "text-slate-700"  ,
-                "hover:bg-slate-900 hover:text-slate-100"
-  
+            className={cn(
+              "py-1 cursor-pointer flex items-center gap-3 w-full px-0",
+              locale.localeCode === language
+                ? "bg-slate-100 text-slate-900"
+                : "text-slate-700",
+              "hover:bg-slate-900 hover:text-slate-100",
             )}
-            onClick={() => changeLanguage(locale.localeCode)}
-            >
+            onClick={() => changeLanguage(locale.localeCode)}>
             <img
               className="h-4 w-5 mx-2"
               src={languageFlagMap[locale.localeCode]}
