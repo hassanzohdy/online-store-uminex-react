@@ -23,6 +23,7 @@ import CurrencyConverter from "../currency-converter";
 import SearchModel from "apps/front-office/design-system/components/models/search-model";
 import CompareModel from "apps/front-office/design-system/components/models/compare-model";
 
+
 const MobileSidebarSheet = () => {
   const user: any = null;
   const wishListItems = [];
