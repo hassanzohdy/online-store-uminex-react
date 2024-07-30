@@ -1,5 +1,5 @@
 import { preload } from "@mongez/react-utils";
-import CategoryList from "apps/front-office/home/components/CategoryList";
+import CategoryList from "apps/front-office/home/components/Categories/CategoryList";
 import { getHome } from "apps/front-office/home/services/home-service";
 import "./HomePage.css";
 

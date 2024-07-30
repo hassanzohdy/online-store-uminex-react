@@ -12,4 +12,6 @@ export function scrollTo(element: HTMLElement) {
   scrollOptions.top = 0;
 
   element.scrollIntoView(scrollOptions);
+
+  // lll
 }

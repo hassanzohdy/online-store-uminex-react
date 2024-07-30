@@ -3,8 +3,8 @@
 const URLS = {
   home: "/",
   notFound: "/404",
-  blog: {
-    root: "/blog",
+  blogs: {
+    root: "/blogs",
     viewRoute: "/blog/:id/:slug",
     view: (post: any) => `/blog/${post.id}/${post.slug}`,
   },
