@@ -1,6 +1,7 @@
 // append urls here, DO NOT remove this line
 
 const URLS = {
+  collections: "/collections",
   home: "/",
   notFound: "/404",
   blog: {
@@ -8,8 +9,8 @@ const URLS = {
     viewRoute: "/blog/:id/:slug",
     view: (post: any) => `/blog/${post.id}/${post.slug}`,
   },
-  products:{
-    root:"/collection",
+  products: {
+    root: "/collection",
   },
   faq: "/faq",
   auth: {

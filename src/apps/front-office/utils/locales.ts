@@ -1,14 +1,18 @@
-import { groupedTranslations, localizationEvents, trans } from "@mongez/localization";
+import {
+  groupedTranslations,
+  localizationEvents,
+  trans,
+} from "@mongez/localization";
 import { changeLocaleCode } from "@mongez/react-router";
 import AuthTranslation from "shared/localization/auth.json";
 import ButtonsTranslation from "shared/localization/buttons.json";
 import cartAndWishlistTranslation from "shared/localization/cart-wishlist.json";
+import CurrencyTranslation from "shared/localization/currency.json";
 import IndexTranslation from "shared/localization/index.json";
 import InputsTranslation from "shared/localization/inputs.json";
 import ModelsTranslation from "shared/localization/models.json";
 import NavbarTranslation from "shared/localization/navbar.json";
 import ProductsTranslation from "shared/localization/products.json";
-import CurrencyTranslation from "shared/localization/currency.json";
 
 // DO NOT IMPORT IT IF THE PROJECT IS NOT LARGE
 groupedTranslations(cartAndWishlistTranslation);
@@ -31,6 +35,6 @@ groupedTranslations({
   // add your common localization here
 });
 
-localizationEvents.onChange("localeCode" , (newLocal)=>{
+localizationEvents.onChange("localeCode", newLocal => {
   changeLocaleCode(newLocal);
-})
+});

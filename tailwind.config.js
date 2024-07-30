@@ -26,10 +26,16 @@ export default {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        moveAndFade: {
+          "0%": { transform: "translateY(0)", opacity: "0" },
+          "20%": { transform: "translateY(0)", opacity: "1" },
+          "100%": { transform: "translateY(-40px)", opacity: "0" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        moveAndFade: "moveAndFade 2s linear infinite",
       },
       colors: {
         lightGray: `#f1f5f6`,
@@ -72,12 +78,12 @@ export default {
         lightGreen: `#EFEFEF`,
       },
       fontSize: {
-        "xs": "0.75rem", // 12px
+        xs: "0.75rem", // 12px
         // "xs": "0.813rem", // 13px
-        "sm": "0.875rem", // 14px
-        "base": "1rem", // 16px
-        "lg": "1.125rem", // 18px
-        "xl": "1.25rem", // 20px
+        sm: "0.875rem", // 14px
+        base: "1rem", // 16px
+        lg: "1.125rem", // 18px
+        xl: "1.25rem", // 20px
         "2xl": "1.5rem", // 24px
         "3xl": "1.688rem", // 27px
         "4xl": "1.875rem", // 30px
@@ -86,10 +92,25 @@ export default {
         "7xl": "3rem", // 48px
         "8xl": "3.75rem", // 60px
       },
-      screens:{
-        "mobile": "450px"
+      screens: {
+        mobile: "450px",
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    function ({ addUtilities }) {
+      const newUtilities = {
+        ".scrollbar-hide": {
+          /* Hide scrollbar for Firefox */
+          "scrollbar-width": "none",
+          /* Hide scrollbar for Chrome, Safari, and Opera */
+          "&::-webkit-scrollbar": {
+            display: "none",
+          },
+        },
+      };
+      addUtilities(newUtilities);
+    },
+  ],
 };
