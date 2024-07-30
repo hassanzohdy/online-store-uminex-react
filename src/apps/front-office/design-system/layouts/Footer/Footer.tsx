@@ -18,11 +18,11 @@ export default function Footer() {
   return (
     <div className="bg-white min-h-80 px-2 pt-8 mx-auto w-[95%]">
       <div className="bg-borderLight h-px mt-8 mb-8"></div>
-
+      {/* <a href="/cart">cart</a> */}
       <div className="flex justify-between flex-col md:flex-row md:flex-wrap  lg:flex-nowrap items-start max-w-full">
         <div className="my-4 mx-auto bg-lightGray px-5 py-3 rounded-md mb-3 md:bg-transparent w-full md:w-[42%] lg:w-[30%]">
           <h3
-            className="uppercase font-bold text-sm text-primary 
+            className="uppercase font-bold text-sm text-primary
                flex justify-between items-center"
             onClick={() => toggleVisibility("about")}>
             <span>About The Store</span>
@@ -60,7 +60,7 @@ export default function Footer() {
 
         <div className="my-4 mx-auto bg-lightGray px-5 py-3 rounded-md mb-3  md:bg-transparent w-full md:max-w-[42%] lg:w-[15%]">
           <h3
-            className="uppercase font-bold text-sm text-primary 
+            className="uppercase font-bold text-sm text-primary
                flex justify-between items-center"
             onClick={() => toggleVisibility("information")}>
             <span>INFOMATION</span>
@@ -86,7 +86,7 @@ export default function Footer() {
 
         <div className="my-4 mx-auto bg-lightGray px-5 py-3 rounded-md mb-3  md:bg-transparent w-full md:max-w-[42%] lg:w-[15%]">
           <h3
-            className="uppercase font-bold text-sm text-primary 
+            className="uppercase font-bold text-sm text-primary
                flex justify-between items-center"
             onClick={() => toggleVisibility("quick")}>
             <span>Quick Links</span>
@@ -108,7 +108,7 @@ export default function Footer() {
 
         <div className="my-4 mx-auto bg-lightGray px-5 py-3 rounded-md mb-3  md:bg-transparent w-full md:w-[42%] lg:w-[30%]">
           <h3
-            className="uppercase font-bold text-sm text-primary 
+            className="uppercase font-bold text-sm text-primary
                flex justify-between items-center"
             onClick={() => toggleVisibility("news")}>
             <span>Newsletter Signup</span>

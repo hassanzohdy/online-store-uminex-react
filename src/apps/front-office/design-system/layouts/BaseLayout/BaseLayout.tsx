@@ -1,3 +1,4 @@
+import CartPage from "../../components/cart/pages/CartPage";
 import { Separator } from "../../components/ui/separator";
 import Footer from "../Footer";
 import Header from "../Header";
@@ -31,6 +32,7 @@ export default function BaseLayout({ children }: BaseLayoutProps) {
         <Separator />
       </div>
       <main className="w-full max-w-[1450px] mx-auto px-4">{children}</main>
+      <CartPage />
       <Footer />
     </div>
   );

@@ -1,7 +1,7 @@
 import { publicRoutes } from "apps/front-office/utils/router";
 import URLS from "apps/front-office/utils/urls";
 import NotFoundPage from "design-system/layouts/NotFoundPage";
-import Cart from "../design-system/components/Cart";
+import CartPage from "../design-system/components/cart/pages/CartPage";
 import HomePage from "./pages/HomePage";
 
 publicRoutes([
@@ -15,6 +15,6 @@ publicRoutes([
   },
   {
     path: URLS.cart,
-    component: Cart,
+    component: CartPage,
   },
 ]);
