@@ -35,7 +35,7 @@ export default function Header() {
               <Button variant={"ghost"} className="hover:bg-transparent">
                 <div className="relative">
                   <FaRegHeart className="h-7 w-7 text-primary" />
-                  {wishlistItems.length>0 && (
+                  {wishlistItems.length > 0 && (
                     <div
                       className="absolute -top-1 -right-2 bg-red rounded-full
                     w-[18px] h-[18px] flex items-center justify-center">

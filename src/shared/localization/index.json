@@ -211,8 +211,8 @@
     "en": "Cost",
     "ar": "التكلفة"
   },
-  "studentDiscount":{
-    "en":"You are a student and students get 20% discount.",
+  "studentDiscount": {
+    "en": "You are a student and students get 20% discount.",
     "ar": "انت طالب و الطلاب يحصلون علي 20% خصم"
   },
   "adding": {
