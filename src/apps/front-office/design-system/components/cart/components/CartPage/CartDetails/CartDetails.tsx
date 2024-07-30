@@ -1,10 +1,10 @@
-export type CartDtailsProps = {
+export type CartDetailsProps = {
   // props go here
 };
 export default function CartDetails() {
   return (
     <>
-      <h1>CartDtails</h1>
+      <h1>CartDetails</h1>
     </>
   );
 }

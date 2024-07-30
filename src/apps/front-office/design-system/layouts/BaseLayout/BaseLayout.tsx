@@ -1,4 +1,4 @@
-import CartPage from "../../components/cart/pages/CartPage";
+import CartPage from "../../components/cart/components/CartPage";
 import { Separator } from "../../components/ui/separator";
 import Footer from "../Footer";
 import Header from "../Header";
