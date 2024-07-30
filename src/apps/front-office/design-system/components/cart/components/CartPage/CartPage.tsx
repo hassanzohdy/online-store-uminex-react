@@ -1,16 +1,14 @@
 import CartDetails from "./CartDetails";
 import CartTotals from "./CartTotals";
-
-export type CartPageProps = {
+import styles from "./styles.module.scss";
+export type CartPagePops = {
   // props go here
 };
 export default function CartPage() {
   return (
-    <>
-      <h1>
-        <CartDetails />
-        <CartTotals />
-      </h1>
-    </>
+    <div className={`${styles.cartWrapper} container grid gap-2 grid-cols-2` }>
+      <CartDetails />
+      <CartTotals />
+    </div>
   );
 }
