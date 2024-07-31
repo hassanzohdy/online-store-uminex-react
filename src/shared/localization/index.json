@@ -11,6 +11,10 @@
     "en": "Pages",
     "ar": "صفحات"
   },
+  "Subtotal": {
+    "en": "SUBTOTAL",
+    "ar": "المجموع الفرعي"
+  },
   "about": {
     "en": "About Us",
     "ar": "معلومات عنا"
@@ -107,38 +111,38 @@
     "en": "View All",
     "ar": "عرض الكل"
   },
-    "register": {
-      "en": "Register",
-      "ar": "تسجيل"
-    },
-    "account": {
-      "en": "Account",
-      "ar": "الحساب"
-    },
-    "createAccount": {
-      "en": "Create Account",
-      "ar": "إنشاء حساب"
-    },
-    "sendPasswordResetLink": {
-      "en": "Send Password Reset Link",
-      "ar": "إرسال رابط إعادة تعيين كلمة المرور"
-    },
-    "rememberMe": {
-      "en": "Remember Me",
-      "ar": "تذكرني"
-    },
-    "verificationLink": {
-      "en": "A fresh verification link has been sent to your email address.",
-      "ar": "تم إرسال رابط التحقق الجديد إلى عنوان بريدك الإلكتروني."
-    },
-    "verificationCodeSent": {
-      "en": "Before proceeding, please check your email for a verification code.",
-      "ar": "قبل المتابعة ، يرجى التحقق من بريدك الإلكتروني لرمز التحقق."
-    },
-    "verificationCodeSentPhone": {
-      "en": "Before proceeding, please check your phone for a verification code.",
-      "ar": "قبل المتابعة ، يرجى التحقق من هاتفك لرمز التحقق."
-    },  
+  "register": {
+    "en": "Register",
+    "ar": "تسجيل"
+  },
+  "account": {
+    "en": "Account",
+    "ar": "الحساب"
+  },
+  "createAccount": {
+    "en": "Create Account",
+    "ar": "إنشاء حساب"
+  },
+  "sendPasswordResetLink": {
+    "en": "Send Password Reset Link",
+    "ar": "إرسال رابط إعادة تعيين كلمة المرور"
+  },
+  "rememberMe": {
+    "en": "Remember Me",
+    "ar": "تذكرني"
+  },
+  "verificationLink": {
+    "en": "A fresh verification link has been sent to your email address.",
+    "ar": "تم إرسال رابط التحقق الجديد إلى عنوان بريدك الإلكتروني."
+  },
+  "verificationCodeSent": {
+    "en": "Before proceeding, please check your email for a verification code.",
+    "ar": "قبل المتابعة ، يرجى التحقق من بريدك الإلكتروني لرمز التحقق."
+  },
+  "verificationCodeSentPhone": {
+    "en": "Before proceeding, please check your phone for a verification code.",
+    "ar": "قبل المتابعة ، يرجى التحقق من هاتفك لرمز التحقق."
+  },
   "test": {
     "en": "Test",
     "ar": "التجربة"
@@ -436,8 +440,8 @@
     "ar": "عرض"
   },
   "welcomeBack": {
-    "en": "Welcome Back !",
-    "ar": "مرحبا بعودتك !"
+    "en": "Welcome Back :name",
+    "ar": "مرحبا بعودتك :name"
   },
   "signIn": {
     "en": "Sign In",

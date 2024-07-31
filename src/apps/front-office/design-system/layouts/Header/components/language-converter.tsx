@@ -29,9 +29,9 @@ const LanguageConverter = () => {
       <DropdownMenuTrigger asChild>
         <Button
           variant={"ghost"}
-          className="hover:bg-transparent flex items-center gap-1 p-0 xl:p-2">
+          className="hover:bg-transparent flex items-center gap-2 px-0">
           <img
-            className="h-4 w-5 mx-2"
+            className="h-4 w-5"
             src={languageFlagMap[language]}
             alt="Language Flag"
           />

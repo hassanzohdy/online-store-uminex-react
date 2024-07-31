@@ -3,18 +3,17 @@ import { Link } from "@mongez/react-router";
 import { Button } from "apps/front-office/design-system/components/ui/button";
 import { ScrollArea } from "apps/front-office/design-system/components/ui/scroll-area";
 import SkeletonCard from "./skeleton-header-card";
-import { useProducts } from "apps/front-office/design-system/hooks/use-product";
 
 type SearchResultProps = {
   value: string;
 };
 
-
-
 const SearchResult = ({ value }: SearchResultProps) => {
+  // const { products, loading } = useProducts(value);
 
-  const {products , loading} = useProducts(value)
-
+  let products: any = [];
+  const loading = true;
+  products = products.filter(product => product.category.includes(value));
   return (
     <ScrollArea className="w-full h-[380px] bg-white">
       <div className="flex flex-col items-start gap-5 py-5 px-7">

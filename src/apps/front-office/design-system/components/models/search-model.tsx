@@ -11,7 +11,6 @@ import { ChangeEvent, useState } from "react";
 import SearchResult from "../../layouts/Header/components/search-result";
 import { cn } from "../../lib/utils";
 
-
 const SearchModel = () => {
   const [value, setValue] = useState("");
 
