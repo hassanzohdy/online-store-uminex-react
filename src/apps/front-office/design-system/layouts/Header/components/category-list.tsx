@@ -1,7 +1,7 @@
 import { trans } from "@mongez/localization";
 import { current } from "@mongez/react";
 import { Link } from "@mongez/react-router";
-import { preload, setPreloadConfiguration } from "@mongez/react-utils";
+import { preload } from "@mongez/react-utils";
 import { Button } from "apps/front-office/design-system/components/ui/button";
 import {
   DropdownMenu,
@@ -13,8 +13,6 @@ import { Separator } from "apps/front-office/design-system/components/ui/separat
 import { cn } from "apps/front-office/design-system/lib/utils";
 import { FiMenu } from "react-icons/fi";
 import { getCategories } from "../services/header-services";
-
-
 
 interface _CategoryListsProps {
   data;
