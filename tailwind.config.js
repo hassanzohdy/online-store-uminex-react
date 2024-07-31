@@ -16,7 +16,14 @@ export default {
         "2xl": "1400px",
       },
     },
+
     extend: {
+      clipPath: {
+        triangle: "polygon(50% 0%, 0% 100%, 100% 100%)",
+        circle: "circle(50% at 50% 50%)",
+        ellipse: "ellipse(50% 25% at 50% 50%)",
+        polygon: "polygon(0% 0%, 100% 0%, 100% 100%, 50% 75%, 0% 100%)",
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
@@ -77,6 +84,7 @@ export default {
         lightRed: `#EFEFEF`,
         lightGreen: `#EFEFEF`,
       },
+
       fontSize: {
         xs: "0.75rem", // 12px
         // "xs": "0.813rem", // 13px
@@ -108,6 +116,18 @@ export default {
           "&::-webkit-scrollbar": {
             display: "none",
           },
+        },
+        ".clip-triangle": {
+          "clip-path": "polygon(50% 0%, 0% 100%, 100% 100%)",
+        },
+        ".clip-circle": {
+          "clip-path": "circle(50% at 50% 50%)",
+        },
+        ".clip-ellipse": {
+          "clip-path": "ellipse(50% 25% at 50% 50%)",
+        },
+        ".clip-polygon": {
+          "clip-path": "polygon(0% 0%, 100% 0%, 100% 100%, 50% 75%, 0% 100%)",
         },
       };
       addUtilities(newUtilities);
