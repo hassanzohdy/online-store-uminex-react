@@ -4,7 +4,7 @@ import { navigateTo } from "@mongez/react-router";
 import user from "apps/front-office/account/user";
 import URLS from "apps/front-office/utils/urls";
 import { AxiosResponse } from "axios";
-import { __DEV__, apiBaseUrl, apiKey, apiOS } from "./flags";
+import { apiBaseUrl, apiKey, apiOS } from "./flags";
 
 const endpoint = new Endpoint({
   putToPost: false,
@@ -27,16 +27,11 @@ const endpoint = new Endpoint({
 });
 
 const endpointEvents = endpoint.events;
-endpointEvents.beforeSending(config => {
-  const headers: any = config.headers;
-  if (__DEV__) {
-    // Uminex client id
-    headers["client-id"] = 127295270;
-  }
-});
+
 endpointEvents.beforeSending(config => {
   const headers: any = config.headers;
   headers["os"] = apiOS;
+  headers["client-id"] = 127295270;
 });
 
 endpointEvents.onSuccess((response: AxiosResponse) => {
