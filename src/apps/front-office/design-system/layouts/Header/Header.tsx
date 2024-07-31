@@ -32,7 +32,7 @@ export default function Header() {
               </div>
             </Link>
             <WishListSheetSidebar>
-              <Button variant={"ghost"} className="hover:bg-transparent">
+              <Button variant={"ghost"} className="hover:bg-transparent ">
                 <div className="relative">
                   <FaRegHeart className="h-7 w-7 text-primary" />
                   {wishlistItems.length > 0 && (
