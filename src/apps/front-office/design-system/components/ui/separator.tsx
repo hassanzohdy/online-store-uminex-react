@@ -3,7 +3,8 @@ import * as React from "react";
 
 import { cn } from "../../lib/utils";
 
-interface SeparatorProps extends React.ComponentPropsWithoutRef<typeof SeparatorPrimitive.Root> {
+interface SeparatorProps
+  extends React.ComponentPropsWithoutRef<typeof SeparatorPrimitive.Root> {
   className?: string;
   orientation?: "horizontal" | "vertical";
   decorative?: boolean;
