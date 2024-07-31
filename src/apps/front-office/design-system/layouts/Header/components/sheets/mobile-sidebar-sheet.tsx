@@ -103,7 +103,7 @@ const MobileSidebarSheet = () => {
             <Separator className="my-2" />
             <div className="flex items-center gap-1">
               <Link
-                href={"/blogs"}
+                href={"/blog"}
                 className="text-[15px] font-medium text-slate-900">
                 {trans("blog")}
               </Link>

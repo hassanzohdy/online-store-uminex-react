@@ -1,17 +1,17 @@
 import endpoint from "shared/endpoint";
 
 /**
- * Get Blogs list
+ * Get Blog list
  */
-export function getBlogsList(params: any = {}) {
-  return endpoint.get("/blogs", {
+export function getBlogList(params: any = {}) {
+  return endpoint.get("/blog", {
     params,
   });
 }
 
 /**
- * Get blogs details
+ * Get blog details
  */
 export function getBlog(id: string | number) {
-  return endpoint.get("/blogs/" + id);
+  return endpoint.get("/blog/" + id);
 }

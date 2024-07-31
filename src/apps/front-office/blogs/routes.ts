@@ -1,10 +1,10 @@
 import { publicRoutes } from "apps/front-office/utils/router";
 import URLS from "apps/front-office/utils/urls";
-import BlogsPage from "./pages/BlogsPage";
+import BlogPage from "./pages/BlogPage";
 
 publicRoutes([
   {
-    path: URLS.blogs.root,
-    component: BlogsPage,
+    path: URLS.blog.root,
+    component: BlogPage,
   },
 ]);

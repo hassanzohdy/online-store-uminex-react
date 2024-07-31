@@ -63,7 +63,7 @@ const Navbar = () => {
               <Link href="/contact">{trans("contact")}</Link>
             </li>
             <li className="text-slate-800 text-sm font-semibold hover:hover:text-blue">
-              <Link to={URLS.blogs.root}>{trans("blog")}</Link>
+              <Link to={URLS.blog.root}>{trans("blog")}</Link>
             </li>
           </ul>
         </div>

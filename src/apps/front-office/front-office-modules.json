@@ -21,8 +21,8 @@
       "name": "informative-pages"
     },
     {
-      "entry": ["/blogs"],
-      "name": "blogs"
+      "entry": ["/blog"],
+      "name": "blog"
     }
   ]
 }
