@@ -1,6 +1,7 @@
 import { trans } from "@mongez/localization";
 import { current } from "@mongez/react";
 import { Link } from "@mongez/react-router";
+import { cartAtom } from "apps/front-office/design-system/atoms/cart-atom";
 import { Button } from "apps/front-office/design-system/components/ui/button";
 import {
   Sheet,
@@ -13,84 +14,22 @@ import {
   formatNumber,
   formatPrice,
 } from "apps/front-office/design-system/lib/formats";
+import URLS from "apps/front-office/utils/urls";
+import { useState } from "react";
 import { IoCartOutline } from "react-icons/io5";
 import EmptyCartIcon from "shared/assets/images/empty-cart.svg";
-import CartItem from "../cart-item";
+import CartItem from "../cart/cart-item";
 
-type LocalizedText = {
-  localeCode: string;
-  value: string;
-};
-
-type Image = {
-  name: string;
-  hash: string;
-  mimeType: string;
-  extension: string;
-  size: number;
-  url: string;
-  id: string;
-  width: number;
-  height: number;
-  path: string;
-};
-
-type Brand = {
-  id: number;
-  name: LocalizedText[];
-  slug: string;
-  logo: Image;
-};
-
-type Category = {
-  id: number;
-  isActive: boolean;
-  name: LocalizedText[];
-  image: Image;
-  slug: string;
-};
-
-type Discount = {
-  percentage: number;
-  amount: number;
-};
-
-type Product = {
-  id: number;
-  brand: Brand;
-  category: Category;
-  discount: Discount;
-  images: Image[];
-  inCart: boolean;
-  inCompare: boolean;
-  inWishlist: boolean;
-  isActive: boolean;
-  name: LocalizedText[];
-  price: number;
-  salePrice: number;
-  shortDescription: LocalizedText[];
-  slug: string;
-  type: string;
-};
-
-export type CartItemType = {
-  id: number;
-  product: Product;
-  quantity: number;
-  salePrice: number;
-  total: {
-    discount: number;
-    finalPrice: number;
-    price: number;
-    salePrice: number;
-  };
-};
-interface CartSheetSidebarProps {
-  items: CartItemType[];
-}
-const CartSheetSidebar = ({ cart }: any) => {
+const CartSheetSidebar = ({ changeTicks }: any) => {
   const language = current("localeCode");
-  const { items }: CartSheetSidebarProps = cart;
+  const [_, setQuantity] = useState(0);
+  const cart = cartAtom.useValue();
+
+  const changeQuantity = (quantity: number) => {
+    setQuantity(quantity);
+    changeTicks(quantity);
+  };
+  const items = cart.items;
 
   return (
     <Sheet>
@@ -111,7 +50,7 @@ const CartSheetSidebar = ({ cart }: any) => {
         </Button>
       </SheetTrigger>
       <SheetContent
-        className="p-0 w-full md:max-w-sm"
+        className="p-0 w-full md:max-w-sm overflow-y-auto"
         side={language === "ar" ? "left" : "right"}>
         <SheetHeader className="bg-slate-100 p-3">
           <SheetTitle className="text-slate-900 font-semibold text-md">
@@ -119,10 +58,14 @@ const CartSheetSidebar = ({ cart }: any) => {
           </SheetTitle>
         </SheetHeader>
         {items && items.length > 0 ? (
-          <div className="w-full">
-            <div className="overflow-y-auto w-full">
+          <div className="w-full ">
+            <div className=" h-[600px] overflow-y-auto w-full">
               {items.map(cartItem => (
-                <CartItem key={cartItem.id} cartItem={cartItem} />
+                <CartItem
+                  key={cartItem.id}
+                  cartItem={cartItem}
+                  changeQuantity={changeQuantity}
+                />
               ))}
             </div>
             <div className="absolute bottom-0 p-5 w-full bg-slate-100 flex flex-col items-start gap-4">
@@ -131,20 +74,20 @@ const CartSheetSidebar = ({ cart }: any) => {
                   {trans("Subtotal")}
                 </h1>
                 <p className="text-lg text-red font-semibold">
-                  {formatPrice(cart.totals.discount)}
+                  {formatPrice(cart.totals.subtotal)}
                 </p>
               </div>
               <Button
                 asChild
                 variant={"outline"}
                 className="w-full rounded-full p-6">
-                <Link href="/cart">View Cart</Link>
+                <Link href={URLS.cart}>View Cart</Link>
               </Button>
               <Button
                 asChild
                 variant={"primary"}
                 className="w-full rounded-full p-6">
-                <Link href="/checkout">Check Out</Link>
+                <Link href={URLS.checkout}>Check Out</Link>
               </Button>
             </div>
           </div>
@@ -159,7 +102,7 @@ const CartSheetSidebar = ({ cart }: any) => {
               variant={"primary"}
               size={"lg"}
               className="rounded-full">
-              <Link to="/collections/all">{trans("emptyCartBtn")}</Link>
+              <Link to={URLS.collections}>{trans("emptyCartBtn")}</Link>
             </Button>
           </div>
         )}

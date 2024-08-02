@@ -29,6 +29,9 @@ const URLS = {
     viewRoute: "/pages/:slug",
     view: (page: any) => `/pages/${page.id}/${page.slug}`,
   },
+  wishlist: "/wishlist",
+  cart: "/cart",
+  checkout: "/checkout",
 };
 
 export default URLS;

@@ -4,8 +4,9 @@ import URLS from "apps/front-office/utils/urls";
 import { useState } from "react";
 import { FaAngleDown } from "react-icons/fa";
 import discountSvg from "shared/assets/images/discount.svg";
-import CategoryLists from "./components/category-list";
-import SearchInput from "./components/search-input";
+import CategoryLists from "./components/category/category-list";
+import SearchInput from "./components/search/search-input";
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (

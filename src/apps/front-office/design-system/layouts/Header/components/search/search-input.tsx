@@ -1,9 +1,9 @@
 import { trans } from "@mongez/localization";
 import { Button } from "apps/front-office/design-system/components/ui/button";
 import { Input } from "apps/front-office/design-system/components/ui/input";
+import { cn } from "apps/front-office/design-system/lib/utils";
 import { ChangeEvent, useState } from "react";
-import { cn } from "../../../lib/utils";
-import CategoryMenu from "./category-menu";
+import CategoryMenu from "../category/category-menu";
 import SearchResult from "./search-result";
 
 const SearchInput = () => {
