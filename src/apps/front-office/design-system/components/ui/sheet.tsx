@@ -12,7 +12,8 @@ const SheetClose = SheetPrimitive.Close;
 
 const SheetPortal = SheetPrimitive.Portal;
 
-interface SheetOverlayProps extends React.ComponentPropsWithoutRef<typeof SheetPrimitive.Overlay> {
+interface SheetOverlayProps
+  extends React.ComponentPropsWithoutRef<typeof SheetPrimitive.Overlay> {
   className?: string;
 }
 
@@ -81,10 +82,7 @@ interface SheetHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string;
 }
 
-const SheetHeader = ({
-  className,
-  ...props
-}: SheetHeaderProps) => (
+const SheetHeader = ({ className, ...props }: SheetHeaderProps) => (
   <div
     className={cn(
       "flex flex-col space-y-2 text-center sm:text-left",
@@ -99,10 +97,7 @@ interface SheetFooterProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string;
 }
 
-const SheetFooter = ({
-  className,
-  ...props
-}: SheetFooterProps) => (
+const SheetFooter = ({ className, ...props }: SheetFooterProps) => (
   <div
     className={cn(
       "flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2",
@@ -113,7 +108,8 @@ const SheetFooter = ({
 );
 SheetFooter.displayName = "SheetFooter";
 
-interface SheetTitleProps extends React.ComponentPropsWithoutRef<typeof SheetPrimitive.Title> {
+interface SheetTitleProps
+  extends React.ComponentPropsWithoutRef<typeof SheetPrimitive.Title> {
   className?: string;
 }
 
@@ -132,7 +128,8 @@ const SheetTitle = React.forwardRef<
 ));
 SheetTitle.displayName = SheetPrimitive.Title.displayName;
 
-interface SheetDescriptionProps extends React.ComponentPropsWithoutRef<typeof SheetPrimitive.Description> {
+interface SheetDescriptionProps
+  extends React.ComponentPropsWithoutRef<typeof SheetPrimitive.Description> {
   className?: string;
 }
 

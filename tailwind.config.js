@@ -16,7 +16,14 @@ export default {
         "2xl": "1400px",
       },
     },
+
     extend: {
+      clipPath: {
+        triangle: "polygon(50% 0%, 0% 100%, 100% 100%)",
+        circle: "circle(50% at 50% 50%)",
+        ellipse: "ellipse(50% 25% at 50% 50%)",
+        polygon: "polygon(0% 0%, 100% 0%, 100% 100%, 50% 75%, 0% 100%)",
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
@@ -26,10 +33,16 @@ export default {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        moveAndFade: {
+          "0%": { transform: "translateY(0)", opacity: "0" },
+          "20%": { transform: "translateY(0)", opacity: "1" },
+          "100%": { transform: "translateY(-40px)", opacity: "0" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        moveAndFade: "moveAndFade 2s linear infinite",
       },
       colors: {
         lightGray: `#f1f5f6`,
@@ -64,20 +77,20 @@ export default {
         dark: `#222`,
         darkBlue: `#203864`,
         lightYellow: `#f6ea3c`,
-        darkRed: `#fa001a`,
         lightAqua: `#33b8e8`,
         overlay: `#000000b3`,
         borderLight: `#e5e8ec`,
         lightRed: `#EFEFEF`,
         lightGreen: `#EFEFEF`,
       },
+
       fontSize: {
-        "xs": "0.75rem", // 12px
+        xs: "0.75rem", // 12px
         // "xs": "0.813rem", // 13px
-        "sm": "0.875rem", // 14px
-        "base": "1rem", // 16px
-        "lg": "1.125rem", // 18px
-        "xl": "1.25rem", // 20px
+        sm: "0.875rem", // 14px
+        base: "1rem", // 16px
+        lg: "1.125rem", // 18px
+        xl: "1.25rem", // 20px
         "2xl": "1.5rem", // 24px
         "3xl": "1.688rem", // 27px
         "4xl": "1.875rem", // 30px
@@ -86,7 +99,37 @@ export default {
         "7xl": "3rem", // 48px
         "8xl": "3.75rem", // 60px
       },
+      screens: {
+        mobile: "450px",
+      },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    function ({ addUtilities }) {
+      const newUtilities = {
+        ".scrollbar-hide": {
+          /* Hide scrollbar for Firefox */
+          "scrollbar-width": "none",
+          /* Hide scrollbar for Chrome, Safari, and Opera */
+          "&::-webkit-scrollbar": {
+            display: "none",
+          },
+        },
+        ".clip-triangle": {
+          "clip-path": "polygon(50% 0%, 0% 100%, 100% 100%)",
+        },
+        ".clip-circle": {
+          "clip-path": "circle(50% at 50% 50%)",
+        },
+        ".clip-ellipse": {
+          "clip-path": "ellipse(50% 25% at 50% 50%)",
+        },
+        ".clip-polygon": {
+          "clip-path": "polygon(0% 0%, 100% 0%, 100% 100%, 50% 75%, 0% 100%)",
+        },
+      };
+      addUtilities(newUtilities);
+    },
+  ],
 };

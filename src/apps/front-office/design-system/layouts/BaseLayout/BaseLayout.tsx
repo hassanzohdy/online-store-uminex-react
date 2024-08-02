@@ -1,6 +1,7 @@
 import { Separator } from "../../components/ui/separator";
 import Footer from "../Footer";
 import Header from "../Header";
+import LanguageCurrencyConverterHeader from "../Header/LanguageCurrencyConverterHeader";
 import Navbar from "../Header/Navbar";
 import TopBanner from "../Header/TopBanner";
 
@@ -13,9 +14,13 @@ export type BaseLayoutProps = {
  */
 export default function BaseLayout({ children }: BaseLayoutProps) {
   return (
-    <div className="w-full">
-      <div className="bg-slate-50/90">
+    <div className="w-full bg-lightGray scrollbar-hide">
+      <div className="bg-white">
         <TopBanner />
+        <div className="w-full max-w-[1450px] mx-auto px-4 hidden xl:block">
+          <LanguageCurrencyConverterHeader />
+        </div>
+        <Separator />
         <div className="w-full max-w-[1450px] mx-auto px-4">
           <Header />
         </div>
@@ -25,7 +30,8 @@ export default function BaseLayout({ children }: BaseLayoutProps) {
         </div>
         <Separator />
       </div>
-      <main className="w-full max-w-[1450px] mx-auto px-4">{children}</main>
+      {/* <main className="w-full max-w-[1450px] mx-auto px-4">{children}</main> */}
+      <main className="w-full  mx-auto ">{children}</main>
       <Footer />
     </div>
   );

@@ -1,4 +1,4 @@
-import { Button } from "apps/front-office/design-system/components/ui/button";
+import { trans } from "@mongez/localization";
 import {
   Dialog,
   DialogContent,
@@ -8,9 +8,8 @@ import {
 } from "apps/front-office/design-system/components/ui/dialog";
 import { Input } from "apps/front-office/design-system/components/ui/input";
 import { ChangeEvent, useState } from "react";
-import { CiSearch } from "react-icons/ci";
-import { cn } from "../../../../lib/utils";
-import SearchResult from "../search-result";
+import SearchResult from "../../layouts/Header/components/search-result";
+import { cn } from "../../lib/utils";
 
 const SearchModel = () => {
   const [value, setValue] = useState("");
@@ -24,24 +23,21 @@ const SearchModel = () => {
     <Dialog>
       <DialogTrigger asChild>
         <div className="relative w-full">
-          <Input placeholder="Search" className="rounded-full" />
-          <Button
-            variant={"ghost"}
-            className="rounded-full absolute right-0 top-0"
-            size={"icon"}>
-            <CiSearch className="w-5 h-5" />
-          </Button>
+          <Input
+            placeholder={trans("searchInputModelPlaceHolder")}
+            className="rounded-full"
+          />
         </div>
       </DialogTrigger>
       <DialogContent
         className="min-h-screen min-w-full flex flex-col gap-5
-       items-center justify-start py-20">
+       items-center justify-start py-20 mt-6">
         <DialogHeader>
-          <DialogTitle>WHAT ARE YOU LOOKING FOR?</DialogTitle>
+          <DialogTitle>{trans("searchModelTitle")}</DialogTitle>
         </DialogHeader>
         <div className="relative w-full">
           <Input
-            placeholder="Search"
+            placeholder={trans("searchInputModelPlaceHolder")}
             className="rounded-md h-10 border-slate-300"
             onChange={storeInputValue}
             type="search"
