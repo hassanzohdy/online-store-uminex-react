@@ -77,7 +77,6 @@ export default {
         dark: `#222`,
         darkBlue: `#203864`,
         lightYellow: `#f6ea3c`,
-        darkRed: `#fa001a`,
         lightAqua: `#33b8e8`,
         overlay: `#000000b3`,
         borderLight: `#e5e8ec`,

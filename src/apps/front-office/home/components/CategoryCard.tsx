@@ -4,7 +4,7 @@ import categoryImage from "shared/assets/images/categoryItem.webp";
 
 export default function CategoryCard() {
   return (
-    <Link href="#">
+    <Link to="#" className="flex items-center flex-col">
       <div className="bg-lightGray rounded-full w-[100px] h-[100px] flex items-center justify-center m-auto">
         <img
           src={categoryImage}
