@@ -8,8 +8,8 @@ import {
 } from "apps/front-office/design-system/components/ui/dialog";
 import { Input } from "apps/front-office/design-system/components/ui/input";
 import { ChangeEvent, useState } from "react";
-import { cn } from "../../../../lib/utils";
-import SearchResult from "../search-result";
+import SearchResult from "../../layouts/Header/components/search-result";
+import { cn } from "../../lib/utils";
 
 const SearchModel = () => {
   const [value, setValue] = useState("");

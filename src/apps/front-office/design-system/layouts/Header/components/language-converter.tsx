@@ -15,6 +15,7 @@ const languageFlagMap = {
   en: "//demo-uminex.myshopify.com/cdn/shop/t/4/assets/flag_en.png?v=14076981825125011091681116945",
   ar: "//demo-uminex.myshopify.com/cdn/shop/t/4/assets/flag_ar.png?v=87171907108583701081681116939",
 };
+
 const LanguageConverter = () => {
   const language = current("localeCode");
   const locales = getLocaleCodes();
@@ -28,9 +29,9 @@ const LanguageConverter = () => {
       <DropdownMenuTrigger asChild>
         <Button
           variant={"ghost"}
-          className="hover:bg-transparent flex items-center لشح-3">
+          className="hover:bg-transparent flex items-center gap-2 px-0">
           <img
-            className="h-4 w-5 mx-2"
+            className="h-4 w-5"
             src={languageFlagMap[language]}
             alt="Language Flag"
           />
