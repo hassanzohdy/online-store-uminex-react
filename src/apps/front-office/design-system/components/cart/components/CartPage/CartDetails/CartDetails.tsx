@@ -54,9 +54,9 @@ export default function CartDetails() {
               </div>
             </div>
             <div className={`${styles.productTotal} `}>
-            <h3 className="text-primary font-text-sm font-semibold">
-            $3,600.00
-                </h3>
+              <h3 className="text-primary font-text-sm font-semibold">
+                $3,600.00
+              </h3>
             </div>
             <div className={styles.productDelete}>
               <RiDeleteBin5Line />
