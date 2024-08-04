@@ -99,6 +99,17 @@ export default {
         "7xl": "3rem", // 48px
         "8xl": "3.75rem", // 60px
       },
+      fontWeight: {
+        thin: 100,
+        extralight: 200,
+        light: 300,
+        normal: 400,
+        medium: 500,
+        semibold: 600,
+        bold: 700,
+        extrabold: 800,
+        black: 900,
+      },
       screens: {
         mobile: "450px",
       },
