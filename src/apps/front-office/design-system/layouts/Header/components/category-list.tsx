@@ -1,6 +1,7 @@
 import { trans } from "@mongez/localization";
 import { current } from "@mongez/react";
 import { Link } from "@mongez/react-router";
+import { preload } from "@mongez/react-utils";
 import { Button } from "apps/front-office/design-system/components/ui/button";
 import {
   DropdownMenu,
@@ -11,74 +12,23 @@ import {
 import { Separator } from "apps/front-office/design-system/components/ui/separator";
 import { cn } from "apps/front-office/design-system/lib/utils";
 import { FiMenu } from "react-icons/fi";
+import { getCategories } from "../services/header-services";
 
-const categories = [
-  {
-    label: "Computer & Desktop",
-    value: "computer-desktop",
-    url: "/categories/computer-desktop",
-  },
-  {
-    label: "Laptop & Ipad",
-    value: "laptop-ipad",
-    url: "/categories/laptop-ipad",
-  },
-  {
-    label: "Cameras & Photos",
-    value: "cameras-photos",
-    url: "/categories/cameras-photos",
-  },
-  {
-    label: "Smart Phones & Tablets",
-    value: "smart-phones-tablets",
-    url: "/categories/smart-phones-tablets",
-  },
-  {
-    label: "Home & Kitchen",
-    value: "home-kitchen",
-    url: "/categories/home-kitchen",
-  },
-  {
-    label: "TV & Audios",
-    value: "tv-audios",
-    url: "/categories/tv-audios",
-  },
-  {
-    label: "Health & Beauty",
-    value: "health-beauty",
-    url: "/categories/health-beauty",
-  },
-  {
-    label: "Watches & Eyewear",
-    value: "watches-eyewear",
-    url: "/categories/watches-eyewear",
-  },
-  {
-    label: "Top Deals",
-    value: "top-deals",
-    url: "/categories/top-deals",
-  },
-  {
-    label: "Top Selling Products",
-    value: "top-selling-products",
-    url: "/categories/top-selling-products",
-  },
-  {
-    label: "Top Featured Products",
-    value: "top-featured-products",
-    url: "/categories/top-featured-products",
-  },
-];
-
-const CategoryList = () => {
+interface _CategoryListsProps {
+  data;
+}
+const _CategoryLists = ({ data }: _CategoryListsProps) => {
   const currentLanguage = current("localeCode");
+
+  const { categories } = data;
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button
           variant={"ghost"}
           className={cn(
-            "flex items-center justify-start w-full max-w-[270px] ",
+            "flex items-center justify-start w-full max-w-[270px]",
             "border-slate-200 rounded-none pl-0 hover:bg-transparent",
             currentLanguage === "en" ? "border-r-[2px]" : "border-l-[2px]",
           )}>
@@ -92,19 +42,25 @@ const CategoryList = () => {
         side="bottom"
         align="start"
         className="w-[270px] shadow-none pt-2">
-        {categories.map(category => (
-          <div key={category.value}>
-            <DropdownMenuItem
-              className="text-[14px] cursor-pointer hover:bg-transparent
-             py-1 font-normal text-black">
-              <Link href={category.url}>{category.label}</Link>
-            </DropdownMenuItem>
-            <Separator className="my-2" />
-          </div>
-        ))}
+        {categories.map(category => {
+          const categoryName =
+            category.name.find(name => name.localeCode === currentLanguage)
+              ?.value || category.name[0].value;
+
+          return (
+            <div key={category.id}>
+              <DropdownMenuItem className="text-[14px] cursor-pointer hover:bg-transparent py-1 font-normal text-black">
+                <Link href={"#"}>{categoryName}</Link>
+              </DropdownMenuItem>
+              <Separator className="my-2" />
+            </div>
+          );
+        })}
       </DropdownMenuContent>
     </DropdownMenu>
   );
 };
 
-export default CategoryList;
+const CategoryLists = preload(_CategoryLists, getCategories);
+
+export default CategoryLists;

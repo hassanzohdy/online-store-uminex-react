@@ -20,8 +20,6 @@ const currencyCountryMap = {
 };
 const CurrencyConverter = () => {
   const currentCurrency = currencyAtom.useValue();
-
-  console.log(currentCurrency);
   const changeCurrency = (currency: string) => {
     currencyAtom.update(currency);
   };
@@ -33,7 +31,7 @@ const CurrencyConverter = () => {
       <DropdownMenuTrigger asChild>
         <Button
           variant={"ghost"}
-          className="hover:bg-transparent flex items-center gap-1 font-normal">
+          className="hover:bg-transparent flex items-center gap-1 font-normal px-0">
           {currencyCountryMap[currentCurrency]}(
           <span className="text-sm text-slate-700">{currentCurrency}</span>
           <span className="text-md">{currencySymbolMap[currentCurrency]}</span>

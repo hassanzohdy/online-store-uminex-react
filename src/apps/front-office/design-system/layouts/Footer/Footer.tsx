@@ -1,22 +1,33 @@
+import { trans } from "@mongez/localization";
 import { useState } from "react";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
+type VisibleSections = {
+  about: boolean;
+  information: boolean;
+  quick: boolean;
+  news: boolean;
+};
+
 export default function Footer() {
-  const [visibleSections, setVisibleSections] = useState({
+  const [visibleSections, setVisibleSections] = useState<VisibleSections>({
     about: true,
     information: true,
     quick: true,
     news: true,
   });
-  const toggleVisibility = section => {
-    setVisibleSections(prevState => ({
-      ...prevState,
-      [section]: !prevState[section],
-    }));
+
+  const toggleVisibility = (section: keyof VisibleSections) => {
+    if (window.innerWidth < 768) {
+      setVisibleSections(prevState => ({
+        ...prevState,
+        [section]: !prevState[section],
+      }));
+    }
   };
 
   return (
-    <div className="bg-white min-h-80 px-2 pt-8 mx-auto w-[95%]">
+    <div className="bg-white min-h-80 px-2 pt-8 mx-auto ">
       <div className="bg-borderLight h-px mt-8 mb-8"></div>
       {/* <a href="/cart">cart</a> */}
       <div className="flex justify-between flex-col md:flex-row md:flex-wrap  lg:flex-nowrap items-start max-w-full">
@@ -25,7 +36,7 @@ export default function Footer() {
             className="uppercase font-bold text-sm text-primary
                flex justify-between items-center"
             onClick={() => toggleVisibility("about")}>
-            <span>About The Store</span>
+            <span> {trans("aboutTheStore")} </span>
             <span className="flex items-center md:hidden text-lg text-center">
               {visibleSections.about ? <IoIosArrowUp /> : <IoIosArrowDown />}
             </span>
@@ -37,7 +48,7 @@ export default function Footer() {
                 : "max-h-0 opacity-0 overflow-hidden"
             }`}>
             <p className="text-gray font-medium text-sm leading-8">
-              Got Question? Call us 24/7
+              {trans("gotQuestion")}
             </p>
             <a
               href="#"
@@ -63,7 +74,7 @@ export default function Footer() {
             className="uppercase font-bold text-sm text-primary
                flex justify-between items-center"
             onClick={() => toggleVisibility("information")}>
-            <span>INFOMATION</span>
+            <span> {trans("information")} </span>
             <span className="flex items-center md:hidden text-lg text-center">
               {visibleSections.information ? (
                 <IoIosArrowUp />
@@ -89,7 +100,7 @@ export default function Footer() {
             className="uppercase font-bold text-sm text-primary
                flex justify-between items-center"
             onClick={() => toggleVisibility("quick")}>
-            <span>Quick Links</span>
+            <span> {trans("quickLinks")} </span>
             <span className="flex items-center md:hidden text-lg text-center">
               {visibleSections.quick ? <IoIosArrowUp /> : <IoIosArrowDown />}
             </span>
@@ -111,7 +122,7 @@ export default function Footer() {
             className="uppercase font-bold text-sm text-primary
                flex justify-between items-center"
             onClick={() => toggleVisibility("news")}>
-            <span>Newsletter Signup</span>
+            <span> {trans("newsletterSignup")} </span>
             <span className="flex items-center md:hidden text-lg text-center">
               {visibleSections.news ? <IoIosArrowUp /> : <IoIosArrowDown />}
             </span>
@@ -123,27 +134,26 @@ export default function Footer() {
                 : "max-h-0 opacity-0 overflow-hidden"
             } flex-col items-start mt-3`}>
             <p className="text-gray text-sm leading-8 md:max-w-80 text-start">
-              Join 20.000+ subscribers and get a new discount coupon on every
-              Saturday. Updates information on Sales and Offers.
+              {trans("join")}
             </p>
 
             <div className="w-full flex flex-col mobile:flex-row justify-start items-center my-4">
               <div className="w-full md:w-auto my-2 mx-1 flex-grow-[3] md:flex-grow-[2] ">
                 <input
                   type="email"
-                  placeholder="Your email address..."
+                  placeholder={trans("yourEmail")}
                   className="w-full border-solid border-borderLight border-[1px] p-2 h-12 rounded-[50px] placeholder-black placeholder:text-sm focus:border-blue outline-none"
                 />
               </div>
               <div className=" w-full md:w-auto flex-shrink mobile:max-w-36">
                 <button className="w-full bg-blue text-white p-3 h-12 rounded-[50px] font-bold text-xs leading-4 uppercase ">
-                  Subscribe
+                  {trans("subscribe")}
                 </button>
               </div>
             </div>
 
             <p className="text-gray text-sm leading-8 md:max-w-80 text-start">
-              Subscribe for Uminex and get 20% off your first purchase.
+              {trans("subscribeForUminex")}
             </p>
           </div>
         </div>
@@ -154,11 +164,11 @@ export default function Footer() {
       <div className="flex flex-col lg:flex-row justify-between items-center my-6 mx-8">
         <div className="md:flex-1 text-start mb-4">
           <p className="font-medium text-sm leading-8 text-gray ">
-            Copyright &copy;{" "}
+            {trans("copyright")} &copy;{" "}
             <a href="#" className="text-blue font-semibold">
               Uminex {""}
             </a>
-            all rights reserved. Powered by {""}
+            {trans("allRights")}. {trans("powered")} {""}
             <a href="#" className="text-blue font-semibold">
               Alothemes.
             </a>
@@ -166,7 +176,7 @@ export default function Footer() {
         </div>
         <div className="flex flex-col md:flex-row items-center md:flex-1 justify-end">
           <span className="mr-2 font-medium text-sm leading-8 text-gray mb-3">
-            Payment Method:
+            {trans("payment")}
           </span>
           <img
             className="h-auto block mb-3"

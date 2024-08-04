@@ -22,7 +22,13 @@
     },
     {
       "entry": ["/cart"],
-      "name": "cart"
+      "name": "cart",
+      "entry": ["/collections"],
+      "name": "collections"
+    },
+    {
+      "entry": ["/blog"],
+      "name": "blog"
     }
   ]
 }

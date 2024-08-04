@@ -1,4 +1,3 @@
-import CartPage from "../../components/cart/components/CartPage";
 import { Separator } from "../../components/ui/separator";
 import Footer from "../Footer";
 import Header from "../Header";
@@ -15,10 +14,10 @@ export type BaseLayoutProps = {
  */
 export default function BaseLayout({ children }: BaseLayoutProps) {
   return (
-    <div className="w-full">
+    <div className="w-full bg-lightGray scrollbar-hide">
       <div className="bg-white">
         <TopBanner />
-        <div className="w-full max-w-[1450px] mx-auto px-4">
+        <div className="w-full max-w-[1450px] mx-auto px-4 hidden xl:block">
           <LanguageCurrencyConverterHeader />
         </div>
         <Separator />
@@ -31,8 +30,9 @@ export default function BaseLayout({ children }: BaseLayoutProps) {
         </div>
         <Separator />
       </div>
-      <main className="w-full max-w-[1450px] mx-auto px-4">{children}</main>
-      <CartPage />
+      {/* <main className="w-full max-w-[1450px] mx-auto px-4">{children}</main> */}
+      <main className="w-full  mx-auto ">{children}</main>
+
       <Footer />
     </div>
   );

@@ -5,7 +5,7 @@ import React from "react";
 import { productionBasePath } from "./flags";
 
 export const routerConfigurations: RouterConfigurations = {
-  strictMode: true,
+  strictMode: false,
   basePath: productionBasePath,
   scrollToTop: "smooth",
   autoRedirectToLocaleCode: Object.keys(localeCodesList).length > 1,
