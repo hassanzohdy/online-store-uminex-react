@@ -43,26 +43,26 @@ export default function ProductCard({
   }
   return (
     <div
-      className={`group  bg-white  relative  p-2 md:p-4 rounded h-auto ${hotDeals ? "md:h-[415px]" : "md:h-[405px]"}  ${hotDeals ? "lg:h-[350px]" : "lg:h-[340px]"} cursor-pointer overflow-hidden ${customStyle}`}>
+      className={`group  bg-white  relative  p-2 md:p-3  rounded h-auto   cursor-pointer overflow-hidden ${customStyle}`}>
       {discount > 0 && (
         <div className="absolute  left-3 md:left-4   top-3 md:top-5   w-10 md:w-14 h-6 bg-[#dd3842] z-20 flex items-center justify-center">
           <span className=" text-white text-xs font-semibold">{discount}%</span>
         </div>
       )}
-      <div className="absolute right-5 z-20 xl:translate-y-6  opacity-100 xl:opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-        <div className="group/wishlist  size-9 flex items-center justify-center rounded-full shadow mb-2 hover:bg-blue transition-all duration-300">
+      <div className="absolute right-5 flex flex-col gap-1 z-40 xl:translate-y-6  opacity-100 xl:opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+        <div className="group/wishlist  size-9 flex items-center justify-center rounded-full shadow  bg-white hover:bg-blue transition-all duration-300">
           <HeartIcon className="size-4 group-hover/wishlist:text-white transition-all duration-300" />
           <p className="inline-block pointer-events-none absolute bg-primary text-white right-11 text-xs px-2 py-1 rounded-sm w-max opacity-0 group-hover/wishlist:opacity-100 translate-x-2 group-hover/wishlist:translate-x-0 transition-all duration-500 after:content-[''] after:-right-2 after:top-1/2 after:-translate-y-1/2 after:size-2 after:bg-primary after:absolute after:clip-triangle after:rotate-90">
             Add Wishlist
           </p>
         </div>
-        <div className="hidden  group/show size-9 xl:flex items-center justify-center rounded-full shadow  hover:bg-blue transition-all duration-300">
+        <div className="hidden  group/show size-9 xl:flex items-center justify-center rounded-full shadow bg-white hover:bg-blue transition-all duration-300">
           <FaRegEye className="size-4 group-hover/show:text-white transition-all duration-300" />
           <p className="inline-block  pointer-events-none  absolute bg-primary text-white right-11 text-xs px-2 py-1 rounded-sm w-max opacity-0 group-hover/show:opacity-100 translate-x-2 group-hover/show:translate-x-0 transition-all duration-500 after:content-[''] after:-right-2 after:top-1/2 after:-translate-y-1/2 after:size-2 after:bg-primary after:absolute after:clip-triangle after:rotate-90">
             Quick View
           </p>
         </div>
-        <div className="hidden  group/compare size-9 xl:flex items-center justify-center rounded-full shadow  hover:bg-blue transition-all duration-300">
+        <div className="hidden  group/compare size-9 xl:flex items-center justify-center rounded-full shadow bg-white hover:bg-blue transition-all duration-300">
           <IoGitCompare className="size-4 group-hover/compare:text-white transition-all duration-300" />
           <p className="inline-block  pointer-events-none  absolute bg-primary text-white right-11 text-xs px-2 py-1 rounded-sm w-max opacity-0 group-hover/compare:opacity-100 translate-x-2 group-hover/compare:translate-x-0 transition-all duration-500 after:content-[''] after:-right-2 after:top-1/2 after:-translate-y-1/2 after:size-2 after:bg-primary after:absolute after:clip-triangle after:rotate-90">
             Add Compare
@@ -71,23 +71,24 @@ export default function ProductCard({
       </div>
       <div className="relative mx-auto w-full flex justify-center">
         <img
-          className=" w-full md:max-w-48 z-10  aspect-square opacity-100 hover:opacity-0 transition-opacity duration-300 ease-out"
+          className=" w-full   aspect-square opacity-100 hover:opacity-0 transition-opacity duration-300 ease-out"
           src={image[0]}
           alt=""
         />
         <img
-          className="absolute w-full md:max-w-48 aspect-square "
+          className="absolute w-full  aspect-square "
           src={image[1]}
           alt=""
         />
       </div>
-      <div className="bg-white z-20  relative  lg:group-hover:-translate-y-16 transition-all duration-500 py-1 text-left">
+      <div
+        className={`bg-white z-20  relative ${hotDeals ? "" : ""}  lg:group-hover:-translate-y-14  transition-transform duration-500 pt-1  `}>
         <Link
           to={path}
           className="line-clamp-2 h-10 mt-2 leading-5 font-semibold text-sm hover:text-blue  transition-colors duration-200">
           {title}
         </Link>
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-1 mt-1">
           <span className="flex">
             {Array(Math.min(Math.abs(rate), 5))
               .fill(0)
@@ -151,7 +152,7 @@ export default function ProductCard({
           )}
         </div>
         <button
-          className={`w-full h-8 md:h-10 rounded-full ${availableQuantity > 0 ? "bg-blue" : "bg-red"} font-semibold text-white opacity-100 text-xs md:text-sm mt-4 lg:opacity-0 lg:group-hover:opacity-100 lg:transition-opacity lg:duration-700`}>
+          className={`w-full h-8 md:h-10 rounded-full ${availableQuantity > 0 ? "bg-blue" : "bg-red"} block font-semibold text-white opacity-100 text-xs md:text-sm mt-4 lg:opacity-0 lg:absolute  lg:group-hover:opacity-100 lg:transition-opacity lg:duration-700`}>
           {availableQuantity > 0 ? "Add To Cart" : "Out Of Stock"}
         </button>
       </div>
