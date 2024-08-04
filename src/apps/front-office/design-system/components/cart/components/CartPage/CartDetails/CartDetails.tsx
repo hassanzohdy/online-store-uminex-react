@@ -1,3 +1,7 @@
+import { FaPlus } from "react-icons/fa";
+import { FiMinus } from "react-icons/fi";
+import { FiPlus } from "react-icons/fi";
+
 import styles from "./styles.module.scss";
 export type CartDetailsProps = {
   // props go here
@@ -14,8 +18,7 @@ export default function CartDetails() {
       </div>
       <div className={styles.detailsBody}>
         <div className={styles.product}>
-          <div
-            className={`${styles.productData} flex gap-4  align-center`}>
+          <div className={`${styles.productData} flex gap-4 items-center`}>
             <div className={`${styles.productImg} w-24`}>
               <img
                 src="//demo-uminex.myshopify.com/cdn/shop/products/products_13_1_grande.jpg?v=1672302391"
@@ -34,9 +37,16 @@ export default function CartDetails() {
                 <del className="text-darkGray semibold text-base">$928.00</del>
               </div>
             </div>
+
+            <div className={`${styles.productCounter} flex`}>
+              <div>
+                <FiPlus />
+              </div>
+              <div className="number"> 04</div>
+              <div><FiMinus /></div>
+            </div>
+            <div className={styles.productDelete}></div>
           </div>
-          <div className={styles.productCounter}>ssssss</div>
-          <div className={styles.productDelete}></div>
         </div>
       </div>
       <div className={styles.detailsFooter}></div>
