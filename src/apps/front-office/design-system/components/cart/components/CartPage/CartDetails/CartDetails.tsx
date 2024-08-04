@@ -16,8 +16,10 @@ export default function CartDetails() {
       </div>
       <div className={styles.detailsBody}>
         <div className={styles.product}>
-          <div className={`${styles.productData} flex gap-4 items-center`}>
-            <div className={`${styles.productImg} w-24`}>
+          <div className={`${styles.productData} flex gap-4 items-center justify-between`}>
+<div className="flex gap-3 items-center">
+
+<div className={`${styles.productImg} w-24`}>
               <img
                 src="//demo-uminex.myshopify.com/cdn/shop/products/products_13_1_grande.jpg?v=1672302391"
                 className="w-24"
@@ -35,6 +37,8 @@ export default function CartDetails() {
                 <del className="text-darkGray semibold text-base">$928.00</del>
               </div>
             </div>
+</div>
+
 
             <div className={`${styles.productCounter} flex items-center gap-5`}>
               <div>
