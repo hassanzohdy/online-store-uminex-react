@@ -1,0 +1,11 @@
+
+  .details {
+    flex: 2;
+    .detailsHeader{
+      .list{
+        display: flex;
+        justify-content: space-between;
+      }
+
+    }
+  }
