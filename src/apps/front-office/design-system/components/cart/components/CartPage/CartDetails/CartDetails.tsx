@@ -14,8 +14,8 @@ export default function CartDetails() {
       </div>
       <div className={styles.detailsBody}>
         <div className={styles.product}>
-          <div className={styles.productData}>
-            <div className={styles.productImg}>
+          <div className={`${styles.productData} flex gap-4 justify-center  align-center`}>
+            <div className={`${styles.productImg} w-24`}>
               <img
                 src="//demo-uminex.myshopify.com/cdn/shop/products/products_13_1_grande.jpg?v=1672302391"
                 className="w-24"
@@ -26,11 +26,11 @@ export default function CartDetails() {
                 Dell Vostro 3888 i9 8GB 512GB
               </h3>
               <p className="text-primary font-text-sm font-semibold">- Win10</p>
-              <div>
+              <div className="priceWrapper flex gap-2">
                 <span className="text-secondary text-base font-semibold ">
                   $900.00
                 </span>
-                <del className="text-darkGray semibold text-base">sss</del>
+                <del className="text-darkGray semibold text-base">$928.00</del>
               </div>
             </div>
           </div>
