@@ -1,6 +1,7 @@
 // append urls here, DO NOT remove this line
 
 const URLS = {
+  collections: "/collections",
   home: "/",
   notFound: "/404",
   blog: {
