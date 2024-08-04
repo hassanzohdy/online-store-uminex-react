@@ -1,6 +1,4 @@
-import { FaPlus } from "react-icons/fa";
-import { FiMinus } from "react-icons/fi";
-import { FiPlus } from "react-icons/fi";
+import { FiMinus, FiPlus } from "react-icons/fi";
 
 import styles from "./styles.module.scss";
 export type CartDetailsProps = {
@@ -38,12 +36,14 @@ export default function CartDetails() {
               </div>
             </div>
 
-            <div className={`${styles.productCounter} flex`}>
+            <div className={`${styles.productCounter} flex items-center gap-5`}>
               <div>
                 <FiPlus />
               </div>
               <div className="number"> 04</div>
-              <div><FiMinus /></div>
+              <div>
+                <FiMinus />
+              </div>
             </div>
             <div className={styles.productDelete}></div>
           </div>
