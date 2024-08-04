@@ -14,7 +14,8 @@ export default function CartDetails() {
       </div>
       <div className={styles.detailsBody}>
         <div className={styles.product}>
-          <div className={`${styles.productData} flex gap-4 justify-center  align-center`}>
+          <div
+            className={`${styles.productData} flex gap-4  align-center`}>
             <div className={`${styles.productImg} w-24`}>
               <img
                 src="//demo-uminex.myshopify.com/cdn/shop/products/products_13_1_grande.jpg?v=1672302391"
