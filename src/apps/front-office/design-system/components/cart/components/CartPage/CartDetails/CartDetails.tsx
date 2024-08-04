@@ -29,8 +29,8 @@ export default function CartDetails() {
               <div>
                 <span className="text-secondary text-base font-semibold ">
                   $900.00
-                </span>{" "}
-                <del className="text-darkGray semibold">sss</del>
+                </span>
+                <del className="text-darkGray semibold text-base">sss</del>
               </div>
             </div>
           </div>
