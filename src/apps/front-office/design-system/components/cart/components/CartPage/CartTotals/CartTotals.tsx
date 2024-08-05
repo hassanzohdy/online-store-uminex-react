@@ -26,7 +26,7 @@ export default function CartTotals() {
             <label className="font-semibold">Country</label>
             <select
               id="example-select"
-              className="block w-full mt-1  border-0 rounded-full py-4 px-4 text-gray-900 shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm bg-lightGray">
+              className="block w-full mt-1  border-0 rounded-full py-4 px-4 text-gray-900 shadow-sm focus:outline-none focus:bg-white border-borderGray border sm:text-sm bg-lightGray">
               <option value="option1">Option 1</option>
               <option value="option2">Option 2</option>
               <option value="option3">Option 3</option>
@@ -36,7 +36,7 @@ export default function CartTotals() {
             <label className="font-semibold">State</label>
             <select
               id="example-select"
-              className="block w-full mt-1  border-0 rounded-full py-4 px-4 text-gray-900 shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm bg-lightGray">
+              className="block w-full mt-1  border-0 rounded-full py-4 px-4 text-gray-900 shadow-sm focus:outline-none  focus:bg-white border-borderGray border sm:text-sm bg-lightGray">
               <option value="option1">Option 1</option>
               <option value="option2">Option 2</option>
               <option value="option3">Option 3</option>
@@ -47,7 +47,7 @@ export default function CartTotals() {
             <input
               id="example-select"
               type="text"
-              className="block w-full mt-1  border-0 rounded-full py-4 px-4 text-gray-900 shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm bg-lightGray"></input>
+              className="block w-full mt-1  border-0 rounded-full py-4 px-4 text-gray-900 shadow-sm focus:outline-none  focus:bg-white border-borderGray border sm:text-sm bg-lightGray"></input>
           </div>
           <Button
             className=" p-6 rounded-full uppercase w-full"
@@ -60,7 +60,7 @@ export default function CartTotals() {
             <input
               id="example-select"
               type="text"
-              className="block w-full mt-1  border-0 rounded-full py-4 px-4 text-gray-900 shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm bg-lightGray"></input>
+              className="block w-full mt-1  border-0 rounded-full py-4 px-4 text-gray-900 shadow-sm focus:outline-none  focus:bg-white border-borderGray border sm:text-sm bg-lightGray"></input>
           </div>
           <div className="pt-5 pb-5 border-b-2 border-borderLight text-base uppercase flex justify-between">
             <h3 className="font-semibold">Subtotal</h3>

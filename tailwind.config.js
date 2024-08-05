@@ -83,6 +83,8 @@ export default {
         lightRed: `#EFEFEF`,
         lightGreen: `#EFEFEF`,
         iconColor: `#888`,
+        grayColor: `#8a94ac`,
+        borderGray: `#F1F5F6`,
       },
 
       fontSize: {
