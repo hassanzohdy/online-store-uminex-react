@@ -47,7 +47,8 @@ export default function CartDetails() {
               </div>
             </div>
 
-            <div className={`${styles.productCounter} flex items-center gap-5 `}>
+            <div
+              className={`${styles.productCounter} flex items-center gap-5 `}>
               <div>
                 <FiMinus color="#888" />
               </div>
@@ -67,7 +68,8 @@ export default function CartDetails() {
           </div>
         </div>
       </div>
-      <div className={`${styles.detailsFooter} flex justify-between mt-5 border-b-2 border-borderLight pb-5`}>
+      <div
+        className={`${styles.detailsFooter} flex justify-between mt-5 border-b-2 border-borderLight pb-5`}>
         <Button className=" p-6 rounded-full uppercase" variant="primary">
           {trans("continueShopping")}
         </Button>
@@ -76,7 +78,9 @@ export default function CartDetails() {
         </Button>
       </div>
       <div className="my-4">
-        <label className="font-semibold block mb-3 font-base font-bold uppercase">Add Order Note</label>
+        <label className="font-semibold block mb-3 font-base font-bold uppercase">
+          Add Order Note
+        </label>
         <textarea className="block text-grayColor h-32 w-full mt-1  border-0 rounded-3xl py-4 px-4 text-gray-900 shadow-sm focus:outline-none border-borderGray border sm:text-sm bg-lightGray focus:bg-white ">
           how can i help you ?
         </textarea>
