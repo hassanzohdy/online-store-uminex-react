@@ -8,13 +8,13 @@ export type CartDetailsProps = {
 };
 export default function CartDetails() {
   return (
-    <div className={styles.details}>
+    <div className={`${styles.details} px-8`}>
       <div className={styles.detailsHeader}>
         <ul
-          className={`${styles.list} pt-8 pb-8 border-b-2 border-borderLight`}>
+          className={`${styles.list} pt-8 pb-8 border-y-2 border-borderLight`}>
           <li>Product</li>
-          <li>Product</li>
-          <li>Product</li>
+          <li>Quantity</li>
+          <li>Subtotal</li>
         </ul>
       </div>
       <div className={styles.detailsBody}>
