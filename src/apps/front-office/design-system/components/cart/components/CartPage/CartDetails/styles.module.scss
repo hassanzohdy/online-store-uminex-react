@@ -12,6 +12,9 @@
       display: flex;
       justify-content: space-between;
       .priceWrapper {
+        .icon{
+          background-color: red;
+        }
       }
     }
   }

@@ -46,11 +46,12 @@ export default function CartDetails() {
 
             <div className={`${styles.productCounter} flex items-center gap-5`}>
               <div>
-                <FiPlus />
+              <FiMinus color="#888" />
               </div>
               <div className="number"> 04</div>
               <div>
-                <FiMinus />
+
+                <FiPlus color="#888" />
               </div>
             </div>
             <div className={`${styles.productTotal} `}>
@@ -59,7 +60,7 @@ export default function CartDetails() {
               </h3>
             </div>
             <div className={styles.productDelete}>
-              <RiDeleteBin5Line />
+              <RiDeleteBin5Line  />
             </div>
           </div>
         </div>
