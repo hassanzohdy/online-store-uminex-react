@@ -1,6 +1,7 @@
+import { trans } from "@mongez/localization";
+import { Button } from "apps/front-office/design-system/components/ui/button";
 import { FiMinus, FiPlus } from "react-icons/fi";
 import { RiDeleteBin5Line } from "react-icons/ri";
-
 import styles from "./styles.module.scss";
 export type CartDetailsProps = {
   // props go here
@@ -9,14 +10,16 @@ export default function CartDetails() {
   return (
     <div className={styles.details}>
       <div className={styles.detailsHeader}>
-        <ul className={`${styles.list} pt-8 pb-8 border-b-2 border-borderLight`}>
+        <ul
+          className={`${styles.list} pt-8 pb-8 border-b-2 border-borderLight`}>
           <li>Product</li>
           <li>Product</li>
           <li>Product</li>
         </ul>
       </div>
       <div className={styles.detailsBody}>
-        <div className={`${styles.product} pt-7 pb-7 border-b-2 border-borderLight`}>
+        <div
+          className={`${styles.product} pt-7 pb-7 border-b-2 border-borderLight`}>
           <div
             className={`${styles.productData} flex gap-4 items-center justify-between`}>
             <div className="flex gap-3 items-center">
@@ -64,7 +67,14 @@ export default function CartDetails() {
           </div>
         </div>
       </div>
-      <div className={styles.detailsFooter}></div>
+      <div className={`${styles.detailsFooter} flex justify-between mt-5`}>
+        <Button className=" p-6 rounded-full uppercase" variant="primary">
+          {trans("continueShopping")}
+        </Button>
+        <Button className=" p-6 rounded-full uppercase" variant="primary">
+          {trans("deleteAll")}
+        </Button>
+      </div>
     </div>
   );
 }
