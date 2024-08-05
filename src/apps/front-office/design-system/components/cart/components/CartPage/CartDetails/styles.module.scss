@@ -4,7 +4,6 @@
     .list {
       display: flex;
       justify-content: space-between;
-
     }
   }
   .productData {
@@ -12,7 +11,7 @@
       display: flex;
       justify-content: space-between;
       .priceWrapper {
-        .icon{
+        .icon {
           background-color: red;
         }
       }

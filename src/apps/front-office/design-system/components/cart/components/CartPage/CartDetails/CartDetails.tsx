@@ -9,14 +9,14 @@ export default function CartDetails() {
   return (
     <div className={styles.details}>
       <div className={styles.detailsHeader}>
-        <ul className={styles.list}>
+        <ul className={`${styles.list} pt-8 pb-8 border-b-2 border-borderLight`}>
           <li>Product</li>
           <li>Product</li>
           <li>Product</li>
         </ul>
       </div>
       <div className={styles.detailsBody}>
-        <div className={styles.product}>
+        <div className={`${styles.product} pt-7 pb-7 border-b-2 border-borderLight`}>
           <div
             className={`${styles.productData} flex gap-4 items-center justify-between`}>
             <div className="flex gap-3 items-center">
@@ -46,11 +46,10 @@ export default function CartDetails() {
 
             <div className={`${styles.productCounter} flex items-center gap-5`}>
               <div>
-              <FiMinus color="#888" />
+                <FiMinus color="#888" />
               </div>
               <div className="number"> 04</div>
               <div>
-
                 <FiPlus color="#888" />
               </div>
             </div>
@@ -60,7 +59,7 @@ export default function CartDetails() {
               </h3>
             </div>
             <div className={styles.productDelete}>
-              <RiDeleteBin5Line  />
+              <RiDeleteBin5Line />
             </div>
           </div>
         </div>
