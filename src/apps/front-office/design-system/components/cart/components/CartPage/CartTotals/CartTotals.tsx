@@ -11,7 +11,7 @@ export default function CartTotals() {
       <div className="pt-3 pb-3 border-b-2 border-borderLight font-bold text-base uppercase">
         Cart totals
       </div>
-      <div className="pt-5 pb-5 border-b-2 border-borderLight text-base uppercase flex justify-between">
+      <div className="pt-5 pb-5 border-b-2 border-borderLight text-base  flex justify-between">
         <h3 className="font-semibold">Subtotal</h3>
         <p className="font-bold text-base">$3,830.00</p>
       </div>
