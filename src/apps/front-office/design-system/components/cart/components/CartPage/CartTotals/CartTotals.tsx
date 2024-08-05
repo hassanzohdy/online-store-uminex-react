@@ -4,7 +4,7 @@ export type CartTotalsProps = {
 };
 export default function CartTotals() {
   return (
-    <div className={styles.total}>
+    <div className={`${styles.total} border-blue border-2 rounded-lg p-7`}>
       <div className="progress"></div>
       <div className="pt-3 pb-3 border-b-2 border-borderLight font-bold text-base uppercase">
         Cart totals
@@ -20,10 +20,10 @@ export default function CartTotals() {
       </div>
       <div>
         <form>
-          <label>Country</label>
+          <label className="font-semibold">Country</label>
           <select
             id="example-select"
-            className="block w-full mt-1 border border-gray-300 rounded-full py-2 px-3 text-gray-900 shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm bg-lightGray">
+            className="block w-full mt-1  border-0 rounded-full py-4 px-4 text-gray-900 shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm bg-lightGray">
             <option value="option1">Option 1</option>
             <option value="option2">Option 2</option>
             <option value="option3">Option 3</option>
