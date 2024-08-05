@@ -10,7 +10,7 @@ export default function CartPage() {
     <>
       <Helmet title="Cart Page" />
       <div
-        className={`${styles.cartWrapper} container grid gap-2 grid-cols-2 bg-white`}>
+        className={`${styles.cartWrapper} container flex justify-between bg-white my-5 p-0`}>
         <CartDetails />
         <CartTotals />
       </div>

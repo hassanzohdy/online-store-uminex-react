@@ -69,7 +69,9 @@ export default function CartTotals() {
             <p className="font-bold text-base">$3,830.00</p>
           </div>
           <div className="pt-5 pb-5 border-b-2 border-borderLight text-base uppercase flex justify-between">
-            <p className="font-normal text-sm flex items-center gap-3"><MdDiscount />  <span>Buy 4 products 15% discount (-$574.50)</span></p>
+            <p className="font-normal text-sm flex items-center gap-3">
+              <MdDiscount /> <span>Buy 4 products 15% discount (-$574.50)</span>
+            </p>
           </div>
           <Button
             className=" p-6 rounded-full uppercase w-full mt-5"
