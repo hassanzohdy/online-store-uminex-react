@@ -1,5 +1,7 @@
 import { trans } from "@mongez/localization";
 import { Button } from "apps/front-office/design-system/components/ui/button";
+import { MdDiscount } from "react-icons/md";
+
 import styles from "./styles.module.scss";
 export type CartTotalsProps = {
   // props go here
@@ -63,8 +65,11 @@ export default function CartTotals() {
               className="block w-full mt-1  border-0 rounded-full py-4 px-4 text-gray-900 shadow-sm focus:outline-none  focus:bg-white border-borderGray border sm:text-sm bg-lightGray"></input>
           </div>
           <div className="pt-5 pb-5 border-b-2 border-borderLight text-base uppercase flex justify-between">
-            <h3 className="font-semibold">Subtotal</h3>
+            <h3 className="font-semibold">You save in total</h3>
             <p className="font-bold text-base">$3,830.00</p>
+          </div>
+          <div className="pt-5 pb-5 border-b-2 border-borderLight text-base uppercase flex justify-between">
+            <p className="font-normal text-sm flex items-center gap-3"><MdDiscount />  <span>Buy 4 products 15% discount (-$574.50)</span></p>
           </div>
           <Button
             className=" p-6 rounded-full uppercase w-full mt-5"

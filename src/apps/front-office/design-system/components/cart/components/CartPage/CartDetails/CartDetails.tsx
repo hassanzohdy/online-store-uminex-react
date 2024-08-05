@@ -77,7 +77,9 @@ export default function CartDetails() {
       </div>
       <div className="my-4">
         <label className="font-semibold block mb-3">Add Order Note</label>
-        <textarea className="block text-grayColor h-32 w-full mt-1  border-0 rounded-3xl py-4 px-4 text-gray-900 shadow-sm focus:outline-none border-borderGray border sm:text-sm bg-lightGray focus:bg-white">how can i help you ?</textarea>
+        <textarea className="block text-grayColor h-32 w-full mt-1  border-0 rounded-3xl py-4 px-4 text-gray-900 shadow-sm focus:outline-none border-borderGray border sm:text-sm bg-lightGray focus:bg-white">
+          how can i help you ?
+        </textarea>
       </div>
     </div>
   );
