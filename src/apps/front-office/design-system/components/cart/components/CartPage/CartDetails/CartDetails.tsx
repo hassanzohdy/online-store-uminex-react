@@ -12,9 +12,9 @@ export default function CartDetails() {
       <div className={styles.detailsHeader}>
         <ul
           className={`${styles.list} pt-8 pb-8 border-y-2 border-borderLight`}>
-          <li>Product</li>
-          <li>Quantity</li>
-          <li>Subtotal</li>
+          <li>{trans("product")}</li>
+          <li>{trans("quantity")}</li>
+          <li>{trans("subtotal")}</li>
         </ul>
       </div>
       <div className={styles.detailsBody}>
