@@ -19,6 +19,14 @@
     {
       "entry": ["/about-us", "/privacy-policy", "/terms-conditions"],
       "name": "informative-pages"
+    },
+    {
+      "entry": ["/collections"],
+      "name": "collections"
+    },
+    {
+      "entry": ["/blog"],
+      "name": "blog"
     }
   ]
 }

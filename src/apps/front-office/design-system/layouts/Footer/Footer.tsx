@@ -27,7 +27,7 @@ export default function Footer() {
   };
 
   return (
-    <div className="bg-white min-h-80 px-2 pt-8 mx-auto w-[95%]">
+    <div className="bg-white min-h-80 px-2 pt-8 mx-auto ">
       <div className="bg-borderLight h-px mt-8 mb-8"></div>
 
       <div className="flex justify-between flex-col md:flex-row md:flex-wrap  lg:flex-nowrap items-start max-w-full">

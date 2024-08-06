@@ -1,12 +1,16 @@
 // append urls here, DO NOT remove this line
 
 const URLS = {
+  collections: "/collections",
   home: "/",
   notFound: "/404",
   blog: {
     root: "/blog",
     viewRoute: "/blog/:id/:slug",
     view: (post: any) => `/blog/${post.id}/${post.slug}`,
+  },
+  products: {
+    root: "/collection",
   },
   faq: "/faq",
   auth: {

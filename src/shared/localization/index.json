@@ -1,4 +1,148 @@
 {
+  "home": {
+    "en": "Home",
+    "ar": "الرئيسيه"
+  },
+  "shop": {
+    "en": "Shop",
+    "ar": "المتجر"
+  },
+  "pages": {
+    "en": "Pages",
+    "ar": "صفحات"
+  },
+  "Subtotal": {
+    "en": "SUBTOTAL",
+    "ar": "المجموع الفرعي"
+  },
+  "about": {
+    "en": "About Us",
+    "ar": "معلومات عنا"
+  },
+  "faq": {
+    "en": "FAQ",
+    "ar": "الأسئلة الشائعة"
+  },
+  "terms": {
+    "en": "Terms & Conditions",
+    "ar": "الشروط والأحكام"
+  },
+  "team": {
+    "en": "Our Team",
+    "ar": "فريقنا"
+  },
+  "contact": {
+    "en": "Contact Us",
+    "ar": "اتصل بنا"
+  },
+  "blog": {
+    "en": "Blog",
+    "ar": "مدونة"
+  },
+  "sale": {
+    "en": "Sale $20 Off Your First Order.",
+    "ar": "خصم 20 دولار على طلبك الأول."
+  },
+  "browse": {
+    "en": "Browse All Categories",
+    "ar": "تصفح جميع الفئات"
+  },
+  "compare": {
+    "en": "COMPARE",
+    "ar": "المقارنه"
+  },
+  "emptyCompareList": {
+    "en": "No products to compare",
+    "ar": "لا توجد منتجات للمقارنة"
+  },
+  "searchModelTitle": {
+    "en": "WHAT ARE YOU LOOKING FOR?",
+    "ar": "ما الذي تبحث عنه؟"
+  },
+  "searchInputPlaceholder": {
+    "en": "Search For Products...",
+    "ar": "ابحث عن منتجات..."
+  },
+  "searchInputModelPlaceHolder": {
+    "en": "Search...",
+    "ar": "ابحث..."
+  },
+  "US": {
+    "en": "United States",
+    "ar": "الولايات المتحده الامريكيه"
+  },
+  "EG": {
+    "en": "Egypt",
+    "ar": "مصر"
+  },
+  "EGCurrency": {
+    "en": "LE",
+    "ar": "ج.م"
+  },
+  "cart": {
+    "en": "Cart",
+    "ar": "سله التسوق"
+  },
+  "shoppingCart": {
+    "en": "Shopping Cart",
+    "ar": "سلة التسوق"
+  },
+  "emptyCart": {
+    "en": "Your Cart is Empty",
+    "ar": "سلة التسوق فارغة"
+  },
+  "wishlist": {
+    "en": "My Wishlist",
+    "ar": "قائمتي المفضلة"
+  },
+  "emptyWishlist": {
+    "en": "Your Wishlist is Empty",
+    "ar": "قائمتك المفضله فارغه"
+  },
+  "searchBtn": {
+    "en": "Search",
+    "ar": "ابحث"
+  },
+  "emptyCartBtn": {
+    "en": "Return to Shop",
+    "ar": "الرجوع الي المتجر"
+  },
+  "viewAllBtn": {
+    "en": "View All",
+    "ar": "عرض الكل"
+  },
+  "register": {
+    "en": "Register",
+    "ar": "تسجيل"
+  },
+  "account": {
+    "en": "Account",
+    "ar": "الحساب"
+  },
+  "createAccount": {
+    "en": "Create Account",
+    "ar": "إنشاء حساب"
+  },
+  "sendPasswordResetLink": {
+    "en": "Send Password Reset Link",
+    "ar": "إرسال رابط إعادة تعيين كلمة المرور"
+  },
+  "rememberMe": {
+    "en": "Remember Me",
+    "ar": "تذكرني"
+  },
+  "verificationLink": {
+    "en": "A fresh verification link has been sent to your email address.",
+    "ar": "تم إرسال رابط التحقق الجديد إلى عنوان بريدك الإلكتروني."
+  },
+  "verificationCodeSent": {
+    "en": "Before proceeding, please check your email for a verification code.",
+    "ar": "قبل المتابعة ، يرجى التحقق من بريدك الإلكتروني لرمز التحقق."
+  },
+  "verificationCodeSentPhone": {
+    "en": "Before proceeding, please check your phone for a verification code.",
+    "ar": "قبل المتابعة ، يرجى التحقق من هاتفك لرمز التحقق."
+  },
   "test": {
     "en": "Test",
     "ar": "التجربة"
@@ -18,6 +162,14 @@
   "all": {
     "en": "All",
     "ar": "الكل"
+  },
+  "allCategories": {
+    "en": "All Categories",
+    "ar": "كل التصنيفات"
+  },
+  "topBannerTitle": {
+    "en": "Special offer: enjoy 3 months of shopify for $1/month",
+    "ar": "عرض خاص: استمتع بـ 3 أشهر من Shopify مقابل $1/شهر"
   },
   "metadata": {
     "en": "Metadata",
@@ -82,10 +234,6 @@
   "posts": {
     "en": "Posts",
     "ar": "المشاركات"
-  },
-  "blog": {
-    "en": "Blog",
-    "ar": "المقالات"
   },
   "event": {
     "en": "Event",
@@ -203,6 +351,10 @@
     "en": "Cost",
     "ar": "التكلفة"
   },
+  "studentDiscount": {
+    "en": "You are a student and students get 20% discount.",
+    "ar": "انت طالب و الطلاب يحصلون علي 20% خصم"
+  },
   "adding": {
     "en": "Adding",
     "ar": "إضافة"
@@ -288,8 +440,8 @@
     "ar": "عرض"
   },
   "welcomeBack": {
-    "en": "Welcome Back !",
-    "ar": "مرحبا بعودتك !"
+    "en": "Welcome Back :name",
+    "ar": "مرحبا بعودتك :name"
   },
   "signIn": {
     "en": "Sign In",
@@ -442,10 +594,6 @@
   "uploadedSuccess": {
     "en": "Uploaded Successfully",
     "ar": "تم الرفع بنجاح"
-  },
-  "home": {
-    "en": "Home",
-    "ar": "الرئيسية"
   },
   "selectAll": {
     "en": "Select All",
@@ -1491,10 +1639,6 @@
     "en": "Information",
     "ar": "المعلومات"
   },
-  "faq": {
-    "en": "FAQ",
-    "ar": "الأسئلة الشائعة"
-  },
   "basePrice": {
     "en": "Base Price",
     "ar": "السعر الأساسي"
@@ -1658,10 +1802,6 @@
   "city": {
     "en": "City",
     "ar": "مدينة"
-  },
-  "pages": {
-    "en": "Pages",
-    "ar": "الصفحات"
   },
   "page": {
     "en": "Page",

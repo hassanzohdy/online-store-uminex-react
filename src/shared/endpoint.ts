@@ -15,6 +15,7 @@ const endpoint = new Endpoint({
     expiresAfter: 60 * 60 * 24 * 7, // 1 week, but because it is a runtime driver, it will be cleared when the page is refreshed
   },
   setAuthorizationHeader: () => {
+    //${user.getAccessToken()}
     if (user.isLoggedIn()) {
       return `Bearer ${user.getAccessToken()}`;
     }
@@ -30,6 +31,7 @@ const endpointEvents = endpoint.events;
 endpointEvents.beforeSending(config => {
   const headers: any = config.headers;
   headers["os"] = apiOS;
+  headers["client-id"] = 127295270;
 });
 
 endpointEvents.onSuccess((response: AxiosResponse) => {
