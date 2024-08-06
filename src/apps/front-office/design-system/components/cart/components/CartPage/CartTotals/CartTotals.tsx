@@ -25,7 +25,7 @@ export default function CartTotals() {
       <div>
         <form>
           <div className="my-4">
-            <label className="font-semibold">Country</label>
+            <label className="font-semibold">{trans("country")}</label>
             <select
               id="example-select"
               className="block w-full mt-1  border-0 rounded-full py-4 px-4 text-gray-900 shadow-sm focus:outline-none focus:bg-white border-borderGray border sm:text-sm bg-lightGray">
@@ -35,7 +35,7 @@ export default function CartTotals() {
             </select>
           </div>
           <div className="my-4">
-            <label className="font-semibold">State</label>
+            <label className="font-semibold">{trans("state")}</label>
             <select
               id="example-select"
               className="block w-full mt-1  border-0 rounded-full py-4 px-4 text-gray-900 shadow-sm focus:outline-none  focus:bg-white border-borderGray border sm:text-sm bg-lightGray">
@@ -45,7 +45,7 @@ export default function CartTotals() {
             </select>
           </div>
           <div className="my-4">
-            <label className="font-semibold">Zip/Postal Code</label>
+            <label className="font-semibold">{trans("postalCode")}</label>
             <input
               id="example-select"
               type="text"
@@ -57,7 +57,9 @@ export default function CartTotals() {
             {trans("Calculate shipping rates")}
           </Button>
           <div>
-            <h3 className="pt-5 pb-5 uppercase font-bold text-base ">Coupon</h3>
+            <h3 className="pt-5 pb-5 uppercase font-bold text-base ">
+              {trans("coupon")}
+            </h3>
             <p>Coupon code will work on checkout page.</p>
             <input
               id="example-select"
@@ -65,7 +67,7 @@ export default function CartTotals() {
               className="block w-full mt-1  border-0 rounded-full py-4 px-4 text-gray-900 shadow-sm focus:outline-none  focus:bg-white border-borderGray border sm:text-sm bg-lightGray"></input>
           </div>
           <div className="pt-5 pb-5 border-b-2 border-borderLight text-base uppercase flex justify-between">
-            <h3 className="font-semibold">You save in total</h3>
+            <h3 className="font-semibold">{trans("saveTotal")}</h3>
             <p className="font-bold text-base">$3,830.00</p>
           </div>
           <div className="pt-5 pb-5 border-b-2 border-borderLight text-base uppercase flex justify-between">
@@ -76,7 +78,7 @@ export default function CartTotals() {
           <Button
             className=" p-6 rounded-full uppercase w-full mt-5"
             variant="primary">
-            {trans("Check Out")}
+            {trans("CheckOut")}
           </Button>
         </form>
       </div>

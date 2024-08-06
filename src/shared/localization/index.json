@@ -2886,5 +2886,21 @@
   "deleteAll": {
     "en": "Delete all",
     "ar": " مسح الكل"
+  },
+  "state": {
+    "en": "State",
+    "ar": " المنطقة "
+  },
+  "postalCode": {
+    "en": "Zip/Postal Code",
+    "ar": " الرمز البريدي "
+  },
+  "saveTotal": {
+    "en": "You save in total",
+    "ar": " قسيمة "
+  },
+  "calculateRates": {
+    "en": "calculate shipping rates",
+    "ar": " حساب أسعار الشحن "
   }
 }
