@@ -64,7 +64,15 @@ export default function CartDetails() {
               </h3>
             </div>
             <div className={styles.productDelete}>
-              <RiDeleteBin5Line />
+              <div className="group relative m-12 flex justify-center">
+                {/* <button class="rounded bg-amber-500 px-4 py-2 text-sm text-black shadow-sm">
+          Hover me!
+        </button> */}
+                <RiDeleteBin5Line />
+                <span className="absolute top-10 scale-0 rounded bg-gray-800 p-2 text-xs text-black group-hover:scale-100">
+                  ✨ You hover me!
+                </span>
+              </div>
             </div>
           </div>
         </div>
