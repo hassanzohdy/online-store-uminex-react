@@ -2892,5 +2892,42 @@
   "buttonText": {
     "en": "back to homepage",
     "ar": "الرجوع للصفحة الرئيسية"
+  },
+  "deleteAll": {
+    "en": "delete All",
+    "ar": "مسح الكل  "
+  },
+  "continueShopping": {
+    "en": " continue Shopping",
+    "ar": "متابعة التسوق"
+  },
+  "cartTotals": {
+    "en": "cart Totals",
+    "ar": " إجمالي السلة"
+  },
+  "estimateRates": {
+    "en": "estimate shopping Rates",
+    "ar": " تقدير أسعار الشحن:"
+  },
+  "state": {
+    "en": "state",
+    "ar": "ولاية"
+  },
+  "postalCode": {
+    "en": "Zip/Postal Code",
+    "ar": "رمز بريدي"
+  },
+  "saveTotal": {
+    "en": "You save in total",
+    "ar": "لقد وفرت"
+  },
+  "checkOut": {
+    "en": "checkOut   ",
+    "ar": " الدفع"
+  },
+  
+  "calculateShippingRates": {
+    "en": "calculate Shipping Rates   ",
+    "ar": "حساب اسعار الشحن"
   }
 }
