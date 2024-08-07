@@ -6,20 +6,20 @@ export const useCart = () => {
   const [error, setError] = useState(null);
   const [data, setData] = useState<any>();
 
-  useEffect(()=>{
-    const fetchCart = async() =>{
-        setIsLoading(true);
-        setError(null);
-        try {
-          const {data} = await getCart();
-          setData(data);
-        } catch (errorL:any) {
-          setError(error);
-        }
-        setIsLoading(false);
-    }
-    fetchCart()
-  },[])
+  useEffect(() => {
+    const fetchCart = async () => {
+      setIsLoading(true);
+      setError(null);
+      try {
+        const { data } = await getCart();
+        setData(data);
+      } catch (errorL: any) {
+        setError(error);
+      }
+      setIsLoading(false);
+    };
+    fetchCart();
+  }, [error]);
 
   return { data, isLoading, error };
 };

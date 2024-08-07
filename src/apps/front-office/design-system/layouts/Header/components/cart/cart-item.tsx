@@ -21,7 +21,7 @@ const CartItem = ({ cartItem, changeQuantity }: CartItemProps) => {
   const [isLoading, setIsLoading] = useState(false);
   const [value, setValue] = useState<number>(cartItem.quantity);
   const currentLanguage = current("localeCode");
-  const currentCurrency = currencyAtom.useValue()
+  const currentCurrency = currencyAtom.useValue();
 
   const handleDecreaseQuantity = async () => {
     setIsLoading(true);
@@ -68,7 +68,7 @@ const CartItem = ({ cartItem, changeQuantity }: CartItemProps) => {
           )}
         </h1>
         <h2 className="text-blue text-sm font-medium">
-          {formatPrice(cartItem.total.finalPrice , currentCurrency)}
+          {formatPrice(cartItem.total.finalPrice, currentCurrency)}
         </h2>
         <div className="flex items-center gap-1">
           <Button

@@ -1,7 +1,7 @@
 import { useUser } from "apps/front-office/design-system/hooks/use-user";
 import CheckoutFormErrorComponent from "./CheckoutFormErrorComponent";
 import CheckoutFormLoadingComponent from "./CheckoutFormLoadingComponent";
-import CheckoutFormComponent from "./checkoutFormComponent";
+import CheckoutFormComponent from "./CheckoutFormComponent";
 
 const CheckoutFormContainer = () => {
   const { data, isLoading, error } = useUser();
@@ -14,7 +14,6 @@ const CheckoutFormContainer = () => {
     return <CheckoutFormErrorComponent />;
   }
   if (data) {
-    console.log(data.user);
     const { user } = data;
 
     return <CheckoutFormComponent user={user} />;

@@ -4,7 +4,7 @@ import { useWishlist } from "apps/front-office/design-system/hooks/use-wishlist"
 import { FaRegHeart } from "react-icons/fa";
 import WishlistSidebar from "./wishlist-sidebar";
 
-const WishlistSidebarContainer = ({navbar}:{navbar?:boolean}) => {
+const WishlistSidebarContainer = ({ navbar }: { navbar?: boolean }) => {
   const { data, isLoading, error } = useWishlist();
 
   if (isLoading) {
@@ -23,7 +23,7 @@ const WishlistSidebarContainer = ({navbar}:{navbar?:boolean}) => {
 
   if (data) {
     wishlistAtom.update(data);
-    return <WishlistSidebar navbar={navbar}/>;
+    return <WishlistSidebar navbar={navbar} />;
   }
 };
 

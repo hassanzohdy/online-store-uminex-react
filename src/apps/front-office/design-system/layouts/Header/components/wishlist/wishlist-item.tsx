@@ -8,7 +8,7 @@ import { FiX } from "react-icons/fi";
 
 const WishlistItem = ({ wishlistItem, changeStatus }: any) => {
   const currentLanguage = current("localeCode");
-  const currentCurrency = currencyAtom.useValue()
+  const currentCurrency = currencyAtom.useValue();
   const DeleteItem = () => {
     changeStatus();
     wishlistAtom.deleteItem(wishlistItem.id);
@@ -31,7 +31,7 @@ const WishlistItem = ({ wishlistItem, changeStatus }: any) => {
           )}
         </h1>
         <h2 className="text-blue text-sm font-medium">
-          {formatPrice(wishlistItem.price , currentCurrency)}
+          {formatPrice(wishlistItem.price, currentCurrency)}
         </h2>
       </div>
       <Button className="" variant={"ghost"} onClick={DeleteItem}>

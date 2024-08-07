@@ -11,7 +11,7 @@
     "en": "Pages",
     "ar": "صفحات"
   },
-  "Total":{
+  "Total": {
     "en": "Total",
     "ar": "المجموع"
   },
@@ -31,27 +31,27 @@
     "en": "Terms & Conditions",
     "ar": "الشروط والأحكام"
   },
-  "emailPlaceHolder":{
-    "en":"Email or Mobile Phone Number",
-    "ar":"البريد الالكتروني أو الهاتف المحمول"
+  "emailPlaceHolder": {
+    "en": "Email or Mobile Phone Number",
+    "ar": "البريد الالكتروني أو الهاتف المحمول"
   },
-  "showOrderSummary":{
-    "en":"Show Order Summary",
-    "ar":"اظهار ملخص طلبك"
+  "showOrderSummary": {
+    "en": "Show Order Summary",
+    "ar": "اظهار ملخص طلبك"
   },
-  "delivery":{
-    "en":"Delivery",
-    "ar":"التوصيل"
+  "delivery": {
+    "en": "Delivery",
+    "ar": "التوصيل"
   },
   "team": {
     "en": "Our Team",
     "ar": "فريقنا"
   },
-  "CheckOut":{
+  "CheckOut": {
     "en": "Check Out",
     "ar": "الدفع"
   },
-  "ViewCart":{
+  "ViewCart": {
     "en": "View Cart",
     "ar": "عرض السلة"
   },
@@ -67,61 +67,61 @@
     "en": "Sale $20 Off Your First Order.",
     "ar": "خصم 20 دولار على طلبك الأول."
   },
-  "SelectCountry":{
+  "SelectCountry": {
     "en": "Select Country",
     "ar": "اختر الدولة"
   },
-  "SelectState":{
+  "SelectState": {
     "en": "Select State",
     "ar": "اختر المحافظه"
   },
-  "SelectCity":{
+  "SelectCity": {
     "en": "Select City",
     "ar": "اختر المدينه"
   },
-  "firstName":{
-    "en":"First Name",
-    "ar":" الاسم الاول"
+  "firstName": {
+    "en": "First Name",
+    "ar": " الاسم الاول"
   },
-  "LastName":{
-    "en":"Last Name",
-    "ar":" الاسم الاخير"
+  "LastName": {
+    "en": "Last Name",
+    "ar": " الاسم الاخير"
   },
-  "Address":{
-    "en":"Address",
-    "ar":"العنوان"
+  "Address": {
+    "en": "Address",
+    "ar": "العنوان"
   },
-  "Apartment":{
-    "en":"Apartment",
-    "ar":"المبني"
+  "Apartment": {
+    "en": "Apartment",
+    "ar": "المبني"
   },
-  "zipCode":{
-    "en":"Zip Code",
-    "ar":"الرمز البريدي"
+  "zipCode": {
+    "en": "Zip Code",
+    "ar": "الرمز البريدي"
   },
-  "cardNumber":{
-    "en":"Card Number",
-    "ar":"رقم البطاقة"
+  "cardNumber": {
+    "en": "Card Number",
+    "ar": "رقم البطاقة"
   },
-  "expirationDate":{
-    "en":"Expiration Date (MM / YY)",
-    "ar":"تاريخ الانتهاء (شهر / سنة)"
+  "expirationDate": {
+    "en": "Expiration Date (MM / YY)",
+    "ar": "تاريخ الانتهاء (شهر / سنة)"
   },
-  "SecurityCode":{
-      "en":"Security Code",
-      "ar":"كود الحماية"
+  "SecurityCode": {
+    "en": "Security Code",
+    "ar": "كود الحماية"
   },
-  "SecurityCodeHover":{
-      "en":"3-digit security code usually found on the back of your card. American Express cards have a 4-digit code located on the front.",
-      "ar":"رمز الأمان المكون من 3 أرقام يوجد عادةً على ظهر بطاقتك. بطاقات أمريكان إكسبريس تحتوي على رمز مكون من 4 أرقام يوجد على الجهة الأمامية."
+  "SecurityCodeHover": {
+    "en": "3-digit security code usually found on the back of your card. American Express cards have a 4-digit code located on the front.",
+    "ar": "رمز الأمان المكون من 3 أرقام يوجد عادةً على ظهر بطاقتك. بطاقات أمريكان إكسبريس تحتوي على رمز مكون من 4 أرقام يوجد على الجهة الأمامية."
   },
-  "cardName":{
-    "en":"Card Name",
-    "ar":"اسم البطاقة"
+  "cardName": {
+    "en": "Card Name",
+    "ar": "اسم البطاقة"
   },
-  "transactionsEncrypted":{
-    "en":"All transactions are secure and encrypted.",
-    "ar":"كل التعاملات مؤمنة ومشفقة."
+  "transactionsEncrypted": {
+    "en": "All transactions are secure and encrypted.",
+    "ar": "كل التعاملات مؤمنة ومشفقة."
   },
   "browse": {
     "en": "Browse All Categories",
@@ -479,7 +479,7 @@
     "en": "Initial Quantity",
     "ar": "الكمية الأولية"
   },
-  "PayNow":{
+  "PayNow": {
     "en": "Pay Now",
     "ar": "ادفع الان"
   },

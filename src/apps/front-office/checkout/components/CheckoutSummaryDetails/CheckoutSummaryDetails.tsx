@@ -21,7 +21,6 @@ const CheckoutSummaryDetails = () => {
   if (data) {
     const { cart } = data;
     const { items } = cart;
-    console.log(data)
     return (
       <div className="flex flex-col items-start w-full gap-3 max-w-[650px] px-4">
         {items.map(item => (
@@ -31,7 +30,7 @@ const CheckoutSummaryDetails = () => {
         <div className="flex items-center justify-between w-full">
           <h1 className="text-black text-lg">{trans("Subtotal")}</h1>
           <h1 className="text-black text-lg font-medium">
-            {formatPrice(cart.totals.salePrice , currentCurrency)}
+            {formatPrice(cart.totals.salePrice, currentCurrency)}
           </h1>
         </div>
         <div className="flex items-center justify-between w-full">
@@ -40,7 +39,7 @@ const CheckoutSummaryDetails = () => {
             <span className="text-slate-700 text-sm font-normal mx-2">
               {currentCurrency}
             </span>
-            {formatPrice(cart.totals.finalPrice , currentCurrency)}
+            {formatPrice(cart.totals.finalPrice, currentCurrency)}
           </h1>
         </div>
       </div>

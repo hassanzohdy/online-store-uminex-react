@@ -1,1 +1,1 @@
-export {default} from './checkout-header'
+export { default } from "./checkout-header";

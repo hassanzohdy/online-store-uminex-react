@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { getCart } from "../services/cart-services";
 import { getCategories } from "../services/category-services";
 
 export const useCategory = () => {
@@ -7,20 +6,20 @@ export const useCategory = () => {
   const [error, setError] = useState(null);
   const [data, setData] = useState<any>();
 
-  useEffect(()=>{
-    const fetchCart = async() =>{
-        setIsLoading(true);
-        setError(null);
-        try {
-          const {data} = await getCategories();
-          setData(data);
-        } catch (errorL:any) {
-          setError(error);
-        }
-        setIsLoading(false);
-    }
-    fetchCart()
-  },[])
+  useEffect(() => {
+    const fetchCart = async () => {
+      setIsLoading(true);
+      setError(null);
+      try {
+        const { data } = await getCategories();
+        setData(data);
+      } catch (errorL: any) {
+        setError(error);
+      }
+      setIsLoading(false);
+    };
+    fetchCart();
+  }, [error]);
 
   return { data, isLoading, error };
 };

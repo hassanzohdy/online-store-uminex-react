@@ -35,7 +35,6 @@ function calculateCartTotals(cart, itemId?: number, newQuantity?: number) {
   };
 }
 
-
 export const cartAtom = atom({
   key: "cart",
   default: cache.get("cart", {}),

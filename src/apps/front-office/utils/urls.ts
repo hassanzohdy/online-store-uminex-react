@@ -20,7 +20,7 @@ const URLS = {
     resetPassword: "/account/rest-password",
     register: "/account/register",
     verifyForgetPassword: "/account/forget-password/verify",
-    logout:"/account/logout"
+    logout: "/account/logout",
   },
   settings: "/settings",
   contactUs: "/contact-us",

@@ -15,5 +15,3 @@ export function getCheckoutsList(params: any = {}) {
 export function getCheckout(id: string | number) {
   return endpoint.get("/checkout/" + id);
 }
-
-

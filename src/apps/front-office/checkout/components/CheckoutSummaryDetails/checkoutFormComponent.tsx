@@ -20,6 +20,7 @@ import * as z from "zod";
 import CardDetailsInputs from "./CardDetailsInputs";
 import CheckoutSummaryDetails from "./CheckoutSummaryDetails";
 import DeliveryInputs from "./DeliveryInputs";
+
 const CheckoutFormComponent = ({ user }: any) => {
   const currentLanguage = current("localeCode");
 
@@ -60,8 +61,6 @@ const CheckoutFormComponent = ({ user }: any) => {
       form.setValue("email", "");
       form.setValue("phone", "");
     }
-
-    console.log(form.getValues());
   };
 
   const onSubmit = (values: z.infer<typeof checkoutFormSchema>) => {

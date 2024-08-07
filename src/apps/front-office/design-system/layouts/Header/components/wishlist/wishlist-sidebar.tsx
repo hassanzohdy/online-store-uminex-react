@@ -1,9 +1,7 @@
 import { trans } from "@mongez/localization";
-import { preload } from "@mongez/react-utils";
 import { wishlistAtom } from "apps/front-office/design-system/atoms/wishlist-atom";
 import { Button } from "apps/front-office/design-system/components/ui/button";
 import { formatNumber } from "apps/front-office/design-system/lib/formats";
-import { getWishlist } from "apps/front-office/design-system/services/wishlist-services";
 import { useState } from "react";
 import { FaRegHeart } from "react-icons/fa";
 import WishListSheetSidebar from "../sheets/wishlist-sidebar-sheet";
@@ -34,7 +32,7 @@ const WishlistSidebar = ({ navbar }: WishlistSidebarProps) => {
       </WishListSheetSidebar>
     );
   }
-  
+
   return (
     <>
       <div className="flex items-center">

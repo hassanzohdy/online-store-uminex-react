@@ -1,8 +1,8 @@
 import { cartAtom } from "apps/front-office/design-system/atoms/cart-atom";
-import { useCart } from "apps/front-office/design-system/hooks/use-cart";
-import CartContainer from "./cart-container";
 import { Button } from "apps/front-office/design-system/components/ui/button";
+import { useCart } from "apps/front-office/design-system/hooks/use-cart";
 import { IoCartOutline } from "react-icons/io5";
+import CartContainer from "./cart-container";
 
 const CartSidebar = () => {
   const { data, isLoading, error } = useCart();
@@ -10,10 +10,10 @@ const CartSidebar = () => {
   if (isLoading) {
     return (
       <Button variant={"ghost"} className="hover:bg-transparent">
-      <div className="relative">
-        <IoCartOutline className="h-8 w-8 text-slate-700" />
-      </div>
-    </Button>
+        <div className="relative">
+          <IoCartOutline className="h-8 w-8 text-slate-700" />
+        </div>
+      </Button>
     );
   }
 
@@ -29,7 +29,6 @@ const CartSidebar = () => {
       </div>
     );
   }
-
 };
 
 export default CartSidebar;

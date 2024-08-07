@@ -10,7 +10,7 @@ const CheckoutSummaryDetailsCartItem = ({
   item,
 }: CheckoutSummaryDetailsCartItemProps) => {
   const currentLanguage = current("localeCode");
-  const currentCurrency = currencyAtom.useValue()
+  const currentCurrency = currencyAtom.useValue();
 
   return (
     <div className="flex items-center justify-between w-full gap-3">
@@ -41,7 +41,7 @@ const CheckoutSummaryDetailsCartItem = ({
           </h1>
         </div>
       </div>
-      <h1>{formatPrice(item.total.finalPrice , currentCurrency)}</h1>
+      <h1>{formatPrice(item.total.finalPrice, currentCurrency)}</h1>
     </div>
   );
 };
