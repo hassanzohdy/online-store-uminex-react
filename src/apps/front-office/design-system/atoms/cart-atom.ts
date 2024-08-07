@@ -1,7 +1,6 @@
 import cache from "@mongez/cache";
 import { atom } from "@mongez/react-atom";
 import { deleteItem, updateItem } from "../services/cart-services";
-
 function calculateCartTotals(cart, itemId?: number, newQuantity?: number) {
   if (itemId !== undefined && newQuantity !== undefined) {
     const item = cart.items.find(item => item.id === itemId);
@@ -23,13 +22,19 @@ function calculateCartTotals(cart, itemId?: number, newQuantity?: number) {
   const tax = (cart.taxRate / 100) * subtotal;
   const finalPrice = subtotal + tax;
 
+  const totalQuantity = cart.items.reduce((acc, item) => {
+    return acc + item.quantity;
+  }, 0);
+
   cart.totals = {
     subtotal,
     tax,
     finalPrice,
     salePrice: finalPrice,
+    quantity: totalQuantity,
   };
 }
+
 
 export const cartAtom = atom({
   key: "cart",
@@ -58,7 +63,7 @@ export const cartAtom = atom({
     },
 
     deleteItem(itemId: number) {
-      let cart = cartAtom.value;
+      const cart = cartAtom.value;
       cart.items = cart.items.filter(item => item.id !== itemId);
       calculateCartTotals(cart);
       cache.set("cart", cart);

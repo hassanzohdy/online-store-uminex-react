@@ -2,7 +2,7 @@ import { trans } from "@mongez/localization";
 import { Link } from "@mongez/react-router";
 import { Button } from "apps/front-office/design-system/components/ui/button";
 import { ScrollArea } from "apps/front-office/design-system/components/ui/scroll-area";
-import SkeletonCard from "../skeleton-header-card";
+import SkeletonCard from "../../../../components/SkeletonLoading/skeleton-header-card";
 
 type SearchResultProps = {
   value: string;

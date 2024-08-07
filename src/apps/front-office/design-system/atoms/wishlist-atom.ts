@@ -15,7 +15,7 @@ export const wishlistAtom = atom({
     },
 
     deleteItem(itemId: number) {
-      let wishlist = wishlistAtom.value;
+      const wishlist = wishlistAtom.value;
       wishlist.totalWishlist -= 1;
       wishlist.products = wishlist.products.filter(item => item.id !== itemId);
       cache.set("wishlist", wishlist);

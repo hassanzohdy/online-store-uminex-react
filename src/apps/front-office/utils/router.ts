@@ -4,6 +4,7 @@ import {
   ReverseGuardian,
 } from "apps/front-office/account/middleware";
 import BaseLayout from "../design-system/layouts/BaseLayout";
+import CheckoutLayout from "../design-system/layouts/CheckoutLayout";
 // import AccountLayout from "../design-system/layouts/AccountLayout";
 
 /**
@@ -13,6 +14,9 @@ import BaseLayout from "../design-system/layouts/BaseLayout";
  */
 export function publicRoutes(routes: Route[]) {
   return router.partOf(BaseLayout, routes);
+}
+export function checkoutRoutes(routes: Route[]) {
+  return router.partOf(CheckoutLayout, routes);
 }
 
 /**

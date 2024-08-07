@@ -2,6 +2,7 @@ import { trans } from "@mongez/localization";
 import { current } from "@mongez/react";
 import { CartItemType } from "apps/front-office/collections/utils/types";
 import { cartAtom } from "apps/front-office/design-system/atoms/cart-atom";
+import { currencyAtom } from "apps/front-office/design-system/atoms/currency-atom";
 import { Button } from "apps/front-office/design-system/components/ui/button";
 import { Input } from "apps/front-office/design-system/components/ui/input";
 import {
@@ -20,6 +21,7 @@ const CartItem = ({ cartItem, changeQuantity }: CartItemProps) => {
   const [isLoading, setIsLoading] = useState(false);
   const [value, setValue] = useState<number>(cartItem.quantity);
   const currentLanguage = current("localeCode");
+  const currentCurrency = currencyAtom.useValue()
 
   const handleDecreaseQuantity = async () => {
     setIsLoading(true);
@@ -66,7 +68,7 @@ const CartItem = ({ cartItem, changeQuantity }: CartItemProps) => {
           )}
         </h1>
         <h2 className="text-blue text-sm font-medium">
-          {formatPrice(cartItem.total.finalPrice)}
+          {formatPrice(cartItem.total.finalPrice , currentCurrency)}
         </h2>
         <div className="flex items-center gap-1">
           <Button

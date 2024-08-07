@@ -1,5 +1,6 @@
 import { trans } from "@mongez/localization";
 import { current } from "@mongez/react";
+import { currencyAtom } from "apps/front-office/design-system/atoms/currency-atom";
 import { wishlistAtom } from "apps/front-office/design-system/atoms/wishlist-atom";
 import { Button } from "apps/front-office/design-system/components/ui/button";
 import { formatPrice } from "apps/front-office/design-system/lib/formats";
@@ -7,7 +8,7 @@ import { FiX } from "react-icons/fi";
 
 const WishlistItem = ({ wishlistItem, changeStatus }: any) => {
   const currentLanguage = current("localeCode");
-
+  const currentCurrency = currencyAtom.useValue()
   const DeleteItem = () => {
     changeStatus();
     wishlistAtom.deleteItem(wishlistItem.id);
@@ -30,7 +31,7 @@ const WishlistItem = ({ wishlistItem, changeStatus }: any) => {
           )}
         </h1>
         <h2 className="text-blue text-sm font-medium">
-          {formatPrice(wishlistItem.price)}
+          {formatPrice(wishlistItem.price , currentCurrency)}
         </h2>
       </div>
       <Button className="" variant={"ghost"} onClick={DeleteItem}>

@@ -42,7 +42,7 @@ const CartSheetSidebar = ({ changeTicks }: any) => {
                 className="absolute -top-1 -right-2 bg-red rounded-full 
               w-[18px] h-[18px] flex items-center justify-center">
                 <span className="text-xs text-center text-slate-50">
-                  {formatNumber(items.length)}
+                  {formatNumber(cart.totals.quantity)}
                 </span>
               </div>
             )}
@@ -81,13 +81,13 @@ const CartSheetSidebar = ({ changeTicks }: any) => {
                 asChild
                 variant={"outline"}
                 className="w-full rounded-full p-6">
-                <Link href={URLS.cart}>View Cart</Link>
+                <Link href={URLS.cart}>{trans("ViewCart")}</Link>
               </Button>
               <Button
                 asChild
                 variant={"primary"}
                 className="w-full rounded-full p-6">
-                <Link href={URLS.checkout}>Check Out</Link>
+                <Link href={URLS.checkout}>{trans("CheckOut")}</Link>
               </Button>
             </div>
           </div>

@@ -10,17 +10,16 @@ import WishListSheetSidebar from "../sheets/wishlist-sidebar-sheet";
 
 interface WishlistSidebarProps {
   navbar?: boolean;
-  data;
 }
 
-const _WishlistSidebar = ({ data, navbar }: WishlistSidebarProps) => {
-  wishlistAtom.update(data);
+const WishlistSidebar = ({ navbar }: WishlistSidebarProps) => {
   const wishlist = wishlistAtom.useValue();
   const [status, setStatus] = useState(false);
 
   const changeStatus = () => {
     setStatus(!status);
   };
+
   if (navbar) {
     return (
       <WishListSheetSidebar data={wishlist} changeStatus={changeStatus}>
@@ -35,6 +34,7 @@ const _WishlistSidebar = ({ data, navbar }: WishlistSidebarProps) => {
       </WishListSheetSidebar>
     );
   }
+  
   return (
     <>
       <div className="flex items-center">
@@ -59,5 +59,4 @@ const _WishlistSidebar = ({ data, navbar }: WishlistSidebarProps) => {
   );
 };
 
-const WishlistSidebar = preload(_WishlistSidebar, getWishlist);
 export default WishlistSidebar;

@@ -21,7 +21,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { IoLogOutOutline } from "react-icons/io5";
 import CurrencyConverter from "../converters/currency-converter";
 import LanguageConverter from "../converters/language-converter";
-import WishlistSidebar from "../wishlist/wishlist-sidebar";
+import WishlistSidebarContainer from "../wishlist/wishlist-sidebar-container";
 
 type UserType = {
   name: string;
@@ -118,7 +118,7 @@ const MobileSidebarSheet = ({ user }: { user: UserType }) => {
               </Link>
             </div>
             <Separator className="my-1" />
-            <WishlistSidebar navbar={true} />
+            <WishlistSidebarContainer navbar={true} />
             <Separator className="my-1" />
             <CompareModel>
               <div className="flex items-center gap-1">
