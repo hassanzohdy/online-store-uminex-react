@@ -1,0 +1,17 @@
+.details {
+  flex: 2;
+  .detailsHeader {
+    .list {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  .productData {
+    .product {
+      display: flex;
+      justify-content: space-between;
+      .priceWrapper {
+      }
+    }
+  }
+}
