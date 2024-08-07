@@ -8,9 +8,9 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "apps/front-office/design-system/components/ui/dropdown-menu";
+import { getCategories } from "apps/front-office/design-system/services/category-services";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { FaAngleDown } from "react-icons/fa";
-import { getCategories } from "../services/header-services";
 
 type CategoryMenuProps = {
   selectCategory: (value: string) => void;

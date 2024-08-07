@@ -1,20 +1,20 @@
 import { trans } from "@mongez/localization";
 import { current } from "@mongez/react";
+import { wishlistAtom } from "apps/front-office/design-system/atoms/wishlist-atom";
 import { Button } from "apps/front-office/design-system/components/ui/button";
 import { formatPrice } from "apps/front-office/design-system/lib/formats";
 import { FiX } from "react-icons/fi";
 
-const WishlistItem = ({ wishlistItem }: any) => {
+const WishlistItem = ({ wishlistItem, changeStatus }: any) => {
   const currentLanguage = current("localeCode");
 
-  // const DeleteItem = () =>{
-  //   setIsLoading(true);
-  //   deleteItem(WishlistItem);
-  //   setIsLoading(false);
-  // }
+  const DeleteItem = () => {
+    changeStatus();
+    wishlistAtom.deleteItem(wishlistItem.id);
+  };
 
   return (
-    <div className="flex items-start justify-between gap-3 relative w-full p-5">
+    <div className="flex items-start justify-between gap-3 relative w-full">
       <div className="min-w-20 h-20 relative">
         <img
           src={wishlistItem.images[0].url}
@@ -33,7 +33,7 @@ const WishlistItem = ({ wishlistItem }: any) => {
           {formatPrice(wishlistItem.price)}
         </h2>
       </div>
-      <Button className="" variant={"ghost"}>
+      <Button className="" variant={"ghost"} onClick={DeleteItem}>
         <FiX className="w-4 h-4 text-red" />
       </Button>
     </div>

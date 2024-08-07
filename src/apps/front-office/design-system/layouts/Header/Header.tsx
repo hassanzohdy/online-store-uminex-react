@@ -3,11 +3,11 @@ import { Link } from "@mongez/react-router";
 import { preload } from "@mongez/react-utils";
 import { getMe } from "apps/front-office/account/service/auth";
 import { AiOutlineUser } from "react-icons/ai";
-import CartSidebar from "./components/cart-sidebar";
+import CartSidebar from "./components/cart/cart-sidebar";
 import Logo from "./components/Logo";
-import SearchInput from "./components/search-input";
+import SearchInput from "./components/search/search-input";
 import MobileSidebarSheet from "./components/sheets/mobile-sidebar-sheet";
-import WishlistSidebar from "./components/wishlist-sidebar";
+import WishlistSidebar from "./components/wishlist/wishlist-sidebar";
 interface HeaderProps {
   data;
 }
