@@ -21,6 +21,8 @@
       "name": "informative-pages"
     },
     {
+      "entry": ["/cart"],
+      "name": "cart",
       "entry": ["/collections"],
       "name": "collections"
     },

@@ -31,5 +31,6 @@ export const routerConfigurations: RouterConfigurations = {
     mode: "redirect",
     path: URLS.notFound,
   },
+
   rootComponent: React.lazy(() => import("apps/front-office/App")),
 };
