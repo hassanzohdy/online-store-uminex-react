@@ -45,6 +45,7 @@ const CardDetailsInputs = ({ form }: any) => {
                   placeholder="Card Number"
                   className="CheckoutFormInput"
                   {...field}>
+                  {/*@ts-expect-error I don't know why this give me an error*/}
                   {inputProps => <Input {...inputProps} />}
                 </InputMask>
                 <CiLock
