@@ -2,6 +2,7 @@ import { trans } from "@mongez/localization";
 import { current } from "@mongez/react";
 import { Link } from "@mongez/react-router";
 import { cartAtom } from "apps/front-office/design-system/atoms/cart-atom";
+import { currencyAtom } from "apps/front-office/design-system/atoms/currency-atom";
 import { Button } from "apps/front-office/design-system/components/ui/button";
 import {
   Sheet,
@@ -19,7 +20,6 @@ import { useState } from "react";
 import { IoCartOutline } from "react-icons/io5";
 import EmptyCartIcon from "shared/assets/images/empty-cart.svg";
 import CartItem from "../cart/cart-item";
-import { currencyAtom } from "apps/front-office/design-system/atoms/currency-atom";
 
 const CartSheetSidebar = ({ changeTicks }: any) => {
   const language = current("localeCode");
@@ -75,7 +75,7 @@ const CartSheetSidebar = ({ changeTicks }: any) => {
                   {trans("Subtotal")}
                 </h1>
                 <p className="text-lg text-red font-semibold">
-                  {formatPrice(cart.totals.subtotal , currencyAtom.value)}
+                  {formatPrice(cart.totals.subtotal, currencyAtom.value)}
                 </p>
               </div>
               <Button
