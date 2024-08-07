@@ -1,5 +1,5 @@
-import CurrencyConverter from "./components/currency-converter";
-import LanguageConverter from "./components/language-converter";
+import CurrencyConverter from "./components/converters/currency-converter";
+import LanguageConverter from "./components/converters/language-converter";
 
 const LanguageCurrencyConverterHeader = () => {
   return (

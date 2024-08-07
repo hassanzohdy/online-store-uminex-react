@@ -12,6 +12,6 @@ export function updateItem(itemId: number, quantity: number) {
   return endpoint.put(`/cart/${itemId}`, { quantity });
 }
 
-export function addItem(productId: number, quantity: number) {
-  return endpoint.post(`/cart`, { productId, quantity });
+export function addItem(product: number, quantity: number) {
+  return endpoint.post(`/cart`, { product, quantity });
 }

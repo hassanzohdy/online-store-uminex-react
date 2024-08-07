@@ -1,13 +1,13 @@
 import { current } from "@mongez/react";
+import { currencyAtom } from "../atoms/currency-atom";
 
-export const formatPrice = (price: number) => {
+export const formatPrice = (price: number, currency: string) => {
   const language = current("localeCode");
   const format = language === "en" ? "en-US" : "ar-EG";
-  const currency = language === "en" ? "USD" : "EGP";
-
+  const currencyValue = currency || currencyAtom.value;
   return new Intl.NumberFormat(format, {
     style: "currency",
-    currency: currency,
+    currency: currencyValue,
   }).format(price);
 };
 
