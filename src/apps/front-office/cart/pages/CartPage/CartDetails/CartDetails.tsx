@@ -20,9 +20,9 @@ export default function CartDetails() {
       </div>
       <div className={styles.detailsBody}>
         <div
-          className={`${styles.product} pt-7 pb-7 border-b-2 border-borderLight`}>
+          className={`${styles.product} pt-7 pb-7 border-b-2 border-borderLight `}>
           <div
-            className={`${styles.productData} flex gap-4 items-center justify-between`}>
+            className={`${styles.productData} flex gap-4 items-center justify-between flex-col lg:flex-row`}>
             <div className="flex gap-3 items-center">
               <div className={`${styles.productImg} w-24`}>
                 <img

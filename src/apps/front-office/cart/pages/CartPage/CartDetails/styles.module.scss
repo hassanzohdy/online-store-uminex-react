@@ -1,5 +1,8 @@
 .details {
   flex: 2;
+  @media(max-width:992px){
+    flex: 1;
+  }
   .detailsHeader {
     .list {
       display: flex;
