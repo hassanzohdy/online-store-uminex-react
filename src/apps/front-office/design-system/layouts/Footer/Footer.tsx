@@ -11,10 +11,10 @@ type VisibleSections = {
 
 export default function Footer() {
   const [visibleSections, setVisibleSections] = useState<VisibleSections>({
-    about: true,
-    information: true,
-    quick: true,
-    news: true,
+    about: false,
+    information: false,
+    quick: false,
+    news: false,
   });
 
   const toggleVisibility = (section: keyof VisibleSections) => {
@@ -42,7 +42,7 @@ export default function Footer() {
             </span>
           </h3>
           <div
-            className={`transition-all duration-500 ease-in-out flex  flex-col items-start mt-3 ${
+            className={`transition-all duration-500 ease-in-out flex  flex-col items-start mt-3 md:max-h-screen opacity-100  ${
               visibleSections.about
                 ? "max-h-screen opacity-100"
                 : "max-h-0 opacity-0 overflow-hidden"
@@ -84,7 +84,7 @@ export default function Footer() {
             </span>
           </h3>
           <div
-            className={`transition-all duration-500 ease-in-out flex ${
+            className={`transition-all duration-500 ease-in-out flex md:max-h-screen opacity-100 ${
               visibleSections.information
                 ? "max-h-screen opacity-100"
                 : "max-h-0 opacity-0 overflow-hidden"
@@ -106,7 +106,7 @@ export default function Footer() {
             </span>
           </h3>
           <div
-            className={`transition-all duration-500 ease-in-out flex ${
+            className={`transition-all duration-500 ease-in-out flex md:max-h-screen opacity-100 ${
               visibleSections.quick
                 ? "max-h-screen opacity-100"
                 : "max-h-0 opacity-0 overflow-hidden"
@@ -117,7 +117,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="my-4 mx-auto bg-lightGray px-5 py-3 rounded-md mb-3  md:bg-transparent w-full md:w-[42%] lg:w-[30%]">
+        <div className="my-4 mx-auto bg-lightGray px-5 py-3 rounded-md mb-3  md:bg-transparent w-full md:w-[48%] lg:w-[35%]">
           <h3
             className="uppercase font-bold text-sm text-primary 
                flex justify-between items-center"
@@ -128,7 +128,7 @@ export default function Footer() {
             </span>
           </h3>
           <div
-            className={`transition-all duration-500 ease-in-out flex ${
+            className={`transition-all duration-500 ease-in-out flex md:max-h-screen opacity-100 ${
               visibleSections.news
                 ? "max-h-screen opacity-100"
                 : "max-h-0 opacity-0 overflow-hidden"
@@ -145,8 +145,8 @@ export default function Footer() {
                   className="w-full border-solid border-borderLight border-[1px] p-2 h-12 rounded-[50px] placeholder-black placeholder:text-sm focus:border-blue outline-none"
                 />
               </div>
-              <div className=" w-full md:w-auto flex-shrink mobile:max-w-36">
-                <button className="w-full bg-blue text-white p-3 h-12 rounded-[50px] font-bold text-xs leading-4 uppercase ">
+              <div className=" w-full md:w-auto flex-grow-[2]  mobile:w-52">
+                <button className="w-full bg-blue text-white p-4 h-12 rounded-[50px] font-bold text-xs leading-4 uppercase ">
                   {trans("subscribe")}
                 </button>
               </div>
