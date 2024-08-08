@@ -11,8 +11,8 @@ import {
 } from "apps/front-office/design-system/components/ui/dropdown-menu";
 import { Separator } from "apps/front-office/design-system/components/ui/separator";
 import { cn } from "apps/front-office/design-system/lib/utils";
+import { getCategories } from "apps/front-office/design-system/services/category-services";
 import { FiMenu } from "react-icons/fi";
-import { getCategories } from "../services/header-services";
 
 interface _CategoryListsProps {
   data;
@@ -41,7 +41,7 @@ const _CategoryLists = ({ data }: _CategoryListsProps) => {
       <DropdownMenuContent
         side="bottom"
         align="start"
-        className="w-[270px] shadow-none pt-2">
+        className="w-[250px] shadow-none pt-2">
         {categories.map(category => {
           const categoryName =
             category.name.find(name => name.localeCode === currentLanguage)
@@ -49,7 +49,9 @@ const _CategoryLists = ({ data }: _CategoryListsProps) => {
 
           return (
             <div key={category.id}>
-              <DropdownMenuItem className="text-[14px] cursor-pointer hover:bg-transparent py-1 font-normal text-black">
+              <DropdownMenuItem
+                className="text-[14px] cursor-pointer hover:bg-transparent
+               py-1 font-normal text-black">
                 <Link href={"#"}>{categoryName}</Link>
               </DropdownMenuItem>
               <Separator className="my-2" />

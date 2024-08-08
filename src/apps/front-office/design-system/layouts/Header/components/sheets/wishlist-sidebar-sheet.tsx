@@ -1,5 +1,8 @@
 import { trans } from "@mongez/localization";
 import { current } from "@mongez/react";
+import { Link } from "@mongez/react-router";
+import { Button } from "apps/front-office/design-system/components/ui/button";
+import { Separator } from "apps/front-office/design-system/components/ui/separator";
 import {
   Sheet,
   SheetContent,
@@ -7,18 +10,21 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "apps/front-office/design-system/components/ui/sheet";
+import URLS from "apps/front-office/utils/urls";
 import EmptyWishList from "shared/assets/images/empty-wishlist.svg";
-import WishlistItem from "../wishlist-item";
+import WishlistItem from "../wishlist/wishlist-item";
 
 interface WishlistSidebarSheetProps {
   children: React.ReactNode;
   data: {
     products: any[];
   };
+  changeStatus?: () => void;
 }
 const WishListSheetSidebar = ({
   children,
   data,
+  changeStatus,
 }: WishlistSidebarSheetProps) => {
   const language = current("localeCode");
 
@@ -35,7 +41,21 @@ const WishListSheetSidebar = ({
         </SheetHeader>
         {data.products.length > 0 ? (
           data.products.map(product => (
-            <WishlistItem key={product.id} wishlistItem={product} />
+            <div
+              className="flex items-start gap-5 flex-col p-5"
+              key={product.id}>
+              <WishlistItem
+                wishlistItem={product}
+                changeStatus={changeStatus}
+              />
+              <Separator className="my-2" />
+              <Button
+                variant={"primary"}
+                size={"lg"}
+                className="h-12 text-md w-full rounded-full">
+                <Link href={URLS.wishlist}>View Wishlist</Link>
+              </Button>
+            </div>
           ))
         ) : (
           <div className="flex items-center justify-center flex-col gap-5 py-5">

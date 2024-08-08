@@ -2878,5 +2878,56 @@
   "subscribeForUminex": {
     "en": "Subscribe for Uminex and get 20% off your first purchase.",
     "ar": "اشترك في أومينيكس واحصل على 20% خصم على أول عملية شراء لك"
+  },
+  "message": {
+    "en": "Opps! Page not found.",
+    "ar": "نأسف! الصفحة غير موجوده"
+  },
+
+  "action": {
+    "en": "Sorry for the inconvenience. Go to our homepage or check out ourlatest collections.",
+    "ar": "نأسف للإزعاج. انتقل إلى صفحتنا الرئيسية أو اطلع على أحدث مجموعاتنا."
+  },
+
+  "buttonText": {
+    "en": "back to homepage",
+    "ar": "الرجوع للصفحة الرئيسية"
+  },
+  "deleteAll": {
+    "en": "delete All",
+    "ar": "مسح الكل  "
+  },
+  "continueShopping": {
+    "en": " continue Shopping",
+    "ar": "متابعة التسوق"
+  },
+  "cartTotals": {
+    "en": "cart Totals",
+    "ar": " إجمالي السلة"
+  },
+  "estimateRates": {
+    "en": "estimate shopping Rates",
+    "ar": " تقدير أسعار الشحن:"
+  },
+  "state": {
+    "en": "state",
+    "ar": "ولاية"
+  },
+  "postalCode": {
+    "en": "Zip/Postal Code",
+    "ar": "رمز بريدي"
+  },
+  "saveTotal": {
+    "en": "You save in total",
+    "ar": "لقد وفرت"
+  },
+  "checkOut": {
+    "en": "checkOut   ",
+    "ar": " الدفع"
+  },
+  
+  "calculateShippingRates": {
+    "en": "calculate Shipping Rates   ",
+    "ar": "حساب اسعار الشحن"
   }
 }

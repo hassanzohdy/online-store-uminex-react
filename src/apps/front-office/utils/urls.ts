@@ -1,6 +1,7 @@
 // append urls here, DO NOT remove this line
 
 const URLS = {
+  cart: "/cart",
   collections: "/collections",
   home: "/",
   notFound: "/404",
@@ -29,6 +30,9 @@ const URLS = {
     viewRoute: "/pages/:slug",
     view: (page: any) => `/pages/${page.id}/${page.slug}`,
   },
+  wishlist: "/wishlist",
+  cart: "/cart",
+  checkout: "/checkout",
 };
 
 export default URLS;

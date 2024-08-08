@@ -15,12 +15,13 @@ import {
   SheetTrigger,
 } from "apps/front-office/design-system/components/ui/sheet";
 import { formatNumber } from "apps/front-office/design-system/lib/formats";
+import URLS from "apps/front-office/utils/urls";
 import { FiLayers, FiUsers } from "react-icons/fi";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoLogOutOutline } from "react-icons/io5";
-import CurrencyConverter from "../currency-converter";
-import LanguageConverter from "../language-converter";
-import WishlistSidebar from "../wishlist-sidebar";
+import CurrencyConverter from "../converters/currency-converter";
+import LanguageConverter from "../converters/language-converter";
+import WishlistSidebar from "../wishlist/wishlist-sidebar";
 
 type UserType = {
   name: string;
@@ -103,7 +104,7 @@ const MobileSidebarSheet = ({ user }: { user: UserType }) => {
             <Separator className="my-1" />
             <div className="flex items-center gap-1">
               <Link
-                href={"/collections/all"}
+                href={URLS.collections}
                 className="text-[15px] font-medium text-slate-900">
                 {trans("shop")}
               </Link>
