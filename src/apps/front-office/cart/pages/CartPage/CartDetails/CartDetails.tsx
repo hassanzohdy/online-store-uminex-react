@@ -83,7 +83,6 @@ export default function CartDetails() {
           {trans("deleteAll")}
         </Button>
       </div>
-
     </div>
   );
 }

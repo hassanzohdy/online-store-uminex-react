@@ -9,7 +9,7 @@ export default function CartPage() {
       <Helmet title="Cart Page" />
 
       <div
-        className={`${styles.cartWrapper} container flex justify-between bg-white  p-0`}>
+        className={`${styles.cartWrapper} container flex justify-between bg-white  py-8 px-0 my-7`}>
         <div className="container">
           <div
             className={`${styles.cartWrapper} container flex justify-between bg-white  p-0`}>

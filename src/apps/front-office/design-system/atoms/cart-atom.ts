@@ -58,7 +58,7 @@ export const cartAtom = atom({
     },
 
     deleteItem(itemId: number) {
-      let cart = cartAtom.value;
+      const cart = cartAtom.value;
       cart.items = cart.items.filter(item => item.id !== itemId);
       calculateCartTotals(cart);
       cache.set("cart", cart);
