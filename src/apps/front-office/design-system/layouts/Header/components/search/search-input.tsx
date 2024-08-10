@@ -2,8 +2,6 @@ import { trans } from "@mongez/localization";
 import { Button } from "apps/front-office/design-system/components/ui/button";
 import { Input } from "apps/front-office/design-system/components/ui/input";
 import { cn } from "apps/front-office/design-system/lib/utils";
-import URLS from "apps/front-office/utils/urls";
-import queryString from "query-string";
 import { ChangeEvent, useState } from "react";
 import CategoryMenu from "../category/category-menu";
 import SearchResult from "./search-result";
@@ -30,7 +28,6 @@ const SearchInput = () => {
     setCategoryId(selectedCategoryId || 0);
   };
 
-
   return (
     <div className="flex items-center gap-2 w-full relative">
       <div className="absolute left-0 hidden xl:block w-full max-w-[200px]">
@@ -44,11 +41,7 @@ const SearchInput = () => {
         type="search"
         value={value || category}
       />
-      <Button
-        variant={"primary"}
-        size={"lg"}
-        className="absolute right-0"
-       >
+      <Button variant={"primary"} size={"lg"} className="absolute right-0">
         {trans("searchBtn")}
       </Button>
       <div

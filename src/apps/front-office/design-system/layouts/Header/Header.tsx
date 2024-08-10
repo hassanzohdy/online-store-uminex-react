@@ -1,14 +1,14 @@
 import { trans } from "@mongez/localization";
 import { Link } from "@mongez/react-router";
+import URLS from "apps/front-office/utils/urls";
 import { AiOutlineUser } from "react-icons/ai";
 import Logo from "../../components/Logo";
-import SkeletonHeaderLoading from "./components/SkeletonLoading/skeleton-header";
 import { useUser } from "../../hooks/use-user";
 import CartSidebar from "./components/cart/cart-sidebar";
 import SearchInput from "./components/search/search-input";
 import MobileSidebarSheet from "./components/sheets/mobile-sidebar-sheet";
+import SkeletonHeaderLoading from "./components/SkeletonLoading/skeleton-header";
 import WishlistSidebarContainer from "./components/wishlist/wishlist-sidebar-container";
-import URLS from "apps/front-office/utils/urls";
 
 const Header = () => {
   const { data, isLoading, error } = useUser();
@@ -31,7 +31,9 @@ const Header = () => {
           <div className="flex items-center flex-wrap">
             <div className="hidden xl:flex items-center">
               {user.userType === "guest" && (
-                <Link href={URLS.auth.login} className="flex items-center gap-2">
+                <Link
+                  href={URLS.auth.login}
+                  className="flex items-center gap-2">
                   <AiOutlineUser className="h-8 w-8 text-primary" />
                   <div className="flex flex-col items-start">
                     <span className="text-xs text-slate-600">

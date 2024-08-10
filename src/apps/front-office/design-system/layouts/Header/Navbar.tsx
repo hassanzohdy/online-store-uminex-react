@@ -49,7 +49,9 @@ const Navbar = () => {
                   <li
                     className="text-slate-500 font-medium text-sm hover:text-blue
                    hover:ml-3 transition-all">
-                    <Link href={URLS.pages.termsConditions}>{trans("terms")}</Link>
+                    <Link href={URLS.pages.termsConditions}>
+                      {trans("terms")}
+                    </Link>
                   </li>
                   <li
                     className="text-slate-500 font-medium text-sm hover:text-blue

@@ -1,7 +1,6 @@
 import { trans } from "@mongez/localization";
 import { current } from "@mongez/react";
 import { Link } from "@mongez/react-router";
-import CompareModel from "apps/front-office/design-system/components/models/compare-model";
 import SearchModel from "apps/front-office/design-system/components/models/search-model";
 import { Button } from "apps/front-office/design-system/components/ui/button";
 import {
@@ -14,22 +13,21 @@ import {
   SheetContent,
   SheetTrigger,
 } from "apps/front-office/design-system/components/ui/sheet";
-import { formatNumber } from "apps/front-office/design-system/lib/formats";
+import { User } from "apps/front-office/design-system/utils/types";
 import URLS from "apps/front-office/utils/urls";
-import { FiLayers, FiUsers } from "react-icons/fi";
+import { FiUsers } from "react-icons/fi";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoLogOutOutline } from "react-icons/io5";
+import CompareModelContainer from "../compare/compare-model-container";
 import CurrencyConverter from "../converters/currency-converter";
 import LanguageConverter from "../converters/language-converter";
 import WishlistSidebarContainer from "../wishlist/wishlist-sidebar-container";
-import CompareModelContainer from "../compare/compare-model-container";
-import { User } from "apps/front-office/design-system/utils/types";
 
-interface MobileSidebarSheetProps{
+interface MobileSidebarSheetProps {
   user: User;
 }
 
-const MobileSidebarSheet = ({ user }:MobileSidebarSheetProps) => {
+const MobileSidebarSheet = ({ user }: MobileSidebarSheetProps) => {
   const language = current("localeCode");
 
   return (
@@ -118,7 +116,7 @@ const MobileSidebarSheet = ({ user }:MobileSidebarSheetProps) => {
             <Separator className="my-1" />
             <WishlistSidebarContainer navbar={true} />
             <Separator className="my-1" />
-            <CompareModelContainer/>
+            <CompareModelContainer />
             <Separator className="my-1" />
             <div className="flex items-center gap-1">
               <Link

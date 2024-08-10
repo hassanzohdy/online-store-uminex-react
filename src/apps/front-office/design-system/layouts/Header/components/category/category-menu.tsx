@@ -7,13 +7,12 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "apps/front-office/design-system/components/ui/dropdown-menu";
-import { Separator } from "apps/front-office/design-system/components/ui/separator";
 import { useCategory } from "apps/front-office/design-system/hooks/use-category";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { FaAngleDown } from "react-icons/fa";
 
 type CategoryMenuProps = {
-  selectCategory: (value: string , id:number) => void;
+  selectCategory: (value: string, id: number) => void;
 };
 
 const CategoryListLoadingComponent = () => {
@@ -59,8 +58,8 @@ const CategoryMenu = ({ selectCategory }: CategoryMenuProps) => {
   if (data) {
     const { categories } = data;
 
-    const selectCategoryFunction = (value: string , id:number) => {
-      selectCategory(value , id);
+    const selectCategoryFunction = (value: string, id: number) => {
+      selectCategory(value, id);
     };
 
     return (
@@ -84,7 +83,9 @@ const CategoryMenu = ({ selectCategory }: CategoryMenuProps) => {
             return (
               <div
                 key={category.id}
-                onClick={() => selectCategoryFunction(category.slug , category.id)}
+                onClick={() =>
+                  selectCategoryFunction(category.slug, category.id)
+                }
                 className="text-[14px] cursor-pointer hover:bg-transparent py-1 font-normal text-black">
                 <DropdownMenuItem className="text-[14px] cursor-pointer hover:bg-transparent py-1 font-normal text-black">
                   {categoryName}

@@ -115,7 +115,7 @@
     "en": "3-digit security code usually found on the back of your card. American Express cards have a 4-digit code located on the front.",
     "ar": "رمز الأمان المكون من 3 أرقام يوجد عادةً على ظهر بطاقتك. بطاقات أمريكان إكسبريس تحتوي على رمز مكون من 4 أرقام يوجد على الجهة الأمامية."
   },
-  "notFoundProducts":{
+  "notFoundProducts": {
     "en": "No products found",
     "ar": "لا توجد منتجات"
   },
@@ -143,7 +143,7 @@
     "en": "WHAT ARE YOU LOOKING FOR?",
     "ar": "ما الذي تبحث عنه؟"
   },
-  "View Wishlist":{
+  "View Wishlist": {
     "en": "VIEW WISHLIST",
     "ar": "عرض قائمة المفضلة"
   },

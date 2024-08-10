@@ -10,10 +10,10 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "apps/front-office/design-system/components/ui/sheet";
+import { Product } from "apps/front-office/design-system/utils/types";
 import URLS from "apps/front-office/utils/urls";
 import EmptyWishList from "shared/assets/images/empty-wishlist.svg";
 import WishlistItem from "../wishlist/wishlist-item";
-import { Product } from "apps/front-office/design-system/utils/types";
 
 interface WishlistSidebarSheetProps {
   children: React.ReactNode;

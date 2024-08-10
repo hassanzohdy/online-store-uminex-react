@@ -12,6 +12,7 @@ import { Button } from "apps/front-office/design-system/components/ui/button";
 import { Form } from "apps/front-office/design-system/components/ui/form";
 import { Input } from "apps/front-office/design-system/components/ui/input";
 import { cn } from "apps/front-office/design-system/lib/utils";
+import { User } from "apps/front-office/design-system/utils/types";
 import URLS from "apps/front-office/utils/urls";
 import { ChangeEvent } from "react";
 import { useForm } from "react-hook-form";
@@ -20,7 +21,6 @@ import * as z from "zod";
 import CardDetailsInputs from "./CardDetailsInputs";
 import CheckoutSummaryDetails from "./CheckoutSummaryDetails";
 import DeliveryInputs from "./DeliveryInputs";
-import { User } from "apps/front-office/design-system/utils/types";
 
 interface CheckoutFormComponentProps {
   user: User;

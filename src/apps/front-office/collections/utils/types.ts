@@ -10,4 +10,3 @@ export type TResponse = {
   prev: number | null;
 };
 export type TLoading = "idle" | "pending" | "failed" | "success";
-

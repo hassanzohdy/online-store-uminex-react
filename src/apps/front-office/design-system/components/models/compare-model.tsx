@@ -15,27 +15,26 @@ import {
   TableHeader,
   TableRow,
 } from "apps/front-office/design-system/components/ui/table";
+import { FiTrash2 } from "react-icons/fi";
 import { compareAtom } from "../../atoms/compare-atom";
 import { formatPrice } from "../../lib/formats";
-import { Button } from "../ui/button";
-import { FiTrash2 } from "react-icons/fi";
 import { Product } from "../../utils/types";
+import { Button } from "../ui/button";
 
 interface CompareModelProps {
   children: React.ReactNode;
   updateData: () => void;
 }
 
-const CompareModel = ({ children , updateData }: CompareModelProps) => {
+const CompareModel = ({ children, updateData }: CompareModelProps) => {
   const compareProducts = compareAtom.useValue();
   const { products } = compareProducts;
   const currentLanguage = current("localeCode");
 
-  const deleteItem = (id:number) =>{
+  const deleteItem = (id: number) => {
     compareAtom.deleteItem(id);
-    updateData()
-  }
-
+    updateData();
+  };
 
   return (
     <Dialog>
@@ -61,14 +60,20 @@ const CompareModel = ({ children , updateData }: CompareModelProps) => {
                       <img
                         src={product.images[0].url}
                         className="w-full h-full"
-                        alt={product.name.find(
-                          n => n.localeCode === currentLanguage,
-                        )?.value}
+                        alt={
+                          product.name.find(
+                            n => n.localeCode === currentLanguage,
+                          )?.value
+                        }
                       />
                     </div>
                     <div className="mt-2 mx-auto">
                       <h1 className="text-black text-base text-center line-clamp-2">
-                        {product.name.find(n => n.localeCode === currentLanguage)?.value}
+                        {
+                          product.name.find(
+                            n => n.localeCode === currentLanguage,
+                          )?.value
+                        }
                       </h1>
                       <h1 className="text-center">
                         {product.salePrice ? (
@@ -89,8 +94,11 @@ const CompareModel = ({ children , updateData }: CompareModelProps) => {
                         )}
                       </h1>
                     </div>
-                    <Button className="absolute top-0 right-0 rounded-full" variant={"destructive"} onClick={()=>deleteItem(product.id)}>
-                      <FiTrash2 className="w-4 h-4"/>
+                    <Button
+                      className="absolute top-0 right-0 rounded-full"
+                      variant={"destructive"}
+                      onClick={() => deleteItem(product.id)}>
+                      <FiTrash2 className="w-4 h-4" />
                     </Button>
                   </TableHead>
                 ))}
@@ -105,9 +113,11 @@ const CompareModel = ({ children , updateData }: CompareModelProps) => {
                   <TableCell
                     key={product.id}
                     className="border-r-[.5px] border-t-[.5px] border-slate-300 text px-4 text-center text-slate-600">
-                    {product.shortDescription.find(
-                      n => n.localeCode === currentLanguage,
-                    )?.value}
+                    {
+                      product.shortDescription.find(
+                        n => n.localeCode === currentLanguage,
+                      )?.value
+                    }
                   </TableCell>
                 ))}
               </TableRow>
@@ -119,9 +129,11 @@ const CompareModel = ({ children , updateData }: CompareModelProps) => {
                   <TableCell
                     key={product.id}
                     className="border-r-[.5px] border-t-[.5px] border-slate-300 text px-4 text-center text-slate-600">
-                    {product.category.name.find(
-                      n => n.localeCode === currentLanguage,
-                    )?.value}
+                    {
+                      product.category.name.find(
+                        n => n.localeCode === currentLanguage,
+                      )?.value
+                    }
                   </TableCell>
                 ))}
               </TableRow>

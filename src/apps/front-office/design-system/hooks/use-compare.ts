@@ -20,7 +20,6 @@ export const useCompare = () => {
     };
     fetchCategory();
   }, [error]);
-  
 
   return { data, isLoading, error };
 };

@@ -20,7 +20,6 @@ export const useWishlist = () => {
     };
     fetchCategory();
   }, [error]);
-  
 
   return { data, isLoading, error };
 };

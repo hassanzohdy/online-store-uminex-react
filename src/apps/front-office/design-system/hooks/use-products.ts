@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
 import { getProducts } from "../services/product-services";
 
-
-
-export const useProduct = (params: string ) => {
+export const useProduct = (params: string) => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<null | string>(null);
   const [data, setData] = useState<any>();
@@ -22,7 +20,7 @@ export const useProduct = (params: string ) => {
       }
     };
 
-      fetchProducts();
+    fetchProducts();
   }, [params]);
 
   return { data, isLoading, error };

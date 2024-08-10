@@ -3,7 +3,7 @@
 const URLS = {
   checkout: "/checkout",
   collections: "/collections",
-  home:"/",
+  home: "/",
   notFound: "/404",
   blog: {
     root: "/blog",
@@ -38,7 +38,7 @@ const URLS = {
     termsConditions: "/terms-conditions",
     privacyPolicy: "/privacy-policy",
     faq: "/faq",
-    team:"/team",
+    team: "/team",
     viewRoute: "/pages/:slug",
     view: (page: any) => `/pages/${page.id}/${page.slug}`,
   },
