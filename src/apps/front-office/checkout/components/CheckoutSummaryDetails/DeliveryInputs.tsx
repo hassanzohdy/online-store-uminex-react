@@ -17,9 +17,32 @@ import {
 } from "apps/front-office/design-system/components/ui/select";
 import { ICity, IState } from "country-state-city";
 import { useEffect, useState } from "react";
+import { UseFormReturn } from "react-hook-form";
 import useLocation from "../../hooks/use-location";
 
-const DeliveryInputs = ({ form }: any) => {
+interface DeliveryInputsProps {
+  form: UseFormReturn<
+    {
+      cardNumber: string;
+      cardName: string;
+      expirationDate: string;
+      cvv: string;
+      address: string;
+      email: string;
+      firstName: string;
+      lastName: string;
+      phone: string;
+      country: string;
+      state: string;
+      city: string;
+      zipCode: string;
+      apartment?: string | undefined;
+    },
+    any,
+    undefined
+  >;
+}
+const DeliveryInputs = ({ form }: DeliveryInputsProps) => {
   const [states, setStates] = useState<IState[]>([]);
   const [cities, setCities] = useState<ICity[]>([]);
   const { getAllCountries, getCountryStates, getStateCities } = useLocation();

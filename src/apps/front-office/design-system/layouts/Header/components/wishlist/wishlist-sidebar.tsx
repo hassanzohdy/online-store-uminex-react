@@ -26,7 +26,7 @@ const WishlistSidebar = ({ navbar }: WishlistSidebarProps) => {
             <FaRegHeart className="w-4 h-4" />
           </div>
           <h1 className="text-[14px] font-medium text-slate-900">
-            {trans("wishlist")} ( {formatNumber(wishlist.totalWishlist)} )
+            {trans("wishlist")} ( {formatNumber(wishlist && wishlist.totalWishlist)} )
           </h1>
         </div>
       </WishListSheetSidebar>
@@ -45,7 +45,7 @@ const WishlistSidebar = ({ navbar }: WishlistSidebarProps) => {
                   className="absolute -top-1 -right-2 bg-red rounded-full
                 w-[18px] h-[18px] flex items-center justify-center">
                   <span className="text-xs text-center text-slate-50">
-                    {formatNumber(wishlist.totalWishlist)}
+                    {formatNumber(wishlist && wishlist.totalWishlist)}
                   </span>
                 </div>
               )}

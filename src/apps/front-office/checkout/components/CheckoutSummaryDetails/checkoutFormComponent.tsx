@@ -20,8 +20,13 @@ import * as z from "zod";
 import CardDetailsInputs from "./CardDetailsInputs";
 import CheckoutSummaryDetails from "./CheckoutSummaryDetails";
 import DeliveryInputs from "./DeliveryInputs";
+import { User } from "apps/front-office/design-system/utils/types";
 
-const CheckoutFormComponent = ({ user }: any) => {
+interface CheckoutFormComponentProps {
+  user: User;
+}
+
+const CheckoutFormComponent = ({ user }: CheckoutFormComponentProps) => {
   const currentLanguage = current("localeCode");
 
   const form = useForm<z.infer<typeof checkoutFormSchema>>({
@@ -70,7 +75,7 @@ const CheckoutFormComponent = ({ user }: any) => {
     <div
       className={cn(
         "w-full max-w-[720px] px-4 flex flex-col items-start",
-        currentLanguage === "en" ? "ml-auto" : "mr-auto",
+        currentLanguage === "en" ? "mx-auto md:ml-auto" : "mx-auto md:mr-auto",
       )}>
       <div className="block md:hidden w-full">
         <Accordion

@@ -22,16 +22,14 @@ import { IoLogOutOutline } from "react-icons/io5";
 import CurrencyConverter from "../converters/currency-converter";
 import LanguageConverter from "../converters/language-converter";
 import WishlistSidebarContainer from "../wishlist/wishlist-sidebar-container";
+import CompareModelContainer from "../compare/compare-model-container";
+import { User } from "apps/front-office/design-system/utils/types";
 
-type UserType = {
-  name: string;
-  totalCart: number;
-  totalCompare: number;
-  totalWishlist: number;
-  userType: "guest" | "user";
-};
+interface MobileSidebarSheetProps{
+  user: User;
+}
 
-const MobileSidebarSheet = ({ user }: { user: UserType }) => {
+const MobileSidebarSheet = ({ user }:MobileSidebarSheetProps) => {
   const language = current("localeCode");
 
   return (
@@ -64,7 +62,7 @@ const MobileSidebarSheet = ({ user }: { user: UserType }) => {
                   <FiUsers className="w-4 h-4" />
                 </div>
                 <Link
-                  href={"/login"}
+                  href={URLS.auth.login}
                   className="text-[15px] font-medium text-slate-900">
                   {trans("login")}
                 </Link>
@@ -73,7 +71,7 @@ const MobileSidebarSheet = ({ user }: { user: UserType }) => {
             {user.userType == "user" && (
               <div className="flex items-start gap-4 flex-col">
                 <Link
-                  href={"/logout"}
+                  href={"#"}
                   className="text-[15px] font-medium text-slate-900">
                   <div className="flex items-center gap-1">
                     <IoLogOutOutline className="w-5 h-5" />
@@ -84,7 +82,7 @@ const MobileSidebarSheet = ({ user }: { user: UserType }) => {
                   {trans("welcomeBack", {
                     name: (
                       <Link
-                        href={"/account"}
+                        href={URLS.auth.root}
                         className="text-[15px] font-medium text-slate-900 underline">
                         {user.name}
                       </Link>
@@ -96,7 +94,7 @@ const MobileSidebarSheet = ({ user }: { user: UserType }) => {
             <Separator className="my-1" />
             <div className="flex items-center gap-1">
               <Link
-                href={"/"}
+                href={URLS.home}
                 className="text-[15px] font-medium text-slate-900">
                 {trans("home")}
               </Link>
@@ -112,7 +110,7 @@ const MobileSidebarSheet = ({ user }: { user: UserType }) => {
             <Separator className="my-1" />
             <div className="flex items-center gap-1">
               <Link
-                href={"/blogs"}
+                href={URLS.blog.root}
                 className="text-[15px] font-medium text-slate-900">
                 {trans("blog")}
               </Link>
@@ -120,20 +118,11 @@ const MobileSidebarSheet = ({ user }: { user: UserType }) => {
             <Separator className="my-1" />
             <WishlistSidebarContainer navbar={true} />
             <Separator className="my-1" />
-            <CompareModel>
-              <div className="flex items-center gap-1">
-                <div className="flex items-center gap-2">
-                  <FiLayers className="w-4 h-4" />
-                </div>
-                <h1 className="text-[14px] font-medium text-slate-900 ">
-                  {trans("compare")} ( {formatNumber(user.totalCompare)} )
-                </h1>
-              </div>
-            </CompareModel>
+            <CompareModelContainer/>
             <Separator className="my-1" />
             <div className="flex items-center gap-1">
               <Link
-                href={"/contact"}
+                href={URLS.contactUs}
                 className="text-[15px] font-medium text-slate-900">
                 {trans("contact")}
               </Link>

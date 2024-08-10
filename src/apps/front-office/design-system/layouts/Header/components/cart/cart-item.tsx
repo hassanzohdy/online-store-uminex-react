@@ -1,6 +1,5 @@
 import { trans } from "@mongez/localization";
 import { current } from "@mongez/react";
-import { CartItemType } from "apps/front-office/collections/utils/types";
 import { cartAtom } from "apps/front-office/design-system/atoms/cart-atom";
 import { currencyAtom } from "apps/front-office/design-system/atoms/currency-atom";
 import { Button } from "apps/front-office/design-system/components/ui/button";
@@ -9,6 +8,7 @@ import {
   formatNumber,
   formatPrice,
 } from "apps/front-office/design-system/lib/formats";
+import { CartItemType } from "apps/front-office/design-system/utils/types";
 import { useState } from "react";
 import { FiTrash2 } from "react-icons/fi";
 

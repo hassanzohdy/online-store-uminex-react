@@ -14,12 +14,36 @@ import {
   TooltipTrigger,
 } from "apps/front-office/design-system/components/ui/tooltip";
 import { cn } from "apps/front-office/design-system/lib/utils";
+import { UseFormReturn } from "react-hook-form";
 import { BsQuestionCircle } from "react-icons/bs";
 import { CiLock } from "react-icons/ci";
 import InputMask from "react-input-mask";
 import MaskedInput from "react-text-mask";
 
-const CardDetailsInputs = ({ form }: any) => {
+interface CardDetailsInputsProps {
+  form: UseFormReturn<
+    {
+      cardNumber: string;
+      cardName: string;
+      expirationDate: string;
+      cvv: string;
+      address: string;
+      email: string;
+      firstName: string;
+      lastName: string;
+      phone: string;
+      country: string;
+      state: string;
+      city: string;
+      zipCode: string;
+      apartment?: string | undefined;
+    },
+    any,
+    undefined
+  >;
+}
+
+const CardDetailsInputs = ({ form }: CardDetailsInputsProps) => {
   const currentLanguage = current("localeCode");
   return (
     <div className="w-full space-y-8 my-8">
@@ -85,16 +109,20 @@ const CardDetailsInputs = ({ form }: any) => {
           control={form.control}
           name="cvv"
           render={({ field }) => (
-            <FormItem
-              className="w-full h-16 text-base focus:ring-lightAqua
-                 focus-visible:ring-lightAqua ring-lightAqua ring-offset-0 inset-0">
+            <FormItem className="w-full h-16 text-base focus:ring-lightAqua focus-visible:ring-lightAqua ring-lightAqua ring-offset-0 inset-0">
               <FormControl>
                 <div className="w-full relative">
                   <Input
-                    className="w-full h-16 text-base focus:ring-lightAqua
-                focus-visible:ring-lightAqua ring-lightAqua ring-offset-0 inset-0"
+                    className="w-full h-16 text-base focus:ring-lightAqua focus-visible:ring-lightAqua ring-lightAqua ring-offset-0 inset-0"
                     placeholder={trans("SecurityCode")}
                     {...field}
+                    maxLength={3}
+                    onChange={e => {
+                      const value = e.target.value;
+                      if (/^\d*$/.test(value)) {
+                        field.onChange(value);
+                      }
+                    }}
                   />
                   <div
                     className={cn(

@@ -7,7 +7,7 @@ export const useUser = () => {
   const [data, setData] = useState<any>();
 
   useEffect(() => {
-    const fetchCart = async () => {
+    const fetchCategory = async () => {
       setIsLoading(true);
       setError(null);
       try {
@@ -18,7 +18,7 @@ export const useUser = () => {
       }
       setIsLoading(false);
     };
-    fetchCart();
+    fetchCategory();
   }, [error]);
 
   return { data, isLoading, error };

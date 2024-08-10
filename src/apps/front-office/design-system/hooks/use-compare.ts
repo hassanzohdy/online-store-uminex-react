@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { getWishlist } from "../services/wishlist-services";
+import { getCompare } from "../services/compare-services";
 
-export const useWishlist = () => {
+export const useCompare = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [data, setData] = useState<any>();
@@ -11,7 +11,7 @@ export const useWishlist = () => {
       setIsLoading(true);
       setError(null);
       try {
-        const { data } = await getWishlist();
+        const { data } = await getCompare();
         setData(data);
       } catch (errorL: any) {
         setError(error);

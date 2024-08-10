@@ -13,11 +13,12 @@ import {
 import URLS from "apps/front-office/utils/urls";
 import EmptyWishList from "shared/assets/images/empty-wishlist.svg";
 import WishlistItem from "../wishlist/wishlist-item";
+import { Product } from "apps/front-office/design-system/utils/types";
 
 interface WishlistSidebarSheetProps {
   children: React.ReactNode;
   data: {
-    products: any[];
+    products: Product[];
   };
   changeStatus?: () => void;
 }
@@ -39,7 +40,7 @@ const WishListSheetSidebar = ({
             {trans("wishlist")}
           </SheetTitle>
         </SheetHeader>
-        {data.products.length > 0 ? (
+        {data && data.products.length > 0 ? (
           data.products.map(product => (
             <div
               className="flex items-start gap-5 flex-col p-5"
@@ -53,7 +54,7 @@ const WishListSheetSidebar = ({
                 variant={"primary"}
                 size={"lg"}
                 className="h-12 text-md w-full rounded-full">
-                <Link href={URLS.wishlist}>View Wishlist</Link>
+                <Link href={URLS.wishlist}>{trans("View Wishlist")}</Link>
               </Button>
             </div>
           ))

@@ -5,11 +5,12 @@ import { useCart } from "apps/front-office/design-system/hooks/use-cart";
 import { formatPrice } from "apps/front-office/design-system/lib/formats";
 import CheckoutSummaryDetailsCartItem from "./CheckoutSummaryDetailsCartItem";
 import CheckoutSummaryDetailsLoadingComponent from "./CheckoutSummaryDetailsLoadingComponent";
+import { CartItemType } from "apps/front-office/design-system/utils/types";
 
 const CheckoutSummaryDetails = () => {
   const currentCurrency = currencyAtom.value;
   const { data, isLoading, error } = useCart();
-
+  
   if (isLoading) {
     return <CheckoutSummaryDetailsLoadingComponent />;
   }
@@ -21,9 +22,13 @@ const CheckoutSummaryDetails = () => {
   if (data) {
     const { cart } = data;
     const { items } = cart;
+
+    if(!items){
+      return null
+    }
     return (
       <div className="flex flex-col items-start w-full gap-3 max-w-[650px] px-4">
-        {items.map(item => (
+        {items.map((item:CartItemType) => (
           <CheckoutSummaryDetailsCartItem key={item.id} item={item} />
         ))}
         <Separator className="my-5" />

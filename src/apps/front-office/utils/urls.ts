@@ -3,7 +3,7 @@
 const URLS = {
   checkout: "/checkout",
   collections: "/collections",
-  home: "/",
+  home:"/",
   notFound: "/404",
   blog: {
     root: "/blog",
@@ -11,10 +11,19 @@ const URLS = {
     view: (post: any) => `/blog/${post.id}/${post.slug}`,
   },
   products: {
-    root: "/collection",
+    root: "/products",
+    viewRoute: "/products/:id",
+    view: (productId: number) => `/products/${productId}`,
   },
-  faq: "/faq",
+  search: {
+    root: "/search",
+    search: (type: "product" | "blog", query: string) =>
+      `/search?type=${type}&${query}`,
+  },
   auth: {
+    root: "/account",
+    addressBook: "/account/address-book",
+    orders: "/account/orders",
     login: "/account/login",
     forgetPassword: "/account/forget-password",
     resetPassword: "/account/rest-password",
@@ -23,11 +32,13 @@ const URLS = {
     logout: "/account/logout",
   },
   settings: "/settings",
-  contactUs: "/contact-us",
+  contactUs: "/contact",
   pages: {
-    aboutUs: "/about-us",
+    aboutUs: "/about",
     termsConditions: "/terms-conditions",
     privacyPolicy: "/privacy-policy",
+    faq: "/faq",
+    team:"/team",
     viewRoute: "/pages/:slug",
     view: (page: any) => `/pages/${page.id}/${page.slug}`,
   },
