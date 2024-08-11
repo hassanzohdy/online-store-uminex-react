@@ -42,5 +42,9 @@
   "browse": {
     "en": "Browse All Categories",
     "ar": "تصفح جميع الفئات"
+  },
+  "cart": {
+    "en": "Cart",
+    "ar": " سلة التسوق"
   }
 }

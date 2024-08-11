@@ -11,7 +11,7 @@
     "en": "Pages",
     "ar": "صفحات"
   },
-  "Subtotal": {
+  "subtotal": {
     "en": "SUBTOTAL",
     "ar": "المجموع الفرعي"
   },
@@ -2929,5 +2929,29 @@
   "calculateShippingRates": {
     "en": "calculate Shipping Rates   ",
     "ar": "حساب اسعار الشحن"
+  },
+  "continueShopping": {
+    "en": "Continue shopping",
+    "ar": "متابعة التسوق"
+  },
+  "deleteAll": {
+    "en": "Delete all",
+    "ar": " مسح الكل"
+  },
+  "state": {
+    "en": "State",
+    "ar": " المنطقة "
+  },
+  "postalCode": {
+    "en": "Zip/Postal Code",
+    "ar": " الرمز البريدي "
+  },
+  "saveTotal": {
+    "en": "You save in total",
+    "ar": " قسيمة "
+  },
+  "calculateRates": {
+    "en": "calculate shipping rates",
+    "ar": " حساب أسعار الشحن "
   }
 }

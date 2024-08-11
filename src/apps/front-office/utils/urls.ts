@@ -14,6 +14,7 @@ const URLS = {
     root: "/collection",
   },
   faq: "/faq",
+  cart: "/cart",
   auth: {
     login: "/login",
     forgetPassword: "/forget-password",
