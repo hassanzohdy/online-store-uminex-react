@@ -14,7 +14,7 @@ const URLS = {
     root: "/collection",
   },
   faq: "/faq",
-  cart: "/cart",
+  // cart: "/cart",
   auth: {
     login: "/login",
     forgetPassword: "/forget-password",
@@ -32,7 +32,7 @@ const URLS = {
     view: (page: any) => `/pages/${page.id}/${page.slug}`,
   },
   wishlist: "/wishlist",
-  cart: "/cart",
+  // cart: "/cart",
   checkout: "/checkout",
 };
 
