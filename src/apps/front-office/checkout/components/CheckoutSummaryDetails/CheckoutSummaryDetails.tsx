@@ -1,7 +1,7 @@
 import { trans } from "@mongez/localization";
 import { currencyAtom } from "apps/front-office/design-system/atoms/currency-atom";
 import { Separator } from "apps/front-office/design-system/components/ui/separator";
-import { useCart } from "apps/front-office/design-system/hooks/use-cart";
+import { useCart } from "apps/front-office/design-system/hooks/useCart";
 import { formatPrice } from "apps/front-office/design-system/lib/formats";
 import { CartItemType } from "apps/front-office/design-system/utils/types";
 import CheckoutSummaryDetailsCartItem from "./CheckoutSummaryDetailsCartItem";

@@ -1,41 +1,11 @@
 import cache from "@mongez/cache";
 import { atom } from "@mongez/react-atom";
 import { deleteItem, updateItem } from "../services/cart-services";
-function calculateCartTotals(cart, itemId?: number, newQuantity?: number) {
-  if (itemId !== undefined && newQuantity !== undefined) {
-    const item = cart.items.find(item => item.id === itemId);
-    if (item) {
-      item.quantity = newQuantity;
-      item.total = {
-        discount: item.total.discount,
-        finalPrice: (item.salePrice || item.price) * item.quantity,
-        price: item.total.price,
-        salePrice: (item.salePrice || item.price) * item.quantity,
-      };
-    }
-  }
+import { calculateCartTotals } from "../utils/cart-utils";
+import { CartType } from "../utils/types";
 
-  const subtotal = cart.items.reduce((acc, item) => {
-    return acc + (item.salePrice || item.price) * item.quantity;
-  }, 0);
 
-  const tax = (cart.taxRate / 100) * subtotal;
-  const finalPrice = subtotal + tax;
-
-  const totalQuantity = cart.items.reduce((acc, item) => {
-    return acc + item.quantity;
-  }, 0);
-
-  cart.totals = {
-    subtotal,
-    tax,
-    finalPrice,
-    salePrice: finalPrice,
-    quantity: totalQuantity,
-  };
-}
-
-export const cartAtom = atom({
+export const cartAtom = atom<CartType>({
   key: "cart",
   default: cache.get("cart", {}),
   beforeUpdate(cart) {
@@ -43,10 +13,6 @@ export const cartAtom = atom({
     return cart;
   },
   actions: {
-    refresh() {
-      cartAtom.update(cartAtom.value);
-    },
-
     updateQuantity(itemId: number, quantity: number) {
       const cart = cartAtom.value;
       const existingItem = cart.items.find(item => item.id === itemId);
@@ -55,7 +21,6 @@ export const cartAtom = atom({
         calculateCartTotals(cart, existingItem.id, quantity);
         cache.set("cart", cart);
         cartAtom.update(cart);
-        cartAtom.refresh();
         return updateItem(existingItem.id, existingItem.quantity);
       }
       return cart;

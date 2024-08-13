@@ -2,7 +2,7 @@ import { trans } from "@mongez/localization";
 import { compareAtom } from "apps/front-office/design-system/atoms/compare-atom";
 import CompareModel from "apps/front-office/design-system/components/models/compare-model";
 import { Button } from "apps/front-office/design-system/components/ui/button";
-import { useCompare } from "apps/front-office/design-system/hooks/use-compare";
+import { useCompare } from "apps/front-office/design-system/hooks/useCompare";
 import { formatNumber } from "apps/front-office/design-system/lib/formats";
 import { useState } from "react";
 import { FiLayers } from "react-icons/fi";
@@ -37,8 +37,14 @@ const CompareModelContainer = () => {
   if (data) {
     compareAtom.update(data);
     const { products } = data;
+
+    const deleteItem = (id: number) => {
+      compareAtom.deleteItem(id);
+      updateData();
+    };
+    
     return (
-      <CompareModel updateData={updateData}>
+      <CompareModel deleteItem={deleteItem}>
         <div className="flex items-center gap-1">
           <div className="flex items-center gap-2">
             <FiLayers className="w-4 h-4" />

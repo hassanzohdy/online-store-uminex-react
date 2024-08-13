@@ -47,7 +47,7 @@ export type User = {
   userType: "user" | "guest" | "admin";
 };
 
-//cart
+//product
 type LocalizedText = {
   localeCode: string;
   value: string;
@@ -110,6 +110,7 @@ export type Product = {
   purchase: Purchase;
 };
 
+//cart
 export type CartItemType = {
   id: number;
   product: Product;
@@ -121,4 +122,51 @@ export type CartItemType = {
     price: number;
     salePrice: number;
   };
+};
+
+export type CartTotals = {
+  price: number;
+  discount: number;
+  salePrice: number;
+  subtotal: number;
+  tax: number;
+  shippingFees?: number;
+  [key: string]: number | undefined;
+};
+
+export type TotalsText = {
+  type: string;
+  mode: string;
+  label: string;
+  value: number;
+  valueText: string;
+};
+
+export type CartType = {
+  id: number;
+  items: CartItemType[];
+  taxIncluded: boolean;
+  taxRate: number;
+  totals: CartTotals;
+  totalsText: TotalsText[];
+  createdAt: TimestampDetails;
+  createdBy: UserInfo;
+  updatedAt: TimestampDetails;
+  updatedBy: UserInfo;
+  user: UserInfo;
+};
+
+//compare
+export type Compare = {
+  products: Product[];
+  user: UserInfo;
+  languages: string[];
+};
+
+//wishlist
+export type Wishlist = {
+  products: Product[];
+  user: UserInfo;
+  totalWishlist: number;
+  languages: string[];
 };

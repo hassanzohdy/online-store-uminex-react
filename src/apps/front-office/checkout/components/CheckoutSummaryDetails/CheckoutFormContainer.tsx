@@ -1,4 +1,4 @@
-import { useUser } from "apps/front-office/design-system/hooks/use-user";
+import { useUser } from "apps/front-office/design-system/hooks/useUser";
 import CheckoutFormComponent from "./checkoutFormComponent";
 import CheckoutFormErrorComponent from "./CheckoutFormErrorComponent";
 import CheckoutFormLoadingComponent from "./CheckoutFormLoadingComponent";

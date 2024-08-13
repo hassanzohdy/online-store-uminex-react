@@ -1,6 +1,6 @@
 import { cartAtom } from "apps/front-office/design-system/atoms/cart-atom";
 import { Button } from "apps/front-office/design-system/components/ui/button";
-import { useCart } from "apps/front-office/design-system/hooks/use-cart";
+import { useCart } from "apps/front-office/design-system/hooks/useCart";
 import { IoCartOutline } from "react-icons/io5";
 import CartContainer from "./cart-container";
 
@@ -18,7 +18,7 @@ const CartSidebar = () => {
   }
 
   if (error) {
-    return <div className="text-red-500">Error loading cart data.</div>;
+    return <div className="text-red">Error loading cart data.</div>;
   }
 
   if (data) {

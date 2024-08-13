@@ -4,7 +4,7 @@ import { Link } from "@mongez/react-router";
 import { currencyAtom } from "apps/front-office/design-system/atoms/currency-atom";
 import { Button } from "apps/front-office/design-system/components/ui/button";
 import { ScrollArea } from "apps/front-office/design-system/components/ui/scroll-area";
-import { useProduct } from "apps/front-office/design-system/hooks/use-products";
+import { useProduct } from "apps/front-office/design-system/hooks/useProducts";
 import { formatPrice } from "apps/front-office/design-system/lib/formats";
 import { Product } from "apps/front-office/design-system/utils/types";
 import URLS from "apps/front-office/utils/urls";
@@ -25,6 +25,7 @@ const SearchResult = ({ value, category }: SearchResultProps) => {
   const viewProduct = (id: number) => {
     URLS.products.view(id);
   };
+  
   return (
     <ScrollArea className="w-full h-[380px] bg-white">
       <div className="flex flex-col items-start gap-5 py-5 px-7">

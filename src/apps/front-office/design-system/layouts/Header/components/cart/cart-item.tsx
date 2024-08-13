@@ -1,54 +1,30 @@
 import { trans } from "@mongez/localization";
 import { current } from "@mongez/react";
-import { cartAtom } from "apps/front-office/design-system/atoms/cart-atom";
-import { currencyAtom } from "apps/front-office/design-system/atoms/currency-atom";
 import { Button } from "apps/front-office/design-system/components/ui/button";
 import { Input } from "apps/front-office/design-system/components/ui/input";
+import { useCartQuantity } from "apps/front-office/design-system/hooks/useCartQuantity";
+import { useDeleteCartItem } from "apps/front-office/design-system/hooks/useDeleteCartItem";
 import {
   formatNumber,
   formatPrice,
 } from "apps/front-office/design-system/lib/formats";
 import { CartItemType } from "apps/front-office/design-system/utils/types";
-import { useState } from "react";
 import { FiTrash2 } from "react-icons/fi";
 
 interface CartItemProps {
   cartItem: CartItemType;
-  changeQuantity: (quantity: number) => void;
+  changeQuantity: () => void;
 }
 
 const CartItem = ({ cartItem, changeQuantity }: CartItemProps) => {
-  const [isLoading, setIsLoading] = useState(false);
-  const [value, setValue] = useState<number>(cartItem.quantity);
   const currentLanguage = current("localeCode");
-  const currentCurrency = currencyAtom.useValue();
+  const { quantity, isLoading, increaseQuantity, decreaseQuantity } =
+    useCartQuantity(cartItem.id, cartItem.quantity, changeQuantity);
 
-  const handleDecreaseQuantity = async () => {
-    setIsLoading(true);
-    if (value > 1) {
-      const newValue = value - 1;
-      setValue(newValue);
-      await cartAtom.updateQuantity(cartItem.id, newValue);
-      changeQuantity(newValue);
-    }
-    setIsLoading(false);
-  };
-
-  const handleIncreaseQuantity = async () => {
-    setIsLoading(true);
-    const newValue = value + 1;
-    setValue(newValue);
-    await cartAtom.updateQuantity(cartItem.id, newValue);
-    changeQuantity(newValue);
-    setIsLoading(false);
-  };
-
-  const handleDeleteItem = async () => {
-    setIsLoading(true);
-    await cartAtom.deleteItem(cartItem.id);
-    changeQuantity(value);
-    setIsLoading(false);
-  };
+  const { isDeleting, deleteItem } = useDeleteCartItem(
+    cartItem.id,
+    changeQuantity,
+  );
 
   return (
     <div className="flex items-start justify-between gap-3 relative w-full p-5">
@@ -68,27 +44,27 @@ const CartItem = ({ cartItem, changeQuantity }: CartItemProps) => {
           )}
         </h1>
         <h2 className="text-blue text-sm font-medium">
-          {formatPrice(cartItem.total.finalPrice, currentCurrency)}
+          {formatPrice(cartItem.total.finalPrice)}
         </h2>
         <div className="flex items-center gap-1">
           <Button
             variant={"outline"}
             size={"sm"}
             className="text-lg"
-            onClick={handleDecreaseQuantity}
-            disabled={isLoading || value <= 1}>
+            onClick={decreaseQuantity}
+            disabled={isLoading || quantity <= 1}>
             -
           </Button>
           <Input
             className="w-[100px] bg-slate-100 text-center"
-            value={formatNumber(value)}
+            value={formatNumber(quantity)}
             readOnly
           />
           <Button
             variant={"outline"}
             size={"sm"}
             className="text-lg"
-            onClick={handleIncreaseQuantity}
+            onClick={increaseQuantity}
             disabled={isLoading}>
             +
           </Button>
@@ -97,8 +73,8 @@ const CartItem = ({ cartItem, changeQuantity }: CartItemProps) => {
       <Button
         className=""
         variant={"ghost"}
-        onClick={handleDeleteItem}
-        disabled={isLoading}>
+        onClick={deleteItem}
+        disabled={isDeleting || isLoading}>
         <FiTrash2 className="w-4 h-4 text-red" />
       </Button>
     </div>

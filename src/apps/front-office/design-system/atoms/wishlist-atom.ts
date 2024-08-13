@@ -1,8 +1,9 @@
 import cache from "@mongez/cache";
 import { atom } from "@mongez/react-atom";
 import { deleteItem } from "../services/wishlist-services";
+import { Wishlist } from "../utils/types";
 
-export const wishlistAtom = atom({
+export const wishlistAtom = atom<Wishlist>({
   key: "wishlist",
   default: cache.get("wishlist", {}),
   beforeUpdate(wishlist) {

@@ -16,19 +16,19 @@ import {
   formatPrice,
 } from "apps/front-office/design-system/lib/formats";
 import URLS from "apps/front-office/utils/urls";
-import { useState } from "react";
 import { IoCartOutline } from "react-icons/io5";
 import EmptyCartIcon from "shared/assets/images/empty-cart.svg";
 import CartItem from "../cart/cart-item";
 
-const CartSheetSidebar = ({ changeTicks }: any) => {
+interface CartSheetSidebarProps {
+  changeTicks: () => void;
+}
+const CartSheetSidebar = ({ changeTicks }: CartSheetSidebarProps) => {
   const language = current("localeCode");
-  const [_, setQuantity] = useState(0);
   const cart = cartAtom.useValue();
 
-  const changeQuantity = (quantity: number) => {
-    setQuantity(quantity);
-    changeTicks(quantity);
+  const changeQuantity = () => {
+    changeTicks();
   };
   const items = cart.items;
 
@@ -41,9 +41,9 @@ const CartSheetSidebar = ({ changeTicks }: any) => {
             {items && items.length > 0 && (
               <div
                 className="absolute -top-1 -right-2 bg-red rounded-full 
-              w-[18px] h-[18px] flex items-center justify-center">
+                w-[18px] h-[18px] flex items-center justify-center">
                 <span className="text-xs text-center text-slate-50">
-                  {formatNumber(cart.totals.quantity)}
+                  {formatNumber(cart.totals.quantity ?? 0)}
                 </span>
               </div>
             )}

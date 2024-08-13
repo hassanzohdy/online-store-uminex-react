@@ -7,7 +7,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "apps/front-office/design-system/components/ui/dropdown-menu";
-import { useCategory } from "apps/front-office/design-system/hooks/use-category";
+import { useCategory } from "apps/front-office/design-system/hooks/useCategory";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { FaAngleDown } from "react-icons/fa";
 

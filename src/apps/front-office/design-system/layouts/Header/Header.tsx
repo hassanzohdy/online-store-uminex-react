@@ -3,7 +3,7 @@ import { Link } from "@mongez/react-router";
 import URLS from "apps/front-office/utils/urls";
 import { AiOutlineUser } from "react-icons/ai";
 import Logo from "../../components/Logo";
-import { useUser } from "../../hooks/use-user";
+import { useUser } from "../../hooks/useUser";
 import CartSidebar from "./components/cart/cart-sidebar";
 import SearchInput from "./components/search/search-input";
 import MobileSidebarSheet from "./components/sheets/mobile-sidebar-sheet";

@@ -1,6 +1,6 @@
 import { wishlistAtom } from "apps/front-office/design-system/atoms/wishlist-atom";
 import { Button } from "apps/front-office/design-system/components/ui/button";
-import { useWishlist } from "apps/front-office/design-system/hooks/use-wishlist";
+import { useWishlist } from "apps/front-office/design-system/hooks/useWishlist";
 import { FaRegHeart } from "react-icons/fa";
 import WishlistSidebar from "./wishlist-sidebar";
 
