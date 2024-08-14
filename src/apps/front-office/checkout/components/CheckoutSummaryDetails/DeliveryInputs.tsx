@@ -25,7 +25,7 @@ interface DeliveryInputsProps {
     {
       cardNumber: string;
       cardName: string;
-      expirationDate: string;
+      expirationDate: Date;
       cvv: string;
       address: string;
       email: string;

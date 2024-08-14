@@ -4,7 +4,6 @@ import { deleteItem, updateItem } from "../services/cart-services";
 import { calculateCartTotals } from "../utils/cart-utils";
 import { CartType } from "../utils/types";
 
-
 export const cartAtom = atom<CartType>({
   key: "cart",
   default: cache.get("cart", {}),

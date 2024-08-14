@@ -14,13 +14,7 @@ export const checkoutFormSchema = z.object({
     .string()
     .nonempty("Card number is required")
     .regex(/^\d{16}$/, "Card number must be 16 digits"),
-  expirationDate: z
-    .string()
-    .nonempty("Expiration date is required")
-    .regex(
-      /^(0[1-9]|1[0-2])\/?([0-9]{2})$/,
-      "Expiration date must be in MM/YY format",
-    ),
+  expirationDate: z.date(),
   cvv: z
     .string()
     .nonempty("Security code is required")

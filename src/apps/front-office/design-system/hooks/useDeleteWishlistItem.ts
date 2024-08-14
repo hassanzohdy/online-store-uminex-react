@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { wishlistAtom } from "../atoms/wishlist-atom";
 
-export const useDeleteWishlistItem = (wishlistItemId: number, onItemDeleted: () => void) => {
+export const useDeleteWishlistItem = (
+  wishlistItemId: number,
+  onItemDeleted: () => void,
+) => {
   const [isDeleting, setIsDeleting] = useState<boolean>(false);
 
   const deleteItem = async () => {

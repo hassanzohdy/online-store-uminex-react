@@ -1,7 +1,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { trans } from "@mongez/localization";
 import { current } from "@mongez/react";
-import { Link } from "@mongez/react-router";
+import { Link, navigateBack } from "@mongez/react-router";
 import {
   Accordion,
   AccordionContent,
@@ -43,7 +43,7 @@ const CheckoutFormComponent = ({ user }: CheckoutFormComponentProps) => {
       address: "",
       apartment: "",
       cardNumber: "",
-      expirationDate: "",
+      expirationDate: new Date(),
       cvv: "",
       cardName: user.name || "",
     },
@@ -71,6 +71,11 @@ const CheckoutFormComponent = ({ user }: CheckoutFormComponentProps) => {
   const onSubmit = (values: z.infer<typeof checkoutFormSchema>) => {
     console.log(values);
   };
+
+  if (!user) {
+    return navigateBack();
+  }
+
   return (
     <div
       className={cn(

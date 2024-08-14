@@ -15,9 +15,9 @@ const CompareTableHead = ({
 }: CompareTableHeadProps) => {
   const currentLanguage = current("localeCode");
 
-  const handleDeleteCompareItem = () =>{
+  const handleDeleteCompareItem = () => {
     deleteItem(compareItem.id);
-  }
+  };
 
   return (
     <>

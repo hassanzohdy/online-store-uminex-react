@@ -1,10 +1,10 @@
-import { useState } from "react";
 import { cartAtom } from "apps/front-office/design-system/atoms/cart-atom";
+import { useState } from "react";
 
 export const useCartQuantity = (
   cartItemId: number,
   initialQuantity: number,
-  onQuantityChange: () => void
+  onQuantityChange: () => void,
 ) => {
   const [quantity, setQuantity] = useState<number>(initialQuantity);
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -22,7 +22,7 @@ export const useCartQuantity = (
       updateQuantity(quantity - 1);
     }
   };
-  
+
   const increaseQuantity = async () => {
     updateQuantity(quantity + 1);
   };

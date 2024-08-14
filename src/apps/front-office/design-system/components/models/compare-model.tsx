@@ -32,7 +32,8 @@ const CompareModel = ({ children, deleteItem }: CompareModelProps) => {
   return (
     <Dialog>
       <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent className="flex flex-col gap-5 items-center justify-start p-0
+      <DialogContent
+        className="flex flex-col gap-5 items-center justify-start p-0
        max-h-[650px] max-w-full md:max-w-[750px]">
         <DialogHeader className="w-full bg-slate-100 py-3">
           <DialogTitle className="text-slate-800 text-center">
@@ -43,7 +44,8 @@ const CompareModel = ({ children, deleteItem }: CompareModelProps) => {
           <Table className="border-[.5px] border-slate-300 m-5">
             <TableHeader>
               <TableRow>
-                <TableHead className="border-r-[.5px] border-slate-300 text-base
+                <TableHead
+                  className="border-r-[.5px] border-slate-300 text-base
                  font-normal text-slate-900">
                   {trans("Products")}
                 </TableHead>
@@ -59,7 +61,8 @@ const CompareModel = ({ children, deleteItem }: CompareModelProps) => {
             </TableHeader>
             <TableBody>
               <TableRow>
-                <TableCell className="table-cell
+                <TableCell
+                  className="table-cell
                  text-base font-normal text-slate-900">
                   {trans("Description")}
                 </TableCell>
@@ -77,7 +80,8 @@ const CompareModel = ({ children, deleteItem }: CompareModelProps) => {
                 ))}
               </TableRow>
               <TableRow>
-                <TableCell className="table-cell
+                <TableCell
+                  className="table-cell
                  text-base font-normal text-slate-900">
                   {trans("Category")}
                 </TableCell>
@@ -95,7 +99,8 @@ const CompareModel = ({ children, deleteItem }: CompareModelProps) => {
                 ))}
               </TableRow>
               <TableRow>
-                <TableCell className="table-cell
+                <TableCell
+                  className="table-cell
                  text-base font-normal text-slate-900">
                   {trans("Availability")}
                 </TableCell>
@@ -106,7 +111,9 @@ const CompareModel = ({ children, deleteItem }: CompareModelProps) => {
                     text-center 
                      py-8 text-slate-600">
                     {product.inStock ? (
-                      <span className="text-emerald-600">{trans("In Stock")}</span>
+                      <span className="text-emerald-600">
+                        {trans("In Stock")}
+                      </span>
                     ) : (
                       <span className="text-red">{trans("Out Of Stock")}</span>
                     )}
@@ -114,7 +121,8 @@ const CompareModel = ({ children, deleteItem }: CompareModelProps) => {
                 ))}
               </TableRow>
               <TableRow>
-                <TableCell className="table-cell
+                <TableCell
+                  className="table-cell
                   text-base font-normal text-slate-900">
                   {trans("Type")}
                 </TableCell>
@@ -128,7 +136,8 @@ const CompareModel = ({ children, deleteItem }: CompareModelProps) => {
                 ))}
               </TableRow>
               <TableRow>
-                <TableCell className="table-cell
+                <TableCell
+                  className="table-cell
                   text-base font-normal text-slate-900">
                   {trans("Discount")}
                 </TableCell>

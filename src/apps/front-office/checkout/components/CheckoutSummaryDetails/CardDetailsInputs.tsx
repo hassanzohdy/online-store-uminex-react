@@ -1,5 +1,8 @@
 import { trans } from "@mongez/localization";
 import { current } from "@mongez/react";
+import { CalendarIcon } from "@radix-ui/react-icons";
+import { Button } from "apps/front-office/design-system/components/ui/button";
+import { Calendar } from "apps/front-office/design-system/components/ui/calendar";
 import {
   FormControl,
   FormField,
@@ -8,24 +11,27 @@ import {
 } from "apps/front-office/design-system/components/ui/form";
 import { Input } from "apps/front-office/design-system/components/ui/input";
 import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "apps/front-office/design-system/components/ui/popover";
+import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "apps/front-office/design-system/components/ui/tooltip";
 import { cn } from "apps/front-office/design-system/lib/utils";
+import { format } from "date-fns";
 import { UseFormReturn } from "react-hook-form";
 import { BsQuestionCircle } from "react-icons/bs";
 import { CiLock } from "react-icons/ci";
-import InputMask from "react-input-mask";
-import MaskedInput from "react-text-mask";
-
 interface CardDetailsInputsProps {
   form: UseFormReturn<
     {
       cardNumber: string;
       cardName: string;
-      expirationDate: string;
+      expirationDate: Date;
       cvv: string;
       address: string;
       email: string;
@@ -42,9 +48,17 @@ interface CardDetailsInputsProps {
     undefined
   >;
 }
+const formatCardNumber = value => {
+  return value.replace(/\s/g, "").replace(/(\d{4})(?=\d)/g, "$1 ");
+};
+
+const unFormatCardNumber = value => {
+  return value.replace(/\s/g, "");
+};
 
 const CardDetailsInputs = ({ form }: CardDetailsInputsProps) => {
   const currentLanguage = current("localeCode");
+
   return (
     <div className="w-full space-y-8 my-8">
       <div>
@@ -53,25 +67,22 @@ const CardDetailsInputs = ({ form }: CardDetailsInputsProps) => {
           {trans("transactionsEncrypted")}
         </p>
       </div>
-
       <FormField
         control={form.control}
         name="cardNumber"
         render={({ field }) => (
-          <FormItem
-            className="w-full h-16 text-base focus:ring-lightAqua
-            focus-visible:ring-lightAqua ring-lightAqua ring-offset-0 inset-0">
+          <FormItem>
             <FormControl>
-              <div className="w-full relative">
-                <InputMask
-                  mask="9999 9999 9999 9999"
-                  maskChar=" "
+              <div className="relative">
+                <Input
                   placeholder="Card Number"
                   className="CheckoutFormInput"
-                  {...field}>
-                  {/*@ts-expect-error I don't know why this give me an error*/}
-                  {inputProps => <Input {...inputProps} />}
-                </InputMask>
+                  value={formatCardNumber(field.value)}
+                  onChange={e => {
+                    const formattedValue = formatCardNumber(e.target.value);
+                    field.onChange(unFormatCardNumber(formattedValue));
+                  }}
+                />
                 <CiLock
                   className={cn(
                     "w-6 h-6 text-slate-600 absolute top-5",
@@ -85,22 +96,40 @@ const CardDetailsInputs = ({ form }: CardDetailsInputsProps) => {
           </FormItem>
         )}
       />
+
       <div className="flex items-center gap-3 w-full flex-wrap lg:flex-nowrap">
         <FormField
           control={form.control}
           name="expirationDate"
           render={({ field }) => (
-            <FormItem
-              className="w-full h-16 text-base focus:ring-lightAqua
-                 focus-visible:ring-lightAqua ring-lightAqua ring-offset-0 inset-0">
-              <FormControl>
-                <MaskedInput
-                  mask={[/\d/, /\d/, "/", /\d/, /\d/]}
-                  className="CheckoutFormInput"
-                  placeholder={trans("expirationDate")}
-                  {...field}
-                />
-              </FormControl>
+            <FormItem className="flex flex-col">
+              <Popover>
+                <PopoverTrigger asChild>
+                  <FormControl>
+                    <Button
+                      variant={"outline"}
+                      className={cn(
+                        "w-[300px] pl-3 text-left font-normal h-16 text-slate-500",
+                      )}>
+                      {field.value ? (
+                        format(field.value, "PPP")
+                      ) : (
+                        <span>Expiration Date</span>
+                      )}
+                      <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
+                    </Button>
+                  </FormControl>
+                </PopoverTrigger>
+                <PopoverContent className="w-auto p-0" align="start">
+                  <Calendar
+                    mode="single"
+                    selected={field.value as any}
+                    onSelect={field.onChange}
+                    disabled={date => date < new Date()}
+                    initialFocus
+                  />
+                </PopoverContent>
+              </Popover>
               <FormMessage />
             </FormItem>
           )}

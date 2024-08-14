@@ -1,6 +1,6 @@
 import { trans } from "@mongez/localization";
 import { current } from "@mongez/react";
-import { Link } from "@mongez/react-router";
+import { Link, navigateTo } from "@mongez/react-router";
 import { currencyAtom } from "apps/front-office/design-system/atoms/currency-atom";
 import { Button } from "apps/front-office/design-system/components/ui/button";
 import { ScrollArea } from "apps/front-office/design-system/components/ui/scroll-area";
@@ -23,9 +23,13 @@ const SearchResult = ({ value, category }: SearchResultProps) => {
   const currentLanguage = current("localeCode");
 
   const viewProduct = (id: number) => {
-    URLS.products.view(id);
+    navigateTo(URLS.products.view(id));
   };
-  
+
+  const searchProducts = () => {
+    navigateTo(URLS.search.search("product", params));
+  };
+
   return (
     <ScrollArea className="w-full h-[380px] bg-white">
       <div className="flex flex-col items-start gap-5 py-5 px-7">
@@ -80,7 +84,7 @@ const SearchResult = ({ value, category }: SearchResultProps) => {
               <Button
                 asChild
                 variant={"secondary"}
-                onClick={() => {}}
+                onClick={searchProducts}
                 className="w-full h-12 hover:bg-black hover:text-white transition">
                 <Link href="#">
                   {trans("viewAllBtn")} ({data.paginationInfo.total - 5})

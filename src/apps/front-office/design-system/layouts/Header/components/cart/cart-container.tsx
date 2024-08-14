@@ -8,7 +8,7 @@ const CartContainer = () => {
   const [_, setTick] = useState(0);
   const cart = cartAtom.useValue();
   const changeTicks = () => {
-    setTick((prev)=>prev+1);
+    setTick(prev => prev + 1);
   };
 
   return (

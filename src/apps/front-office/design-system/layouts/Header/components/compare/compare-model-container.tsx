@@ -42,7 +42,7 @@ const CompareModelContainer = () => {
       compareAtom.deleteItem(id);
       updateData();
     };
-    
+
     return (
       <CompareModel deleteItem={deleteItem}>
         <div className="flex items-center gap-1">
