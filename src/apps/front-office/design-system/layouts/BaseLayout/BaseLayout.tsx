@@ -30,7 +30,6 @@ export default function BaseLayout({ children }: BaseLayoutProps) {
         </div>
         <Separator />
       </div>
-      {/* <main className="w-full max-w-[1450px] mx-auto px-4">{children}</main> */}
       <main className="w-full  mx-auto ">{children}</main>
       <Footer />
     </div>

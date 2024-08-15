@@ -91,6 +91,10 @@
     "en": "Address",
     "ar": "العنوان"
   },
+  "Gender":{
+    "en": "Gender",
+    "ar": "الجنس"
+  },
   "Apartment": {
     "en": "Apartment",
     "ar": "المبني"
@@ -146,6 +150,10 @@
   "View Wishlist": {
     "en": "VIEW WISHLIST",
     "ar": "عرض قائمة المفضلة"
+  },
+  "Wishlist": {
+    "en": "WISHLIST",
+    "ar": "قائمة المفضلة"
   },
   "searchInputPlaceholder": {
     "en": "Search For Products...",
@@ -532,8 +540,8 @@
     "ar": "عرض"
   },
   "welcomeBack": {
-    "en": "Welcome Back :name",
-    "ar": "مرحبا بعودتك :name"
+    "en": "Welcome :name",
+    "ar": "مرحبا :name"
   },
   "signIn": {
     "en": "Sign In",
@@ -749,7 +757,7 @@
   },
   "logout": {
     "en": "Logout",
-    "ar": "خروج"
+    "ar": "تسجيل الخروج"
   },
   "accountSettings": {
     "en": "Account Settings",
@@ -2398,6 +2406,14 @@
   "totalPurchases": {
     "en": "Total Purchases",
     "ar": "إجمالي المشتريات"
+  },
+  "Total Cart Products":{
+    "en": "Total Cart Products",
+    "ar": "اجمالي المنتجات في السلة"
+  },
+  "Total Wishlist Products":{
+    "en": "Total Wishlist Products",
+    "ar": "اجمالي المنتجات في المفضلة"
   },
   "facebookAppSecret": {
     "en": "Facebook App Secret",

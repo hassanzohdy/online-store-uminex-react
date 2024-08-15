@@ -1,21 +1,17 @@
-import { getMe } from "apps/front-office/account/service/auth";
 import { useEffect, useState } from "react";
-import { User } from "../utils/types";
+import { getAddress } from "../services/address.services";
 
-type UserType = {
-  user: User;
-};
-export const useUser = () => {
+export const useAddresses = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [data, setData] = useState<UserType>();
+  const [data, setData] = useState<any>();
 
   useEffect(() => {
     const fetchCategory = async () => {
       setIsLoading(true);
       setError(null);
       try {
-        const { data } = await getMe();
+        const { data } = await getAddress();
         setData(data);
       } catch (errorL: any) {
         setError(error);
