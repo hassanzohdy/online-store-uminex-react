@@ -1,7 +1,7 @@
 import { trans } from "@mongez/localization";
 import { Separator } from "apps/front-office/design-system/components/ui/separator";
-import AccountSidebar from "../components/AccountSidebar";
-import AccountContainer from "../components/AccountContainer";
+import AccountContainer from "../../components/AccountContainer";
+import AccountSidebar from "../../components/AccountSidebar";
 
 const AccountPage = () => {
   return (
@@ -15,10 +15,10 @@ const AccountPage = () => {
         <Separator className="h-[2px]" />
         <div className="grid grid-cols-1 md:grid-cols-4 w-full">
           <div className="col-span-1">
-            <AccountSidebar/>
+            <AccountSidebar />
           </div>
           <div className="col-span-1 md:col-span-3">
-            <AccountContainer/>
+            <AccountContainer />
           </div>
         </div>
       </div>

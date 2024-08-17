@@ -170,3 +170,17 @@ export type Wishlist = {
   totalWishlist: number;
   languages: string[];
 };
+
+//address
+export type Address = {
+  id: number;
+  name: string;
+  email: string;
+  phoneNumber: string;
+  address: string;
+  isPrimary: boolean;
+  createdAt: TimestampDetails;
+  createdBy: UserInfo;
+  updatedAt: TimestampDetails;
+  updatedBy: UserInfo;
+};

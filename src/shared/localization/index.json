@@ -87,11 +87,31 @@
     "en": "Last Name",
     "ar": " الاسم الاخير"
   },
+  "Set as Default Address": {
+    "en": "Set as Default Address",
+    "ar": "تعيينها كعنوان الافتراضي"
+  },
+  "Edit": {
+    "en": "Edit",
+    "ar": "تعديل"
+  },
+  "Delete": {
+    "en": "Delete",
+    "ar": "حذف"
+  },
+  "Add a New Address": {
+    "en": "Add a New Address",
+    "ar": "اضافة عنوان جديد"
+  },
+  "Add Address": {
+    "en": "Add Address",
+    "ar": "اضافة عنوان"
+  },
   "Address": {
     "en": "Address",
     "ar": "العنوان"
   },
-  "Gender":{
+  "Gender": {
     "en": "Gender",
     "ar": "الجنس"
   },
@@ -2407,11 +2427,11 @@
     "en": "Total Purchases",
     "ar": "إجمالي المشتريات"
   },
-  "Total Cart Products":{
+  "Total Cart Products": {
     "en": "Total Cart Products",
     "ar": "اجمالي المنتجات في السلة"
   },
-  "Total Wishlist Products":{
+  "Total Wishlist Products": {
     "en": "Total Wishlist Products",
     "ar": "اجمالي المنتجات في المفضلة"
   },

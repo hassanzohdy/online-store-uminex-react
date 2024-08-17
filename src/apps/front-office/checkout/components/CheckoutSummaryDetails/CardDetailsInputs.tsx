@@ -76,7 +76,7 @@ const CardDetailsInputs = ({ form }: CardDetailsInputsProps) => {
               <div className="relative">
                 <Input
                   placeholder="Card Number"
-                  className="CheckoutFormInput"
+                  className="w-full h-16 text-base focus:ring-lightAqua focus-visible:ring-lightAqua ring-lightAqua ring-offset-0 inset-0"
                   value={formatCardNumber(field.value)}
                   onChange={e => {
                     const formattedValue = formatCardNumber(e.target.value);

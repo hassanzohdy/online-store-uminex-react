@@ -21,7 +21,7 @@ const AccountContainer = () => {
   }
 
   if (data) {
-    const {user}= data
+    const { user } = data;
     return (
       <div className="flex items-start flex-col gap-5">
         <div className="flex items-start gap-4 flex-col">
@@ -35,7 +35,8 @@ const AccountContainer = () => {
             })}
           </div>
         </div>
-        <AccountDetails user={user}/>
+        <h1 className="text-lg font-medium">Account Details: </h1>
+        <AccountDetails user={user} />
       </div>
     );
   }

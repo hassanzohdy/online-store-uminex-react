@@ -13,7 +13,7 @@ interface AccountSidebarRouteProps {
 const AccountSidebarRoute = ({ route }: AccountSidebarRouteProps) => {
   return (
     <Link
-    href={route.path}
+      href={route.path}
       className={cn(
         "w-full px-2 py-4 flex items-center justify-start gap-2 bg-slate-100",
         "hover:bg-slate-900 hover:text-white transition-all rounded-md",
@@ -21,7 +21,7 @@ const AccountSidebarRoute = ({ route }: AccountSidebarRouteProps) => {
       )}>
       {route.icon}
       <p className={cn("text-md")}>{route.label.toUpperCase()}</p>
-      {route.data!>=0 &&  <span className="text-md">({route.data})</span>}
+      {route.data! >= 0 && <span className="text-md">({route.data})</span>}
     </Link>
   );
 };
