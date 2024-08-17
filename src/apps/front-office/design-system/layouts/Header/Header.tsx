@@ -2,6 +2,7 @@ import { trans } from "@mongez/localization";
 import { Link } from "@mongez/react-router";
 import URLS from "apps/front-office/utils/urls";
 import { AiOutlineUser } from "react-icons/ai";
+import parseError from "../../../utils/parse-error";
 import Logo from "../../components/Logo";
 import { useUser } from "../../hooks/useUser";
 import CartSidebar from "./components/cart/cart-sidebar";
@@ -17,7 +18,7 @@ const Header = () => {
   }
 
   if (error) {
-    return <div>Error: {error}</div>;
+    return <div>Error: {parseError(error)}</div>;
   }
 
   const user = data!;

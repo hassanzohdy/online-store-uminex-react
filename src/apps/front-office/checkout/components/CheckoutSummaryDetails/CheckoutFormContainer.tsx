@@ -3,7 +3,7 @@ import CheckoutFormComponent from "./checkoutFormComponent";
 import CheckoutFormErrorComponent from "./CheckoutFormErrorComponent";
 import CheckoutFormLoadingComponent from "./CheckoutFormLoadingComponent";
 
-const CheckoutFormContainer = () => {
+export default function CheckoutFormContainer() {
   const { data, isLoading, error } = useUser();
 
   if (isLoading) {
@@ -18,6 +18,4 @@ const CheckoutFormContainer = () => {
     const user = data;
     return <CheckoutFormComponent user={user} />;
   }
-};
-
-export default CheckoutFormContainer;
+}
