@@ -30,7 +30,7 @@
     "@mongez/react-helmet": "^1.0.9",
     "@mongez/react-hooks": "^1.3.3",
     "@mongez/react-localization": "^1.0.5",
-    "@mongez/react-router": "^2.3.8",
+    "@mongez/react-router": "^2.4.1",
     "@mongez/react-utils": "^1.3.12",
     "@mongez/reinforcements": "^2.3.10",
     "@mongez/supportive-is": "^2.0.3",
