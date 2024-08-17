@@ -13,8 +13,9 @@ const CheckoutFormContainer = () => {
   if (error) {
     return <CheckoutFormErrorComponent />;
   }
+
   if (data) {
-    const { user } = data;
+    const user = data;
     return <CheckoutFormComponent user={user} />;
   }
 };

@@ -1,6 +1,6 @@
 import { trans } from "@mongez/localization";
 import { current } from "@mongez/react";
-import { Link, navigateTo } from "@mongez/react-router";
+import { Link, navigateTo, queryString } from "@mongez/react-router";
 import { currencyAtom } from "apps/front-office/design-system/atoms/currency-atom";
 import { Button } from "apps/front-office/design-system/components/ui/button";
 import { ScrollArea } from "apps/front-office/design-system/components/ui/scroll-area";
@@ -8,7 +8,6 @@ import { useProduct } from "apps/front-office/design-system/hooks/useProducts";
 import { formatPrice } from "apps/front-office/design-system/lib/formats";
 import { Product } from "apps/front-office/design-system/utils/types";
 import URLS from "apps/front-office/utils/urls";
-import queryString from "query-string";
 import SkeletonSearchCard from "../SkeletonLoading/skeleton-search-card";
 
 type SearchResultProps = {
@@ -17,7 +16,7 @@ type SearchResultProps = {
 };
 
 const SearchResult = ({ value, category }: SearchResultProps) => {
-  const params = queryString.stringify({ q: value, category });
+  const params = queryString.toQueryString({ q: value, category });
 
   const { data, isLoading } = useProduct(params);
   const currentLanguage = current("localeCode");
