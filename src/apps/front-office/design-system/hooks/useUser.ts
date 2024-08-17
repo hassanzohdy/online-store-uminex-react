@@ -14,7 +14,7 @@ export const useUser = () => {
   const [state, setState] = useState<State>({
     isLoading: user.isNotLoggedIn(),
     error: null,
-    data: null,
+    data: user.all() as User | null,
   });
 
   const fetchCategory = async () => {
