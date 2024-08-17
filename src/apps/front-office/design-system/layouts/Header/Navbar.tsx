@@ -16,7 +16,7 @@ const Navbar = () => {
           <CategoryLists />
           <ul className="flex items-center gap-8">
             <li className="text-slate-800 text-sm font-semibold hover:hover:text-blue">
-              <Link href="/">{trans("home")}</Link>
+              <Link href={URLS.home}>{trans("home")}</Link>
             </li>
             <li className="text-slate-800 text-sm font-semibold hover:hover:text-blue">
               <Link href={URLS.collections}>{trans("shop")}</Link>
@@ -39,28 +39,30 @@ const Navbar = () => {
                   <li
                     className="text-slate-500 font-medium text-sm hover:text-blue
                    hover:ml-3 transition-all">
-                    <Link href="/about">{trans("about")}</Link>
+                    <Link href={URLS.pages.aboutUs}>{trans("about")}</Link>
                   </li>
                   <li
                     className="text-slate-500 font-medium text-sm hover:text-blue
                    hover:ml-3 transition-all">
-                    <Link href="/faq">{trans("faq")}</Link>
+                    <Link href={URLS.pages.faq}>{trans("faq")}</Link>
                   </li>
                   <li
                     className="text-slate-500 font-medium text-sm hover:text-blue
                    hover:ml-3 transition-all">
-                    <Link href="/terms">{trans("terms")}</Link>
+                    <Link href={URLS.pages.termsConditions}>
+                      {trans("terms")}
+                    </Link>
                   </li>
                   <li
                     className="text-slate-500 font-medium text-sm hover:text-blue
                    hover:ml-3 transition-all">
-                    <Link href="/team">{trans("team")}</Link>
+                    <Link href={URLS.pages.team}>{trans("team")}</Link>
                   </li>
                 </ul>
               )}
             </div>
             <li className="text-slate-800 text-sm font-semibold hover:hover:text-blue">
-              <Link href="/contact">{trans("contact")}</Link>
+              <Link href={URLS.contactUs}>{trans("contact")}</Link>
             </li>
             <li className="text-slate-800 text-sm font-semibold hover:hover:text-blue">
               <Link to={URLS.blog.root}>{trans("blog")}</Link>

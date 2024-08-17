@@ -7,8 +7,8 @@ import CartSheetSidebar from "../sheets/cart-sidebar-sheet";
 const CartContainer = () => {
   const [_, setTick] = useState(0);
   const cart = cartAtom.useValue();
-  const changeTicks = (tick: number) => {
-    setTick(tick);
+  const changeTicks = () => {
+    setTick(prev => prev + 1);
   };
 
   return (

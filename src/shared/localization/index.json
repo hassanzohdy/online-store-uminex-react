@@ -11,6 +11,10 @@
     "en": "Pages",
     "ar": "صفحات"
   },
+  "Total": {
+    "en": "Total",
+    "ar": "المجموع"
+  },
   "Subtotal": {
     "en": "SUBTOTAL",
     "ar": "المجموع الفرعي"
@@ -27,9 +31,29 @@
     "en": "Terms & Conditions",
     "ar": "الشروط والأحكام"
   },
+  "emailPlaceHolder": {
+    "en": "Email or Mobile Phone Number",
+    "ar": "البريد الالكتروني أو الهاتف المحمول"
+  },
+  "showOrderSummary": {
+    "en": "Show Order Summary",
+    "ar": "اظهار ملخص طلبك"
+  },
+  "delivery": {
+    "en": "Delivery",
+    "ar": "التوصيل"
+  },
   "team": {
     "en": "Our Team",
     "ar": "فريقنا"
+  },
+  "CheckOut": {
+    "en": "Check Out",
+    "ar": "الدفع"
+  },
+  "ViewCart": {
+    "en": "View Cart",
+    "ar": "عرض السلة"
   },
   "contact": {
     "en": "Contact Us",
@@ -42,6 +66,66 @@
   "sale": {
     "en": "Sale $20 Off Your First Order.",
     "ar": "خصم 20 دولار على طلبك الأول."
+  },
+  "SelectCountry": {
+    "en": "Select Country",
+    "ar": "اختر الدولة"
+  },
+  "SelectState": {
+    "en": "Select State",
+    "ar": "اختر المحافظه"
+  },
+  "SelectCity": {
+    "en": "Select City",
+    "ar": "اختر المدينه"
+  },
+  "firstName": {
+    "en": "First Name",
+    "ar": " الاسم الاول"
+  },
+  "LastName": {
+    "en": "Last Name",
+    "ar": " الاسم الاخير"
+  },
+  "Address": {
+    "en": "Address",
+    "ar": "العنوان"
+  },
+  "Apartment": {
+    "en": "Apartment",
+    "ar": "المبني"
+  },
+  "zipCode": {
+    "en": "Zip Code",
+    "ar": "الرمز البريدي"
+  },
+  "cardNumber": {
+    "en": "Card Number",
+    "ar": "رقم البطاقة"
+  },
+  "expirationDate": {
+    "en": "Expiration Date (MM / YY)",
+    "ar": "تاريخ الانتهاء (شهر / سنة)"
+  },
+  "SecurityCode": {
+    "en": "Security Code",
+    "ar": "كود الحماية"
+  },
+  "SecurityCodeHover": {
+    "en": "3-digit security code usually found on the back of your card. American Express cards have a 4-digit code located on the front.",
+    "ar": "رمز الأمان المكون من 3 أرقام يوجد عادةً على ظهر بطاقتك. بطاقات أمريكان إكسبريس تحتوي على رمز مكون من 4 أرقام يوجد على الجهة الأمامية."
+  },
+  "notFoundProducts": {
+    "en": "No products found",
+    "ar": "لا توجد منتجات"
+  },
+  "cardName": {
+    "en": "Card Name",
+    "ar": "اسم البطاقة"
+  },
+  "transactionsEncrypted": {
+    "en": "All transactions are secure and encrypted.",
+    "ar": "كل التعاملات مؤمنة ومشفقة."
   },
   "browse": {
     "en": "Browse All Categories",
@@ -58,6 +142,10 @@
   "searchModelTitle": {
     "en": "WHAT ARE YOU LOOKING FOR?",
     "ar": "ما الذي تبحث عنه؟"
+  },
+  "View Wishlist": {
+    "en": "VIEW WISHLIST",
+    "ar": "عرض قائمة المفضلة"
   },
   "searchInputPlaceholder": {
     "en": "Search For Products...",
@@ -398,6 +486,10 @@
   "initialQuantity": {
     "en": "Initial Quantity",
     "ar": "الكمية الأولية"
+  },
+  "PayNow": {
+    "en": "Pay Now",
+    "ar": "ادفع الان"
   },
   "purchases": {
     "en": "Purchases",

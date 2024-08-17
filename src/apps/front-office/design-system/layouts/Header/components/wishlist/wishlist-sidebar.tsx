@@ -1,26 +1,23 @@
 import { trans } from "@mongez/localization";
-import { preload } from "@mongez/react-utils";
 import { wishlistAtom } from "apps/front-office/design-system/atoms/wishlist-atom";
 import { Button } from "apps/front-office/design-system/components/ui/button";
 import { formatNumber } from "apps/front-office/design-system/lib/formats";
-import { getWishlist } from "apps/front-office/design-system/services/wishlist-services";
 import { useState } from "react";
 import { FaRegHeart } from "react-icons/fa";
 import WishListSheetSidebar from "../sheets/wishlist-sidebar-sheet";
 
 interface WishlistSidebarProps {
   navbar?: boolean;
-  data;
 }
 
-const _WishlistSidebar = ({ data, navbar }: WishlistSidebarProps) => {
-  wishlistAtom.update(data);
+const WishlistSidebar = ({ navbar }: WishlistSidebarProps) => {
   const wishlist = wishlistAtom.useValue();
   const [status, setStatus] = useState(false);
 
   const changeStatus = () => {
     setStatus(!status);
   };
+
   if (navbar) {
     return (
       <WishListSheetSidebar data={wishlist} changeStatus={changeStatus}>
@@ -29,12 +26,14 @@ const _WishlistSidebar = ({ data, navbar }: WishlistSidebarProps) => {
             <FaRegHeart className="w-4 h-4" />
           </div>
           <h1 className="text-[14px] font-medium text-slate-900">
-            {trans("wishlist")} ( {formatNumber(wishlist.totalWishlist)} )
+            {trans("wishlist")} ({" "}
+            {formatNumber(wishlist && wishlist.totalWishlist)} )
           </h1>
         </div>
       </WishListSheetSidebar>
     );
   }
+
   return (
     <>
       <div className="flex items-center">
@@ -47,7 +46,7 @@ const _WishlistSidebar = ({ data, navbar }: WishlistSidebarProps) => {
                   className="absolute -top-1 -right-2 bg-red rounded-full
                 w-[18px] h-[18px] flex items-center justify-center">
                   <span className="text-xs text-center text-slate-50">
-                    {formatNumber(wishlist.totalWishlist)}
+                    {formatNumber(wishlist && wishlist.totalWishlist)}
                   </span>
                 </div>
               )}
@@ -59,5 +58,4 @@ const _WishlistSidebar = ({ data, navbar }: WishlistSidebarProps) => {
   );
 };
 
-const WishlistSidebar = preload(_WishlistSidebar, getWishlist);
 export default WishlistSidebar;

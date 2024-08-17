@@ -1,7 +1,6 @@
 import { trans } from "@mongez/localization";
 import { current } from "@mongez/react";
 import { Link } from "@mongez/react-router";
-import CompareModel from "apps/front-office/design-system/components/models/compare-model";
 import SearchModel from "apps/front-office/design-system/components/models/search-model";
 import { Button } from "apps/front-office/design-system/components/ui/button";
 import {
@@ -14,24 +13,21 @@ import {
   SheetContent,
   SheetTrigger,
 } from "apps/front-office/design-system/components/ui/sheet";
-import { formatNumber } from "apps/front-office/design-system/lib/formats";
+import { User } from "apps/front-office/design-system/utils/types";
 import URLS from "apps/front-office/utils/urls";
-import { FiLayers, FiUsers } from "react-icons/fi";
+import { FiUsers } from "react-icons/fi";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoLogOutOutline } from "react-icons/io5";
+import CompareModelContainer from "../compare/compare-model-container";
 import CurrencyConverter from "../converters/currency-converter";
 import LanguageConverter from "../converters/language-converter";
-import WishlistSidebar from "../wishlist/wishlist-sidebar";
+import WishlistSidebarContainer from "../wishlist/wishlist-sidebar-container";
 
-type UserType = {
-  name: string;
-  totalCart: number;
-  totalCompare: number;
-  totalWishlist: number;
-  userType: "guest" | "user";
-};
+interface MobileSidebarSheetProps {
+  user: User;
+}
 
-const MobileSidebarSheet = ({ user }: { user: UserType }) => {
+const MobileSidebarSheet = ({ user }: MobileSidebarSheetProps) => {
   const language = current("localeCode");
 
   return (
@@ -64,7 +60,7 @@ const MobileSidebarSheet = ({ user }: { user: UserType }) => {
                   <FiUsers className="w-4 h-4" />
                 </div>
                 <Link
-                  href={"/login"}
+                  href={URLS.auth.login}
                   className="text-[15px] font-medium text-slate-900">
                   {trans("login")}
                 </Link>
@@ -73,7 +69,7 @@ const MobileSidebarSheet = ({ user }: { user: UserType }) => {
             {user.userType == "user" && (
               <div className="flex items-start gap-4 flex-col">
                 <Link
-                  href={"/logout"}
+                  href={"#"}
                   className="text-[15px] font-medium text-slate-900">
                   <div className="flex items-center gap-1">
                     <IoLogOutOutline className="w-5 h-5" />
@@ -84,7 +80,7 @@ const MobileSidebarSheet = ({ user }: { user: UserType }) => {
                   {trans("welcomeBack", {
                     name: (
                       <Link
-                        href={"/account"}
+                        href={URLS.auth.root}
                         className="text-[15px] font-medium text-slate-900 underline">
                         {user.name}
                       </Link>
@@ -96,7 +92,7 @@ const MobileSidebarSheet = ({ user }: { user: UserType }) => {
             <Separator className="my-1" />
             <div className="flex items-center gap-1">
               <Link
-                href={"/"}
+                href={URLS.home}
                 className="text-[15px] font-medium text-slate-900">
                 {trans("home")}
               </Link>
@@ -112,28 +108,19 @@ const MobileSidebarSheet = ({ user }: { user: UserType }) => {
             <Separator className="my-1" />
             <div className="flex items-center gap-1">
               <Link
-                href={"/blogs"}
+                href={URLS.blog.root}
                 className="text-[15px] font-medium text-slate-900">
                 {trans("blog")}
               </Link>
             </div>
             <Separator className="my-1" />
-            <WishlistSidebar navbar={true} />
+            <WishlistSidebarContainer navbar={true} />
             <Separator className="my-1" />
-            <CompareModel>
-              <div className="flex items-center gap-1">
-                <div className="flex items-center gap-2">
-                  <FiLayers className="w-4 h-4" />
-                </div>
-                <h1 className="text-[14px] font-medium text-slate-900 ">
-                  {trans("compare")} ( {formatNumber(user.totalCompare)} )
-                </h1>
-              </div>
-            </CompareModel>
+            <CompareModelContainer />
             <Separator className="my-1" />
             <div className="flex items-center gap-1">
               <Link
-                href={"/contact"}
+                href={URLS.contactUs}
                 className="text-[15px] font-medium text-slate-900">
                 {trans("contact")}
               </Link>

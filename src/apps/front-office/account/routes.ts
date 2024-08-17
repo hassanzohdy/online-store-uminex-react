@@ -1,5 +1,11 @@
-import { reverseGuardedRoutes } from "../utils/router";
+import { guardedRoutes, reverseGuardedRoutes } from "../utils/router";
+import AccountPage from "./pages/AccountPage";
 
-reverseGuardedRoutes([
-  // login routes
+reverseGuardedRoutes([]);
+
+guardedRoutes([
+  {
+    path: "/account",
+    component: AccountPage,
+  },
 ]);
