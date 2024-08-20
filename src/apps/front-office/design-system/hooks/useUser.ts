@@ -1,29 +1,46 @@
+import { useOnce } from "@mongez/react-hooks";
 import { getMe } from "apps/front-office/account/service/auth";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import user from "../../account/user";
 import { User } from "../utils/types";
 
-type UserType = {
-  user: User;
+type State = {
+  data: User | null;
+  isLoading: boolean;
+  error: any;
 };
+
 export const useUser = () => {
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const [data, setData] = useState<UserType>();
+  const [state, setState] = useState<State>({
+    isLoading: user.isNotLoggedIn(),
+    error: null,
+    data: user.all() as User | null,
+  });
 
-  useEffect(() => {
-    const fetchCategory = async () => {
-      setIsLoading(true);
-      setError(null);
-      try {
-        const { data } = await getMe();
-        setData(data);
-      } catch (errorL: any) {
-        setError(error);
-      }
-      setIsLoading(false);
-    };
+  const fetchCategory = async () => {
+    try {
+      const { data } = await getMe();
+      setState({
+        data: data.user,
+        isLoading: user.isNotLoggedIn(),
+        error: null,
+      });
+
+      user.login(data.user);
+    } catch (error: any) {
+      setState({
+        error,
+        data: null,
+        isLoading: false,
+      });
+    }
+  };
+
+  useOnce(() => {
+    if (user.isLoggedIn()) return;
+
     fetchCategory();
-  }, [error]);
+  });
 
-  return { data, isLoading, error };
+  return state;
 };

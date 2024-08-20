@@ -38,16 +38,16 @@ const CompareTableHead = ({
           {compareItem.salePrice ? (
             <div
               key={compareItem.id}
-              className="text-base font-medium text-center">
+              className="text-base font-semibold text-center">
               <span className="text-red">
                 {formatPrice(compareItem.salePrice)}
               </span>{" "}
-              <span className="line-through text-slate-500 text-base font-medium">
+              <span className="line-through text-slate-500 text-base font-semibold">
                 {formatPrice(compareItem.price)}
               </span>
             </div>
           ) : (
-            <span className="text-blue text-base font-medium text-center">
+            <span className="text-blue text-base font-semibold text-center">
               {formatPrice(compareItem.price)}
             </span>
           )}

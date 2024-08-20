@@ -13,7 +13,7 @@ const AccountPage = () => {
           {trans("account")}
         </h1>
         <Separator className="h-[2px]" />
-        <div className="grid grid-cols-1 md:grid-cols-4 w-full">
+        <div className="grid grid-cols-1 md:grid-cols-4 w-full gap-5">
           <div className="col-span-1">
             <AccountSidebar />
           </div>

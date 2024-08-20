@@ -17,7 +17,7 @@ const endpoint = new Endpoint({
   setAuthorizationHeader: () => {
     //${user.getAccessToken()}
     if (user.isLoggedIn()) {
-      return `Bearer ${user.getAccessToken()}`;
+      return `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTM4MDM5MTMxLCJfaWQiOiI2NmE2MGIzZjY1ZmY5Y2U1MDQ4YWNhNTUiLCJ1c2VyVHlwZSI6InVzZXIiLCJjcmVhdGVkQXQiOjE3MjI1ODM5NjExMTYsImlhdCI6MTcyMjU4Mzk2MX0.3go9CPL-v2JQKz3dmrrg292Lp0CtSsgtsBGGfmsbnNg`;
     }
 
     if (!apiKey) return;

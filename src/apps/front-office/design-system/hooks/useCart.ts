@@ -1,25 +1,40 @@
-import { useEffect, useState } from "react";
+import { useOnce } from "@mongez/react-hooks";
+import { useState } from "react";
 import { getCart } from "../services/cart-services";
+import { CartType } from "../utils/types";
 
+type State = {
+  isLoading: boolean;
+  error: any | null;
+  data: CartType | null;
+};
 export const useCart = () => {
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const [data, setData] = useState<any>();
+  const [state, setState] = useState<State>({
+    isLoading: true,
+    error: null,
+    data: null,
+  });
 
-  useEffect(() => {
-    const fetchCart = async () => {
-      setIsLoading(true);
-      setError(null);
-      try {
-        const { data } = await getCart();
-        setData(data);
-      } catch (errorL: any) {
-        setError(error);
-      }
-      setIsLoading(false);
-    };
+  const fetchCart = async () => {
+    try {
+      const { data } = await getCart();
+      setState({
+        data: data.cart,
+        isLoading: false,
+        error: null,
+      });
+    } catch (error: any) {
+      setState({
+        data: null,
+        isLoading: false,
+        error: null,
+      });
+    }
+  };
+
+  useOnce(() => {
     fetchCart();
-  }, [error]);
+  });
 
-  return { data, isLoading, error };
+  return state;
 };

@@ -82,7 +82,7 @@ type Brand = {
   logo: Image;
 };
 
-type Category = {
+export type Category = {
   id: number;
   isActive: boolean;
   name: LocalizedText[];
@@ -108,6 +108,37 @@ export type Product = {
   slug: string;
   type: string;
   purchase: Purchase;
+};
+
+type Breadcrumb = {
+  text: string;
+  url: string;
+};
+
+type Meta = {
+  title: string;
+  description: string;
+  keywords: string;
+  image: string;
+};
+
+type PaginationInfo = {
+  limit: number;
+  page: number;
+  pages: number;
+  result: number;
+  total: number;
+};
+
+export type ProductsResponse = {
+  breadcrumbs: Breadcrumb[];
+  c: {
+    languages: string[];
+  };
+  meta: Meta;
+  paginationInfo: PaginationInfo;
+  products: Product[];
+  user: UserInfo;
 };
 
 //cart
@@ -183,4 +214,12 @@ export type Address = {
   createdBy: UserInfo;
   updatedAt: TimestampDetails;
   updatedBy: UserInfo;
+};
+
+//category
+
+export type CategoriesResponse = {
+  languages: string[];
+  categories: Category[];
+  user: UserInfo;
 };

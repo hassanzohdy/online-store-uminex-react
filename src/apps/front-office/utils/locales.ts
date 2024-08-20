@@ -3,6 +3,7 @@ import {
   localizationEvents,
   trans,
 } from "@mongez/localization";
+import { current } from "@mongez/react";
 import { changeLocaleCode } from "@mongez/react-router";
 import indexTranslation from "shared/localization/index.json";
 
@@ -19,6 +20,10 @@ groupedTranslations({
   // add your common localization here
 });
 
-localizationEvents.onChange("localeCode", newLocal => {
-  changeLocaleCode(newLocal);
+localizationEvents.onChange("localeCode", newLocale => {
+  const currentLocale = current("localeCode");
+
+  if (newLocale !== currentLocale) {
+    changeLocaleCode(newLocale);
+  }
 });

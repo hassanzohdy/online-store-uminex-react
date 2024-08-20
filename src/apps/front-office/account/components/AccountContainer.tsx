@@ -16,30 +16,31 @@ const AccountContainer = () => {
 
   if (error) {
     return (
-      <p className="text-center text-red text-lg font-medium">Error: {error}</p>
+      <p className="text-center text-red text-lg font-semibold">
+        Error: {error}
+      </p>
     );
   }
 
-  if (data) {
-    const { user } = data;
-    return (
-      <div className="flex items-start flex-col gap-5">
-        <div className="flex items-start gap-4 flex-col">
-          <div className="flex items-center gap-2">
-            {trans("welcomeBack", {
-              name: (
-                <h1 className="text-[15px] font-medium text-slate-900">
-                  {user.name}
-                </h1>
-              ),
-            })}
-          </div>
+  const user = data!;
+
+  return (
+    <div className="flex items-start flex-col gap-5 px-5">
+      <div className="flex items-start gap-4 flex-col">
+        <div className="flex items-center gap-2">
+          {trans("welcomeBack", {
+            name: (
+              <h1 className="text-[15px] font-semibold text-slate-900">
+                {user.name}
+              </h1>
+            ),
+          })}
         </div>
-        <h1 className="text-lg font-medium">Account Details: </h1>
-        <AccountDetails user={user} />
       </div>
-    );
-  }
+      <h1 className="text-lg font-semibold">{trans("Account Details")}: </h1>
+      <AccountDetails user={user} />
+    </div>
+  );
 };
 
 export default AccountContainer;

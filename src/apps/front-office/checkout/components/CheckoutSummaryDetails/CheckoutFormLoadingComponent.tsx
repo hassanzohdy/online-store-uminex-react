@@ -1,16 +1,14 @@
-import { current } from "@mongez/react";
 import { Separator } from "apps/front-office/design-system/components/ui/separator";
 import { Skeleton } from "apps/front-office/design-system/components/ui/skeleton";
 import { cn } from "apps/front-office/design-system/lib/utils";
+import { isLTR } from "apps/front-office/utils/helpers";
 
 const CheckoutFormLoadingComponent = () => {
-  const currentLanguage = current("localeCode");
-
   return (
     <div
       className={cn(
         "flex flex-col items-center w-full gap-5 max-w-[650px] p-5",
-        currentLanguage === "en" ? "ml-auto" : "mr-auto",
+        isLTR() ? "ml-auto" : "mr-auto",
       )}>
       <Skeleton className="w-28 h-6" />
       <div className="flex items-center gap-4">

@@ -32,7 +32,7 @@ const AddAddressForm = () => {
       const { default: isPrimary, ...addressData } = data;
       const response = await addAddress(addressData);
       const addressId = response.data.address.id;
-      if ((addresses && addresses.addresses.length >= 1) || isPrimary) {
+      if ((addresses && addresses.length >= 1) || isPrimary) {
         setPrimaryAddress(addressId);
       }
     } catch (error) {
@@ -43,7 +43,7 @@ const AddAddressForm = () => {
 
   return (
     <div className="flex items-center justify-center flex-col gap-5 p-5 bg-white rounded-lg max-h-[700px]">
-      <h1 className="text-center text-3xl font-medium">
+      <h1 className="text-center text-3xl font-semibold">
         {trans("Add a New Address")}
       </h1>
       <Form {...form}>

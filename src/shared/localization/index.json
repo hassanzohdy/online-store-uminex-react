@@ -233,7 +233,7 @@
   },
   "account": {
     "en": "Account",
-    "ar": "الحساب"
+    "ar": "الحساب الشخصي"
   },
   "createAccount": {
     "en": "Create Account",
@@ -498,6 +498,10 @@
   "phoneNumber": {
     "en": "Phone Number",
     "ar": "رقم الهاتف"
+  },
+  "Account Details": {
+    "en": "Account Details",
+    "ar": "تفاصيل الحساب الشخصي"
   },
   "vendors": {
     "en": "Vendors",

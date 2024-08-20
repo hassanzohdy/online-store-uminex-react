@@ -1,25 +1,40 @@
-import { useEffect, useState } from "react";
+import { useOnce } from "@mongez/react-hooks";
+import { useState } from "react";
 import { getCompare } from "../services/compare-services";
+import { Product } from "../utils/types";
+
+type State = {
+  isLoading: boolean;
+  error: any | null;
+  data: Product[] | null;
+};
 
 export const useCompare = () => {
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const [data, setData] = useState<any>();
+  const [state, setState] = useState<State>({
+    isLoading: true,
+    error: null,
+    data: null,
+  });
 
-  useEffect(() => {
-    const fetchCategory = async () => {
-      setIsLoading(true);
-      setError(null);
-      try {
-        const { data } = await getCompare();
-        setData(data);
-      } catch (errorL: any) {
-        setError(error);
-      }
-      setIsLoading(false);
-    };
+  const fetchCategory = async () => {
+    try {
+      const { data } = await getCompare();
+      setState({
+        data: data.products,
+        isLoading: false,
+        error: null,
+      });
+    } catch (error: any) {
+      setState({
+        data: null,
+        isLoading: false,
+        error: null,
+      });
+    }
+  };
+  useOnce(() => {
     fetchCategory();
-  }, [error]);
+  });
 
-  return { data, isLoading, error };
+  return state;
 };

@@ -1,26 +1,23 @@
 import { trans } from "@mongez/localization";
-import { current } from "@mongez/react";
-import { Link, navigateTo } from "@mongez/react-router";
-import { currencyAtom } from "apps/front-office/design-system/atoms/currency-atom";
+import { navigateTo } from "@mongez/react-router";
 import { Button } from "apps/front-office/design-system/components/ui/button";
 import { ScrollArea } from "apps/front-office/design-system/components/ui/scroll-area";
-import { useProduct } from "apps/front-office/design-system/hooks/useProducts";
+import { useDebouncedSearch } from "apps/front-office/design-system/hooks/useDebouncedSearch";
 import { formatPrice } from "apps/front-office/design-system/lib/formats";
 import { Product } from "apps/front-office/design-system/utils/types";
+import { isLTR } from "apps/front-office/utils/helpers";
 import URLS from "apps/front-office/utils/urls";
-import queryString from "query-string";
+import { FiX } from "react-icons/fi";
 import SkeletonSearchCard from "../SkeletonLoading/skeleton-search-card";
 
 type SearchResultProps = {
   value?: string;
   category?: number | null;
+  OnClose?: () => void;
 };
 
-const SearchResult = ({ value, category }: SearchResultProps) => {
-  const params = queryString.stringify({ q: value, category });
-
-  const { data, isLoading } = useProduct(params);
-  const currentLanguage = current("localeCode");
+const SearchResult = ({ value, category, OnClose }: SearchResultProps) => {
+  const { data, isLoading, params } = useDebouncedSearch({ value, category });
 
   const viewProduct = (id: number) => {
     navigateTo(URLS.products.view(id));
@@ -32,7 +29,7 @@ const SearchResult = ({ value, category }: SearchResultProps) => {
 
   return (
     <ScrollArea className="w-full h-[380px] bg-white">
-      <div className="flex flex-col items-start gap-5 py-5 px-7">
+      <div className="flex flex-col items-start gap-5 py-5 px-7 relative">
         {isLoading ? (
           Array.from({ length: 5 }).map((_, index) => (
             <SkeletonSearchCard key={index} />
@@ -54,25 +51,25 @@ const SearchResult = ({ value, category }: SearchResultProps) => {
                     className="w-full h-full truncate"
                   />
                 </div>
-                <div className="flex items-start flex-col gap-2">
-                  <h1 className="text-[16px] font-medium hover:text-blue cursor-pointer">
-                    {currentLanguage === "en"
+                <div className="flex items-start flex-col gap-1">
+                  <h1 className="text-[15px] font-semibold hover:text-blue cursor-pointer">
+                    {isLTR()
                       ? product.name.find(n => n.localeCode === "en")?.value
                       : product.name.find(n => n.localeCode === "ar")?.value}
                   </h1>
-                  <div className="flex items-center gap-1">
+                  <div className="flex items-center gap-1 text-sm">
                     {!product.salePrice ||
                     product.salePrice === product.price ? (
-                      <span className="text-blue font-medium">
-                        {formatPrice(product.price, currencyAtom.value)}
+                      <span className="text-blue font-semibold">
+                        {formatPrice(product.price)}
                       </span>
                     ) : (
                       <>
-                        <span className="text-red font-medium">
-                          {formatPrice(product.salePrice, currencyAtom.value)}
+                        <span className="text-red font-semibold">
+                          {formatPrice(product.salePrice)}
                         </span>
                         <span className="line-through text-slate-500">
-                          {formatPrice(product.price, currencyAtom.value)}
+                          {formatPrice(product.price)}
                         </span>
                       </>
                     )}
@@ -85,10 +82,10 @@ const SearchResult = ({ value, category }: SearchResultProps) => {
                 asChild
                 variant={"secondary"}
                 onClick={searchProducts}
-                className="w-full h-12 hover:bg-black hover:text-white transition">
-                <Link href="#">
+                className="w-full h-12 hover:bg-black hover:text-white transition cursor-pointer">
+                <p className="p-0 m-0 text-sm font-semibold">
                   {trans("viewAllBtn")} ({data.paginationInfo.total - 5})
-                </Link>
+                </p>
               </Button>
             )}
           </>
@@ -97,6 +94,11 @@ const SearchResult = ({ value, category }: SearchResultProps) => {
             {trans("notFoundProducts")}
           </div>
         )}
+
+        <FiX
+          className="w-5 h-5 absolute top-2 right-2 cursor-pointer"
+          onClick={OnClose}
+        />
       </div>
     </ScrollArea>
   );

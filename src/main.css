@@ -15,6 +15,9 @@ html {
   padding: 0 !important;
   margin: 0;
 }
+* {
+  font-family: "Bai Jamjuree", sans-serif;
+}
 
 .table-cell {
   @apply border-r-[.5px] border-t-[.5px] border-slate-300 px-4;

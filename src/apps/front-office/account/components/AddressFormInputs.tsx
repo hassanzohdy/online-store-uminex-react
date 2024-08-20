@@ -35,14 +35,12 @@ const AddressFormInputs = ({ form, isLoading }: AddressFormInputsProps) => {
         control={form.control}
         render={({ field }) => (
           <FormItem>
-            <FormLabel className="text-md text-slate-500">
-              {trans("name")}
-            </FormLabel>
+            <FormLabel className="text-sm text-gray">{trans("name")}</FormLabel>
             <FormControl>
               <Input
                 disabled={isLoading}
                 {...field}
-                className=" w-full h-14 text-base focus:ring-blue bg-slate-100
+                className=" w-full h-12 text-base focus:ring-blue bg-[#f6f6f6]
                     focus-visible:ring-blue ring-blue flex rounded-full inset-0"
               />
             </FormControl>
@@ -55,14 +53,14 @@ const AddressFormInputs = ({ form, isLoading }: AddressFormInputsProps) => {
         control={form.control}
         render={({ field }) => (
           <FormItem>
-            <FormLabel className="text-md text-slate-500">
+            <FormLabel className="text-sm text-gray">
               {trans("email")}
             </FormLabel>
             <FormControl>
               <Input
                 disabled={isLoading}
                 {...field}
-                className=" w-full h-14 text-base focus:ring-blue bg-slate-100
+                className=" w-full h-12 text-base focus:ring-blue bg-[#f6f6f6]
                     focus-visible:ring-blue ring-blue flex rounded-full inset-0"
               />
             </FormControl>
@@ -75,14 +73,14 @@ const AddressFormInputs = ({ form, isLoading }: AddressFormInputsProps) => {
         control={form.control}
         render={({ field }) => (
           <FormItem>
-            <FormLabel className="text-md text-slate-500">
+            <FormLabel className="text-sm text-gray">
               {trans("phoneNumber")}
             </FormLabel>
             <FormControl>
               <Input
                 disabled={isLoading}
                 {...field}
-                className=" w-full h-14 text-base focus:ring-blue bg-slate-100
+                className=" w-full h-12 text-base focus:ring-blue bg-[#f6f6f6]
                     focus-visible:ring-blue ring-blue flex rounded-full inset-0"
               />
             </FormControl>
@@ -95,14 +93,14 @@ const AddressFormInputs = ({ form, isLoading }: AddressFormInputsProps) => {
         control={form.control}
         render={({ field }) => (
           <FormItem>
-            <FormLabel className="text-md text-slate-500">
+            <FormLabel className="text-sm text-gray">
               {trans("Address")}
             </FormLabel>
             <FormControl>
               <Input
                 disabled={isLoading}
                 {...field}
-                className=" w-full h-14 text-base focus:ring-blue bg-slate-100
+                className=" w-full h-12 text-base focus:ring-blue bg-[#f6f6f6]
                     focus-visible:ring-blue ring-blue flex rounded-full inset-0"
               />
             </FormControl>
@@ -120,9 +118,10 @@ const AddressFormInputs = ({ form, isLoading }: AddressFormInputsProps) => {
                 disabled={isLoading}
                 checked={field.value as CheckedState}
                 onCheckedChange={field.onChange}
+                className="w-4 h-4 mt-1"
               />
             </FormControl>
-            <FormDescription className="text-md">
+            <FormDescription className="text-sm text-gray">
               {trans("Set as Default Address")}
             </FormDescription>
             <FormMessage />

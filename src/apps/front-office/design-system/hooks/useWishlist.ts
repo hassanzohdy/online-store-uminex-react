@@ -1,25 +1,40 @@
-import { useEffect, useState } from "react";
+import { useOnce } from "@mongez/react-hooks";
+import { useState } from "react";
 import { getWishlist } from "../services/wishlist-services";
+import { Wishlist } from "../utils/types";
+
+type State = {
+  isLoading: boolean;
+  error: any | null;
+  data: Wishlist | null;
+};
 
 export const useWishlist = () => {
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const [data, setData] = useState<any>();
+  const [state, setState] = useState<State>({
+    isLoading: true,
+    error: null,
+    data: null,
+  });
 
-  useEffect(() => {
-    const fetchCategory = async () => {
-      setIsLoading(true);
-      setError(null);
-      try {
-        const { data } = await getWishlist();
-        setData(data);
-      } catch (errorL: any) {
-        setError(error);
-      }
-      setIsLoading(false);
-    };
-    fetchCategory();
-  }, [error]);
+  const fetchWishlist = async () => {
+    try {
+      const { data } = await getWishlist();
+      setState({
+        data: data,
+        isLoading: false,
+        error: null,
+      });
+    } catch (error: any) {
+      setState({
+        data: null,
+        isLoading: false,
+        error: null,
+      });
+    }
+  };
+  useOnce(() => {
+    fetchWishlist();
+  });
 
-  return { data, isLoading, error };
+  return state;
 };

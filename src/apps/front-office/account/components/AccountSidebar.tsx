@@ -28,7 +28,7 @@ const AccountSidebar = () => {
       label: trans("Address"),
       path: URLS.auth.addresses,
       icon: <IoLocationOutline className="w-5 h-5" />,
-      data: addresses && addresses.addresses.length,
+      data: addresses && addresses.length,
     },
     {
       label: trans("Wishlist"),

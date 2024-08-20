@@ -36,14 +36,14 @@ const CartItem = ({ cartItem, changeQuantity }: CartItemProps) => {
         />
       </div>
       <div className="flex items-start flex-col gap-1">
-        <h1 className="text-black text-sm font-medium">
+        <h1 className="text-black text-sm font-semibold">
           {trans(
             cartItem.product.name.find(
               name => name.localeCode === currentLanguage,
             )?.value || "",
           )}
         </h1>
-        <h2 className="text-blue text-sm font-medium">
+        <h2 className="text-blue text-sm font-semibold">
           {formatPrice(cartItem.total.finalPrice)}
         </h2>
         <div className="flex items-center gap-1">

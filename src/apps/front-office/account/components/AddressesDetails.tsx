@@ -3,7 +3,7 @@ import { LuLoader2 } from "react-icons/lu";
 import AddressDetails from "./AddressDetails";
 
 const AddressesDetails = () => {
-  const { data, isLoading, error } = useAddresses();
+  const { data: addresses, isLoading, error } = useAddresses();
 
   if (isLoading) {
     return (
@@ -19,13 +19,13 @@ const AddressesDetails = () => {
     );
   }
 
-  if (!data || data.addresses.length === 0) {
+  if (!addresses || addresses.length === 0) {
     return null;
   }
 
   return (
     <div className="flex items-start flex-col gap-10 p-5 bg-white rounded-lg">
-      {data.addresses.map(address => (
+      {addresses.map(address => (
         <AddressDetails key={address.id} address={address} />
       ))}
     </div>

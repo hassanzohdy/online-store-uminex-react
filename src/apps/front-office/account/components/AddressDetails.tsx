@@ -57,11 +57,11 @@ const AddressDetails = ({ address }: AddressDetailsProps) => {
 
   const isLoading = form.formState.isSubmitting;
   return (
-    <div className="flex flex-col w-full gap-5">
+    <div className="flex flex-col w-full gap-3">
       {!isEditing && (
         <>
           {address.isPrimary && (
-            <h1 className="text-3xl font-medium text-center">
+            <h1 className="text-3xl font-semibold text-center">
               {trans("Default")}
             </h1>
           )}

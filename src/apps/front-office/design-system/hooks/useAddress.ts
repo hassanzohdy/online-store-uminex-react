@@ -1,29 +1,40 @@
-import { useEffect, useState } from "react";
+import { useOnce } from "@mongez/react-hooks";
+import { useState } from "react";
 import { getAddress } from "../services/address.services";
 import { Address } from "../utils/types";
 
-type AddressType = {
-  addresses: Address[];
+type State = {
+  data: Address[] | null;
+  isLoading: boolean;
+  error: any | null;
 };
+
 export const useAddresses = () => {
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const [data, setData] = useState<AddressType>();
+  const [state, setState] = useState<State>({
+    isLoading: true,
+    error: null,
+    data: null,
+  });
 
-  useEffect(() => {
-    const fetchCategory = async () => {
-      setIsLoading(true);
-      setError(null);
-      try {
-        const { data } = await getAddress();
-        setData(data);
-      } catch (errorL: any) {
-        setError(error);
-      }
-      setIsLoading(false);
-    };
-    fetchCategory();
-  }, [error]);
+  const fetchAddress = async () => {
+    try {
+      const { data } = await getAddress();
+      setState({
+        data: data.addresses,
+        isLoading: false,
+        error: null,
+      });
+    } catch (error: any) {
+      setState({
+        error,
+        data: null,
+        isLoading: false,
+      });
+    }
+  };
+  useOnce(() => {
+    fetchAddress();
+  });
 
-  return { data, isLoading, error };
+  return state;
 };
