@@ -32,14 +32,14 @@ const WishlistItem = ({ wishlistItem, changeStatus }: WishlistItemProps) => {
           />
         </div>
         <div className="flex items-start flex-col gap-1">
-          <h1 className="text-black text-sm font-medium line-clamp-3">
+          <h1 className="text-black text-sm font-semibold line-clamp-3">
             {trans(
               wishlistItem.name.find(
                 name => name.localeCode === currentLanguage,
               )?.value || "",
             )}
           </h1>
-          <h2 className="text-blue text-sm font-medium">
+          <h2 className="text-blue text-sm font-semibold">
             {formatPrice(wishlistItem.price, currentCurrency)}
           </h2>
         </div>

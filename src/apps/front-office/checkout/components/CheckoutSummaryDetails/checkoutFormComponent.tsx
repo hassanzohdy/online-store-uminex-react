@@ -1,6 +1,5 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { trans } from "@mongez/localization";
-import { current } from "@mongez/react";
 import { Link, navigateBack } from "@mongez/react-router";
 import {
   Accordion,
@@ -12,7 +11,8 @@ import { Button } from "apps/front-office/design-system/components/ui/button";
 import { Form } from "apps/front-office/design-system/components/ui/form";
 import { Input } from "apps/front-office/design-system/components/ui/input";
 import { cn } from "apps/front-office/design-system/lib/utils";
-import { User } from "apps/front-office/design-system/utils/types";
+import { Address, User } from "apps/front-office/design-system/utils/types";
+import { isLTR } from "apps/front-office/utils/helpers";
 import URLS from "apps/front-office/utils/urls";
 import { ChangeEvent } from "react";
 import { useForm } from "react-hook-form";
@@ -21,14 +21,17 @@ import * as z from "zod";
 import CardDetailsInputs from "./CardDetailsInputs";
 import CheckoutSummaryDetails from "./CheckoutSummaryDetails";
 import DeliveryInputs from "./DeliveryInputs";
+import ShippingMethod from "./ShippingMethod";
 
 interface CheckoutFormComponentProps {
   user: User;
+  address: Address | undefined;
 }
 
-const CheckoutFormComponent = ({ user }: CheckoutFormComponentProps) => {
-  const currentLanguage = current("localeCode");
-
+const CheckoutFormComponent = ({
+  user,
+  address,
+}: CheckoutFormComponentProps) => {
   const form = useForm<z.infer<typeof checkoutFormSchema>>({
     resolver: zodResolver(checkoutFormSchema),
     defaultValues: {
@@ -42,6 +45,7 @@ const CheckoutFormComponent = ({ user }: CheckoutFormComponentProps) => {
       phone: user.phoneNumber || "",
       address: "",
       apartment: "",
+      shippingMethod: "economy",
       cardNumber: "",
       expirationDate: new Date(),
       cvv: "",
@@ -76,11 +80,17 @@ const CheckoutFormComponent = ({ user }: CheckoutFormComponentProps) => {
     return navigateBack();
   }
 
+  const handleUseDefaultAddress = () => {
+    if (address) {
+      form.setValue("address", address.address);
+    }
+  };
+
   return (
     <div
       className={cn(
-        "w-full max-w-[720px] px-4 flex flex-col items-start",
-        currentLanguage === "en" ? "mx-auto md:ml-auto" : "mx-auto md:mr-auto",
+        "w-full max-w-[720px] px-4 flex flex-col items-end",
+        isLTR() ? "md:ml-auto" : "md:mr-auto",
       )}>
       <div className="block md:hidden w-full">
         <Accordion
@@ -147,17 +157,31 @@ const CheckoutFormComponent = ({ user }: CheckoutFormComponentProps) => {
         )}
         <Form {...form}>
           <form
-            className="w-full space-y-8 my-5"
+            className="w-full space-y-8 my-5 flex flex-col items-start gap-2"
             onSubmit={form.handleSubmit(onSubmit)}>
-            <DeliveryInputs form={form} />
-            <CardDetailsInputs form={form} />
-            <Button
-              type="submit"
-              disabled={isLoading}
-              variant={"primary"}
-              className="w-full h-16 text-lg">
-              {trans("PayNow")}
-            </Button>
+            <div className="w-full">
+              <DeliveryInputs form={form} />
+              {address && (
+                <Button
+                  type="button"
+                  variant={"link"}
+                  className="text-lightAqua p-0 text-md mt-3"
+                  onClick={handleUseDefaultAddress}>
+                  {trans("use Default Address")}
+                </Button>
+              )}
+            </div>
+            <ShippingMethod form={form} />
+            <div className="w-full">
+              <CardDetailsInputs form={form} />
+              <Button
+                type="submit"
+                disabled={isLoading}
+                variant={"primary"}
+                className="w-full h-16 text-lg">
+                {trans("PayNow")}
+              </Button>
+            </div>
           </form>
         </Form>
       </div>

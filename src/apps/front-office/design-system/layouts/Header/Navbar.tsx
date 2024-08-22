@@ -10,20 +10,20 @@ import SearchInput from "./components/search/search-input";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="w-full py-5">
-      <div className="hidden xl:flex items-center justify-between">
+    <div className="w-full py-[7px] relative">
+      <div className="hidden lg:flex items-center justify-between">
         <div className="flex items-center gap-4 w-full">
           <CategoryLists />
-          <ul className="flex items-center gap-8">
-            <li className="text-slate-800 text-sm font-semibold hover:hover:text-blue">
+          <ul className="flex items-center gap-8 ml-5">
+            <li className="text-black text-sm font-semibold hover:hover:text-blue">
               <Link href={URLS.home}>{trans("home")}</Link>
             </li>
-            <li className="text-slate-800 text-sm font-semibold hover:hover:text-blue">
+            <li className="text-black text-sm font-semibold hover:hover:text-blue">
               <Link href={URLS.collections}>{trans("shop")}</Link>
             </li>
             <div className="relative">
               <li
-                className="text-slate-800 text-sm font-semibold hover:hover:text-blue
+                className="text-black text-sm font-semibold hover:hover:text-blue
                  flex items-center cursor-pointer"
                 onMouseEnter={() => setIsOpen(true)}
                 onMouseLeave={() => setIsOpen(false)}>
@@ -37,46 +37,46 @@ const Navbar = () => {
                   className="absolute left-0 top-5 bg-white rounded-md p-4
                    shadow-md w-[200px] flex flex-col items-start gap-3">
                   <li
-                    className="text-slate-500 font-medium text-sm hover:text-blue
+                    className="text-slate-500 font-semibold text-sm hover:text-blue
                    hover:ml-3 transition-all">
                     <Link href={URLS.pages.aboutUs}>{trans("about")}</Link>
                   </li>
                   <li
-                    className="text-slate-500 font-medium text-sm hover:text-blue
+                    className="text-slate-500 font-semibold text-sm hover:text-blue
                    hover:ml-3 transition-all">
                     <Link href={URLS.pages.faq}>{trans("faq")}</Link>
                   </li>
                   <li
-                    className="text-slate-500 font-medium text-sm hover:text-blue
+                    className="text-slate-500 font-semibold text-sm hover:text-blue
                    hover:ml-3 transition-all">
                     <Link href={URLS.pages.termsConditions}>
                       {trans("terms")}
                     </Link>
                   </li>
                   <li
-                    className="text-slate-500 font-medium text-sm hover:text-blue
+                    className="text-slate-500 font-semibold text-sm hover:text-blue
                    hover:ml-3 transition-all">
                     <Link href={URLS.pages.team}>{trans("team")}</Link>
                   </li>
                 </ul>
               )}
             </div>
-            <li className="text-slate-800 text-sm font-semibold hover:hover:text-blue">
+            <li className="text-black text-sm font-semibold hover:hover:text-blue">
               <Link href={URLS.contactUs}>{trans("contact")}</Link>
             </li>
-            <li className="text-slate-800 text-sm font-semibold hover:hover:text-blue">
+            <li className="text-black text-sm font-semibold hover:hover:text-blue">
               <Link to={URLS.blog.root}>{trans("blog")}</Link>
             </li>
           </ul>
         </div>
         <div className="flex items-center gap-2 min-w-[250px]">
           <img src={discountSvg} alt="discount" />
-          <span className="text-slate-800 font-semibold hover:text-blue transition">
+          <span className="text-sm text-black font-semibold hover:text-blue transition">
             {trans("sale")}
           </span>
         </div>
       </div>
-      <div className="flex xl:hidden mx-1">
+      <div className="flex lg:hidden mx-1">
         <SearchInput />
       </div>
     </div>

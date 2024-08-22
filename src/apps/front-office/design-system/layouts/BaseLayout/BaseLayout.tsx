@@ -17,20 +17,19 @@ export default function BaseLayout({ children }: BaseLayoutProps) {
     <div className="w-full bg-lightGray scrollbar-hide">
       <div className="bg-white">
         <TopBanner />
-        <div className="w-full max-w-[1450px] mx-auto px-4 hidden xl:block">
+        <div className="w-full max-w-[1480px] mx-auto px-4 hidden lg:block">
           <LanguageCurrencyConverterHeader />
         </div>
         <Separator />
-        <div className="w-full max-w-[1450px] mx-auto px-4">
+        <div className="w-full max-w-[1420px] mx-auto px-4">
           <Header />
         </div>
         <Separator />
-        <div className="w-full max-w-[1450px] mx-auto px-4">
+        <div className="w-full max-w-[1440px] mx-auto px-4">
           <Navbar />
         </div>
         <Separator />
       </div>
-      {/* <main className="w-full max-w-[1450px] mx-auto px-4">{children}</main> */}
       <main className="w-full  mx-auto ">{children}</main>
       <Footer />
     </div>

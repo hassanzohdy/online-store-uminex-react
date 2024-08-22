@@ -1,10 +1,14 @@
+import { useAddresses } from "apps/front-office/design-system/hooks/useAddress";
 import { useUser } from "apps/front-office/design-system/hooks/useUser";
 import CheckoutFormComponent from "./checkoutFormComponent";
 import CheckoutFormErrorComponent from "./CheckoutFormErrorComponent";
 import CheckoutFormLoadingComponent from "./CheckoutFormLoadingComponent";
 
 export default function CheckoutFormContainer() {
-  const { data, isLoading, error } = useUser();
+  const { data: user } = useUser();
+  const { data: addresses, isLoading, error } = useAddresses();
+
+  const defaultAddress = addresses?.find(address => address.isPrimary);
 
   if (isLoading) {
     return <CheckoutFormLoadingComponent />;
@@ -14,8 +18,7 @@ export default function CheckoutFormContainer() {
     return <CheckoutFormErrorComponent />;
   }
 
-  if (data) {
-    const user = data;
-    return <CheckoutFormComponent user={user} />;
+  if (user) {
+    return <CheckoutFormComponent user={user} address={defaultAddress} />;
   }
 }

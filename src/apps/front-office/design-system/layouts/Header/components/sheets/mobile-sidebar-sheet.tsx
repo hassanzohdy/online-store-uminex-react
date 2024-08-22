@@ -35,13 +35,13 @@ const MobileSidebarSheet = ({ user }: MobileSidebarSheetProps) => {
       <SheetTrigger asChild>
         <Button
           variant={"ghost"}
-          className="hover:bg-transparent block xl:hidden">
-          <GiHamburgerMenu className="h-7 w-7 text-slate-800 " />
+          className="hover:bg-transparent block lg:hidden">
+          <GiHamburgerMenu className="h-7 w-7 text-black" />
         </Button>
       </SheetTrigger>
 
       <SheetContent
-        className="w-full md:max-w-sm"
+        className="w-full lg:max-w-sm"
         side={language === "ar" ? "right" : "left"}>
         <DialogHeader>
           <DialogTitle></DialogTitle>
@@ -61,7 +61,7 @@ const MobileSidebarSheet = ({ user }: MobileSidebarSheetProps) => {
                 </div>
                 <Link
                   href={URLS.auth.login}
-                  className="text-[15px] font-medium text-slate-900">
+                  className="text-[15px] font-semibold text-slate-900">
                   {trans("login")}
                 </Link>
               </div>
@@ -70,7 +70,7 @@ const MobileSidebarSheet = ({ user }: MobileSidebarSheetProps) => {
               <div className="flex items-start gap-4 flex-col">
                 <Link
                   href={"#"}
-                  className="text-[15px] font-medium text-slate-900">
+                  className="text-[15px] font-semibold text-slate-900">
                   <div className="flex items-center gap-1">
                     <IoLogOutOutline className="w-5 h-5" />
                     {trans("logout")}
@@ -81,7 +81,7 @@ const MobileSidebarSheet = ({ user }: MobileSidebarSheetProps) => {
                     name: (
                       <Link
                         href={URLS.auth.root}
-                        className="text-[15px] font-medium text-slate-900 underline">
+                        className="text-[15px] font-semibold text-slate-900 underline">
                         {user.name}
                       </Link>
                     ),
@@ -93,7 +93,7 @@ const MobileSidebarSheet = ({ user }: MobileSidebarSheetProps) => {
             <div className="flex items-center gap-1">
               <Link
                 href={URLS.home}
-                className="text-[15px] font-medium text-slate-900">
+                className="text-[15px] font-semibold text-slate-900">
                 {trans("home")}
               </Link>
             </div>
@@ -101,7 +101,7 @@ const MobileSidebarSheet = ({ user }: MobileSidebarSheetProps) => {
             <div className="flex items-center gap-1">
               <Link
                 href={URLS.collections}
-                className="text-[15px] font-medium text-slate-900">
+                className="text-[15px] font-semibold text-slate-900">
                 {trans("shop")}
               </Link>
             </div>
@@ -109,7 +109,7 @@ const MobileSidebarSheet = ({ user }: MobileSidebarSheetProps) => {
             <div className="flex items-center gap-1">
               <Link
                 href={URLS.blog.root}
-                className="text-[15px] font-medium text-slate-900">
+                className="text-[15px] font-semibold text-slate-900">
                 {trans("blog")}
               </Link>
             </div>
@@ -121,7 +121,7 @@ const MobileSidebarSheet = ({ user }: MobileSidebarSheetProps) => {
             <div className="flex items-center gap-1">
               <Link
                 href={URLS.contactUs}
-                className="text-[15px] font-medium text-slate-900">
+                className="text-[15px] font-semibold text-slate-900">
                 {trans("contact")}
               </Link>
             </div>

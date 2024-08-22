@@ -87,9 +87,33 @@
     "en": "Last Name",
     "ar": " الاسم الاخير"
   },
+  "Set as Default Address": {
+    "en": "Set as Default Address",
+    "ar": "تعيينها كعنوان الافتراضي"
+  },
+  "Edit": {
+    "en": "Edit",
+    "ar": "تعديل"
+  },
+  "Delete": {
+    "en": "Delete",
+    "ar": "حذف"
+  },
+  "Add a New Address": {
+    "en": "Add a New Address",
+    "ar": "اضافة عنوان جديد"
+  },
+  "Add Address": {
+    "en": "Add Address",
+    "ar": "اضافة عنوان"
+  },
   "Address": {
     "en": "Address",
     "ar": "العنوان"
+  },
+  "Gender": {
+    "en": "Gender",
+    "ar": "الجنس"
   },
   "Apartment": {
     "en": "Apartment",
@@ -146,6 +170,10 @@
   "View Wishlist": {
     "en": "VIEW WISHLIST",
     "ar": "عرض قائمة المفضلة"
+  },
+  "Wishlist": {
+    "en": "WISHLIST",
+    "ar": "قائمة المفضلة"
   },
   "searchInputPlaceholder": {
     "en": "Search For Products...",
@@ -205,7 +233,7 @@
   },
   "account": {
     "en": "Account",
-    "ar": "الحساب"
+    "ar": "الحساب الشخصي"
   },
   "createAccount": {
     "en": "Create Account",
@@ -471,6 +499,10 @@
     "en": "Phone Number",
     "ar": "رقم الهاتف"
   },
+  "Account Details": {
+    "en": "Account Details",
+    "ar": "تفاصيل الحساب الشخصي"
+  },
   "vendors": {
     "en": "Vendors",
     "ar": "الموردين"
@@ -532,8 +564,8 @@
     "ar": "عرض"
   },
   "welcomeBack": {
-    "en": "Welcome Back :name",
-    "ar": "مرحبا بعودتك :name"
+    "en": "Welcome :name",
+    "ar": "مرحبا :name"
   },
   "signIn": {
     "en": "Sign In",
@@ -749,7 +781,7 @@
   },
   "logout": {
     "en": "Logout",
-    "ar": "خروج"
+    "ar": "تسجيل الخروج"
   },
   "accountSettings": {
     "en": "Account Settings",
@@ -2398,6 +2430,14 @@
   "totalPurchases": {
     "en": "Total Purchases",
     "ar": "إجمالي المشتريات"
+  },
+  "Total Cart Products": {
+    "en": "Total Cart Products",
+    "ar": "اجمالي المنتجات في السلة"
+  },
+  "Total Wishlist Products": {
+    "en": "Total Wishlist Products",
+    "ar": "اجمالي المنتجات في المفضلة"
   },
   "facebookAppSecret": {
     "en": "Facebook App Secret",

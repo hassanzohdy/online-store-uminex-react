@@ -30,6 +30,7 @@ const URLS = {
     register: "/account/register",
     verifyForgetPassword: "/account/forget-password/verify",
     logout: "/account/logout",
+    addresses: "/account/addresses",
   },
   settings: "/settings",
   contactUs: "/contact",

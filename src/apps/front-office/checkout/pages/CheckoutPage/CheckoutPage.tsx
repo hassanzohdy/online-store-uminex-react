@@ -8,7 +8,7 @@ function _CheckoutPage() {
       <div className="border-r-[2px] border-slate-200 min-h-full">
         <CheckoutForm />
       </div>
-      <div className="w-full min-h-full bg-zinc-100 p-5 hidden md:block sticky">
+      <div className="w-full min-h-full bg-zinc-100 p-5 hidden md:block">
         <CheckoutSummaryDetails />
       </div>
     </div>

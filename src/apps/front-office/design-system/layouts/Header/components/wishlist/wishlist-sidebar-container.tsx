@@ -1,6 +1,7 @@
 import { wishlistAtom } from "apps/front-office/design-system/atoms/wishlist-atom";
 import { Button } from "apps/front-office/design-system/components/ui/button";
 import { useWishlist } from "apps/front-office/design-system/hooks/useWishlist";
+import parseError from "apps/front-office/utils/parse-error";
 import { FaRegHeart } from "react-icons/fa";
 import WishlistSidebar from "./wishlist-sidebar";
 
@@ -18,7 +19,7 @@ const WishlistSidebarContainer = ({ navbar }: { navbar?: boolean }) => {
   }
 
   if (error) {
-    return <div className="text-red-500">Error loading cart data.</div>;
+    return <div className="text-red-500">Error {parseError(error)}</div>;
   }
 
   if (data) {

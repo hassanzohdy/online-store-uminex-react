@@ -1,11 +1,11 @@
 import cache from "@mongez/cache";
 import { atom } from "@mongez/react-atom";
 import { deleteItem } from "../services/compare-services";
-import { Compare } from "../utils/types";
+import { Product } from "../utils/types";
 
-export const compareAtom = atom<Compare>({
+export const compareAtom = atom<Product[]>({
   key: "compare",
-  default: cache.get("compare", {}),
+  default: cache.get("compare", []),
   beforeUpdate(compare) {
     cache.set("compare", compare);
     return compare;
@@ -15,11 +15,11 @@ export const compareAtom = atom<Compare>({
       compareAtom.update(compareAtom.value);
     },
 
-    deleteItem(itemId: number) {
+    async deleteItem(itemId: number) {
       const compare = compareAtom.value;
-      compare.products = compare.products.filter(item => item.id !== itemId);
+      compare.filter(item => item.id !== itemId);
       cache.set("compare", compare);
-      deleteItem(itemId);
+      await deleteItem(itemId);
       return compareAtom.update(compare);
     },
   },

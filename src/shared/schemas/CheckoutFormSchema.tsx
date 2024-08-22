@@ -10,6 +10,9 @@ export const checkoutFormSchema = z.object({
   apartment: z.string().optional(),
   zipCode: z.string().nonempty("ZIP code is required"),
   address: z.string().nonempty("Address is Required"),
+  shippingMethod: z.enum(["economy", "standard"], {
+    required_error: "You need to select a Shipping Method.",
+  }),
   cardNumber: z
     .string()
     .nonempty("Card number is required")

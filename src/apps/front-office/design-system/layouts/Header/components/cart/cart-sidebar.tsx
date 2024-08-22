@@ -22,7 +22,7 @@ const CartSidebar = () => {
   }
 
   if (data) {
-    cartAtom.update(data.cart);
+    cartAtom.update(data);
     return (
       <div className="flex items-center">
         <CartContainer />

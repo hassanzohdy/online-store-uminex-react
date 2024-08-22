@@ -26,7 +26,6 @@ interface CompareModelProps {
 
 const CompareModel = ({ children, deleteItem }: CompareModelProps) => {
   const compareProducts = compareAtom.useValue();
-  const { products } = compareProducts;
   const currentLanguage = current("localeCode");
 
   return (
@@ -36,11 +35,11 @@ const CompareModel = ({ children, deleteItem }: CompareModelProps) => {
         className="flex flex-col gap-5 items-center justify-start p-0
        max-h-[650px] max-w-full md:max-w-[750px]">
         <DialogHeader className="w-full bg-slate-100 py-3">
-          <DialogTitle className="text-slate-800 text-center">
+          <DialogTitle className="text-black text-center">
             {trans("compare")}
           </DialogTitle>
         </DialogHeader>
-        {products.length > 0 ? (
+        {compareProducts.length > 0 ? (
           <Table className="border-[.5px] border-slate-300 m-5">
             <TableHeader>
               <TableRow>
@@ -49,7 +48,7 @@ const CompareModel = ({ children, deleteItem }: CompareModelProps) => {
                  font-normal text-slate-900">
                   {trans("Products")}
                 </TableHead>
-                {products.map((product: Product) => (
+                {compareProducts.map((product: Product) => (
                   <TableHead key={product.id} className="py-4 relative">
                     <CompareTableHead
                       compareItem={product}
@@ -66,7 +65,7 @@ const CompareModel = ({ children, deleteItem }: CompareModelProps) => {
                  text-base font-normal text-slate-900">
                   {trans("Description")}
                 </TableCell>
-                {products.map((product: Product) => (
+                {compareProducts.map((product: Product) => (
                   <TableCell
                     key={product.id}
                     className="table-cell
@@ -85,7 +84,7 @@ const CompareModel = ({ children, deleteItem }: CompareModelProps) => {
                  text-base font-normal text-slate-900">
                   {trans("Category")}
                 </TableCell>
-                {products.map((product: Product) => (
+                {compareProducts.map((product: Product) => (
                   <TableCell
                     key={product.id}
                     className="table-cell
@@ -104,7 +103,7 @@ const CompareModel = ({ children, deleteItem }: CompareModelProps) => {
                  text-base font-normal text-slate-900">
                   {trans("Availability")}
                 </TableCell>
-                {products.map((product: Product) => (
+                {compareProducts.map((product: Product) => (
                   <TableCell
                     key={product.id}
                     className="table-cell 
@@ -126,7 +125,7 @@ const CompareModel = ({ children, deleteItem }: CompareModelProps) => {
                   text-base font-normal text-slate-900">
                   {trans("Type")}
                 </TableCell>
-                {products.map((product: Product) => (
+                {compareProducts.map((product: Product) => (
                   <TableCell
                     key={product.id}
                     className="table-cell 
@@ -141,7 +140,7 @@ const CompareModel = ({ children, deleteItem }: CompareModelProps) => {
                   text-base font-normal text-slate-900">
                   {trans("Discount")}
                 </TableCell>
-                {products.map((product: Product) => (
+                {compareProducts.map((product: Product) => (
                   <TableCell
                     key={product.id}
                     className="table-cell 

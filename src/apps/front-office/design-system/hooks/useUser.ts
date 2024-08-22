@@ -22,7 +22,7 @@ export const useUser = () => {
       const { data } = await getMe();
       setState({
         data: data.user,
-        isLoading: false,
+        isLoading: user.isNotLoggedIn(),
         error: null,
       });
 

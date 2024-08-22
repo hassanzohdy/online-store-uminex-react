@@ -37,12 +37,12 @@ const CartSheetSidebar = ({ changeTicks }: CartSheetSidebarProps) => {
       <SheetTrigger asChild>
         <Button variant={"ghost"} className="hover:bg-transparent">
           <div className="relative">
-            <IoCartOutline className="h-8 w-8 text-slate-700" />
+            <IoCartOutline className="h-8 w-8 text-black" />
             {items && items.length > 0 && (
               <div
-                className="absolute -top-1 -right-2 bg-red rounded-full 
-                w-[18px] h-[18px] flex items-center justify-center">
-                <span className="text-xs text-center text-slate-50">
+                className="absolute -top-1 -right-2 bg-rose-600 rounded-full 
+                text-[5px] h-[16px] w-[17px] flex items-center justify-center">
+                <span className="text-xs text-center text-slate-50 ">
                   {formatNumber(cart.totals.quantity ?? 0)}
                 </span>
               </div>
@@ -95,7 +95,7 @@ const CartSheetSidebar = ({ changeTicks }: CartSheetSidebarProps) => {
         ) : (
           <div className="flex items-center justify-center flex-col gap-5 py-5">
             <img src={EmptyCartIcon} alt="empty cart" />
-            <p className="text-sm font-medium text-slate-800 ">
+            <p className="text-sm font-semibold text-black ">
               {trans("emptyCart")}
             </p>
             <Button

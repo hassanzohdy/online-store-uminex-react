@@ -63,7 +63,7 @@ const WishListSheetSidebar = ({
         ) : (
           <div className="flex items-center justify-center flex-col gap-5 py-5">
             <img src={EmptyWishList} alt="empty cart" />
-            <p className="text-sm font-medium text-slate-800 ">
+            <p className="text-sm font-semibold text-black ">
               {trans("emptyWishlist")}
             </p>
           </div>

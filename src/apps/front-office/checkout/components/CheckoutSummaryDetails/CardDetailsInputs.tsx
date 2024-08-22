@@ -1,5 +1,4 @@
 import { trans } from "@mongez/localization";
-import { current } from "@mongez/react";
 import { CalendarIcon } from "@radix-ui/react-icons";
 import { Button } from "apps/front-office/design-system/components/ui/button";
 import { Calendar } from "apps/front-office/design-system/components/ui/calendar";
@@ -22,6 +21,7 @@ import {
   TooltipTrigger,
 } from "apps/front-office/design-system/components/ui/tooltip";
 import { cn } from "apps/front-office/design-system/lib/utils";
+import { isLTR } from "apps/front-office/utils/helpers";
 import { format } from "date-fns";
 import { UseFormReturn } from "react-hook-form";
 import { BsQuestionCircle } from "react-icons/bs";
@@ -43,6 +43,7 @@ interface CardDetailsInputsProps {
       city: string;
       zipCode: string;
       apartment?: string | undefined;
+      shippingMethod: "economy" | "standard";
     },
     any,
     undefined
@@ -57,12 +58,10 @@ const unFormatCardNumber = value => {
 };
 
 const CardDetailsInputs = ({ form }: CardDetailsInputsProps) => {
-  const currentLanguage = current("localeCode");
-
   return (
     <div className="w-full space-y-8 my-8">
       <div>
-        <h1 className="text-2xl text-black mb-2">{trans("payment")}</h1>
+        <h1 className="text-2xl text-black">{trans("payment")}</h1>
         <p className="text-base text-slate-500">
           {trans("transactionsEncrypted")}
         </p>
@@ -75,19 +74,19 @@ const CardDetailsInputs = ({ form }: CardDetailsInputsProps) => {
             <FormControl>
               <div className="relative">
                 <Input
-                  placeholder="Card Number"
-                  className="CheckoutFormInput"
+                  placeholder={trans("cardNumber")}
+                  className="w-full h-16 text-base focus:ring-lightAqua focus-visible:ring-lightAqua ring-lightAqua ring-offset-0 inset-0"
                   value={formatCardNumber(field.value)}
                   onChange={e => {
                     const formattedValue = formatCardNumber(e.target.value);
                     field.onChange(unFormatCardNumber(formattedValue));
                   }}
+                  maxLength={16}
                 />
                 <CiLock
                   className={cn(
                     "w-6 h-6 text-slate-600 absolute top-5",
-                    currentLanguage === "en" && "right-5",
-                    currentLanguage === "ar" && "left-5",
+                    isLTR() ? "right-5" : "left-5",
                   )}
                 />
               </div>
@@ -97,24 +96,24 @@ const CardDetailsInputs = ({ form }: CardDetailsInputsProps) => {
         )}
       />
 
-      <div className="flex items-center gap-3 w-full flex-wrap lg:flex-nowrap">
+      <div className="flex items-center gap-5 w-full flex-wrap lg:flex-nowrap space-y-2">
         <FormField
           control={form.control}
           name="expirationDate"
           render={({ field }) => (
-            <FormItem className="flex flex-col">
+            <FormItem className="flex flex-col w-full">
               <Popover>
                 <PopoverTrigger asChild>
                   <FormControl>
                     <Button
                       variant={"outline"}
                       className={cn(
-                        "w-[300px] pl-3 text-left font-normal h-16 text-slate-500",
+                        "w-full pl-3 text-left font-normal h-16 text-slate-500",
                       )}>
                       {field.value ? (
                         format(field.value, "PPP")
                       ) : (
-                        <span>Expiration Date</span>
+                        <span>{trans("Expiration Date")}</span>
                       )}
                       <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
                     </Button>
@@ -156,8 +155,7 @@ const CardDetailsInputs = ({ form }: CardDetailsInputsProps) => {
                   <div
                     className={cn(
                       "text-slate-600 absolute top-5",
-                      currentLanguage === "en" && "right-5",
-                      currentLanguage === "ar" && "left-5",
+                      isLTR() ? "right-5" : "left-5",
                     )}>
                     <TooltipProvider>
                       <Tooltip>

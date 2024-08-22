@@ -22,7 +22,7 @@ const CompareModelContainer = () => {
           <div className="flex items-center gap-2">
             <FiLayers className="w-4 h-4" />
           </div>
-          <h1 className="text-[14px] font-medium text-slate-900 ">
+          <h1 className="text-[14px] font-semibold text-slate-900 ">
             {trans("compare")} ( 0 )
           </h1>
         </div>
@@ -36,7 +36,6 @@ const CompareModelContainer = () => {
 
   if (data) {
     compareAtom.update(data);
-    const { products } = data;
 
     const deleteItem = (id: number) => {
       compareAtom.deleteItem(id);
@@ -49,8 +48,8 @@ const CompareModelContainer = () => {
           <div className="flex items-center gap-2">
             <FiLayers className="w-4 h-4" />
           </div>
-          <h1 className="text-[14px] font-medium text-slate-900 ">
-            {trans("compare")} ( {formatNumber(products.length)} )
+          <h1 className="text-[14px] font-semibold text-slate-900 ">
+            {trans("compare")} ( {formatNumber(data.length)} )
           </h1>
         </div>
       </CompareModel>
