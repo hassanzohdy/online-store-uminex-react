@@ -10,6 +10,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "apps/front-office/design-system/components/ui/sheet";
+import { Product } from "apps/front-office/design-system/utils/types";
 import URLS from "apps/front-office/utils/urls";
 import EmptyWishList from "shared/assets/images/empty-wishlist.svg";
 import WishlistItem from "../wishlist/wishlist-item";
@@ -17,9 +18,9 @@ import WishlistItem from "../wishlist/wishlist-item";
 interface WishlistSidebarSheetProps {
   children: React.ReactNode;
   data: {
-    products: any[];
+    products: Product[];
   };
-  changeStatus?: () => void;
+  changeStatus: () => void;
 }
 const WishListSheetSidebar = ({
   children,
@@ -32,35 +33,37 @@ const WishListSheetSidebar = ({
     <Sheet>
       <SheetTrigger asChild>{children}</SheetTrigger>
       <SheetContent
-        className="p-0 w-full md:max-w-sm"
+        className="p-2 w-full md:max-w-sm"
         side={language === "ar" ? "left" : "right"}>
         <SheetHeader className="bg-slate-100 p-3">
           <SheetTitle className="text-slate-900 font-semibold text-md">
             {trans("wishlist")}
           </SheetTitle>
         </SheetHeader>
-        {data.products.length > 0 ? (
-          data.products.map(product => (
-            <div
-              className="flex items-start gap-5 flex-col p-5"
-              key={product.id}>
-              <WishlistItem
-                wishlistItem={product}
-                changeStatus={changeStatus}
-              />
-              <Separator className="my-2" />
-              <Button
-                variant={"primary"}
-                size={"lg"}
-                className="h-12 text-md w-full rounded-full">
-                <Link href={URLS.wishlist}>View Wishlist</Link>
-              </Button>
-            </div>
-          ))
+        {data && data.products.length > 0 ? (
+          <>
+            {data.products.map(product => (
+              <div
+                className="flex items-start gap-5 flex-col p-5"
+                key={product.id}>
+                <WishlistItem
+                  wishlistItem={product}
+                  changeStatus={changeStatus}
+                />
+                <Separator className="my-2" />
+              </div>
+            ))}
+            <Button
+              variant={"primary"}
+              size={"lg"}
+              className="h-12 text-sm rounded-full w-full">
+              <Link href={URLS.wishlist}>{trans("View Wishlist")}</Link>
+            </Button>
+          </>
         ) : (
           <div className="flex items-center justify-center flex-col gap-5 py-5">
             <img src={EmptyWishList} alt="empty cart" />
-            <p className="text-sm font-medium text-slate-800 ">
+            <p className="text-sm font-semibold text-black ">
               {trans("emptyWishlist")}
             </p>
           </div>

@@ -2,6 +2,7 @@
 
 const URLS = {
   cart: "/cart",
+  checkout: "/checkout",
   collections: "/collections",
   home: "/",
   notFound: "/404",
@@ -11,29 +12,40 @@ const URLS = {
     view: (post: any) => `/blog/${post.id}/${post.slug}`,
   },
   products: {
-    root: "/collection",
+    root: "/products",
+    viewRoute: "/products/:id",
+    view: (productId: number) => `/products/${productId}`,
+  },
+  search: {
+    root: "/search",
+    search: (type: "product" | "blog", query: string) =>
+      `/search?type=${type}&${query}`,
   },
   faq: "/faq",
-  // cart: "/cart",
   auth: {
-    login: "/login",
-    forgetPassword: "/forget-password",
-    resetPassword: "/rest-password",
-    register: "/register",
-    verifyForgetPassword: "/forget-password/verify",
+    root: "/account",
+    addressBook: "/account/address-book",
+    orders: "/account/orders",
+    login: "/account/login",
+    forgetPassword: "/account/forget-password",
+    resetPassword: "/account/rest-password",
+    register: "/account/register",
+    verifyForgetPassword: "/account/forget-password/verify",
+    logout: "/account/logout",
+    addresses: "/account/addresses",
   },
   settings: "/settings",
-  contactUs: "/contact-us",
+  contactUs: "/contact",
   pages: {
-    aboutUs: "/about-us",
+    aboutUs: "/about",
     termsConditions: "/terms-conditions",
     privacyPolicy: "/privacy-policy",
+    faq: "/faq",
+    team: "/team",
     viewRoute: "/pages/:slug",
     view: (page: any) => `/pages/${page.id}/${page.slug}`,
   },
   wishlist: "/wishlist",
-  // cart: "/cart",
-  checkout: "/checkout",
 };
 
 export default URLS;

@@ -8,7 +8,6 @@ import {
   DropdownMenuTrigger,
 } from "apps/front-office/design-system/components/ui/dropdown-menu";
 import { cn } from "apps/front-office/design-system/lib/utils";
-import { getLocaleCodes } from "apps/front-office/utils/localization";
 import { FaAngleDown } from "react-icons/fa";
 
 const languageFlagMap = {
@@ -16,12 +15,36 @@ const languageFlagMap = {
   ar: "//demo-uminex.myshopify.com/cdn/shop/t/4/assets/flag_ar.png?v=87171907108583701081681116939",
 };
 
+const locales = [
+  {
+    localeCode: "en",
+    name: "English",
+  },
+  {
+    localeCode: "ar",
+    name: "العربية",
+  },
+];
+
 const LanguageConverter = () => {
   const language = current("localeCode");
-  const locales = getLocaleCodes();
+
+  let isChangingLocale = false;
 
   const changeLanguage = (locale: string) => {
-    setCurrentLocaleCode(locale);
+    if (isChangingLocale) return;
+
+    const currentLocale = current("localeCode");
+    if (currentLocale === locale) return;
+
+    try {
+      isChangingLocale = true;
+      setCurrentLocaleCode(locale);
+    } catch (error) {
+      console.error("Failed to change language:", error);
+    } finally {
+      isChangingLocale = false;
+    }
   };
 
   return (
@@ -29,13 +52,13 @@ const LanguageConverter = () => {
       <DropdownMenuTrigger asChild>
         <Button
           variant={"ghost"}
-          className="hover:bg-transparent flex items-center gap-2 px-0">
+          className="hover:bg-transparent flex items-center gap-2 px-0 focus:ring-0 focus-visible:ring-0">
           <img
             className="h-4 w-5"
             src={languageFlagMap[language]}
             alt="Language Flag"
           />
-          <span className="text-sm font-medium text-slate-700">
+          <span className="text-sm font-semibold text-slate-700">
             {language === "en" ? "English" : "العربيه"}
           </span>
           <FaAngleDown className="mx-2 text-slate-600" />
@@ -58,7 +81,7 @@ const LanguageConverter = () => {
               src={languageFlagMap[locale.localeCode]}
               alt="Language Flag"
             />
-            <span className="text-sm font-medium text-slate-700">
+            <span className="text-sm font-semibold text-slate-700">
               {locale.name}
             </span>
           </DropdownMenuItem>

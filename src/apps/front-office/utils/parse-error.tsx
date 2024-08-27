@@ -1,9 +1,9 @@
 import { trans } from "@mongez/localization";
-import Is from "@mongez/supportive-is";
+import { isEmpty } from "@mongez/supportive-is";
 
 export default function parseError(error: any) {
-  if (Is.empty(error)) {
-    return Is.object(error) ? <span>{trans("somethingWentWrong")}</span> : null;
+  if (isEmpty(error)) {
+    return null;
   }
 
   if (error.response) {
@@ -11,11 +11,11 @@ export default function parseError(error: any) {
   }
 
   if ([405, 500, 401].includes(error.status)) {
-    return <span>{trans("somethingWentWrong")}</span>;
+    return trans("somethingWentWrong");
   }
 
   if (error.status === 404) {
-    return <span>{trans("notFound")}</span>;
+    return trans("notFound");
   }
 
   if (error?.data?.errors) {
@@ -28,7 +28,7 @@ export default function parseError(error: any) {
 
   let errorContent: any;
 
-  if (Is.array(error)) {
+  if (Array.isArray(error)) {
     errorContent = error.map((error: any) => {
       if (error.value) {
         return <div key={error.key}>{error.value}</div>;
@@ -37,7 +37,7 @@ export default function parseError(error: any) {
       return error;
     });
   } else {
-    errorContent = <div>{error}</div>;
+    errorContent = error;
   }
 
   return errorContent;

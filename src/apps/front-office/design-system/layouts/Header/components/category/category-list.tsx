@@ -1,7 +1,5 @@
 import { trans } from "@mongez/localization";
 import { current } from "@mongez/react";
-import { Link } from "@mongez/react-router";
-import { preload } from "@mongez/react-utils";
 import { Button } from "apps/front-office/design-system/components/ui/button";
 import {
   DropdownMenu,
@@ -10,59 +8,109 @@ import {
   DropdownMenuTrigger,
 } from "apps/front-office/design-system/components/ui/dropdown-menu";
 import { Separator } from "apps/front-office/design-system/components/ui/separator";
+import { useCategory } from "apps/front-office/design-system/hooks/useCategory";
 import { cn } from "apps/front-office/design-system/lib/utils";
-import { getCategories } from "apps/front-office/design-system/services/category-services";
+import { isLTR } from "apps/front-office/utils/helpers";
+import { useState } from "react";
 import { FiMenu } from "react-icons/fi";
 
-interface _CategoryListsProps {
-  data;
-}
-const _CategoryLists = ({ data }: _CategoryListsProps) => {
+const CategoryLists = () => {
   const currentLanguage = current("localeCode");
+  const [isOpen, setIsOpen] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
-  const { categories } = data;
+  const { data, isLoading, error } = useCategory();
 
-  return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button
-          variant={"ghost"}
-          className={cn(
-            "flex items-center justify-start w-full max-w-[270px]",
-            "border-slate-200 rounded-none pl-0 hover:bg-transparent",
-            currentLanguage === "en" ? "border-r-[2px]" : "border-l-[2px]",
-          )}>
-          <FiMenu className="w-5 h-5 mx-2" />
-          <span className="text-md font-medium text-slate-700">
-            {trans("browse")}
-          </span>
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent
-        side="bottom"
-        align="start"
-        className="w-[250px] shadow-none pt-2">
-        {categories.map(category => {
-          const categoryName =
-            category.name.find(name => name.localeCode === currentLanguage)
-              ?.value || category.name[0].value;
+  const changeStatus = () => {
+    setIsOpen(prev => !prev);
+  };
 
-          return (
-            <div key={category.id}>
-              <DropdownMenuItem
-                className="text-[14px] cursor-pointer hover:bg-transparent
-               py-1 font-normal text-black">
-                <Link href={"#"}>{categoryName}</Link>
-              </DropdownMenuItem>
-              <Separator className="my-2" />
-            </div>
-          );
-        })}
-      </DropdownMenuContent>
-    </DropdownMenu>
-  );
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+
+  if (isLoading) {
+    return (
+      <Button
+        variant={"ghost"}
+        className={cn(
+          "flex items-center justify-start w-full max-w-[270px]",
+          "border-slate-200 rounded-none pl-0 hover:bg-transparent",
+          isLTR() ? "border-r-[2px]" : "border-l-[2px]",
+        )}>
+        <FiMenu className="w-5 h-5 mx-2" />
+        <span className="text-md font-semibold text-slate-700">
+          {trans("browse")}
+        </span>
+      </Button>
+    );
+  }
+
+  if (error) {
+    return <div className="text-red-500">Error loading cart data.</div>;
+  }
+
+  if (data) {
+    return (
+      <DropdownMenu onOpenChange={changeStatus}>
+        <DropdownMenuTrigger asChild>
+          <div
+            className="w-full max-w-[270px]"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}>
+            {(isOpen || isHovered) && (
+              <Separator className="bg-blue transition h-[1px] absolute top-0 w-full max-w-[270px]" />
+            )}
+            <Button
+              variant={"ghost"}
+              className={cn(
+                "flex items-center justify-start w-full max-w-[270px]",
+                "rounded-none pl-0 hover:bg-transparent",
+                isLTR()
+                  ? "border-r-[2px] border-slate-200 "
+                  : "border-l-[2px] border-slate-200 ",
+              )}>
+              <FiMenu className="w-5 h-5 mx-2" />
+              <span className="text-md font-semibold text-black">
+                {trans("browse")}
+              </span>
+            </Button>
+          </div>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent
+          side="bottom"
+          align={isLTR() ? "start" : "end"}
+          className="w-[270px] shadow-md pt-4 px-4 rounded-none"
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}>
+          {data.map((category, index: number) => {
+            const categoryName =
+              category.name.find(name => name.localeCode === currentLanguage)
+                ?.value || category.name[0].value;
+
+            return (
+              <div key={category.id}>
+                <DropdownMenuItem
+                  className={cn(
+                    "text-sm cursor-pointer focus:bg-transparent focus:text-blue font-medium",
+                    " text-black border-b-[1px] border-slate-200 py-[10px] px-0",
+                    index === data.length - 1 && "border-b-0",
+                  )}>
+                  {categoryName}
+                </DropdownMenuItem>
+              </div>
+            );
+          })}
+        </DropdownMenuContent>
+      </DropdownMenu>
+    );
+  }
+
+  return null;
 };
-
-const CategoryLists = preload(_CategoryLists, getCategories);
 
 export default CategoryLists;

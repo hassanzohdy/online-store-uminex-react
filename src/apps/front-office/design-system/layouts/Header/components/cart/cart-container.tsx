@@ -7,8 +7,8 @@ import CartSheetSidebar from "../sheets/cart-sidebar-sheet";
 const CartContainer = () => {
   const [_, setTick] = useState(0);
   const cart = cartAtom.useValue();
-  const changeTicks = (tick: number) => {
-    setTick(tick);
+  const changeTicks = () => {
+    setTick(prev => prev + 1);
   };
 
   return (
@@ -16,7 +16,7 @@ const CartContainer = () => {
       <CartSheetSidebar changeTicks={changeTicks} />
       <div className="hidden xl:flex flex-col items-start">
         <span className="text-xs text-slate-600">{trans("cart")}</span>
-        <p className="text-sm font-medium text-primary p-0">
+        <p className="text-sm font-semibold text-primary p-0">
           {formatPrice(cart.totals ? cart.totals.subtotal : 0)}
         </p>
       </div>
