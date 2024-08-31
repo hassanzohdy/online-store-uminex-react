@@ -82,6 +82,7 @@
   version "7.25.2"
   resolved "https://registry.yarnpkg.com/@babel/helper-module-transforms/-/helper-module-transforms-7.25.2.tgz#ee713c29768100f2776edf04d4eb23b8d27a66e6"
   integrity sha512-BjyRAbix6j/wv83ftcVJmBt72QtHI56C7JXZoG2xATiLpmoC7dpd8WnkikExHDVPpi/3qCmO6WY1EaXOluiecQ==
+
   dependencies:
     "@babel/helper-module-imports" "^7.24.7"
     "@babel/helper-simple-access" "^7.24.7"
@@ -1599,6 +1600,7 @@
     "@swc/counter" "^0.1.3"
     "@swc/types" "^0.1.12"
   optionalDependencies:
+
     "@swc/core-darwin-arm64" "1.7.4"
     "@swc/core-darwin-x64" "1.7.4"
     "@swc/core-linux-arm-gnueabihf" "1.7.4"
@@ -1609,6 +1611,7 @@
     "@swc/core-win32-arm64-msvc" "1.7.4"
     "@swc/core-win32-ia32-msvc" "1.7.4"
     "@swc/core-win32-x64-msvc" "1.7.4"
+
 
 "@swc/counter@^0.1.3":
   version "0.1.3"
@@ -2787,6 +2790,7 @@ embla-carousel@8.1.8:
   version "8.1.8"
   resolved "https://registry.yarnpkg.com/embla-carousel/-/embla-carousel-8.1.8.tgz#cb4e02a1467909d8d59aba2063ab8e2e6262b68c"
   integrity sha512-KuHPA8qcAts6YE6ELtt38XYAb26hnKw8Ga0lSXmrhm1oI97t6oACFkqSsy33dfeZQEhaZB6VwWvaWQJRJVgSgA==
+
 
 emoji-regex@^8.0.0:
   version "8.0.0"
