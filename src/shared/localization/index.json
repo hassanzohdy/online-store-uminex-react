@@ -15,7 +15,7 @@
     "en": "Total",
     "ar": "المجموع"
   },
-  "Subtotal": {
+  "subtotal": {
     "en": "SUBTOTAL",
     "ar": "المجموع الفرعي"
   },
@@ -3024,5 +3024,66 @@
   "buttonText": {
     "en": "back to homepage",
     "ar": "الرجوع للصفحة الرئيسية"
+  },
+  "deleteAll": {
+    "en": "delete All",
+    "ar": "مسح الكل  "
+  },
+  "continueShopping": {
+    "en": " continue Shopping",
+    "ar": "متابعة التسوق"
+  },
+  "cartTotals": {
+    "en": "cart Totals",
+    "ar": " إجمالي السلة"
+  },
+  "estimateRates": {
+    "en": "estimate shopping Rates",
+    "ar": " تقدير أسعار الشحن:"
+  },
+  "state": {
+    "en": "state",
+    "ar": "ولاية"
+  },
+  "postalCode": {
+    "en": "Zip/Postal Code",
+    "ar": "رمز بريدي"
+  },
+  "saveTotal": {
+    "en": "You save in total",
+    "ar": "لقد وفرت"
+  },
+  "checkOut": {
+    "en": "checkOut   ",
+    "ar": " الدفع"
+  },
+
+  "calculateShippingRates": {
+    "en": "calculate Shipping Rates   ",
+    "ar": "حساب اسعار الشحن"
+  },
+  "continueShopping": {
+    "en": "Continue shopping",
+    "ar": "متابعة التسوق"
+  },
+  "deleteAll": {
+    "en": "Delete all",
+    "ar": " مسح الكل"
+  },
+  "state": {
+    "en": "State",
+    "ar": " المنطقة "
+  },
+  "postalCode": {
+    "en": "Zip/Postal Code",
+    "ar": " الرمز البريدي "
+  },
+  "saveTotal": {
+    "en": "You save in total",
+    "ar": " قسيمة "
+  },
+  "calculateRates": {
+    "en": "calculate shipping rates",
+    "ar": " حساب أسعار الشحن "
   }
 }

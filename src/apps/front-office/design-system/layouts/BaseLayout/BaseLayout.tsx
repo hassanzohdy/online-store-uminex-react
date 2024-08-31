@@ -31,6 +31,7 @@ export default function BaseLayout({ children }: BaseLayoutProps) {
         <Separator />
       </div>
       <main className="w-full  mx-auto ">{children}</main>
+
       <Footer />
     </div>
   );

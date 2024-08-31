@@ -1,6 +1,7 @@
 // append urls here, DO NOT remove this line
 
 const URLS = {
+  cart: "/cart",
   checkout: "/checkout",
   collections: "/collections",
   home: "/",
@@ -20,6 +21,7 @@ const URLS = {
     search: (type: "product" | "blog", query: string) =>
       `/search?type=${type}&${query}`,
   },
+  faq: "/faq",
   auth: {
     root: "/account",
     addressBook: "/account/address-book",
@@ -44,7 +46,6 @@ const URLS = {
     view: (page: any) => `/pages/${page.id}/${page.slug}`,
   },
   wishlist: "/wishlist",
-  cart: "/cart",
 };
 
 export default URLS;

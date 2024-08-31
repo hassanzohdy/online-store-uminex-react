@@ -10,5 +10,13 @@
   "viewAllBtn": {
     "en": "View All",
     "ar": "عرض الكل"
+  },
+  "continueShopping": {
+    "en": "Continue shopping",
+    "ar": "متابعة التسوق"
+  },
+  "deleteAll": {
+    "en": "Delete all",
+    "ar": " مسح الكل"
   }
 }
