@@ -1,4 +1,3 @@
-
 import { trans } from "@mongez/localization";
 import Helmet from "@mongez/react-helmet";
 import { preload } from "@mongez/react-utils";
