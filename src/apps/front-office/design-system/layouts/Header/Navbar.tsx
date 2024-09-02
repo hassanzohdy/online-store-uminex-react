@@ -68,6 +68,9 @@ export default function Navbar() {
             <li className="text-black text-sm font-semibold hover:hover:text-blue">
               <Link to={URLS.blog.root}>{trans("blog")}</Link>
             </li>
+            <li className="text-slate-800 text-sm font-semibold hover:hover:text-blue">
+              <Link to={URLS.cart}>{trans("cart")}</Link>
+            </li>
           </ul>
         </div>
         <div className="flex items-center gap-2 min-w-[250px]">
