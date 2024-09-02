@@ -9,7 +9,7 @@ import { MdOutlineLogout } from "react-icons/md";
 import { RxDashboard } from "react-icons/rx";
 import AccountSidebarRoute from "./AccountSidebarRoute";
 
-const AccountSidebar = () => {
+export default function AccountSidebar() {
   const { data: wishlist } = useWishlist();
   const { data: addresses } = useAddresses();
 
@@ -50,6 +50,4 @@ const AccountSidebar = () => {
       ))}
     </div>
   );
-};
-
-export default AccountSidebar;
+}

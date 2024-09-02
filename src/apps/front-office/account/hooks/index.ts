@@ -4,8 +4,9 @@ import router, {
   navigateTo,
   refresh,
 } from "@mongez/react-router";
-import URLS from "apps/front-office/utils/urls";
 import React from "react";
+
+import URLS from "apps/front-office/utils/urls";
 import { resetPasswordAtom } from "../atoms";
 import {
   forgetPassword,
@@ -14,7 +15,7 @@ import {
   resetPassword,
   verifyCode,
   verifyForgetPassword,
-} from "../service/auth";
+} from "../services/auth";
 import user from "../user";
 
 const goBack = () => {

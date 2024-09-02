@@ -1,5 +1,7 @@
 import { trans } from "@mongez/localization";
 import { navigateTo } from "@mongez/react-router";
+import { FiX } from "react-icons/fi";
+
 import { Button } from "apps/front-office/design-system/components/ui/button";
 import { ScrollArea } from "apps/front-office/design-system/components/ui/scroll-area";
 import { useDebouncedSearch } from "apps/front-office/design-system/hooks/useDebouncedSearch";
@@ -7,7 +9,6 @@ import { formatPrice } from "apps/front-office/design-system/lib/formats";
 import { Product } from "apps/front-office/design-system/utils/types";
 import { isLTR } from "apps/front-office/utils/helpers";
 import URLS from "apps/front-office/utils/urls";
-import { FiX } from "react-icons/fi";
 import SkeletonSearchCard from "../SkeletonLoading/skeleton-search-card";
 
 type SearchResultProps = {
@@ -16,7 +17,11 @@ type SearchResultProps = {
   OnClose?: () => void;
 };
 
-const SearchResult = ({ value, category, OnClose }: SearchResultProps) => {
+export default function SearchResult({
+  value,
+  category,
+  OnClose,
+}: SearchResultProps) {
   const { data, isLoading, params } = useDebouncedSearch({ value, category });
 
   const viewProduct = (id: number) => {
@@ -29,7 +34,7 @@ const SearchResult = ({ value, category, OnClose }: SearchResultProps) => {
 
   return (
     <ScrollArea className="w-full h-[380px] bg-white">
-      <div className="flex flex-col items-start gap-5 py-5 px-7 relative">
+      <div className="flex flex-col items-start gap-5 py-5 px-4 md:px-7 relative">
         {isLoading ? (
           Array.from({ length: 5 }).map((_, index) => (
             <SkeletonSearchCard key={index} />
@@ -41,7 +46,7 @@ const SearchResult = ({ value, category, OnClose }: SearchResultProps) => {
                 className="flex items-center gap-4 w-full border-b border-dashed border-slate-300 pb-3"
                 key={product.id}
                 onClick={() => viewProduct(product.id)}>
-                <div className="min-w-16 h-16 cursor-pointer">
+                <div className="w-12 h-12 md:min-w-16 md:h-16 cursor-pointer">
                   <img
                     src={product.images[0].url}
                     alt={trans(
@@ -52,12 +57,12 @@ const SearchResult = ({ value, category, OnClose }: SearchResultProps) => {
                   />
                 </div>
                 <div className="flex items-start flex-col gap-1">
-                  <h1 className="text-[15px] font-semibold hover:text-blue cursor-pointer">
+                  <h1 className="text-[14px] md:text-[15px] font-semibold hover:text-blue cursor-pointer">
                     {isLTR()
                       ? product.name.find(n => n.localeCode === "en")?.value
                       : product.name.find(n => n.localeCode === "ar")?.value}
                   </h1>
-                  <div className="flex items-center gap-1 text-sm">
+                  <div className="flex items-center gap-1 text-xs md:text-sm">
                     {!product.salePrice ||
                     product.salePrice === product.price ? (
                       <span className="text-blue font-semibold">
@@ -102,6 +107,4 @@ const SearchResult = ({ value, category, OnClose }: SearchResultProps) => {
       </div>
     </ScrollArea>
   );
-};
-
-export default SearchResult;
+}

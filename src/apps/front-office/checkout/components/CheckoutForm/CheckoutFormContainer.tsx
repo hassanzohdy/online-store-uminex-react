@@ -1,7 +1,8 @@
+import { navigateBack } from "@mongez/react-router";
+
 import { useAddresses } from "apps/front-office/design-system/hooks/useAddress";
 import { useUser } from "apps/front-office/design-system/hooks/useUser";
-import CheckoutFormComponent from "./checkoutFormComponent";
-import CheckoutFormErrorComponent from "./CheckoutFormErrorComponent";
+import CheckoutFormComponent from "./CheckoutFormComponent";
 import CheckoutFormLoadingComponent from "./CheckoutFormLoadingComponent";
 
 export default function CheckoutFormContainer() {
@@ -15,7 +16,7 @@ export default function CheckoutFormContainer() {
   }
 
   if (error) {
-    return <CheckoutFormErrorComponent />;
+    return navigateBack();
   }
 
   if (user) {

@@ -11,12 +11,12 @@ interface AccountDetailsProps {
   user: User;
 }
 
-const AccountDetails = ({ user }: AccountDetailsProps) => {
+export default function AccountDetails({ user }: AccountDetailsProps) {
   return (
     <Table className="border-[.5px] border-slate-300">
       <TableBody>
         <TableRow>
-          <TableCell className="table-cell text-sm font-normal text-slate-900 w-[300px]">
+          <TableCell className="table-cell text-sm font-normal text-slate-900 min-w-[200px] md:w-[300px]">
             {trans("firstName")}
           </TableCell>
           <TableCell className="table-cell py-3 text-slate-600">
@@ -24,7 +24,7 @@ const AccountDetails = ({ user }: AccountDetailsProps) => {
           </TableCell>
         </TableRow>
         <TableRow>
-          <TableCell className="table-cell text-sm font-normal text-slate-900 w-[300px]">
+          <TableCell className="table-cell text-sm font-normal text-slate-900 min-w-[200px] md:w-[300px]">
             {trans("LastName")}
           </TableCell>
           <TableCell className="table-cell py-3 text-slate-600">
@@ -32,7 +32,7 @@ const AccountDetails = ({ user }: AccountDetailsProps) => {
           </TableCell>
         </TableRow>
         <TableRow>
-          <TableCell className="table-cell text-sm font-normal text-slate-900 w-[300px]">
+          <TableCell className="table-cell text-sm font-normal text-slate-900 min-w-[200px] md:w-[300px]">
             {trans("email")}
           </TableCell>
           <TableCell className="table-cell py-3 text-slate-600">
@@ -40,7 +40,7 @@ const AccountDetails = ({ user }: AccountDetailsProps) => {
           </TableCell>
         </TableRow>
         <TableRow>
-          <TableCell className="table-cell text-sm font-normal text-slate-900 w-[300px]">
+          <TableCell className="table-cell text-sm font-normal text-slate-900 min-w-[200px] md:w-[300px]">
             {trans("phoneNumber")}
           </TableCell>
           <TableCell className="table-cell py-3 text-slate-600">
@@ -48,7 +48,7 @@ const AccountDetails = ({ user }: AccountDetailsProps) => {
           </TableCell>
         </TableRow>
         <TableRow>
-          <TableCell className="table-cell text-sm font-normal text-slate-900 w-[300px]">
+          <TableCell className="table-cell text-sm font-normal text-slate-900 min-w-[200px] md:w-[300px]">
             {trans("Gender")}
           </TableCell>
           <TableCell className="table-cell py-3 text-slate-600">
@@ -56,7 +56,7 @@ const AccountDetails = ({ user }: AccountDetailsProps) => {
           </TableCell>
         </TableRow>
         <TableRow>
-          <TableCell className="table-cell text-sm font-normal text-slate-900 w-[300px]">
+          <TableCell className="table-cell text-sm font-normal text-slate-900 min-w-[200px] md:w-[300px]">
             {trans("status")}
           </TableCell>
           <TableCell className="table-cell py-3 text-slate-600">
@@ -64,7 +64,7 @@ const AccountDetails = ({ user }: AccountDetailsProps) => {
           </TableCell>
         </TableRow>
         <TableRow>
-          <TableCell className="table-cell text-sm font-normal text-slate-900 w-[300px]">
+          <TableCell className="table-cell text-sm font-normal text-slate-900 min-w-[200px] md:w-[300px]">
             {trans("Total Cart Products")}
           </TableCell>
           <TableCell className="table-cell py-3 text-slate-600">
@@ -72,7 +72,7 @@ const AccountDetails = ({ user }: AccountDetailsProps) => {
           </TableCell>
         </TableRow>
         <TableRow>
-          <TableCell className="table-cell text-sm font-normal text-slate-900 w-[300px]">
+          <TableCell className="table-cell text-sm font-normal text-slate-900 min-w-[200px] md:w-[300px]">
             {trans("Total Wishlist Products")}
           </TableCell>
           <TableCell className="table-cell py-3 text-slate-600">
@@ -82,6 +82,4 @@ const AccountDetails = ({ user }: AccountDetailsProps) => {
       </TableBody>
     </Table>
   );
-};
-
-export default AccountDetails;
+}

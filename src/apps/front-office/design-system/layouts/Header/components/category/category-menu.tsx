@@ -23,10 +23,10 @@ import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { FaAngleDown } from "react-icons/fa";
 
 type CategoryMenuProps = {
-  selectCategory: (value: string, id: number) => void;
+  selectCategory: (value: string, id: number | null) => void;
 };
 
-const CategoryListLoadingComponent = () => {
+function CategoryListLoadingComponent() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -51,21 +51,26 @@ const CategoryListLoadingComponent = () => {
       </DropdownMenuContent>
     </DropdownMenu>
   );
-};
+}
 
-const CategoryMenu = ({ selectCategory }: CategoryMenuProps) => {
+export default function CategoryMenu({ selectCategory }: CategoryMenuProps) {
   const currentLanguage = current("localeCode");
   const { data, isLoading, error } = useCategory();
 
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
   const handleValueChange = (value: string) => {
-    const selectedCategoryData = data?.find(category =>
-      category.name.some(name => name.value === value),
-    );
-    if (selectedCategoryData) {
-      setSelectedCategory(value);
-      selectCategory(selectedCategoryData.slug, selectedCategoryData.id);
+    if (value === trans("allCategories")) {
+      setSelectedCategory(null);
+      selectCategory("", null);
+    } else {
+      const selectedCategoryData = data?.find(category =>
+        category.name.some(name => name.value === value),
+      );
+      if (selectedCategoryData) {
+        setSelectedCategory(value);
+        selectCategory(selectedCategoryData.slug, selectedCategoryData.id);
+      }
     }
   };
 
@@ -77,52 +82,46 @@ const CategoryMenu = ({ selectCategory }: CategoryMenuProps) => {
     return <div className="text-red-500">Something went wrong</div>;
   }
 
-  if (data) {
-    return (
-      <Select
-        onValueChange={handleValueChange}
-        value={selectedCategory || trans("allCategories")}>
-        <SelectTrigger
-          className={cn(
-            "w-[200px] border-0 focus:ring-0 font-semibold",
-            "shadow-none rounded-none text-sm max-w-[170px] xl:max-w-[180px] 2xl:max-w-[200px]",
-            isLTR() ? "xl:pl-6 border-r" : "border-l",
-          )}>
-          <SelectValue placeholder={trans("allCategories")} />
-        </SelectTrigger>
-        <SelectContent
-          side="bottom"
-          align={isLTR() ? "start" : "end"}
-          className="max-w-[170px] xl:max-w-[180px] 2xl:max-w-[200px] border-0 z-50">
-          <SelectGroup
-            className="text-[14px] cursor-pointer hover:bg-transparent py-1
+  return (
+    <Select
+      onValueChange={handleValueChange}
+      value={selectedCategory || trans("allCategories")}>
+      <SelectTrigger
+        className={cn(
+          "w-[200px] border-0 focus:ring-0 font-semibold",
+          "shadow-none rounded-none text-sm max-w-[170px] xl:max-w-[180px] 2xl:max-w-[200px]",
+          isLTR() ? "xl:pl-6 border-r" : "border-l",
+        )}>
+        <SelectValue placeholder={trans("allCategories")} />
+      </SelectTrigger>
+      <SelectContent
+        side="bottom"
+        align={isLTR() ? "start" : "end"}
+        className="max-w-[170px] xl:max-w-[180px] 2xl:max-w-[200px] border-0 z-50">
+        <SelectGroup
+          className="text-[14px] cursor-pointer hover:bg-transparent py-1
            font-normal text-black line-clamp-2">
-            <SelectItem
-              value={trans("allCategories")}
-              className="text-[14px] cursor-pointer hover:bg-transparent py-1 font-normal text-black">
-              {trans("allCategories")}
-            </SelectItem>
-            {data.map(category => {
-              const categoryName =
-                category.name.find(name => name.localeCode === currentLanguage)
-                  ?.value || category.name[0].value;
+          <SelectItem
+            value={trans("allCategories")}
+            className="text-[14px] cursor-pointer hover:bg-transparent py-1 font-normal text-black">
+            {trans("allCategories")}
+          </SelectItem>
+          {data?.map(category => {
+            const categoryName =
+              category.name.find(name => name.localeCode === currentLanguage)
+                ?.value || category.name[0].value;
 
-              return (
-                <SelectItem
-                  key={category.id}
-                  value={categoryName}
-                  className="text-[14px] cursor-pointer hover:bg-transparent py-1 font-normal text-black">
-                  {categoryName}
-                </SelectItem>
-              );
-            })}
-          </SelectGroup>
-        </SelectContent>
-      </Select>
-    );
-  }
-
-  return null;
-};
-
-export default CategoryMenu;
+            return (
+              <SelectItem
+                key={category.id}
+                value={categoryName}
+                className="text-[14px] cursor-pointer hover:bg-transparent py-1 font-normal text-black">
+                {categoryName}
+              </SelectItem>
+            );
+          })}
+        </SelectGroup>
+      </SelectContent>
+    </Select>
+  );
+}

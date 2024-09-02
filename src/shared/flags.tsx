@@ -12,3 +12,4 @@ export const googleMapApiKey = import.meta.env.GOOGLE_MAP_API_KEY;
 export const facebookAppId = import.meta.env.FACEBOOK_APP_ID;
 export const facebookAppVersion = import.meta.env.FACEBOOK_APP_VERSION;
 export const googleClientId = import.meta.env.GOOGLE_CLIENT_ID;
+export const apiClientId = import.meta.env.API_CLIENT_ID;

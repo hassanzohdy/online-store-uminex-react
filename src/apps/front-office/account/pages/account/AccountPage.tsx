@@ -1,13 +1,14 @@
 import { trans } from "@mongez/localization";
-import { Separator } from "apps/front-office/design-system/components/ui/separator";
-import AccountContainer from "../../components/AccountContainer";
-import AccountSidebar from "../../components/AccountSidebar";
 
-const AccountPage = () => {
+import { Separator } from "apps/front-office/design-system/components/ui/separator";
+import AccountContainer from "../../components/account/AccountContainer";
+import AccountSidebar from "../../components/account/AccountSidebar";
+
+export default function AccountPage() {
   return (
     <div className="px-4">
       <div
-        className="w-full max-w-[1450px] mx-auto px-4 py-8 my-10 bg-white rounded-lg
+        className="w-full max-w-[1450px] mx-auto md:px-4 py-8 my-10 bg-white rounded-lg
         flex flex-col items-center justify-center gap-5">
         <h1 className="text-[45px] text-center font-normal">
           {trans("account")}
@@ -24,6 +25,4 @@ const AccountPage = () => {
       </div>
     </div>
   );
-};
-
-export default AccountPage;
+}

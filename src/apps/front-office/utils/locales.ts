@@ -5,6 +5,7 @@ import {
 } from "@mongez/localization";
 import { current } from "@mongez/react";
 import { changeLocaleCode } from "@mongez/react-router";
+
 import indexTranslation from "shared/localization/index.json";
 
 // DO NOT IMPORT IT IF THE PROJECT IS NOT LARGE

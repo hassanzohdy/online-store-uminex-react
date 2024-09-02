@@ -7,7 +7,7 @@ type UseSearchResult = {
   storeInputValue: (e: ChangeEvent<HTMLInputElement>) => void;
   selectCategory: (
     selectedCategory: string,
-    selectedCategoryId: number,
+    selectedCategoryId: number | null,
   ) => void;
   OnClose: () => void;
 };
@@ -38,14 +38,14 @@ export const useSearch = (): UseSearchResult => {
 
   const selectCategory = (
     selectedCategory: string,
-    selectedCategoryId: number,
+    selectedCategoryId: number | null,
   ) => {
     if (selectedCategory === "all") {
       setCategoryId(null);
       return;
     }
     setCategory(selectedCategory);
-    setCategoryId(selectedCategoryId || 0);
+    setCategoryId(selectedCategoryId || null);
   };
 
   const OnClose = () => {

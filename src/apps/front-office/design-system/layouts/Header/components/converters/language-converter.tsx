@@ -26,7 +26,7 @@ const locales = [
   },
 ];
 
-const LanguageConverter = () => {
+export default function LanguageConverter() {
   const language = current("localeCode");
 
   let isChangingLocale = false;
@@ -89,6 +89,4 @@ const LanguageConverter = () => {
       </DropdownMenuContent>
     </DropdownMenu>
   );
-};
-
-export default LanguageConverter;
+}

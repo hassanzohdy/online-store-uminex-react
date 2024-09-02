@@ -1,16 +1,21 @@
 import { Link } from "@mongez/react-router";
+
 import { cn } from "apps/front-office/design-system/lib/utils";
 
-type IRoute = {
+type RouteType = {
   label: string;
   path: string;
   icon: React.ReactNode;
   data?: number | null;
 };
+
 interface AccountSidebarRouteProps {
-  route: IRoute;
+  route: RouteType;
 }
-const AccountSidebarRoute = ({ route }: AccountSidebarRouteProps) => {
+
+export default function AccountSidebarRoute({
+  route,
+}: AccountSidebarRouteProps) {
   return (
     <Link
       href={route.path}
@@ -26,6 +31,4 @@ const AccountSidebarRoute = ({ route }: AccountSidebarRouteProps) => {
       )}
     </Link>
   );
-};
-
-export default AccountSidebarRoute;
+}

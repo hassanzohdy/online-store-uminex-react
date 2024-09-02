@@ -1,4 +1,5 @@
 import { Separator } from "../../components/ui/separator";
+import { Toaster } from "../../components/ui/toaster";
 import Footer from "../Footer";
 import Header from "../Header";
 import LanguageCurrencyConverterHeader from "../Header/LanguageCurrencyConverterHeader";
@@ -32,6 +33,7 @@ export default function BaseLayout({ children }: BaseLayoutProps) {
       </div>
       <main className="w-full  mx-auto ">{children}</main>
       <Footer />
+      <Toaster />
     </div>
   );
 }

@@ -27,7 +27,7 @@ interface MobileSidebarSheetProps {
   user: User;
 }
 
-const MobileSidebarSheet = ({ user }: MobileSidebarSheetProps) => {
+export default function MobileSidebarSheet({ user }: MobileSidebarSheetProps) {
   const language = current("localeCode");
 
   return (
@@ -48,7 +48,7 @@ const MobileSidebarSheet = ({ user }: MobileSidebarSheetProps) => {
         </DialogHeader>
         <div className="flex flex-col items-start gap-4 my-5">
           <div className="flex flex-col items-center gap-4 justify-center w-full">
-            <h1 className="font-semibold text-slate-900 text-lg text-center">
+            <h1 className="font-semibold text-primary text-lg text-center">
               {trans("searchModelTitle")}
             </h1>
             <SearchModel />
@@ -61,7 +61,7 @@ const MobileSidebarSheet = ({ user }: MobileSidebarSheetProps) => {
                 </div>
                 <Link
                   href={URLS.auth.login}
-                  className="text-[15px] font-semibold text-slate-900">
+                  className="text-[14px] font-semibold text-primary">
                   {trans("login")}
                 </Link>
               </div>
@@ -70,7 +70,7 @@ const MobileSidebarSheet = ({ user }: MobileSidebarSheetProps) => {
               <div className="flex items-start gap-4 flex-col">
                 <Link
                   href={"#"}
-                  className="text-[15px] font-semibold text-slate-900">
+                  className="text-[14px] font-semibold text-primary">
                   <div className="flex items-center gap-1">
                     <IoLogOutOutline className="w-5 h-5" />
                     {trans("logout")}
@@ -81,7 +81,7 @@ const MobileSidebarSheet = ({ user }: MobileSidebarSheetProps) => {
                     name: (
                       <Link
                         href={URLS.auth.root}
-                        className="text-[15px] font-semibold text-slate-900 underline">
+                        className="text-[14px] font-semibold text-primary underline">
                         {user.name}
                       </Link>
                     ),
@@ -93,7 +93,7 @@ const MobileSidebarSheet = ({ user }: MobileSidebarSheetProps) => {
             <div className="flex items-center gap-1">
               <Link
                 href={URLS.home}
-                className="text-[15px] font-semibold text-slate-900">
+                className="text-[14px] font-semibold text-primary">
                 {trans("home")}
               </Link>
             </div>
@@ -101,7 +101,7 @@ const MobileSidebarSheet = ({ user }: MobileSidebarSheetProps) => {
             <div className="flex items-center gap-1">
               <Link
                 href={URLS.collections}
-                className="text-[15px] font-semibold text-slate-900">
+                className="text-[14px] font-semibold text-primary">
                 {trans("shop")}
               </Link>
             </div>
@@ -109,7 +109,7 @@ const MobileSidebarSheet = ({ user }: MobileSidebarSheetProps) => {
             <div className="flex items-center gap-1">
               <Link
                 href={URLS.blog.root}
-                className="text-[15px] font-semibold text-slate-900">
+                className="text-[14px] font-semibold text-primary">
                 {trans("blog")}
               </Link>
             </div>
@@ -121,7 +121,7 @@ const MobileSidebarSheet = ({ user }: MobileSidebarSheetProps) => {
             <div className="flex items-center gap-1">
               <Link
                 href={URLS.contactUs}
-                className="text-[15px] font-semibold text-slate-900">
+                className="text-[14px] font-semibold text-primary">
                 {trans("contact")}
               </Link>
             </div>
@@ -136,6 +136,4 @@ const MobileSidebarSheet = ({ user }: MobileSidebarSheetProps) => {
       </SheetContent>
     </Sheet>
   );
-};
-
-export default MobileSidebarSheet;
+}

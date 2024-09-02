@@ -39,6 +39,10 @@
     "en": "Show Order Summary",
     "ar": "اظهار ملخص طلبك"
   },
+  "hideOrderSummary": {
+    "en": "Hide Order Summary",
+    "ar": "اخفاء ملخص طلبك"
+  },
   "delivery": {
     "en": "Delivery",
     "ar": "التوصيل"
@@ -286,6 +290,34 @@
   "topBannerTitle": {
     "en": "Special offer: enjoy 3 months of shopify for $1/month",
     "ar": "عرض خاص: استمتع بـ 3 أشهر من Shopify مقابل $1/شهر"
+  },
+  "use Default Address": {
+    "en": "Use Default Address",
+    "ar": "استخدام العنوان الاساسي"
+  },
+  "Free": {
+    "en": "Free",
+    "ar": "مجاني"
+  },
+  "Economy": {
+    "en": "Economy",
+    "ar": "اقتصادي"
+  },
+  "Standard": {
+    "en": "Standard",
+    "ar": "عادي"
+  },
+  "5 to 8 Business Days": {
+    "en": "5 to 8 Business Days",
+    "ar": "من 5 الي 8 ايام عمل"
+  },
+  "3 to 4 Business Days": {
+    "en": "3 to 4 Business Days",
+    "ar": "من 3 الي 4 ايام عمل"
+  },
+  "Default": {
+    "en": "Default",
+    "ar": "الاساسي"
   },
   "metadata": {
     "en": "Metadata",

@@ -1,10 +1,11 @@
+import { IoCartOutline } from "react-icons/io5";
+
 import { cartAtom } from "apps/front-office/design-system/atoms/cart-atom";
 import { Button } from "apps/front-office/design-system/components/ui/button";
 import { useCart } from "apps/front-office/design-system/hooks/useCart";
-import { IoCartOutline } from "react-icons/io5";
 import CartContainer from "./cart-container";
 
-const CartSidebar = () => {
+export default function CartSidebar() {
   const { data, isLoading, error } = useCart();
 
   if (isLoading) {
@@ -29,6 +30,4 @@ const CartSidebar = () => {
       </div>
     );
   }
-};
-
-export default CartSidebar;
+}

@@ -1,4 +1,5 @@
 import { trans } from "@mongez/localization";
+
 import {
   FormControl,
   FormField,
@@ -12,26 +13,10 @@ import {
 } from "apps/front-office/design-system/components/ui/radio-group";
 import { formatPrice } from "apps/front-office/design-system/lib/formats";
 import { cn } from "apps/front-office/design-system/lib/utils";
-import { UseFormReturn } from "react-hook-form";
+import { FormType } from "../../utils/types";
 
 interface ShippingMethodProps {
-  form: UseFormReturn<{
-    cardNumber: string;
-    cardName: string;
-    expirationDate: Date;
-    cvv: string;
-    address: string;
-    email: string;
-    firstName: string;
-    lastName: string;
-    phone: string;
-    country: string;
-    state: string;
-    city: string;
-    zipCode: string;
-    apartment?: string | undefined;
-    shippingMethod: "economy" | "standard";
-  }>;
+  form: FormType;
 }
 
 export default function ShippingMethod({ form }: ShippingMethodProps) {
@@ -62,14 +47,14 @@ export default function ShippingMethod({ form }: ShippingMethodProps) {
                     </FormControl>
                     <div className="flex flex-col items-start gap-2 w-full">
                       <FormLabel className="text-black w-full">
-                        Economy
+                        {trans("Economy")}
                       </FormLabel>
                       <FormLabel className="text-slate-500 font-normal w-full">
-                        5 to 8 Business Days
+                        {trans("5 to 8 Business Days")}
                       </FormLabel>
                     </div>
                     <FormLabel className="text-slate-500 font-normal">
-                      Free
+                      {trans("Free")}
                     </FormLabel>
                   </div>
                 </FormItem>
@@ -87,10 +72,10 @@ export default function ShippingMethod({ form }: ShippingMethodProps) {
                     </FormControl>
                     <div className="flex flex-col items-start gap-2 w-full">
                       <FormLabel className="text-black w-full">
-                        Standard
+                        {trans("Standard")}
                       </FormLabel>
                       <FormLabel className="text-slate-500 font-normal w-full">
-                        3 to 4 Business Days
+                        {trans("3 to 4 Business Days")}
                       </FormLabel>
                     </div>
                     <FormLabel className="text-slate-500 font-normal">

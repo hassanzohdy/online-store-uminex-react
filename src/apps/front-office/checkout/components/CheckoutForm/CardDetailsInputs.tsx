@@ -1,5 +1,9 @@
 import { trans } from "@mongez/localization";
 import { CalendarIcon } from "@radix-ui/react-icons";
+import { format } from "date-fns";
+import { BsQuestionCircle } from "react-icons/bs";
+import { CiLock } from "react-icons/ci";
+
 import { Button } from "apps/front-office/design-system/components/ui/button";
 import { Calendar } from "apps/front-office/design-system/components/ui/calendar";
 import {
@@ -22,33 +26,12 @@ import {
 } from "apps/front-office/design-system/components/ui/tooltip";
 import { cn } from "apps/front-office/design-system/lib/utils";
 import { isLTR } from "apps/front-office/utils/helpers";
-import { format } from "date-fns";
-import { UseFormReturn } from "react-hook-form";
-import { BsQuestionCircle } from "react-icons/bs";
-import { CiLock } from "react-icons/ci";
+import { FormType } from "../../utils/types";
+
 interface CardDetailsInputsProps {
-  form: UseFormReturn<
-    {
-      cardNumber: string;
-      cardName: string;
-      expirationDate: Date;
-      cvv: string;
-      address: string;
-      email: string;
-      firstName: string;
-      lastName: string;
-      phone: string;
-      country: string;
-      state: string;
-      city: string;
-      zipCode: string;
-      apartment?: string | undefined;
-      shippingMethod: "economy" | "standard";
-    },
-    any,
-    undefined
-  >;
+  form: FormType;
 }
+
 const formatCardNumber = value => {
   return value.replace(/\s/g, "").replace(/(\d{4})(?=\d)/g, "$1 ");
 };
@@ -57,7 +40,7 @@ const unFormatCardNumber = value => {
   return value.replace(/\s/g, "");
 };
 
-const CardDetailsInputs = ({ form }: CardDetailsInputsProps) => {
+export default function CardDetailsInputs({ form }: CardDetailsInputsProps) {
   return (
     <div className="w-full space-y-8 my-8">
       <div>
@@ -75,7 +58,7 @@ const CardDetailsInputs = ({ form }: CardDetailsInputsProps) => {
               <div className="relative">
                 <Input
                   placeholder={trans("cardNumber")}
-                  className="w-full h-16 text-base focus:ring-lightAqua focus-visible:ring-lightAqua ring-lightAqua ring-offset-0 inset-0"
+                  className="w-full h-14 md:h-16 text-base focus:ring-lightAqua focus-visible:ring-lightAqua ring-lightAqua ring-offset-0 inset-0"
                   value={formatCardNumber(field.value)}
                   onChange={e => {
                     const formattedValue = formatCardNumber(e.target.value);
@@ -108,7 +91,7 @@ const CardDetailsInputs = ({ form }: CardDetailsInputsProps) => {
                     <Button
                       variant={"outline"}
                       className={cn(
-                        "w-full pl-3 text-left font-normal h-16 text-slate-500",
+                        "w-full pl-3 text-left font-normal h-14 md:h-16 text-slate-500",
                       )}>
                       {field.value ? (
                         format(field.value, "PPP")
@@ -137,11 +120,11 @@ const CardDetailsInputs = ({ form }: CardDetailsInputsProps) => {
           control={form.control}
           name="cvv"
           render={({ field }) => (
-            <FormItem className="w-full h-16 text-base focus:ring-lightAqua focus-visible:ring-lightAqua ring-lightAqua ring-offset-0 inset-0">
+            <FormItem className="w-full h-14 md:h-16 text-base focus:ring-lightAqua focus-visible:ring-lightAqua ring-lightAqua ring-offset-0 inset-0">
               <FormControl>
                 <div className="w-full relative">
                   <Input
-                    className="w-full h-16 text-base focus:ring-lightAqua focus-visible:ring-lightAqua ring-lightAqua ring-offset-0 inset-0"
+                    className="w-full h-14 md:h-16 text-base focus:ring-lightAqua focus-visible:ring-lightAqua ring-lightAqua ring-offset-0 inset-0"
                     placeholder={trans("SecurityCode")}
                     {...field}
                     maxLength={3}
@@ -184,11 +167,11 @@ const CardDetailsInputs = ({ form }: CardDetailsInputsProps) => {
         name="cardName"
         render={({ field }) => (
           <FormItem
-            className="w-full h-16 text-base focus:ring-lightAqua
+            className="w-full h-14 md:h-16 text-base focus:ring-lightAqua
                  focus-visible:ring-lightAqua ring-lightAqua ring-offset-0 inset-0">
             <FormControl>
               <Input
-                className="w-full h-16 text-base focus:ring-lightAqua
+                className="w-full h-14 md:h-16 text-base focus:ring-lightAqua
                  focus-visible:ring-lightAqua ring-lightAqua ring-offset-0 inset-0"
                 placeholder={trans("cardName")}
                 {...field}
@@ -200,6 +183,4 @@ const CardDetailsInputs = ({ form }: CardDetailsInputsProps) => {
       />
     </div>
   );
-};
-
-export default CardDetailsInputs;
+}
