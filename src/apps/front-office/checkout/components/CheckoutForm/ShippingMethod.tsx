@@ -13,10 +13,10 @@ import {
 } from "apps/front-office/design-system/components/ui/radio-group";
 import { formatPrice } from "apps/front-office/design-system/lib/formats";
 import { cn } from "apps/front-office/design-system/lib/utils";
-import { FormType } from "../../utils/types";
+import { CheckoutFormType } from "../../utils/types";
 
 interface ShippingMethodProps {
-  form: FormType;
+  form: CheckoutFormType;
 }
 
 export default function ShippingMethod({ form }: ShippingMethodProps) {

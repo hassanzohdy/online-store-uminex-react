@@ -19,10 +19,10 @@ import {
 } from "apps/front-office/design-system/components/ui/select";
 import { countries } from "../../data";
 import { useDeliveryData } from "../../hooks/useDeliveryData";
-import { FormType } from "../../utils/types";
+import { CheckoutFormType } from "../../utils/types";
 
 interface DeliveryInputsProps {
-  form: FormType;
+  form: CheckoutFormType;
 }
 
 export default function DeliveryInputs({ form }: DeliveryInputsProps) {

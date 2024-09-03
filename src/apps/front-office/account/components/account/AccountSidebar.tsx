@@ -1,9 +1,9 @@
-import { RxDashboard } from "react-icons/rx";
+import { trans } from "@mongez/localization";
 import { FaRegHeart } from "react-icons/fa";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { IoLocationOutline } from "react-icons/io5";
 import { MdOutlineLogout } from "react-icons/md";
-import { trans } from "@mongez/localization";
+import { RxDashboard } from "react-icons/rx";
 
 import { useAddresses } from "apps/front-office/design-system/hooks/useAddress";
 import { useWishlist } from "apps/front-office/design-system/hooks/useWishlist";
