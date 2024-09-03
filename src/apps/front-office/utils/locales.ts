@@ -7,9 +7,13 @@ import { current } from "@mongez/react";
 import { changeLocaleCode } from "@mongez/react-router";
 
 import indexTranslation from "shared/localization/index.json";
+import checkoutTranslation from "shared/localization/checkout.json";
+import accountTranslation from "shared/localization/account.json";
 
 // DO NOT IMPORT IT IF THE PROJECT IS NOT LARGE
 groupedTranslations(indexTranslation);
+groupedTranslations(checkoutTranslation);
+groupedTranslations(accountTranslation);
 
 // useful for Arabic language, if not needed you can remove it
 export function the(key: string) {

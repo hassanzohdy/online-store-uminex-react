@@ -1,12 +1,13 @@
-import { trans } from "@mongez/localization";
-import { useAddresses } from "apps/front-office/design-system/hooks/useAddress";
-import { useWishlist } from "apps/front-office/design-system/hooks/useWishlist";
-import URLS from "apps/front-office/utils/urls";
+import { RxDashboard } from "react-icons/rx";
 import { FaRegHeart } from "react-icons/fa";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { IoLocationOutline } from "react-icons/io5";
 import { MdOutlineLogout } from "react-icons/md";
-import { RxDashboard } from "react-icons/rx";
+import { trans } from "@mongez/localization";
+
+import { useAddresses } from "apps/front-office/design-system/hooks/useAddress";
+import { useWishlist } from "apps/front-office/design-system/hooks/useWishlist";
+import URLS from "apps/front-office/utils/urls";
 import AccountSidebarRoute from "./AccountSidebarRoute";
 
 export default function AccountSidebar() {

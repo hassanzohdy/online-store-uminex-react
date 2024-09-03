@@ -35,18 +35,6 @@
     "en": "Email or Mobile Phone Number",
     "ar": "البريد الالكتروني أو الهاتف المحمول"
   },
-  "showOrderSummary": {
-    "en": "Show Order Summary",
-    "ar": "اظهار ملخص طلبك"
-  },
-  "hideOrderSummary": {
-    "en": "Hide Order Summary",
-    "ar": "اخفاء ملخص طلبك"
-  },
-  "delivery": {
-    "en": "Delivery",
-    "ar": "التوصيل"
-  },
   "team": {
     "en": "Our Team",
     "ar": "فريقنا"
@@ -71,18 +59,6 @@
     "en": "Sale $20 Off Your First Order.",
     "ar": "خصم 20 دولار على طلبك الأول."
   },
-  "SelectCountry": {
-    "en": "Select Country",
-    "ar": "اختر الدولة"
-  },
-  "SelectState": {
-    "en": "Select State",
-    "ar": "اختر المحافظه"
-  },
-  "SelectCity": {
-    "en": "Select City",
-    "ar": "اختر المدينه"
-  },
   "firstName": {
     "en": "First Name",
     "ar": " الاسم الاول"
@@ -90,10 +66,6 @@
   "LastName": {
     "en": "Last Name",
     "ar": " الاسم الاخير"
-  },
-  "Set as Default Address": {
-    "en": "Set as Default Address",
-    "ar": "تعيينها كعنوان الافتراضي"
   },
   "Edit": {
     "en": "Edit",
@@ -103,14 +75,6 @@
     "en": "Delete",
     "ar": "حذف"
   },
-  "Add a New Address": {
-    "en": "Add a New Address",
-    "ar": "اضافة عنوان جديد"
-  },
-  "Add Address": {
-    "en": "Add Address",
-    "ar": "اضافة عنوان"
-  },
   "Address": {
     "en": "Address",
     "ar": "العنوان"
@@ -118,30 +82,6 @@
   "Gender": {
     "en": "Gender",
     "ar": "الجنس"
-  },
-  "Apartment": {
-    "en": "Apartment",
-    "ar": "المبني"
-  },
-  "zipCode": {
-    "en": "Zip Code",
-    "ar": "الرمز البريدي"
-  },
-  "cardNumber": {
-    "en": "Card Number",
-    "ar": "رقم البطاقة"
-  },
-  "expirationDate": {
-    "en": "Expiration Date (MM / YY)",
-    "ar": "تاريخ الانتهاء (شهر / سنة)"
-  },
-  "SecurityCode": {
-    "en": "Security Code",
-    "ar": "كود الحماية"
-  },
-  "SecurityCodeHover": {
-    "en": "3-digit security code usually found on the back of your card. American Express cards have a 4-digit code located on the front.",
-    "ar": "رمز الأمان المكون من 3 أرقام يوجد عادةً على ظهر بطاقتك. بطاقات أمريكان إكسبريس تحتوي على رمز مكون من 4 أرقام يوجد على الجهة الأمامية."
   },
   "notFoundProducts": {
     "en": "No products found",
@@ -290,30 +230,6 @@
   "topBannerTitle": {
     "en": "Special offer: enjoy 3 months of shopify for $1/month",
     "ar": "عرض خاص: استمتع بـ 3 أشهر من Shopify مقابل $1/شهر"
-  },
-  "use Default Address": {
-    "en": "Use Default Address",
-    "ar": "استخدام العنوان الاساسي"
-  },
-  "Free": {
-    "en": "Free",
-    "ar": "مجاني"
-  },
-  "Economy": {
-    "en": "Economy",
-    "ar": "اقتصادي"
-  },
-  "Standard": {
-    "en": "Standard",
-    "ar": "عادي"
-  },
-  "5 to 8 Business Days": {
-    "en": "5 to 8 Business Days",
-    "ar": "من 5 الي 8 ايام عمل"
-  },
-  "3 to 4 Business Days": {
-    "en": "3 to 4 Business Days",
-    "ar": "من 3 الي 4 ايام عمل"
   },
   "Default": {
     "en": "Default",
@@ -531,10 +447,6 @@
     "en": "Phone Number",
     "ar": "رقم الهاتف"
   },
-  "Account Details": {
-    "en": "Account Details",
-    "ar": "تفاصيل الحساب الشخصي"
-  },
   "vendors": {
     "en": "Vendors",
     "ar": "الموردين"
@@ -550,10 +462,6 @@
   "initialQuantity": {
     "en": "Initial Quantity",
     "ar": "الكمية الأولية"
-  },
-  "PayNow": {
-    "en": "Pay Now",
-    "ar": "ادفع الان"
   },
   "purchases": {
     "en": "Purchases",
@@ -1250,14 +1158,6 @@
   "salesMovements": {
     "en": "Sales Movements",
     "ar": "حركة المبيعات"
-  },
-  "paymentMethod": {
-    "en": "Payment Method",
-    "ar": "طريقة الدفع"
-  },
-  "shippingMethod": {
-    "en": "Shipping Method",
-    "ar": "طريقة الشحن"
   },
   "date": {
     "en": "Date",

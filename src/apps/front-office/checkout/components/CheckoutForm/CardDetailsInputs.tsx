@@ -26,10 +26,10 @@ import {
 } from "apps/front-office/design-system/components/ui/tooltip";
 import { cn } from "apps/front-office/design-system/lib/utils";
 import { isLTR } from "apps/front-office/utils/helpers";
-import { FormType } from "../../utils/types";
+import { CheckoutFormType } from "../../utils/types";
 
 interface CardDetailsInputsProps {
-  form: FormType;
+  form: CheckoutFormType;
 }
 
 const formatCardNumber = value => {

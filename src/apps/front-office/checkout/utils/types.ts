@@ -1,7 +1,7 @@
 import { UseFormReturn } from "react-hook-form";
 
 // types.ts file
-export type FormType = UseFormReturn<{
+export type CheckoutFormType = UseFormReturn<{
   cardNumber: string;
   cardName: string;
   expirationDate: Date;

@@ -49,7 +49,8 @@ export default function AddAddressForm() {
   };
 
   return (
-    <div className="flex items-center justify-center flex-col gap-5 p-5 bg-white rounded-lg max-h-[700px]">
+    <div className="flex items-center justify-center flex-col gap-5 p-5
+     bg-white rounded-lg max-h-[700px]">
       <h1 className="text-center text-2xl font-semibold text-primary">
         {trans("Add a New Address")}
       </h1>
