@@ -1,5 +1,7 @@
 import { trans } from "@mongez/localization";
 import { CheckedState } from "@radix-ui/react-checkbox";
+import { UseFormReturn } from "react-hook-form";
+
 import { Checkbox } from "apps/front-office/design-system/components/ui/checkbox";
 import {
   FormControl,
@@ -10,7 +12,6 @@ import {
   FormMessage,
 } from "apps/front-office/design-system/components/ui/form";
 import { Input } from "apps/front-office/design-system/components/ui/input";
-import { UseFormReturn } from "react-hook-form";
 
 interface AddressFormInputsProps {
   form: UseFormReturn<
@@ -27,7 +28,10 @@ interface AddressFormInputsProps {
   isLoading: boolean;
 }
 
-const AddressFormInputs = ({ form, isLoading }: AddressFormInputsProps) => {
+export default function AddressFormInputs({
+  form,
+  isLoading,
+}: AddressFormInputsProps) {
   return (
     <>
       <FormField
@@ -130,6 +134,4 @@ const AddressFormInputs = ({ form, isLoading }: AddressFormInputsProps) => {
       />
     </>
   );
-};
-
-export default AddressFormInputs;
+}

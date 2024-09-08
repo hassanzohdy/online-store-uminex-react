@@ -1,8 +1,9 @@
-import { useAddresses } from "apps/front-office/design-system/hooks/useAddress";
 import { LuLoader2 } from "react-icons/lu";
-import AddressDetails from "./AddressDetails";
 
-const AddressesDetails = () => {
+import { useAddresses } from "apps/front-office/design-system/hooks/useAddress";
+import AddressDetailsCard from "./AddressDetailsCard";
+
+export default function AddressesDetails() {
   const { data: addresses, isLoading, error } = useAddresses();
 
   if (isLoading) {
@@ -26,10 +27,8 @@ const AddressesDetails = () => {
   return (
     <div className="flex items-start flex-col gap-10 p-5 bg-white rounded-lg">
       {addresses.map(address => (
-        <AddressDetails key={address.id} address={address} />
+        <AddressDetailsCard key={address.id} address={address} />
       ))}
     </div>
   );
-};
-
-export default AddressesDetails;
+}

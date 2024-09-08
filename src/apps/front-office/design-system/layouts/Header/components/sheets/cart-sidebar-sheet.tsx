@@ -2,8 +2,8 @@ import { trans } from "@mongez/localization";
 import { current } from "@mongez/react";
 import { Link } from "@mongez/react-router";
 import { cartAtom } from "apps/front-office/design-system/atoms/cart-atom";
-import { currencyAtom } from "apps/front-office/design-system/atoms/currency-atom";
 import { Button } from "apps/front-office/design-system/components/ui/button";
+import { Separator } from "apps/front-office/design-system/components/ui/separator";
 import {
   Sheet,
   SheetContent,
@@ -23,7 +23,10 @@ import CartItem from "../cart/cart-item";
 interface CartSheetSidebarProps {
   changeTicks: () => void;
 }
-const CartSheetSidebar = ({ changeTicks }: CartSheetSidebarProps) => {
+
+export default function CartSheetSidebar({
+  changeTicks,
+}: CartSheetSidebarProps) {
   const language = current("localeCode");
   const cart = cartAtom.useValue();
 
@@ -51,7 +54,7 @@ const CartSheetSidebar = ({ changeTicks }: CartSheetSidebarProps) => {
         </Button>
       </SheetTrigger>
       <SheetContent
-        className="p-0 w-full md:max-w-sm overflow-y-auto"
+        className="p-0 w-full md:max-w-sm overflow-y-auto overflow-x-hidden"
         side={language === "ar" ? "left" : "right"}>
         <SheetHeader className="bg-slate-100 p-3">
           <SheetTitle className="text-slate-900 font-semibold text-md">
@@ -59,23 +62,27 @@ const CartSheetSidebar = ({ changeTicks }: CartSheetSidebarProps) => {
           </SheetTitle>
         </SheetHeader>
         {items && items.length > 0 ? (
-          <div className="w-full ">
-            <div className=" h-[600px] overflow-y-auto w-full">
+          <div className="w-full">
+            <div className="h-[600px] overflow-y-auto w-full flex flex-col items-start gap-4 p-5">
               {items.map(cartItem => (
-                <CartItem
+                <div
                   key={cartItem.id}
-                  cartItem={cartItem}
-                  changeQuantity={changeQuantity}
-                />
+                  className=" flex flex-col items-start gap-4 ">
+                  <CartItem
+                    cartItem={cartItem}
+                    changeQuantity={changeQuantity}
+                  />
+                  <Separator />
+                </div>
               ))}
             </div>
             <div className="absolute bottom-0 p-5 w-full bg-slate-100 flex flex-col items-start gap-4">
               <div className="flex items-center justify-between w-full">
-                <h1 className="text-sm font-semibold text-black">
-                  {trans("Subtotal")}
+                <h1 className="text-xs font-semibold text-black">
+                  {trans("Subtotal")}:
                 </h1>
-                <p className="text-lg text-red font-semibold">
-                  {formatPrice(cart.totals.subtotal, currencyAtom.value)}
+                <p className="text-base text-red font-semibold">
+                  {formatPrice(cart.totals.subtotal)}
                 </p>
               </div>
               <Button
@@ -110,6 +117,4 @@ const CartSheetSidebar = ({ changeTicks }: CartSheetSidebarProps) => {
       </SheetContent>
     </Sheet>
   );
-};
-
-export default CartSheetSidebar;
+}

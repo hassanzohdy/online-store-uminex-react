@@ -1,5 +1,6 @@
 import { Skeleton } from "apps/front-office/design-system/components/ui/skeleton";
-const SkeletonSearchCard = () => {
+
+export default function SkeletonSearchCard() {
   return (
     <div className="flex items-center space-x-4 w-full">
       <Skeleton className="h-12 w-12 bg-slate-200" />
@@ -9,6 +10,4 @@ const SkeletonSearchCard = () => {
       </div>
     </div>
   );
-};
-
-export default SkeletonSearchCard;
+}

@@ -14,7 +14,7 @@ import { isLTR } from "apps/front-office/utils/helpers";
 import { useState } from "react";
 import { FiMenu } from "react-icons/fi";
 
-const CategoryLists = () => {
+export default function CategoryLists() {
   const currentLanguage = current("localeCode");
   const [isOpen, setIsOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
@@ -111,6 +111,4 @@ const CategoryLists = () => {
   }
 
   return null;
-};
-
-export default CategoryLists;
+}

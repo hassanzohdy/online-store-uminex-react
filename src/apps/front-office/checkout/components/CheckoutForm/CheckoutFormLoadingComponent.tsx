@@ -3,7 +3,7 @@ import { Skeleton } from "apps/front-office/design-system/components/ui/skeleton
 import { cn } from "apps/front-office/design-system/lib/utils";
 import { isLTR } from "apps/front-office/utils/helpers";
 
-const CheckoutFormLoadingComponent = () => {
+export default function CheckoutFormLoadingComponent() {
   return (
     <div
       className={cn(
@@ -30,6 +30,4 @@ const CheckoutFormLoadingComponent = () => {
       </div>
     </div>
   );
-};
-
-export default CheckoutFormLoadingComponent;
+}

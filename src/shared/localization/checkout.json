@@ -1,0 +1,86 @@
+{
+  "showOrderSummary": {
+    "en": "Show Order Summary",
+    "ar": "اظهار ملخص طلبك"
+  },
+  "hideOrderSummary": {
+    "en": "Hide Order Summary",
+    "ar": "اخفاء ملخص طلبك"
+  },
+  "use Default Address": {
+    "en": "Use Default Address",
+    "ar": "استخدام العنوان الاساسي"
+  },
+  "PayNow": {
+    "en": "Pay Now",
+    "ar": "ادفع الان"
+  },
+  "delivery": {
+    "en": "Delivery",
+    "ar": "التوصيل"
+  },
+  "SelectCountry": {
+    "en": "Select Country",
+    "ar": "اختر الدولة"
+  },
+  "SelectState": {
+    "en": "Select State",
+    "ar": "اختر المحافظه"
+  },
+  "SelectCity": {
+    "en": "Select City",
+    "ar": "اختر المدينه"
+  },
+  "Apartment": {
+    "en": "Apartment",
+    "ar": "المبني"
+  },
+  "zipCode": {
+    "en": "Zip Code",
+    "ar": "الرمز البريدي"
+  },
+  "cardNumber": {
+    "en": "Card Number",
+    "ar": "رقم البطاقة"
+  },
+  "expirationDate": {
+    "en": "Expiration Date (MM / YY)",
+    "ar": "تاريخ الانتهاء (شهر / سنة)"
+  },
+  "SecurityCode": {
+    "en": "Security Code",
+    "ar": "كود الحماية"
+  },
+  "SecurityCodeHover": {
+    "en": "3-digit security code usually found on the back of your card. American Express cards have a 4-digit code located on the front.",
+    "ar": "رمز الأمان المكون من 3 أرقام يوجد عادةً على ظهر بطاقتك. بطاقات أمريكان إكسبريس تحتوي على رمز مكون من 4 أرقام يوجد على الجهة الأمامية."
+  },
+  "paymentMethod": {
+    "en": "Payment Method",
+    "ar": "طريقة الدفع"
+  },
+  "shippingMethod": {
+    "en": "Shipping Method",
+    "ar": "طريقة الشحن"
+  },
+  "Free": {
+    "en": "Free",
+    "ar": "مجاني"
+  },
+  "Economy": {
+    "en": "Economy",
+    "ar": "اقتصادي"
+  },
+  "Standard": {
+    "en": "Standard",
+    "ar": "عادي"
+  },
+  "5 to 8 Business Days": {
+    "en": "5 to 8 Business Days",
+    "ar": "من 5 الي 8 ايام عمل"
+  },
+  "3 to 4 Business Days": {
+    "en": "3 to 4 Business Days",
+    "ar": "من 3 الي 4 ايام عمل"
+  }
+}

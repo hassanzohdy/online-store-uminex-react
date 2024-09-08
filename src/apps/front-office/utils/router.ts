@@ -16,7 +16,11 @@ export function publicRoutes(routes: Route[]) {
   return router.partOf(BaseLayout, routes);
 }
 export function checkoutRoutes(routes: Route[]) {
-  return router.partOf(CheckoutLayout, routes);
+  return router.group({
+    layout: CheckoutLayout,
+    middleware: [Guardian],
+    routes,
+  });
 }
 
 /**

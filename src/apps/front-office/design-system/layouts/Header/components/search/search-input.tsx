@@ -1,4 +1,5 @@
 import { trans } from "@mongez/localization";
+
 import { Button } from "apps/front-office/design-system/components/ui/button";
 import { Input } from "apps/front-office/design-system/components/ui/input";
 import { useSearch } from "apps/front-office/design-system/hooks/useSearch";
@@ -7,7 +8,7 @@ import { isLTR } from "apps/front-office/utils/helpers";
 import CategoryMenu from "../category/category-menu";
 import SearchResult from "./search-result";
 
-const SearchInput = () => {
+export default function SearchInput() {
   const {
     value,
     category,
@@ -21,7 +22,7 @@ const SearchInput = () => {
     <div className="flex items-center gap-2 w-full relative">
       <div
         className={cn(
-          "absolute hidden lg:block",
+          "absolute hidden xl:block",
           isLTR() ? "left-0" : "right-0",
         )}>
         <CategoryMenu selectCategory={selectCategory} />
@@ -31,7 +32,7 @@ const SearchInput = () => {
         className={cn(
           "border outline-none focus:outline-none focus-visible:ring-0",
           "focus:ring-0 focus:ring-offset-0 inset-y-0 w-full pr-44 h-11",
-          isLTR() ? "lg:pl-44 xl:pl-60 pr-28" : "lg:pl-60 xl:pr-60 xl:pl-60",
+          isLTR() ? " xl:pl-56 pr-28" : "pr-5 lg:pl-60 xl:pr-60 xl:pl-60",
         )}
         onChange={storeInputValue}
         type="search"
@@ -45,13 +46,11 @@ const SearchInput = () => {
       </Button>
       <div
         className={cn(
-          "absolute top-full left-0 w-full border border-slate-200 z-50",
+          "absolute top-full left-0 w-full border border-slate-200 z-30",
           value === "" && category === "" && "hidden",
         )}>
         <SearchResult value={value} category={categoryId} OnClose={OnClose} />
       </div>
     </div>
   );
-};
-
-export default SearchInput;
+}

@@ -1,13 +1,14 @@
 import { trans } from "@mongez/localization";
 import { Link } from "@mongez/react-router";
-import URLS from "apps/front-office/utils/urls";
 import { useState } from "react";
 import { FaAngleDown } from "react-icons/fa";
+
+import URLS from "apps/front-office/utils/urls";
 import discountSvg from "shared/assets/images/discount.svg";
 import CategoryLists from "./components/category/category-list";
 import SearchInput from "./components/search/search-input";
 
-const Navbar = () => {
+export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="w-full py-[7px] relative">
@@ -84,6 +85,4 @@ const Navbar = () => {
       </div>
     </div>
   );
-};
-
-export default Navbar;
+}

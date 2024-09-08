@@ -1,6 +1,9 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { trans } from "@mongez/localization";
-import { Link, navigateBack } from "@mongez/react-router";
+import { Link } from "@mongez/react-router";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
+
 import {
   Accordion,
   AccordionContent,
@@ -9,29 +12,24 @@ import {
 } from "apps/front-office/design-system/components/ui/accordion";
 import { Button } from "apps/front-office/design-system/components/ui/button";
 import { Form } from "apps/front-office/design-system/components/ui/form";
-import { Input } from "apps/front-office/design-system/components/ui/input";
 import { cn } from "apps/front-office/design-system/lib/utils";
 import { Address, User } from "apps/front-office/design-system/utils/types";
 import { isLTR } from "apps/front-office/utils/helpers";
 import URLS from "apps/front-office/utils/urls";
-import { ChangeEvent } from "react";
-import { useForm } from "react-hook-form";
 import { checkoutFormSchema } from "shared/schemas/CheckoutFormSchema";
-import * as z from "zod";
 import CardDetailsInputs from "./CardDetailsInputs";
-import CheckoutSummaryDetails from "./CheckoutSummaryDetails";
 import DeliveryInputs from "./DeliveryInputs";
 import ShippingMethod from "./ShippingMethod";
 
 interface CheckoutFormComponentProps {
   user: User;
-  address: Address | undefined;
+  address?: Address;
 }
 
-const CheckoutFormComponent = ({
+export default function CheckoutFormComponent({
   user,
   address,
-}: CheckoutFormComponentProps) => {
+}: CheckoutFormComponentProps) {
   const form = useForm<z.infer<typeof checkoutFormSchema>>({
     resolver: zodResolver(checkoutFormSchema),
     defaultValues: {
@@ -55,30 +53,9 @@ const CheckoutFormComponent = ({
 
   const isLoading = form.formState.isSubmitting;
 
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const phonePattern = /^\d{10,15}$/;
-
-    if (emailPattern.test(value)) {
-      form.setValue("email", value);
-      form.setValue("phone", "");
-    } else if (phonePattern.test(value)) {
-      form.setValue("phone", value);
-      form.setValue("email", "");
-    } else {
-      form.setValue("email", "");
-      form.setValue("phone", "");
-    }
-  };
-
   const onSubmit = (values: z.infer<typeof checkoutFormSchema>) => {
     console.log(values);
   };
-
-  if (!user) {
-    return navigateBack();
-  }
 
   const handleUseDefaultAddress = () => {
     if (address) {
@@ -92,40 +69,7 @@ const CheckoutFormComponent = ({
         "w-full max-w-[720px] px-4 flex flex-col items-end",
         isLTR() ? "md:ml-auto" : "md:mr-auto",
       )}>
-      <div className="block md:hidden w-full">
-        <Accordion
-          type="single"
-          collapsible
-          className="h-full max-h-[400px] overflow-y-auto">
-          <AccordionItem value="item-1">
-            <AccordionTrigger className="text-lightAqua">
-              {trans("showOrderSummary")}
-            </AccordionTrigger>
-            <AccordionContent className="py-4">
-              <CheckoutSummaryDetails />
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
-      </div>
       <div className="flex flex-col gap-8 w-full py-5">
-        {user.userType === "guest" && (
-          <div className="flex flex-col items-start gap-3">
-            <div className="flex items-center justify-between w-full">
-              <p className="text-2xl text-slate-black">{trans("contact")}</p>
-              <Link
-                href={URLS.auth.login}
-                className="text-md text-lightAqua underline">
-                {trans("login")}
-              </Link>
-            </div>
-            <Input
-              className="w-full h-16 text-base focus:ring-lightAqua
-                 focus-visible:ring-lightAqua ring-lightAqua ring-offset-0 inset-0"
-              placeholder={trans("emailPlaceHolder")}
-              onChange={e => handleInputChange(e)}
-            />
-          </div>
-        )}
         {user.userType === "user" && (
           <div className="flex items-center justify-between w-full">
             <Accordion
@@ -155,6 +99,7 @@ const CheckoutFormComponent = ({
             </Accordion>
           </div>
         )}
+
         <Form {...form}>
           <form
             className="w-full space-y-8 my-5 flex flex-col items-start gap-2"
@@ -165,8 +110,9 @@ const CheckoutFormComponent = ({
                 <Button
                   type="button"
                   variant={"link"}
-                  className="text-lightAqua p-0 text-md mt-3"
-                  onClick={handleUseDefaultAddress}>
+                  className="text-lightAqua p-0 text-sm md:text-md mt-3"
+                  onClick={handleUseDefaultAddress}
+                  size={"sm"}>
                   {trans("use Default Address")}
                 </Button>
               )}
@@ -187,6 +133,4 @@ const CheckoutFormComponent = ({
       </div>
     </div>
   );
-};
-
-export default CheckoutFormComponent;
+}

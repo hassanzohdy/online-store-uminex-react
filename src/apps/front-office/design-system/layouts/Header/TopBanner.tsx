@@ -1,7 +1,7 @@
 import { trans } from "@mongez/localization";
 import { AiFillThunderbolt } from "react-icons/ai";
 
-const TopBanner = () => {
+export default function TopBanner() {
   return (
     <div className="w-full bg-[#2b38d1] flex items-center justify-center p-4 gap-6 overflow-x-hidden">
       <div className="flex items-center min-w-[350px] truncate">
@@ -18,6 +18,4 @@ const TopBanner = () => {
       </div>
     </div>
   );
-};
-
-export default TopBanner;
+}

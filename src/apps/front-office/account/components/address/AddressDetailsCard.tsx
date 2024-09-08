@@ -1,24 +1,29 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { trans } from "@mongez/localization";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { FaRegEdit, FaRegTrashAlt } from "react-icons/fa";
+import { z } from "zod";
+
 import { Button } from "apps/front-office/design-system/components/ui/button";
 import { Form } from "apps/front-office/design-system/components/ui/form";
+import { toast } from "apps/front-office/design-system/hooks/use-toast";
 import {
   deleteAddress,
   setPrimaryAddress,
   updateAddress,
 } from "apps/front-office/design-system/services/address.services";
 import { Address } from "apps/front-office/design-system/utils/types";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { FaRegEdit, FaRegTrashAlt } from "react-icons/fa";
 import { AddressFormSchema } from "shared/schemas/AddressFormSchema";
-import { z } from "zod";
 import AddressFormInputs from "./AddressFormInputs";
 
-interface AddressDetailsProps {
+interface AddressDetailsCardProps {
   address: Address;
 }
-const AddressDetails = ({ address }: AddressDetailsProps) => {
+
+export default function AddressDetailsCard({
+  address,
+}: AddressDetailsCardProps) {
   const [isEditing, setIsEditing] = useState(false);
   const form = useForm<z.infer<typeof AddressFormSchema>>({
     resolver: zodResolver(AddressFormSchema),
@@ -40,6 +45,11 @@ const AddressDetails = ({ address }: AddressDetailsProps) => {
       }
     } catch (error) {
       console.error(error);
+      toast({
+        variant: "destructive",
+        title: "Something went wrong",
+        content: "An error occurred while adding the address",
+      });
     }
     form.reset();
     setIsEditing(false);
@@ -65,22 +75,22 @@ const AddressDetails = ({ address }: AddressDetailsProps) => {
               {trans("Default")}
             </h1>
           )}
-          <h1 className="text-slate-700 text-md">{address.name}</h1>
-          <h1 className="text-slate-700 text-md">{address.email}</h1>
-          <h1 className="text-slate-700 text-md">{address.phoneNumber}</h1>
-          <h1 className="text-slate-700 text-md">{address.address}</h1>
+          <h1 className="text-gray text-md">{address.name}</h1>
+          <h1 className="text-gray text-md">{address.email}</h1>
+          <h1 className="text-gray text-md">{address.phoneNumber}</h1>
+          <h1 className="text-gray text-md">{address.address}</h1>
           <div className="flex items-center gap-5">
             <Button
               onClick={() => setIsEditing(true)}
               variant={"primary"}
-              className="h-12 flex items-center gap-2">
+              className="h-12 flex items-center gap-2 w-28">
               <FaRegEdit className="h-5 w-5" />
               {trans("Edit")}
             </Button>
             <Button
               onClick={onDelete}
               variant={"primary"}
-              className="h-12 flex items-center gap-2">
+              className="h-12 flex items-center gap-2 w-28">
               <FaRegTrashAlt className="h-5 w-5" />
               {trans("Delete")}
             </Button>
@@ -110,6 +120,4 @@ const AddressDetails = ({ address }: AddressDetailsProps) => {
       )}
     </div>
   );
-};
-
-export default AddressDetails;
+}

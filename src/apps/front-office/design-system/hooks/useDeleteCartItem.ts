@@ -1,5 +1,6 @@
-import { cartAtom } from "apps/front-office/design-system/atoms/cart-atom";
 import { useState } from "react";
+
+import { cartAtom } from "apps/front-office/design-system/atoms/cart-atom";
 
 export const useDeleteCartItem = (
   cartItemId: number,

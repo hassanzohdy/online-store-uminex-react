@@ -7,17 +7,12 @@ import {
   DialogTrigger,
 } from "apps/front-office/design-system/components/ui/dialog";
 import { Input } from "apps/front-office/design-system/components/ui/input";
-import { ChangeEvent, useState } from "react";
+import { useSearch } from "../../hooks/useSearch";
 import SearchResult from "../../layouts/Header/components/search/search-result";
 import { cn } from "../../lib/utils";
 
-const SearchModel = () => {
-  const [value, setValue] = useState("");
-
-  const storeInputValue = (e: ChangeEvent<HTMLInputElement>) => {
-    const inputValue = e.target.value;
-    setValue(inputValue);
-  };
+export default function SearchModel() {
+  const { value, categoryId, storeInputValue, OnClose } = useSearch();
 
   return (
     <Dialog>
@@ -49,12 +44,14 @@ const SearchModel = () => {
               "absolute top-full left-0 w-full border z-50 ",
               value === "" && "hidden",
             )}>
-            <SearchResult value={value} />
+            <SearchResult
+              value={value}
+              category={categoryId}
+              OnClose={OnClose}
+            />
           </div>
         </div>
       </DialogContent>
     </Dialog>
   );
-};
-
-export default SearchModel;
+}

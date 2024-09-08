@@ -1,4 +1,6 @@
 import { trans } from "@mongez/localization";
+import { useEffect, useState } from "react";
+
 import {
   FormControl,
   FormField,
@@ -15,105 +17,31 @@ import {
   SelectTrigger,
   SelectValue,
 } from "apps/front-office/design-system/components/ui/select";
-import { useEffect, useState } from "react";
-import { UseFormReturn } from "react-hook-form";
+import { countries } from "../../data";
+import { useDeliveryData } from "../../hooks/useDeliveryData";
+import { CheckoutFormType } from "../../utils/types";
 
 interface DeliveryInputsProps {
-  form: UseFormReturn<{
-    cardNumber: string;
-    cardName: string;
-    expirationDate: Date;
-    cvv: string;
-    address: string;
-    email: string;
-    firstName: string;
-    lastName: string;
-    phone: string;
-    country: string;
-    state: string;
-    city: string;
-    zipCode: string;
-    apartment?: string | undefined;
-    shippingMethod: "economy" | "standard";
-  }>;
+  form: CheckoutFormType;
 }
 
-const countries = [
-  { id: "US", name: "United States" },
-  { id: "EG", name: "Egypt" },
-];
+export default function DeliveryInputs({ form }: DeliveryInputsProps) {
+  const [selectedCountry, setSelectedCountry] = useState<string>("");
+  const [selectedState, setSelectedState] = useState<string>("");
 
-const statesData: IState[] = [
-  { id: "CA", name: "California", countryId: "US" },
-  { id: "NY", name: "New York", countryId: "US" },
-  { id: "TX", name: "Texas", countryId: "US" },
-  { id: "FL", name: "Florida", countryId: "US" },
-  { id: "IL", name: "Illinois", countryId: "US" },
-  { id: "Cairo", name: "Cairo", countryId: "EG" },
-  { id: "Alex", name: "Alexandria", countryId: "EG" },
-  { id: "Giza", name: "Giza", countryId: "EG" },
-  { id: "Luxor", name: "Luxor", countryId: "EG" },
-];
+  const { states, cities } = useDeliveryData(selectedCountry, selectedState);
 
-const citiesData: ICity[] = [
-  { id: "LosAngeles", name: "Los Angeles", stateId: "CA" },
-  { id: "SanFrancisco", name: "San Francisco", stateId: "CA" },
-  { id: "SanDiego", name: "San Diego", stateId: "CA" },
-  { id: "NYC", name: "New York City", stateId: "NY" },
-  { id: "Buffalo", name: "Buffalo", stateId: "NY" },
-  { id: "Houston", name: "Houston", stateId: "TX" },
-  { id: "Dallas", name: "Dallas", stateId: "TX" },
-  { id: "Miami", name: "Miami", stateId: "FL" },
-  { id: "Orlando", name: "Orlando", stateId: "FL" },
-  { id: "Chicago", name: "Chicago", stateId: "IL" },
-  { id: "Springfield", name: "Springfield", stateId: "IL" },
-  { id: "GizaCity", name: "Giza", stateId: "Giza" },
-  { id: "NasrCity", name: "Nasr City", stateId: "Cairo" },
-  { id: "Heliopolis", name: "Heliopolis", stateId: "Cairo" },
-  { id: "AlexandriaCity", name: "Alexandria", stateId: "Alex" },
-  { id: "Aswan", name: "Aswan", stateId: "Luxor" },
-  { id: "Hurghada", name: "Hurghada", stateId: "Luxor" },
-];
-
-interface IState {
-  id: string;
-  name: string;
-  countryId: string;
-}
-
-interface ICity {
-  id: string;
-  name: string;
-  stateId: string;
-}
-
-const DeliveryInputs = ({ form }: DeliveryInputsProps) => {
-  const [states, setStates] = useState<IState[]>([]);
-  const [cities, setCities] = useState<ICity[]>([]);
+  /* eslint-disable */
+  useEffect(() => {
+    const country = form.watch("country");
+    setSelectedCountry(country);
+  }, [form.watch("country")]);
 
   useEffect(() => {
-    const selectedCountry = form.watch("country");
-
-    if (selectedCountry) {
-      const countryStates = statesData.filter(
-        state => state.countryId === selectedCountry,
-      );
-      setStates(countryStates);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [form, form.watch("country")]);
-
-  useEffect(() => {
-    const selectedState = form.watch("state");
-
-    if (selectedState) {
-      const stateCities = citiesData.filter(
-        city => city.stateId === selectedState,
-      );
-      setCities(stateCities);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [form, form.watch("state")]);
+    const state = form.watch("state");
+    setSelectedState(state);
+  }, [form.watch("state")]);
+  /* eslint-enable */
 
   return (
     <div className="w-full space-y-8">
@@ -124,10 +52,13 @@ const DeliveryInputs = ({ form }: DeliveryInputsProps) => {
         render={({ field }) => (
           <FormItem>
             <Select
-              onValueChange={field.onChange}
+              onValueChange={value => {
+                field.onChange(value);
+                setSelectedCountry(value);
+              }}
               value={field.value}
               defaultValue={field.value}>
-              <SelectTrigger className="w-full h-16 text-base focus:ring-lightAqua focus-visible:ring-lightAqua ring-lightAqua ring-offset-0 inset-0">
+              <SelectTrigger className="w-full h-14 md:h-16 text-base focus:ring-lightAqua focus-visible:ring-lightAqua ring-lightAqua ring-offset-0 inset-0">
                 <SelectValue placeholder={trans("SelectCountry")} />
               </SelectTrigger>
               <SelectContent>
@@ -151,10 +82,10 @@ const DeliveryInputs = ({ form }: DeliveryInputsProps) => {
           control={form.control}
           name="firstName"
           render={({ field }) => (
-            <FormItem className="w-full h-16 text-base focus:ring-lightAqua focus-visible:ring-lightAqua ring-lightAqua ring-offset-0 inset-0">
+            <FormItem className="w-full h-14 md:h-16 text-base focus:ring-lightAqua focus-visible:ring-lightAqua ring-lightAqua ring-offset-0 inset-0">
               <FormControl>
                 <Input
-                  className="w-full h-16 text-base focus:ring-lightAqua focus-visible:ring-lightAqua ring-lightAqua ring-offset-0 inset-0"
+                  className="w-full h-14 md:h-16 text-base focus:ring-lightAqua focus-visible:ring-lightAqua ring-lightAqua ring-offset-0 inset-0"
                   placeholder={trans("firstName")}
                   {...field}
                 />
@@ -167,10 +98,10 @@ const DeliveryInputs = ({ form }: DeliveryInputsProps) => {
           control={form.control}
           name="lastName"
           render={({ field }) => (
-            <FormItem className="w-full h-16 text-base focus:ring-lightAqua focus-visible:ring-lightAqua ring-lightAqua ring-offset-0 inset-0">
+            <FormItem className="w-full h-14 md:h-16 text-base focus:ring-lightAqua focus-visible:ring-lightAqua ring-lightAqua ring-offset-0 inset-0">
               <FormControl>
                 <Input
-                  className="w-full h-16 text-base focus:ring-lightAqua focus-visible:ring-lightAqua ring-lightAqua ring-offset-0 inset-0"
+                  className="w-full h-14 md:h-16 text-base focus:ring-lightAqua focus-visible:ring-lightAqua ring-lightAqua ring-offset-0 inset-0"
                   placeholder={trans("lastName")}
                   {...field}
                 />
@@ -185,10 +116,10 @@ const DeliveryInputs = ({ form }: DeliveryInputsProps) => {
         control={form.control}
         name="address"
         render={({ field }) => (
-          <FormItem className="w-full h-16 text-base focus:ring-lightAqua focus-visible:ring-lightAqua ring-lightAqua ring-offset-0 inset-0">
+          <FormItem className="w-full h-14 md:h-16 text-base focus:ring-lightAqua focus-visible:ring-lightAqua ring-lightAqua ring-offset-0 inset-0">
             <FormControl>
               <Input
-                className="w-full h-16 text-base focus:ring-lightAqua focus-visible:ring-lightAqua ring-lightAqua ring-offset-0 inset-0"
+                className="w-full h-14 md:h-16 text-base focus:ring-lightAqua focus-visible:ring-lightAqua ring-lightAqua ring-offset-0 inset-0"
                 placeholder={trans("Address")}
                 {...field}
               />
@@ -202,10 +133,10 @@ const DeliveryInputs = ({ form }: DeliveryInputsProps) => {
         control={form.control}
         name="apartment"
         render={({ field }) => (
-          <FormItem className="w-full h-16 text-base focus:ring-lightAqua focus-visible:ring-lightAqua ring-lightAqua ring-offset-0 inset-0">
+          <FormItem className="w-full h-14 md:h-16 text-base focus:ring-lightAqua focus-visible:ring-lightAqua ring-lightAqua ring-offset-0 inset-0">
             <FormControl>
               <Input
-                className="w-full h-16 text-base focus:ring-lightAqua focus-visible:ring-lightAqua ring-lightAqua ring-offset-0 inset-0"
+                className="w-full h-14 md:h-16 text-base focus:ring-lightAqua focus-visible:ring-lightAqua ring-lightAqua ring-offset-0 inset-0"
                 placeholder={trans("Apartment")}
                 {...field}
               />
@@ -222,11 +153,14 @@ const DeliveryInputs = ({ form }: DeliveryInputsProps) => {
           render={({ field }) => (
             <FormItem className="w-full">
               <Select
-                onValueChange={field.onChange}
+                onValueChange={value => {
+                  field.onChange(value);
+                  setSelectedState(value);
+                }}
                 value={field.value}
                 defaultValue={field.value}
                 disabled={states.length === 0}>
-                <SelectTrigger className="w-full h-16 text-base focus:ring-lightAqua focus-visible:ring-lightAqua ring-lightAqua ring-offset-0 inset-0">
+                <SelectTrigger className="w-full h-14 md:h-16 text-base focus:ring-lightAqua focus-visible:ring-lightAqua ring-lightAqua ring-offset-0 inset-0">
                   <SelectValue placeholder={trans("SelectState")} />
                 </SelectTrigger>
                 <SelectContent>
@@ -254,7 +188,7 @@ const DeliveryInputs = ({ form }: DeliveryInputsProps) => {
                 value={field.value}
                 defaultValue={field.value}
                 disabled={cities.length === 0}>
-                <SelectTrigger className="w-full h-16 text-base focus:ring-lightAqua focus-visible:ring-lightAqua ring-lightAqua ring-offset-0 inset-0">
+                <SelectTrigger className="w-full h-14 md:h-16 text-base focus:ring-lightAqua focus-visible:ring-lightAqua ring-lightAqua ring-offset-0 inset-0">
                   <SelectValue placeholder={trans("SelectCity")} />
                 </SelectTrigger>
                 <SelectContent>
@@ -280,7 +214,7 @@ const DeliveryInputs = ({ form }: DeliveryInputsProps) => {
               <FormControl>
                 <Input
                   placeholder={trans("zipCode")}
-                  className="w-full h-16 text-base focus:ring-lightAqua focus-visible:ring-lightAqua ring-lightAqua ring-offset-0 inset-0"
+                  className="w-full h-14 md:h-16 text-base focus:ring-lightAqua focus-visible:ring-lightAqua ring-lightAqua ring-offset-0 inset-0"
                   {...field}
                 />
               </FormControl>
@@ -291,6 +225,4 @@ const DeliveryInputs = ({ form }: DeliveryInputsProps) => {
       </div>
     </div>
   );
-};
-
-export default DeliveryInputs;
+}

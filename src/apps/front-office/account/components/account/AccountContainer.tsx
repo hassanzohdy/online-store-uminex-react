@@ -1,9 +1,10 @@
 import { trans } from "@mongez/localization";
-import { useUser } from "apps/front-office/design-system/hooks/useUser";
 import { LuLoader2 } from "react-icons/lu";
+
+import { useUser } from "apps/front-office/design-system/hooks/useUser";
 import AccountDetails from "./AccountDetails";
 
-const AccountContainer = () => {
+export default function AccountContainer() {
   const { data, isLoading, error } = useUser();
 
   if (isLoading) {
@@ -41,6 +42,4 @@ const AccountContainer = () => {
       <AccountDetails user={user} />
     </div>
   );
-};
-
-export default AccountContainer;
+}
