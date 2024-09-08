@@ -1,5 +1,5 @@
 import { trans } from "@mongez/localization";
-import { Separator } from "apps/front-office/design-system/components/ui/separator";
+import { Separator } from "design-system/components/ui/separator";
 import AccountContainer from "../../components/AccountContainer";
 import AccountSidebar from "../../components/AccountSidebar";
 

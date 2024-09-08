@@ -22,7 +22,9 @@
     },
     {
       "entry": ["/cart"],
-      "name": "cart",
+      "name": "cart"
+    },
+    {
       "entry": ["/collections"],
       "name": "collections"
     },
@@ -33,10 +35,14 @@
     {
       "entry": ["/cart"],
       "name": "cart"
-    }
+    },
     {
       "entry": ["/checkout"],
       "name": "checkout"
+    },
+    {
+      "entry": ["/shop"],
+      "name": "shop"
     }
   ]
 }

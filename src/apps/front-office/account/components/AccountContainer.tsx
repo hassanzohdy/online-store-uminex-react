@@ -1,5 +1,5 @@
 import { trans } from "@mongez/localization";
-import { useUser } from "apps/front-office/design-system/hooks/useUser";
+import { useUser } from "design-system/hooks/useUser";
 import { LuLoader2 } from "react-icons/lu";
 import AccountDetails from "./AccountDetails";
 

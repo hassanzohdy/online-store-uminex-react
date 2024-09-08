@@ -1,7 +1,7 @@
 import { trans } from "@mongez/localization";
-import { useAddresses } from "apps/front-office/design-system/hooks/useAddress";
-import { useWishlist } from "apps/front-office/design-system/hooks/useWishlist";
-import URLS from "apps/front-office/utils/urls";
+import URLS from "app/utils/urls";
+import { useAddresses } from "design-system/hooks/useAddress";
+import { useWishlist } from "design-system/hooks/useWishlist";
 import { FaRegHeart } from "react-icons/fa";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { IoLocationOutline } from "react-icons/io5";

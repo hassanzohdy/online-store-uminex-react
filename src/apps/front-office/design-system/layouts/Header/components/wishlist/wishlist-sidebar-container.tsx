@@ -1,7 +1,7 @@
-import { wishlistAtom } from "apps/front-office/design-system/atoms/wishlist-atom";
-import { Button } from "apps/front-office/design-system/components/ui/button";
-import { useWishlist } from "apps/front-office/design-system/hooks/useWishlist";
-import parseError from "apps/front-office/utils/parse-error";
+import parseError from "app/utils/parse-error";
+import { wishlistAtom } from "design-system/atoms/wishlist-atom";
+import { Button } from "design-system/components/ui/button";
+import { useWishlist } from "design-system/hooks/useWishlist";
 import { FaRegHeart } from "react-icons/fa";
 import WishlistSidebar from "./wishlist-sidebar";
 

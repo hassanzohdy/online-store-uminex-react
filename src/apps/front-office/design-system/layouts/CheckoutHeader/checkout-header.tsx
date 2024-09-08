@@ -1,5 +1,5 @@
 import { Link } from "@mongez/react-router";
-import URLS from "apps/front-office/utils/urls";
+import URLS from "app/utils/urls";
 import { LiaShoppingBagSolid } from "react-icons/lia";
 import Logo from "../../components/Logo";
 

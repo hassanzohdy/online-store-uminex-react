@@ -6,7 +6,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "apps/front-office/design-system/components/ui/dialog";
+} from "design-system/components/ui/dialog";
 import {
   Table,
   TableBody,
@@ -14,7 +14,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "apps/front-office/design-system/components/ui/table";
+} from "design-system/components/ui/table";
 import { compareAtom } from "../../atoms/compare-atom";
 import CompareTableHead from "../../layouts/Header/components/compare/compare-table-head";
 import { Product } from "../../utils/types";

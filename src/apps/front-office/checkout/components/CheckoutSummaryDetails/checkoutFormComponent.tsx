@@ -1,19 +1,19 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { trans } from "@mongez/localization";
 import { Link, navigateBack } from "@mongez/react-router";
+import { isLTR } from "app/utils/helpers";
+import URLS from "app/utils/urls";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "apps/front-office/design-system/components/ui/accordion";
-import { Button } from "apps/front-office/design-system/components/ui/button";
-import { Form } from "apps/front-office/design-system/components/ui/form";
-import { Input } from "apps/front-office/design-system/components/ui/input";
-import { cn } from "apps/front-office/design-system/lib/utils";
-import { Address, User } from "apps/front-office/design-system/utils/types";
-import { isLTR } from "apps/front-office/utils/helpers";
-import URLS from "apps/front-office/utils/urls";
+} from "design-system/components/ui/accordion";
+import { Button } from "design-system/components/ui/button";
+import { Form } from "design-system/components/ui/form";
+import { Input } from "design-system/components/ui/input";
+import { cn } from "design-system/lib/utils";
+import { Address, User } from "design-system/utils/types";
 import { ChangeEvent } from "react";
 import { useForm } from "react-hook-form";
 import { checkoutFormSchema } from "shared/schemas/CheckoutFormSchema";

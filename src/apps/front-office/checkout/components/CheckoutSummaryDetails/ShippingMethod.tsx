@@ -5,13 +5,13 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "apps/front-office/design-system/components/ui/form";
+} from "design-system/components/ui/form";
 import {
   RadioGroup,
   RadioGroupItem,
-} from "apps/front-office/design-system/components/ui/radio-group";
-import { formatPrice } from "apps/front-office/design-system/lib/formats";
-import { cn } from "apps/front-office/design-system/lib/utils";
+} from "design-system/components/ui/radio-group";
+import { formatPrice } from "design-system/lib/formats";
+import { cn } from "design-system/lib/utils";
 import { UseFormReturn } from "react-hook-form";
 
 interface ShippingMethodProps {

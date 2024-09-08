@@ -1,6 +1,7 @@
 // append urls here, DO NOT remove this line
 
 const URLS = {
+  shop: "/shop",
   cart: "/cart",
   checkout: "/checkout",
   collections: "/collections",

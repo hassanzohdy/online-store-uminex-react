@@ -1,4 +1,4 @@
-import { cartAtom } from "apps/front-office/design-system/atoms/cart-atom";
+import { cartAtom } from "design-system/atoms/cart-atom";
 import { useState } from "react";
 
 export const useCartQuantity = (

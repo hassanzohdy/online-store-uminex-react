@@ -1,4 +1,5 @@
 import { trans } from "@mongez/localization";
+import SubscribeToNewsletter from "design-system/layouts/Footer/SubscribeToNewsletter";
 import { useState } from "react";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
@@ -137,20 +138,7 @@ export default function Footer() {
               {trans("join")}
             </p>
 
-            <div className="w-full flex flex-col mobile:flex-row justify-start items-center my-4">
-              <div className="w-full md:w-auto my-2 mx-1 flex-grow-[3] md:flex-grow-[2] ">
-                <input
-                  type="email"
-                  placeholder={trans("yourEmail")}
-                  className="w-full border-solid border-borderLight border-[1px] p-2 h-12 rounded-[50px] placeholder-black placeholder:text-sm focus:border-blue outline-none"
-                />
-              </div>
-              <div className=" w-full md:w-auto flex-grow-[2]  mobile:w-52">
-                <button className="w-full bg-blue text-white p-4 h-12 rounded-[50px] font-bold text-xs leading-4 uppercase ">
-                  {trans("subscribe")}
-                </button>
-              </div>
-            </div>
+            <SubscribeToNewsletter />
 
             <p className="text-gray text-sm leading-8 md:max-w-80 text-start">
               {trans("subscribeForUminex")}

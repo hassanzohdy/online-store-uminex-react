@@ -1,7 +1,7 @@
 import { trans } from "@mongez/localization";
 import { Link } from "@mongez/react-router";
-import { isLTR } from "apps/front-office/utils/helpers";
-import URLS from "apps/front-office/utils/urls";
+import { isLTR } from "app/utils/helpers";
+import URLS from "app/utils/urls";
 import { AiOutlineUser } from "react-icons/ai";
 import parseError from "../../../utils/parse-error";
 import Logo from "../../components/Logo";

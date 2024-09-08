@@ -1,4 +1,4 @@
-import { Skeleton } from "apps/front-office/design-system/components/ui/skeleton";
+import { Skeleton } from "design-system/components/ui/skeleton";
 const SkeletonHeaderLoading = () => {
   return (
     <div className=" py-6 ">

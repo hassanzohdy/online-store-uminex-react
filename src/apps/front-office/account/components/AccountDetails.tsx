@@ -4,8 +4,8 @@ import {
   TableBody,
   TableCell,
   TableRow,
-} from "apps/front-office/design-system/components/ui/table";
-import { User } from "apps/front-office/design-system/utils/types";
+} from "design-system/components/ui/table";
+import { User } from "design-system/utils/types";
 
 interface AccountDetailsProps {
   user: User;

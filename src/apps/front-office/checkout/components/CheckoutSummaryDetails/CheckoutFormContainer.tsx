@@ -1,5 +1,5 @@
-import { useAddresses } from "apps/front-office/design-system/hooks/useAddress";
-import { useUser } from "apps/front-office/design-system/hooks/useUser";
+import { useAddresses } from "design-system/hooks/useAddress";
+import { useUser } from "design-system/hooks/useUser";
 import CheckoutFormComponent from "./checkoutFormComponent";
 import CheckoutFormErrorComponent from "./CheckoutFormErrorComponent";
 import CheckoutFormLoadingComponent from "./CheckoutFormLoadingComponent";

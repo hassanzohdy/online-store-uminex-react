@@ -1,20 +1,17 @@
 import { trans } from "@mongez/localization";
 import { current } from "@mongez/react";
 import { Link } from "@mongez/react-router";
-import SearchModel from "apps/front-office/design-system/components/models/search-model";
-import { Button } from "apps/front-office/design-system/components/ui/button";
-import {
-  DialogHeader,
-  DialogTitle,
-} from "apps/front-office/design-system/components/ui/dialog";
-import { Separator } from "apps/front-office/design-system/components/ui/separator";
+import URLS from "app/utils/urls";
+import SearchModel from "design-system/components/models/search-model";
+import { Button } from "design-system/components/ui/button";
+import { DialogHeader, DialogTitle } from "design-system/components/ui/dialog";
+import { Separator } from "design-system/components/ui/separator";
 import {
   Sheet,
   SheetContent,
   SheetTrigger,
-} from "apps/front-office/design-system/components/ui/sheet";
-import { User } from "apps/front-office/design-system/utils/types";
-import URLS from "apps/front-office/utils/urls";
+} from "design-system/components/ui/sheet";
+import { User } from "design-system/utils/types";
 import { FiUsers } from "react-icons/fi";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoLogOutOutline } from "react-icons/io5";

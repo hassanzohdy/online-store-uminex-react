@@ -1,5 +1,5 @@
 import { trans } from "@mongez/localization";
-import { Button } from "apps/front-office/design-system/components/ui/button";
+import { Button } from "design-system/components/ui/button";
 import { FiMinus, FiPlus } from "react-icons/fi";
 import { RiDeleteBin5Line } from "react-icons/ri";
 import styles from "./styles.module.scss";

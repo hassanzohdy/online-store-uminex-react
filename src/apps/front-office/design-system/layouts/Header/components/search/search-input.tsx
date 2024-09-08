@@ -1,9 +1,9 @@
 import { trans } from "@mongez/localization";
-import { Button } from "apps/front-office/design-system/components/ui/button";
-import { Input } from "apps/front-office/design-system/components/ui/input";
-import { useSearch } from "apps/front-office/design-system/hooks/useSearch";
-import { cn } from "apps/front-office/design-system/lib/utils";
-import { isLTR } from "apps/front-office/utils/helpers";
+import { isLTR } from "app/utils/helpers";
+import { Button } from "design-system/components/ui/button";
+import { Input } from "design-system/components/ui/input";
+import { useSearch } from "design-system/hooks/useSearch";
+import { cn } from "design-system/lib/utils";
 import CategoryMenu from "../category/category-menu";
 import SearchResult from "./search-result";
 

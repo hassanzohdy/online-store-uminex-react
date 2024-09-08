@@ -1,7 +1,7 @@
 import { current } from "@mongez/react";
-import { Button } from "apps/front-office/design-system/components/ui/button";
-import { formatPrice } from "apps/front-office/design-system/lib/formats";
-import { Product } from "apps/front-office/design-system/utils/types";
+import { Button } from "design-system/components/ui/button";
+import { formatPrice } from "design-system/lib/formats";
+import { Product } from "design-system/utils/types";
 import { FiTrash2 } from "react-icons/fi";
 
 interface CompareTableHeadProps {

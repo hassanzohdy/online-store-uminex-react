@@ -1,5 +1,5 @@
 import { trans } from "@mongez/localization";
-import { Button } from "apps/front-office/design-system/components/ui/button";
+import { Button } from "design-system/components/ui/button";
 import { MdDiscount } from "react-icons/md";
 import styles from "./styles.module.scss";
 export type CartTotalsProps = {

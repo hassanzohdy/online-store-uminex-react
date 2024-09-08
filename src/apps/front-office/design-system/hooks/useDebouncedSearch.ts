@@ -1,5 +1,5 @@
 import { queryString } from "@mongez/react-router";
-import { useProduct } from "apps/front-office/design-system/hooks/useProducts";
+import { useProduct } from "design-system/hooks/useProducts";
 import { useEffect, useState } from "react";
 
 type UseDebouncedSearchProps = {

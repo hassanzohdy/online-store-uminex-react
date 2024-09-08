@@ -1,17 +1,17 @@
 import { trans } from "@mongez/localization";
 import { current } from "@mongez/react";
 import { Link } from "@mongez/react-router";
-import { Button } from "apps/front-office/design-system/components/ui/button";
-import { Separator } from "apps/front-office/design-system/components/ui/separator";
+import URLS from "app/utils/urls";
+import { Button } from "design-system/components/ui/button";
+import { Separator } from "design-system/components/ui/separator";
 import {
   Sheet,
   SheetContent,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "apps/front-office/design-system/components/ui/sheet";
-import { Product } from "apps/front-office/design-system/utils/types";
-import URLS from "apps/front-office/utils/urls";
+} from "design-system/components/ui/sheet";
+import { Product } from "design-system/utils/types";
 import EmptyWishList from "shared/assets/images/empty-wishlist.svg";
 import WishlistItem from "../wishlist/wishlist-item";
 

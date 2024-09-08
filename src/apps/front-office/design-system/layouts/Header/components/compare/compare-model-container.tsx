@@ -1,9 +1,9 @@
 import { trans } from "@mongez/localization";
-import { compareAtom } from "apps/front-office/design-system/atoms/compare-atom";
-import CompareModel from "apps/front-office/design-system/components/models/compare-model";
-import { Button } from "apps/front-office/design-system/components/ui/button";
-import { useCompare } from "apps/front-office/design-system/hooks/useCompare";
-import { formatNumber } from "apps/front-office/design-system/lib/formats";
+import { compareAtom } from "design-system/atoms/compare-atom";
+import CompareModel from "design-system/components/models/compare-model";
+import { Button } from "design-system/components/ui/button";
+import { useCompare } from "design-system/hooks/useCompare";
+import { formatNumber } from "design-system/lib/formats";
 import { useState } from "react";
 import { FiLayers } from "react-icons/fi";
 

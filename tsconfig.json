@@ -17,7 +17,6 @@
     "baseUrl": "./",
     "noEmit": true,
     "paths": {
-      "apps/*": ["./src/apps/*"],
       "shared/*": ["./src/shared/*"],
       "design-system": ["src/apps/front-office/design-system"],
       "design-system/*": ["src/apps/front-office/design-system/*"],

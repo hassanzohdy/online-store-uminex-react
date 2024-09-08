@@ -1,5 +1,5 @@
-import { Button } from "apps/front-office/design-system/components/ui/button";
-import { cn } from "apps/front-office/design-system/lib/utils";
+import { Button } from "design-system/components/ui/button";
+import { cn } from "design-system/lib/utils";
 import { useState } from "react";
 import { IoReload } from "react-icons/io5";
 

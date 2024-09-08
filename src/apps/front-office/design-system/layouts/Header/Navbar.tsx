@@ -1,6 +1,6 @@
 import { trans } from "@mongez/localization";
 import { Link } from "@mongez/react-router";
-import URLS from "apps/front-office/utils/urls";
+import URLS from "app/utils/urls";
 import { useState } from "react";
 import { FaAngleDown } from "react-icons/fa";
 import discountSvg from "shared/assets/images/discount.svg";

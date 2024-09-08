@@ -1,6 +1,6 @@
 import { trans } from "@mongez/localization";
-import { cartAtom } from "apps/front-office/design-system/atoms/cart-atom";
-import { formatPrice } from "apps/front-office/design-system/lib/formats";
+import { cartAtom } from "design-system/atoms/cart-atom";
+import { formatPrice } from "design-system/lib/formats";
 import { useState } from "react";
 import CartSheetSidebar from "../sheets/cart-sidebar-sheet";
 

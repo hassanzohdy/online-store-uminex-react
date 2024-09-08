@@ -1,28 +1,28 @@
 import { trans } from "@mongez/localization";
 import { CalendarIcon } from "@radix-ui/react-icons";
-import { Button } from "apps/front-office/design-system/components/ui/button";
-import { Calendar } from "apps/front-office/design-system/components/ui/calendar";
+import { isLTR } from "app/utils/helpers";
+import { format } from "date-fns";
+import { Button } from "design-system/components/ui/button";
+import { Calendar } from "design-system/components/ui/calendar";
 import {
   FormControl,
   FormField,
   FormItem,
   FormMessage,
-} from "apps/front-office/design-system/components/ui/form";
-import { Input } from "apps/front-office/design-system/components/ui/input";
+} from "design-system/components/ui/form";
+import { Input } from "design-system/components/ui/input";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "apps/front-office/design-system/components/ui/popover";
+} from "design-system/components/ui/popover";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "apps/front-office/design-system/components/ui/tooltip";
-import { cn } from "apps/front-office/design-system/lib/utils";
-import { isLTR } from "apps/front-office/utils/helpers";
-import { format } from "date-fns";
+} from "design-system/components/ui/tooltip";
+import { cn } from "design-system/lib/utils";
 import { UseFormReturn } from "react-hook-form";
 import { BsQuestionCircle } from "react-icons/bs";
 import { CiLock } from "react-icons/ci";

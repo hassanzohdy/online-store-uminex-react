@@ -1,8 +1,14 @@
 import { CheckIcon, EyeOpenIcon, StackIcon } from "@radix-ui/react-icons";
-import { formatPrice } from "apps/front-office/design-system/lib/formatPrice";
 import React, { useState } from "react";
 import { FaRegStar, FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { IoHeartOutline } from "react-icons/io5";
+
+const formatPrice = (price: number) => {
+  return price.toLocaleString("en-US", {
+    style: "currency",
+    currency: "USD",
+  });
+};
 
 interface TopSellingCardProps {
   to: string;

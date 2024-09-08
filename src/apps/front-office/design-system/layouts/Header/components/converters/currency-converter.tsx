@@ -1,13 +1,13 @@
 import { trans } from "@mongez/localization";
-import { currencyAtom } from "apps/front-office/design-system/atoms/currency-atom";
-import { Button } from "apps/front-office/design-system/components/ui/button";
+import { currencyAtom } from "design-system/atoms/currency-atom";
+import { Button } from "design-system/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "apps/front-office/design-system/components/ui/dropdown-menu";
-import { cn } from "apps/front-office/design-system/lib/utils";
+} from "design-system/components/ui/dropdown-menu";
+import { cn } from "design-system/lib/utils";
 import { FaAngleDown } from "react-icons/fa";
 
 const CurrencyConverter = () => {

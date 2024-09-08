@@ -1,12 +1,13 @@
 import { trans } from "@mongez/localization";
 import { current } from "@mongez/react";
-import { Button } from "apps/front-office/design-system/components/ui/button";
+import { isLTR } from "app/utils/helpers";
+import { Button } from "design-system/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "apps/front-office/design-system/components/ui/dropdown-menu";
+} from "design-system/components/ui/dropdown-menu";
 import {
   Select,
   SelectContent,
@@ -14,10 +15,9 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "apps/front-office/design-system/components/ui/select";
-import { useCategory } from "apps/front-office/design-system/hooks/useCategory";
-import { cn } from "apps/front-office/design-system/lib/utils";
-import { isLTR } from "apps/front-office/utils/helpers";
+} from "design-system/components/ui/select";
+import { useCategory } from "design-system/hooks/useCategory";
+import { cn } from "design-system/lib/utils";
 import { useState } from "react";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { FaAngleDown } from "react-icons/fa";

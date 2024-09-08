@@ -1,5 +1,5 @@
 import { ChevronUpIcon } from "@radix-ui/react-icons";
-import Breadcrumbs from "apps/front-office/design-system/components/Breadcrumbs";
+import Breadcrumbs from "design-system/components/Breadcrumbs";
 import React from "react";
 import { MoonLoader } from "react-spinners";
 import CollectionCard from "../../components/CollectionCard";

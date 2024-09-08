@@ -1,5 +1,5 @@
 import { useOnce } from "@mongez/react-hooks";
-import { getMe } from "apps/front-office/account/service/auth";
+import { getMe } from "app/account/service/auth";
 import { useState } from "react";
 import user from "../../account/user";
 import { User } from "../utils/types";

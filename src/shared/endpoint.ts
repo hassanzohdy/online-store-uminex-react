@@ -1,28 +1,16 @@
-import { RunTimeDriver } from "@mongez/cache";
 import Endpoint, { setCurrentEndpoint } from "@mongez/http";
 import { navigateTo } from "@mongez/react-router";
-import user from "apps/front-office/account/user";
-import URLS from "apps/front-office/utils/urls";
+import user from "app/account/user";
+import URLS from "app/utils/urls";
 import { AxiosResponse } from "axios";
-import { apiBaseUrl, apiKey, apiOS } from "./flags";
+import { apiBaseUrl, endpointClientId } from "./flags";
 
 const endpoint = new Endpoint({
-  putToPost: false,
   baseURL: apiBaseUrl,
-  cache: false,
-  cacheOptions: {
-    driver: new RunTimeDriver(),
-    expiresAfter: 60 * 60 * 24 * 7, // 1 week, but because it is a runtime driver, it will be cleared when the page is refreshed
-  },
   setAuthorizationHeader: () => {
-    //${user.getAccessToken()}
     if (user.isLoggedIn()) {
       return `Bearer ${user.getAccessToken()}`;
     }
-
-    if (!apiKey) return;
-
-    return `key ${apiKey}`;
   },
 });
 
@@ -30,8 +18,7 @@ const endpointEvents = endpoint.events;
 
 endpointEvents.beforeSending(config => {
   const headers: any = config.headers;
-  headers["os"] = apiOS;
-  headers["client-id"] = 127295270;
+  headers["client-id"] = endpointClientId;
 });
 
 endpointEvents.onSuccess((response: AxiosResponse) => {

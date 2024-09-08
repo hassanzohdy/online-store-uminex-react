@@ -1,6 +1,6 @@
-import { cartAtom } from "apps/front-office/design-system/atoms/cart-atom";
-import { Button } from "apps/front-office/design-system/components/ui/button";
-import { useCart } from "apps/front-office/design-system/hooks/useCart";
+import { cartAtom } from "design-system/atoms/cart-atom";
+import { Button } from "design-system/components/ui/button";
+import { useCart } from "design-system/hooks/useCart";
 import { IoCartOutline } from "react-icons/io5";
 import CartContainer from "./cart-container";
 

@@ -4,7 +4,7 @@ import router, {
   navigateTo,
   refresh,
 } from "@mongez/react-router";
-import URLS from "apps/front-office/utils/urls";
+import URLS from "app/utils/urls";
 import React from "react";
 import { resetPasswordAtom } from "../atoms";
 import {

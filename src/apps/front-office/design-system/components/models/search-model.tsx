@@ -5,8 +5,8 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "apps/front-office/design-system/components/ui/dialog";
-import { Input } from "apps/front-office/design-system/components/ui/input";
+} from "design-system/components/ui/dialog";
+import { Input } from "design-system/components/ui/input";
 import { ChangeEvent, useState } from "react";
 import SearchResult from "../../layouts/Header/components/search/search-result";
 import { cn } from "../../lib/utils";

@@ -1,7 +1,7 @@
 import { trans } from "@mongez/localization";
-import { wishlistAtom } from "apps/front-office/design-system/atoms/wishlist-atom";
-import { Button } from "apps/front-office/design-system/components/ui/button";
-import { formatNumber } from "apps/front-office/design-system/lib/formats";
+import { wishlistAtom } from "design-system/atoms/wishlist-atom";
+import { Button } from "design-system/components/ui/button";
+import { formatNumber } from "design-system/lib/formats";
 import { useState } from "react";
 import { FaRegHeart } from "react-icons/fa";
 import WishListSheetSidebar from "../sheets/wishlist-sidebar-sheet";

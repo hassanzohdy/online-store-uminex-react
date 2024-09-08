@@ -1,10 +1,10 @@
 import { trans } from "@mongez/localization";
 import { current } from "@mongez/react";
-import { currencyAtom } from "apps/front-office/design-system/atoms/currency-atom";
-import { Button } from "apps/front-office/design-system/components/ui/button";
-import { useDeleteWishlistItem } from "apps/front-office/design-system/hooks/useDeleteWishlistItem";
-import { formatPrice } from "apps/front-office/design-system/lib/formats";
-import { Product } from "apps/front-office/design-system/utils/types";
+import { currencyAtom } from "design-system/atoms/currency-atom";
+import { Button } from "design-system/components/ui/button";
+import { useDeleteWishlistItem } from "design-system/hooks/useDeleteWishlistItem";
+import { formatPrice } from "design-system/lib/formats";
+import { Product } from "design-system/utils/types";
 import { FiX } from "react-icons/fi";
 
 interface WishlistItemProps {
