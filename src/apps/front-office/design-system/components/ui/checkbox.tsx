@@ -1,4 +1,4 @@
-import CheckboxPrimitive from "@radix-ui/react-checkbox";
+import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
 import { CheckIcon } from "@radix-ui/react-icons";
 import { cn } from "design-system/lib/utils";
 import React from "react";

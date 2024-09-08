@@ -1,4 +1,4 @@
-import LabelPrimitive from "@radix-ui/react-label";
+import * as LabelPrimitive from "@radix-ui/react-label";
 import { Slot } from "@radix-ui/react-slot";
 import PropTypes from "prop-types";
 import React from "react";

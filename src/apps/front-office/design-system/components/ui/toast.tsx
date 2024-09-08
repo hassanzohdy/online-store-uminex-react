@@ -1,5 +1,5 @@
 import { Cross2Icon } from "@radix-ui/react-icons";
-import ToastPrimitives from "@radix-ui/react-toast";
+import * as ToastPrimitives from "@radix-ui/react-toast";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "design-system/lib/utils";
 import PropTypes from "prop-types";

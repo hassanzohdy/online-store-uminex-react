@@ -1,5 +1,5 @@
 import { CheckIcon } from "@radix-ui/react-icons";
-import RadioGroupPrimitive from "@radix-ui/react-radio-group";
+import * as RadioGroupPrimitive from "@radix-ui/react-radio-group";
 import PropTypes from "prop-types";
 import React from "react";
 

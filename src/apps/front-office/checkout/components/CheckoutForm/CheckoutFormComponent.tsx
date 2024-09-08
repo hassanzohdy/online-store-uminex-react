@@ -15,7 +15,7 @@ import { cn } from "design-system/lib/utils";
 import { Address, User } from "design-system/utils/types";
 import { useForm } from "react-hook-form";
 import { checkoutFormSchema } from "shared/schemas/CheckoutFormSchema";
-import * as z from "zod";
+import z from "zod";
 import CardDetailsInputs from "./CardDetailsInputs";
 import DeliveryInputs from "./DeliveryInputs";
 import ShippingMethod from "./ShippingMethod";

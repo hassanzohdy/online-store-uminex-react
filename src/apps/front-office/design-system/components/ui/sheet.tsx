@@ -1,4 +1,4 @@
-import SheetPrimitive from "@radix-ui/react-dialog";
+import * as SheetPrimitive from "@radix-ui/react-dialog";
 import { Cross2Icon } from "@radix-ui/react-icons";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "design-system/lib/utils";

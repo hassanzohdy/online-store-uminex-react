@@ -1,4 +1,4 @@
-import AccordionPrimitive from "@radix-ui/react-accordion";
+import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import { ChevronDownIcon } from "@radix-ui/react-icons";
 import { cn } from "design-system/lib/utils";
 import PropTypes from "prop-types";
