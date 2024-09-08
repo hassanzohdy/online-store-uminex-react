@@ -5,9 +5,9 @@ import {
   ChevronUpIcon,
 } from "@radix-ui/react-icons";
 import SelectPrimitive from "@radix-ui/react-select";
+import { cn } from "design-system/lib/utils";
 import PropTypes from "prop-types";
 import React from "react";
-import { cn } from "design-system/lib/utils";
 
 const Select = SelectPrimitive.Root;
 

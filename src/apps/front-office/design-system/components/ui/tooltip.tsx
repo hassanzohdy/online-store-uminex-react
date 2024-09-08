@@ -1,8 +1,8 @@
 import TooltipPrimitive from "@radix-ui/react-tooltip";
 import React from "react";
 
-import PropTypes from "prop-types";
 import { cn } from "design-system/lib/utils";
+import PropTypes from "prop-types";
 
 const TooltipProvider = TooltipPrimitive.Provider;
 

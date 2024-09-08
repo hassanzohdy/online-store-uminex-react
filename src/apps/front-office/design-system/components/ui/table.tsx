@@ -1,6 +1,6 @@
+import { cn } from "design-system/lib/utils";
 import PropTypes from "prop-types";
 import React from "react";
-import { cn } from "design-system/lib/utils";
 
 export const Table = React.forwardRef<
   HTMLTableElement,

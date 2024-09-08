@@ -7,9 +7,9 @@ import {
   DialogTrigger,
 } from "design-system/components/ui/dialog";
 import { Input } from "design-system/components/ui/input";
+import { cn } from "design-system/lib/utils";
 import { useSearch } from "../../hooks/useSearch";
 import SearchResult from "../../layouts/Header/components/search/search-result";
-import { cn } from "design-system/lib/utils";
 
 export default function SearchModel() {
   const { value, categoryId, storeInputValue, OnClose } = useSearch();

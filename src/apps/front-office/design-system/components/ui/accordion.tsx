@@ -1,8 +1,8 @@
 import AccordionPrimitive from "@radix-ui/react-accordion";
 import { ChevronDownIcon } from "@radix-ui/react-icons";
+import { cn } from "design-system/lib/utils";
 import PropTypes from "prop-types";
 import React from "react";
-import { cn } from "design-system/lib/utils";
 
 const Accordion = AccordionPrimitive.Root;
 Accordion.propTypes = {
