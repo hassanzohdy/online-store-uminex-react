@@ -10,7 +10,7 @@ interface WishlistSidebarProps {
   navbar?: boolean;
 }
 
-const WishlistSidebar = ({ navbar }: WishlistSidebarProps) => {
+export default function WishlistSidebar({ navbar }: WishlistSidebarProps) {
   const wishlist = wishlistAtom.useValue();
   const [status, setStatus] = useState(false);
 
@@ -25,7 +25,7 @@ const WishlistSidebar = ({ navbar }: WishlistSidebarProps) => {
           <div className="flex items-center gap-2">
             <FaRegHeart className="w-4 h-4" />
           </div>
-          <h1 className="text-[14px] font-semibold text-slate-900">
+          <h1 className="text-[14px] font-semibold text-primary">
             {trans("wishlist")} ({" "}
             {formatNumber(wishlist && wishlist.totalWishlist)} )
           </h1>
@@ -56,6 +56,4 @@ const WishlistSidebar = ({ navbar }: WishlistSidebarProps) => {
       </div>
     </>
   );
-};
-
-export default WishlistSidebar;
+}

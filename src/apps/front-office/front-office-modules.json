@@ -33,10 +33,6 @@
       "name": "blog"
     },
     {
-      "entry": ["/cart"],
-      "name": "cart"
-    },
-    {
       "entry": ["/checkout"],
       "name": "checkout"
     },

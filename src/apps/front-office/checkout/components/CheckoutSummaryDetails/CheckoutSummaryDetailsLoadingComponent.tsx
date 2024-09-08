@@ -1,6 +1,6 @@
 import { Skeleton } from "design-system/components/ui/skeleton";
 
-const CheckoutSummaryDetailsLoadingComponent = () => {
+export default function CheckoutSummaryDetailsLoadingComponent() {
   return (
     <div className="flex flex-col items-start w-full gap-5 max-w-[650px] px-4">
       <div className="flex items-center justify-between w-full">
@@ -31,6 +31,4 @@ const CheckoutSummaryDetailsLoadingComponent = () => {
       </div>
     </div>
   );
-};
-
-export default CheckoutSummaryDetailsLoadingComponent;
+}

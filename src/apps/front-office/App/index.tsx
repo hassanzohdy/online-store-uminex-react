@@ -1,5 +1,5 @@
 import { useOnce } from "@mongez/react-hooks";
-import { getGuestToken } from "app/account/service/auth";
+import { getGuestToken } from "app/account/services/auth";
 import user from "app/account/user";
 import React, { useState } from "react";
 

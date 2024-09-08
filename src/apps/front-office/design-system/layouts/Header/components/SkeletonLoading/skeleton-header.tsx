@@ -1,5 +1,6 @@
 import { Skeleton } from "design-system/components/ui/skeleton";
-const SkeletonHeaderLoading = () => {
+
+export default function SkeletonHeaderLoading() {
   return (
     <div className=" py-6 ">
       <div className="w-full hidden lg:flex items-center justify-between">
@@ -14,6 +15,4 @@ const SkeletonHeaderLoading = () => {
       <Skeleton className="w-full h-12 block lg:hidden" />
     </div>
   );
-};
-
-export default SkeletonHeaderLoading;
+}

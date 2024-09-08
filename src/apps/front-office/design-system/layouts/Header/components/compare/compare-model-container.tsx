@@ -7,7 +7,7 @@ import { formatNumber } from "design-system/lib/formats";
 import { useState } from "react";
 import { FiLayers } from "react-icons/fi";
 
-const CompareModelContainer = () => {
+export default function CompareModelContainer() {
   const { data, isLoading, error } = useCompare();
   const [_, setTicks] = useState(false);
 
@@ -22,7 +22,7 @@ const CompareModelContainer = () => {
           <div className="flex items-center gap-2">
             <FiLayers className="w-4 h-4" />
           </div>
-          <h1 className="text-[14px] font-semibold text-slate-900 ">
+          <h1 className="text-[14px] font-semibold text-primary">
             {trans("compare")} ( 0 )
           </h1>
         </div>
@@ -55,6 +55,4 @@ const CompareModelContainer = () => {
       </CompareModel>
     );
   }
-};
-
-export default CompareModelContainer;
+}

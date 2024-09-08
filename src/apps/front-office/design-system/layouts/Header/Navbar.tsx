@@ -7,7 +7,7 @@ import discountSvg from "shared/assets/images/discount.svg";
 import CategoryLists from "./components/category/category-list";
 import SearchInput from "./components/search/search-input";
 
-const Navbar = () => {
+export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="w-full py-[7px] relative">
@@ -84,6 +84,4 @@ const Navbar = () => {
       </div>
     </div>
   );
-};
-
-export default Navbar;
+}

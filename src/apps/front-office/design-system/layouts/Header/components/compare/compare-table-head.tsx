@@ -9,10 +9,10 @@ interface CompareTableHeadProps {
   deleteItem: (id: number) => void;
 }
 
-const CompareTableHead = ({
+export default function CompareTableHead({
   compareItem,
   deleteItem,
-}: CompareTableHeadProps) => {
+}: CompareTableHeadProps) {
   const currentLanguage = current("localeCode");
 
   const handleDeleteCompareItem = () => {
@@ -61,6 +61,4 @@ const CompareTableHead = ({
       </Button>
     </>
   );
-};
-
-export default CompareTableHead;
+}

@@ -4,7 +4,7 @@ import { formatPrice } from "design-system/lib/formats";
 import { useState } from "react";
 import CartSheetSidebar from "../sheets/cart-sidebar-sheet";
 
-const CartContainer = () => {
+export default function CartContainer() {
   const [_, setTick] = useState(0);
   const cart = cartAtom.useValue();
   const changeTicks = () => {
@@ -22,6 +22,4 @@ const CartContainer = () => {
       </div>
     </div>
   );
-};
-
-export default CartContainer;
+}

@@ -3,7 +3,7 @@ import { Separator } from "design-system/components/ui/separator";
 import { Skeleton } from "design-system/components/ui/skeleton";
 import { cn } from "design-system/lib/utils";
 
-const CheckoutFormLoadingComponent = () => {
+export default function CheckoutFormLoadingComponent() {
   return (
     <div
       className={cn(
@@ -30,6 +30,4 @@ const CheckoutFormLoadingComponent = () => {
       </div>
     </div>
   );
-};
-
-export default CheckoutFormLoadingComponent;
+}

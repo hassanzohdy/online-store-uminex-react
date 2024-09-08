@@ -24,7 +24,10 @@ interface CompareModelProps {
   deleteItem: (id: number) => void;
 }
 
-const CompareModel = ({ children, deleteItem }: CompareModelProps) => {
+export default function CompareModel({
+  children,
+  deleteItem,
+}: CompareModelProps) {
   const compareProducts = compareAtom.useValue();
   const currentLanguage = current("localeCode");
 
@@ -161,6 +164,4 @@ const CompareModel = ({ children, deleteItem }: CompareModelProps) => {
       </DialogContent>
     </Dialog>
   );
-};
-
-export default CompareModel;
+}

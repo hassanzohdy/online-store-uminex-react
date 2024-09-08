@@ -12,7 +12,10 @@ interface WishlistItemProps {
   changeStatus: () => void;
 }
 
-const WishlistItem = ({ wishlistItem, changeStatus }: WishlistItemProps) => {
+export default function WishlistItem({
+  wishlistItem,
+  changeStatus,
+}: WishlistItemProps) {
   const currentLanguage = current("localeCode");
   const currentCurrency = currencyAtom.useValue();
 
@@ -49,6 +52,4 @@ const WishlistItem = ({ wishlistItem, changeStatus }: WishlistItemProps) => {
       </Button>
     </div>
   );
-};
-
-export default WishlistItem;
+}

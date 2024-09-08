@@ -3,12 +3,14 @@ import { current } from "@mongez/react";
 import { currencyAtom } from "design-system/atoms/currency-atom";
 import { formatPrice } from "design-system/lib/formats";
 import { CartItemType } from "design-system/utils/types";
+
 interface CheckoutSummaryDetailsCartItemProps {
   item: CartItemType;
 }
-const CheckoutSummaryDetailsCartItem = ({
+
+export default function CheckoutSummaryDetailsCartItem({
   item,
-}: CheckoutSummaryDetailsCartItemProps) => {
+}: CheckoutSummaryDetailsCartItemProps) {
   const currentLanguage = current("localeCode");
   const currentCurrency = currencyAtom.useValue();
 
@@ -44,6 +46,4 @@ const CheckoutSummaryDetailsCartItem = ({
       <h1>{formatPrice(item.total.finalPrice, currentCurrency)}</h1>
     </div>
   );
-};
-
-export default CheckoutSummaryDetailsCartItem;
+}

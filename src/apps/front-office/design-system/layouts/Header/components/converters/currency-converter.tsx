@@ -10,7 +10,7 @@ import {
 import { cn } from "design-system/lib/utils";
 import { FaAngleDown } from "react-icons/fa";
 
-const CurrencyConverter = () => {
+export default function CurrencyConverter() {
   const currencySymbolMap = {
     EGP: trans("EGCurrency"),
     USD: "$",
@@ -61,6 +61,4 @@ const CurrencyConverter = () => {
       </DropdownMenuContent>
     </DropdownMenu>
   );
-};
-
-export default CurrencyConverter;
+}

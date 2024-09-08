@@ -3,7 +3,9 @@ import { navigateTo } from "@mongez/react-router";
 import user from "app/account/user";
 import URLS from "app/utils/urls";
 import { AxiosResponse } from "axios";
-import { apiBaseUrl, endpointClientId } from "./flags";
+import { apiBaseUrl } from "./flags";
+
+import { apiOS } from "./flags";
 
 const endpoint = new Endpoint({
   baseURL: apiBaseUrl,
@@ -18,7 +20,7 @@ const endpointEvents = endpoint.events;
 
 endpointEvents.beforeSending(config => {
   const headers: any = config.headers;
-  headers["client-id"] = endpointClientId;
+  headers["os"] = apiOS;
 });
 
 endpointEvents.onSuccess((response: AxiosResponse) => {

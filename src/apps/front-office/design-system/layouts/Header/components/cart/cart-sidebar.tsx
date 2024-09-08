@@ -4,7 +4,7 @@ import { useCart } from "design-system/hooks/useCart";
 import { IoCartOutline } from "react-icons/io5";
 import CartContainer from "./cart-container";
 
-const CartSidebar = () => {
+export default function CartSidebar() {
   const { data, isLoading, error } = useCart();
 
   if (isLoading) {
@@ -29,6 +29,4 @@ const CartSidebar = () => {
       </div>
     );
   }
-};
-
-export default CartSidebar;
+}

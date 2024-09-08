@@ -27,7 +27,10 @@ interface AddressFormInputsProps {
   isLoading: boolean;
 }
 
-const AddressFormInputs = ({ form, isLoading }: AddressFormInputsProps) => {
+export default function AddressFormInputs({
+  form,
+  isLoading,
+}: AddressFormInputsProps) {
   return (
     <>
       <FormField
@@ -130,6 +133,4 @@ const AddressFormInputs = ({ form, isLoading }: AddressFormInputsProps) => {
       />
     </>
   );
-};
-
-export default AddressFormInputs;
+}

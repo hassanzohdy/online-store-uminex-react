@@ -14,7 +14,7 @@ import {
   resetPassword,
   verifyCode,
   verifyForgetPassword,
-} from "../service/auth";
+} from "../services/auth";
 import user from "../user";
 
 const goBack = () => {

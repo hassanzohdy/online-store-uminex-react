@@ -22,11 +22,12 @@ interface WishlistSidebarSheetProps {
   };
   changeStatus: () => void;
 }
-const WishListSheetSidebar = ({
+
+export default function WishListSheetSidebar({
   children,
   data,
   changeStatus,
-}: WishlistSidebarSheetProps) => {
+}: WishlistSidebarSheetProps) {
   const language = current("localeCode");
 
   return (
@@ -71,6 +72,4 @@ const WishListSheetSidebar = ({
       </SheetContent>
     </Sheet>
   );
-};
-
-export default WishListSheetSidebar;
+}
