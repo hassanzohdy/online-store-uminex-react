@@ -1,14 +1,11 @@
 import { trans } from "@mongez/localization";
 import { current } from "@mongez/react";
-import { Button } from "apps/front-office/design-system/components/ui/button";
-import { Input } from "apps/front-office/design-system/components/ui/input";
-import { useCartQuantity } from "apps/front-office/design-system/hooks/useCartQuantity";
-import { useDeleteCartItem } from "apps/front-office/design-system/hooks/useDeleteCartItem";
-import {
-  formatNumber,
-  formatPrice,
-} from "apps/front-office/design-system/lib/formats";
-import { CartItemType } from "apps/front-office/design-system/utils/types";
+import { Button } from "design-system/components/ui/button";
+import { Input } from "design-system/components/ui/input";
+import { useCartQuantity } from "design-system/hooks/useCartQuantity";
+import { useDeleteCartItem } from "design-system/hooks/useDeleteCartItem";
+import { formatNumber, formatPrice } from "design-system/lib/formats";
+import { CartItemType } from "design-system/utils/types";
 import { FaMinus } from "react-icons/fa6";
 import { FiTrash2 } from "react-icons/fi";
 

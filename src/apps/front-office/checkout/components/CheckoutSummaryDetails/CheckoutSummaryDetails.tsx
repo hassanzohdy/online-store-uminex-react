@@ -1,11 +1,10 @@
 import { trans } from "@mongez/localization";
-
-import { currencyAtom } from "apps/front-office/design-system/atoms/currency-atom";
-import { Separator } from "apps/front-office/design-system/components/ui/separator";
-import { useCart } from "apps/front-office/design-system/hooks/useCart";
-import { formatPrice } from "apps/front-office/design-system/lib/formats";
-import { CartItemType } from "apps/front-office/design-system/utils/types";
-import parseError from "apps/front-office/utils/parse-error";
+import parseError from "app/utils/parse-error";
+import { currencyAtom } from "design-system/atoms/currency-atom";
+import { Separator } from "design-system/components/ui/separator";
+import { useCart } from "design-system/hooks/useCart";
+import { formatPrice } from "design-system/lib/formats";
+import { CartItemType } from "design-system/utils/types";
 import CheckoutSummaryDetailsCartItem from "./CheckoutSummaryDetailsCartItem";
 import CheckoutSummaryDetailsLoadingComponent from "./CheckoutSummaryDetailsLoadingComponent";
 

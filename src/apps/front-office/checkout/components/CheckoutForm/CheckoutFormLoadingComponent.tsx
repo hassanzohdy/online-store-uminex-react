@@ -1,7 +1,7 @@
-import { Separator } from "apps/front-office/design-system/components/ui/separator";
-import { Skeleton } from "apps/front-office/design-system/components/ui/skeleton";
-import { cn } from "apps/front-office/design-system/lib/utils";
-import { isLTR } from "apps/front-office/utils/helpers";
+import { isLTR } from "app/utils/helpers";
+import { Separator } from "design-system/components/ui/separator";
+import { Skeleton } from "design-system/components/ui/skeleton";
+import { cn } from "design-system/lib/utils";
 
 export default function CheckoutFormLoadingComponent() {
   return (

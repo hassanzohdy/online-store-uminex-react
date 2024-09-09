@@ -1,9 +1,8 @@
 import { CheckIcon, EyeOpenIcon, StackIcon } from "@radix-ui/react-icons";
+import { formatPrice } from "design-system/lib/formats";
 import React, { useState } from "react";
 import { FaRegStar, FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { IoHeartOutline } from "react-icons/io5";
-
-import { formatPrice } from "apps/front-office/design-system/lib/formats";
 
 interface TopSellingCardProps {
   to: string;

@@ -5,11 +5,11 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "apps/front-office/design-system/components/ui/dialog";
-import { Input } from "apps/front-office/design-system/components/ui/input";
+} from "design-system/components/ui/dialog";
+import { Input } from "design-system/components/ui/input";
+import { cn } from "design-system/lib/utils";
 import { useSearch } from "../../hooks/useSearch";
 import SearchResult from "../../layouts/Header/components/search/search-result";
-import { cn } from "../../lib/utils";
 
 export default function SearchModel() {
   const { value, categoryId, storeInputValue, OnClose } = useSearch();

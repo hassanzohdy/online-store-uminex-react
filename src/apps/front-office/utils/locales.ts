@@ -1,10 +1,8 @@
+import { extend, groupedTranslations } from "@mongez/localization";
 import {
-  groupedTranslations,
-  localizationEvents,
-  trans,
-} from "@mongez/localization";
-import { current } from "@mongez/react";
-import { changeLocaleCode } from "@mongez/react-router";
+  arValidationTranslation,
+  enValidationTranslation,
+} from "@mongez/react-form";
 
 import accountTranslation from "shared/localization/account.json";
 import checkoutTranslation from "shared/localization/checkout.json";
@@ -15,20 +13,5 @@ groupedTranslations(indexTranslation);
 groupedTranslations(checkoutTranslation);
 groupedTranslations(accountTranslation);
 
-// useful for Arabic language, if not needed you can remove it
-export function the(key: string) {
-  return trans("the", { key: trans(key) });
-}
-
-// Add only common localization
-groupedTranslations({
-  // add your common localization here
-});
-
-localizationEvents.onChange("localeCode", newLocale => {
-  const currentLocale = current("localeCode");
-
-  if (newLocale !== currentLocale) {
-    changeLocaleCode(newLocale);
-  }
-});
+extend("en", { validation: enValidationTranslation });
+extend("ar", { validation: arValidationTranslation });

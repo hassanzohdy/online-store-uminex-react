@@ -1,17 +1,16 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { trans } from "@mongez/localization";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-
-import { Button } from "apps/front-office/design-system/components/ui/button";
-import { Form } from "apps/front-office/design-system/components/ui/form";
-import { toast } from "apps/front-office/design-system/hooks/use-toast";
-import { useAddresses } from "apps/front-office/design-system/hooks/useAddress";
+import { Button } from "design-system/components/ui/button";
+import { Form } from "design-system/components/ui/form";
+import { toast } from "design-system/hooks/use-toast";
+import { useAddresses } from "design-system/hooks/useAddress";
 import {
   addAddress,
   setPrimaryAddress,
-} from "apps/front-office/design-system/services/address.services";
+} from "design-system/services/address.services";
+import { useForm } from "react-hook-form";
 import { AddressFormSchema } from "shared/schemas/AddressFormSchema";
+import { z } from "zod";
 import AddressFormInputs from "./AddressFormInputs";
 
 export default function AddAddressForm() {

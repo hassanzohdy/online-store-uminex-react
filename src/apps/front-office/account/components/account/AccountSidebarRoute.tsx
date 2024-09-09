@@ -1,6 +1,5 @@
 import { Link } from "@mongez/react-router";
-
-import { cn } from "apps/front-office/design-system/lib/utils";
+import { cn } from "design-system/lib/utils";
 
 type RouteType = {
   label: string;

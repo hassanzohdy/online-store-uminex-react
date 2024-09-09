@@ -1,4 +1,4 @@
-import { Skeleton } from "apps/front-office/design-system/components/ui/skeleton";
+import { Skeleton } from "design-system/components/ui/skeleton";
 
 export default function SkeletonSearchCard() {
   return (

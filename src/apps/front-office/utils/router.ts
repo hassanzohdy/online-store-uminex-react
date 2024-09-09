@@ -1,8 +1,5 @@
 import router, { Route } from "@mongez/react-router";
-import {
-  Guardian,
-  ReverseGuardian,
-} from "apps/front-office/account/middleware";
+import { Guardian, ReverseGuardian } from "app/account/middleware";
 import BaseLayout from "../design-system/layouts/BaseLayout";
 import CheckoutLayout from "../design-system/layouts/CheckoutLayout";
 // import AccountLayout from "../design-system/layouts/AccountLayout";

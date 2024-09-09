@@ -1,6 +1,5 @@
+import { useAddresses } from "design-system/hooks/useAddress";
 import { LuLoader2 } from "react-icons/lu";
-
-import { useAddresses } from "apps/front-office/design-system/hooks/useAddress";
 import AddressDetailsCard from "./AddressDetailsCard";
 
 export default function AddressesDetails() {

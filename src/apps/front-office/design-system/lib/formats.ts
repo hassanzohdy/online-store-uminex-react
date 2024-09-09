@@ -1,5 +1,4 @@
 import { current } from "@mongez/react";
-
 import { currencyAtom } from "../atoms/currency-atom";
 
 export const formatPrice = (price: number, currency?: string) => {

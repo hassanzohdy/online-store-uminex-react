@@ -1,13 +1,13 @@
 import { setCurrentLocaleCode } from "@mongez/localization";
 import { current } from "@mongez/react";
-import { Button } from "apps/front-office/design-system/components/ui/button";
+import { Button } from "design-system/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "apps/front-office/design-system/components/ui/dropdown-menu";
-import { cn } from "apps/front-office/design-system/lib/utils";
+} from "design-system/components/ui/dropdown-menu";
+import { cn } from "design-system/lib/utils";
 import { FaAngleDown } from "react-icons/fa";
 
 const languageFlagMap = {

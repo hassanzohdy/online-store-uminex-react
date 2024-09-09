@@ -1,9 +1,8 @@
 import { trans } from "@mongez/localization";
 import { current } from "@mongez/react";
-
-import { currencyAtom } from "apps/front-office/design-system/atoms/currency-atom";
-import { formatPrice } from "apps/front-office/design-system/lib/formats";
-import { CartItemType } from "apps/front-office/design-system/utils/types";
+import { currencyAtom } from "design-system/atoms/currency-atom";
+import { formatPrice } from "design-system/lib/formats";
+import { CartItemType } from "design-system/utils/types";
 
 interface CheckoutSummaryDetailsCartItemProps {
   item: CartItemType;

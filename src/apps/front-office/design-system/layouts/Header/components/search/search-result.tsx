@@ -1,14 +1,13 @@
 import { trans } from "@mongez/localization";
 import { navigateTo } from "@mongez/react-router";
+import { isLTR } from "app/utils/helpers";
+import URLS from "app/utils/urls";
+import { Button } from "design-system/components/ui/button";
+import { ScrollArea } from "design-system/components/ui/scroll-area";
+import { useDebouncedSearch } from "design-system/hooks/useDebouncedSearch";
+import { formatPrice } from "design-system/lib/formats";
+import { Product } from "design-system/utils/types";
 import { FiX } from "react-icons/fi";
-
-import { Button } from "apps/front-office/design-system/components/ui/button";
-import { ScrollArea } from "apps/front-office/design-system/components/ui/scroll-area";
-import { useDebouncedSearch } from "apps/front-office/design-system/hooks/useDebouncedSearch";
-import { formatPrice } from "apps/front-office/design-system/lib/formats";
-import { Product } from "apps/front-office/design-system/utils/types";
-import { isLTR } from "apps/front-office/utils/helpers";
-import URLS from "apps/front-office/utils/urls";
 import SkeletonSearchCard from "../SkeletonLoading/skeleton-search-card";
 
 type SearchResultProps = {

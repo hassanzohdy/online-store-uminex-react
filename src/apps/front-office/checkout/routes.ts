@@ -1,5 +1,5 @@
-import { checkoutRoutes } from "apps/front-office/utils/router";
-import URLS from "apps/front-office/utils/urls";
+import { checkoutRoutes } from "app/utils/router";
+import URLS from "app/utils/urls";
 import CheckoutPage from "./pages/CheckoutPage";
 
 checkoutRoutes([

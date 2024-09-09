@@ -1,13 +1,12 @@
 import { trans } from "@mongez/localization";
 import router, { Link } from "@mongez/react-router";
+import { isLTR } from "app/utils/helpers";
+import URLS from "app/utils/urls";
+import { cn } from "design-system/lib/utils";
 import { AiOutlineUser } from "react-icons/ai";
-
-import { isLTR } from "apps/front-office/utils/helpers";
-import URLS from "apps/front-office/utils/urls";
 import parseError from "../../../utils/parse-error";
 import Logo from "../../components/Logo";
 import { useUser } from "../../hooks/useUser";
-import { cn } from "../../lib/utils";
 import CartSidebar from "./components/cart/cart-sidebar";
 import SearchInput from "./components/search/search-input";
 import MobileSidebarSheet from "./components/sheets/mobile-sidebar-sheet";

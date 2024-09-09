@@ -1,7 +1,6 @@
 import { trans } from "@mongez/localization";
+import { useUser } from "design-system/hooks/useUser";
 import { LuLoader2 } from "react-icons/lu";
-
-import { useUser } from "apps/front-office/design-system/hooks/useUser";
 import AccountDetails from "./AccountDetails";
 
 export default function AccountContainer() {

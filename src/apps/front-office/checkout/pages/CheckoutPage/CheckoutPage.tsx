@@ -6,7 +6,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "apps/front-office/design-system/components/ui/accordion";
+} from "design-system/components/ui/accordion";
 import CheckoutFormContainer from "../../components/CheckoutForm/CheckoutFormContainer";
 import CheckoutSummaryDetails from "../../components/CheckoutSummaryDetails/CheckoutSummaryDetails";
 
