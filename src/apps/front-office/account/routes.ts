@@ -1,6 +1,6 @@
 import { guardedRoutes, reverseGuardedRoutes } from "../utils/router";
 import URLS from "../utils/urls";
-import AccountPage from "./pages/account/AccountPage";
+import AccountPage from "./pages/AccountPage/AccountPage";
 import AddressBookPage from "./pages/AddressBookPage";
 
 reverseGuardedRoutes([]);
