@@ -15,11 +15,11 @@ import {
 } from "design-system/components/ui/carousel";
 import { Column } from "design-system/utils/types";
 
-interface FirstRowProps {
+interface SliderRowProps {
   column: Column[];
 }
 
-export default function FirstRow({ column }: FirstRowProps) {
+export default function SliderRow({ column }: SliderRowProps) {
   const plugin = React.useRef(
     Autoplay({ delay: 2000, stopOnInteraction: true }),
   );

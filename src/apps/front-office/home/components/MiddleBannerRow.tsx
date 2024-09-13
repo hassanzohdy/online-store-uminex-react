@@ -2,11 +2,11 @@ import { isLTR } from "app/utils/helpers";
 
 import { Column } from "design-system/utils/types";
 
-interface FifthRowProps {
+interface MiddleBannerRowProps {
   column: Column[];
 }
 
-export default function FifthRow({ column }: FifthRowProps) {
+export default function MiddleBannerRow({ column }: MiddleBannerRowProps) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 w-full">
       {column.map(column => (

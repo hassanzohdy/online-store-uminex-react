@@ -1,11 +1,11 @@
 import { Column } from "design-system/utils/types";
 import CategoryCard from "./CategoryCard";
 
-interface SecondRowProps {
+interface CategoriesRowProps {
   column: Column[];
 }
 
-export default function SecondRow({ column }: SecondRowProps) {
+export default function CategoriesRow({ column }: CategoriesRowProps) {
   const categoryHasActiveProducts = column[0].module.categories?.filter(
     category => category.totalProducts! > 0,
   );

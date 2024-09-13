@@ -7,11 +7,11 @@ import { Column } from "design-system/utils/types";
 import { CarouselProducts } from "./CarouselProducts";
 import Heading from "./heading";
 
-interface FourthRowProps {
+interface RecommendedRowProps {
   column: Column[];
 }
 
-export default function FourthRow({ column }: FourthRowProps) {
+export default function RecommendedRow({ column }: RecommendedRowProps) {
   return (
     <div className="flex flex-col items-start gap-y-1 w-full">
       <div className="w-full p-3 bg-white flex items-center justify-between">

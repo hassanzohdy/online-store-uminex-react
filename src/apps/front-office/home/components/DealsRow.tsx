@@ -4,11 +4,11 @@ import { useTimer } from "../hooks/useTimer";
 import { CarouselProducts } from "./CarouselProducts";
 import Heading from "./heading";
 
-interface ThirdRowProps {
+interface DealsRowProps {
   column: Column[];
 }
 
-export default function ThirdRow({ column }: ThirdRowProps) {
+export default function DealsRow({ column }: DealsRowProps) {
   const { timeLeft } = useTimer();
 
   return (

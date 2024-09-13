@@ -1,8 +1,8 @@
 import { useOnce } from "@mongez/react-hooks";
 import { getGuestToken } from "app/account/services/auth";
 import user from "app/account/user";
+import NextTopLoader from "nextjs-toploader";
 import React, { useState } from "react";
-import NextTopLoader from 'nextjs-toploader'
 
 export type AppProps = {
   children: React.ReactNode;
@@ -24,7 +24,10 @@ export default function App({ children }: AppProps) {
 
   if (!canPass) return;
 
-  return <>
-  <NextTopLoader color="white"/>
-  {children}</>;
+  return (
+    <>
+      <NextTopLoader color="white" />
+      {children}
+    </>
+  );
 }
