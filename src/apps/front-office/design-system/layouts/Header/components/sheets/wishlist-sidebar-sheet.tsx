@@ -1,5 +1,4 @@
 import { trans } from "@mongez/localization";
-import { current } from "@mongez/react";
 import { Link } from "@mongez/react-router";
 import { isRTL } from "app/utils/helpers";
 import URLS from "app/utils/urls";

@@ -15,7 +15,7 @@ interface HomePageProps {
   };
 }
 
-function _HomePage({ data }:HomePageProps) {
+function _HomePage({ data }: HomePageProps) {
   const rows = data.rows;
   const row1 = rows[0];
   const row2 = rows[1];

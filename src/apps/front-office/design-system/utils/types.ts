@@ -90,7 +90,7 @@ export type Product = {
   id: number;
   brand: Brand;
   category: Category;
-  discount: number;
+  discount: any;
   images: Image[];
   inCart: boolean;
   inCompare: boolean;

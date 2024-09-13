@@ -1,5 +1,5 @@
 import { trans } from "@mongez/localization";
-import router, { Link } from "@mongez/react-router";
+import { Link } from "@mongez/react-router";
 
 import { isLTR } from "app/utils/helpers";
 import URLS from "app/utils/urls";

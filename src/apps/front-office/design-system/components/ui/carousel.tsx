@@ -2,8 +2,8 @@ import { ArrowLeftIcon, ArrowRightIcon } from "@radix-ui/react-icons";
 import useEmblaCarousel, {
   type UseEmblaCarouselType,
 } from "embla-carousel-react";
+import PropTypes from "prop-types";
 import * as React from "react";
-import PropTypes from 'prop-types'; 
 
 import { Button } from "design-system/components/ui/button";
 import { cn } from "../../lib/utils";
@@ -155,11 +155,7 @@ const CarouselContent = React.forwardRef<
 
   return (
     <div ref={carouselRef} className="overflow-hidden h-full">
-      <div
-        ref={ref}
-        className={cn("flex", className)}
-        {...props}
-      />
+      <div ref={ref} className={cn("flex", className)} {...props} />
     </div>
   );
 });
