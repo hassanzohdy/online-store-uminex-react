@@ -16,6 +16,9 @@ export function Guardian() {
  * Use this middleware if you want to redirect the user to the home page if he/she is logged in
  */
 export function ReverseGuardian() {
+  // const {userData} = user
+  // console.log(userData.userType)
+  // console.log(user.isGuest())
   if (user.isLoggedIn() && !user.isGuest()) {
     return navigateTo(URLS.home);
   }

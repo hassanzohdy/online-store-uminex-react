@@ -1,12 +1,13 @@
 import { navigateBack } from "@mongez/react-router";
-import { useAddresses } from "design-system/hooks/useAddress";
+
+import { addressesAtom } from "app/account/atoms/address-atom";
 import { useUser } from "design-system/hooks/useUser";
 import CheckoutFormComponent from "./CheckoutFormComponent";
 import CheckoutFormLoadingComponent from "./CheckoutFormLoadingComponent";
 
 export default function CheckoutFormContainer() {
-  const { data: user } = useUser();
-  const { data: addresses, isLoading, error } = useAddresses();
+  const { data: user, isLoading, error } = useUser();
+  const addresses = addressesAtom.value;
 
   const defaultAddress = addresses?.find(address => address.isPrimary);
 

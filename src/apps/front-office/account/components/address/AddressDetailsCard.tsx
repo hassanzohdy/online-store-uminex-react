@@ -1,13 +1,9 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { trans } from "@mongez/localization";
+import { addressesAtom } from "app/account/atoms/address-atom";
 import { Button } from "design-system/components/ui/button";
 import { Form } from "design-system/components/ui/form";
 import { toast } from "design-system/hooks/use-toast";
-import {
-  deleteAddress,
-  setPrimaryAddress,
-  updateAddress,
-} from "design-system/services/address.services";
 import { Address } from "design-system/utils/types";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -18,10 +14,12 @@ import AddressFormInputs from "./AddressFormInputs";
 
 interface AddressDetailsCardProps {
   address: Address;
+  updateData: () => void;
 }
 
 export default function AddressDetailsCard({
   address,
+  updateData,
 }: AddressDetailsCardProps) {
   const [isEditing, setIsEditing] = useState(false);
   const form = useForm<z.infer<typeof AddressFormSchema>>({
@@ -38,33 +36,38 @@ export default function AddressDetailsCard({
   const onSubmit = async (data: z.infer<typeof AddressFormSchema>) => {
     try {
       const { default: isPrimary, ...addressData } = data;
-      await updateAddress(address.id, addressData);
+      await addressesAtom.updateAddress(address.id, addressData);
+
       if (isPrimary) {
-        await setPrimaryAddress(address.id);
+        await addressesAtom.setPrimaryAddress(address.id);
       }
+
+      toast({
+        variant: "success",
+        title: "Address Updated",
+        description: "Address has been updated successfully",
+      });
+
+      updateData();
     } catch (error) {
       console.error(error);
       toast({
         variant: "destructive",
         title: "Something went wrong",
-        content: "An error occurred while adding the address",
+        description: "An error occurred while updating the address",
       });
     }
     form.reset();
     setIsEditing(false);
-    window.location.reload();
   };
 
   const onDelete = async () => {
-    try {
-      await deleteAddress(address.id);
-    } catch (error) {
-      console.error(error);
-    }
-    window.location.reload();
+    addressesAtom.deleteAddress(address.id);
+    updateData();
   };
 
   const isLoading = form.formState.isSubmitting;
+
   return (
     <div className="flex flex-col w-full gap-3">
       {!isEditing && (

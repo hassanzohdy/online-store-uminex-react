@@ -2,8 +2,14 @@ import { guardedRoutes, reverseGuardedRoutes } from "../utils/router";
 import URLS from "../utils/urls";
 import AccountPage from "./pages/AccountPage/AccountPage";
 import AddressBookPage from "./pages/AddressBookPage";
+import LoginPage from "./pages/LoginPage";
 
-reverseGuardedRoutes([]);
+reverseGuardedRoutes([
+  {
+    path: URLS.auth.login,
+    component: LoginPage,
+  },
+]);
 
 guardedRoutes([
   {

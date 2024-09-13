@@ -1,27 +1,30 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { trans } from "@mongez/localization";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+
+import { addressesAtom } from "app/account/atoms/address-atom";
 import { Button } from "design-system/components/ui/button";
 import { Form } from "design-system/components/ui/form";
 import { toast } from "design-system/hooks/use-toast";
-import { useAddresses } from "design-system/hooks/useAddress";
-import {
-  addAddress,
-  setPrimaryAddress,
-} from "design-system/services/address.services";
-import { useForm } from "react-hook-form";
+import { useState } from "react";
 import { AddressFormSchema } from "shared/schemas/AddressFormSchema";
-import { z } from "zod";
 import AddressFormInputs from "./AddressFormInputs";
 
-export default function AddAddressForm() {
-  const { data: addresses } = useAddresses();
+export default function AddAddressForm({
+  updateData,
+}: {
+  updateData: () => void;
+}) {
+  const addresses = addressesAtom.useValue();
+  const [addressesLength, setAddressesLength] = useState(addresses.length);
   const form = useForm<z.infer<typeof AddressFormSchema>>({
     resolver: zodResolver(AddressFormSchema),
     defaultValues: {
       name: "",
       email: "",
-      address: "",
       phoneNumber: "",
+      address: "",
       default: false,
     },
   });
@@ -31,11 +34,19 @@ export default function AddAddressForm() {
   const onSubmit = async (data: z.infer<typeof AddressFormSchema>) => {
     try {
       const { default: isPrimary, ...addressData } = data;
-      const response = await addAddress(addressData);
-      const addressId = response.data.address.id;
-      if ((addresses && addresses.length >= 1) || isPrimary) {
-        setPrimaryAddress(addressId);
+      const addressId = await addressesAtom.addAddress(addressData);
+
+      if (addressesLength === 0 || isPrimary) {
+        await addressesAtom.setPrimaryAddress(addressId);
       }
+
+      setAddressesLength(addresses.length);
+
+      toast({
+        variant: "success",
+        title: "Address Added",
+        description: "The address has been added successfully",
+      });
     } catch (error) {
       console.error(error);
       toast({
@@ -45,6 +56,7 @@ export default function AddAddressForm() {
       });
     }
     form.reset();
+    updateData();
   };
 
   return (

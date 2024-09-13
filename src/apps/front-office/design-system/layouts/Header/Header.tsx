@@ -1,5 +1,6 @@
 import { trans } from "@mongez/localization";
 import router, { Link } from "@mongez/react-router";
+
 import { isLTR } from "app/utils/helpers";
 import URLS from "app/utils/urls";
 import { cn } from "design-system/lib/utils";
@@ -25,7 +26,7 @@ export default function Header() {
   }
 
   const user = data!;
-  const currentPath = router.activeRoute?.path;
+  // const currentPath = router.activeRoute?.path;
 
   return (
     <div className="w-full py-5">
@@ -34,38 +35,34 @@ export default function Header() {
         <Logo />
         <div
           className={cn(
-            "lg:w-[530px] xl:w-[750px] 2xl:w-[800px] hidden lg:block",
+            "w-full xl:w-[700px] 2xl:w-[800px] hidden lg:block",
             isLTR() ? "ml-14" : "mr-auto",
           )}>
           <SearchInput />
         </div>
-        <div className="flex items-center flex-wrap 2xl:ml-5">
+        <div className="flex items-center flex-wrap 2xl:ml-5 lg:min-w-[300px]">
           <div className="hidden lg:flex items-center">
-            {user.userType === "guest" && (
-              <Link
-                href={
-                  user.userType === "guest"
-                    ? URLS.auth.viewLogin(currentPath!)
-                    : URLS.auth.root
-                }
-                className="flex items-center gap-2">
-                <AiOutlineUser className="h-7 w-7 text-primary" />
-                <div className="flex flex-col items-start">
-                  {user.userType === "guest" ? (
-                    <span className="text-xs text-slate-600">
-                      {trans("login")}
-                    </span>
-                  ) : (
-                    <span className="text-xs text-slate-600 p-0">
-                      {user.name}
-                    </span>
-                  )}
-                  <p className="text-sm font-semibold text-primary p-0">
-                    {trans("account")}
-                  </p>
-                </div>
-              </Link>
-            )}
+            <Link
+              href={
+                user.userType === "guest" ? URLS.auth.login : URLS.auth.root
+              }
+              className="flex items-center gap-2">
+              <AiOutlineUser className="h-7 w-7 text-primary" />
+              <div className="flex flex-col items-start">
+                {user.userType === "guest" ? (
+                  <span className="text-xs text-slate-600">
+                    {trans("login")}
+                  </span>
+                ) : (
+                  <span className="text-xs text-slate-600 p-0">
+                    {user.name}
+                  </span>
+                )}
+                <p className="text-sm font-semibold text-primary p-0">
+                  {trans("account")}
+                </p>
+              </div>
+            </Link>
             <WishlistSidebarContainer />
           </div>
           <CartSidebar />

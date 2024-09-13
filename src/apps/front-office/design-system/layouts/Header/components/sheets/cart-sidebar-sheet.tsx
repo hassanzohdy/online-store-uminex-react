@@ -30,6 +30,7 @@ export default function CartSheetSidebar({
   const changeQuantity = () => {
     changeTicks();
   };
+
   const items = cart.items;
 
   return (
@@ -51,7 +52,7 @@ export default function CartSheetSidebar({
         </Button>
       </SheetTrigger>
       <SheetContent
-        className="p-0 w-full md:max-w-sm overflow-y-auto overflow-x-hidden"
+        className="p-0 w-full md:max-w-sm overflow-y-auto overflow-x-hidden scrollbar"
         side={language === "ar" ? "left" : "right"}>
         <SheetHeader className="bg-slate-100 p-3">
           <SheetTitle className="text-slate-900 font-semibold text-md">
@@ -60,7 +61,7 @@ export default function CartSheetSidebar({
         </SheetHeader>
         {items && items.length > 0 ? (
           <div className="w-full">
-            <div className="h-[600px] overflow-y-auto w-full flex flex-col items-start gap-4 p-5">
+            <div className="h-[600px] overflow-y-auto w-full flex flex-col items-start gap-4 p-5 scrollbar">
               {items.map(cartItem => (
                 <div
                   key={cartItem.id}
