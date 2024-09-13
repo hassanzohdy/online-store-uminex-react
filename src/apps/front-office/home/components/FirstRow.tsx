@@ -13,6 +13,7 @@ import {
   CarouselPrevious,
 } from "design-system/components/ui/carousel";
 import { Column } from "design-system/utils/types";
+import { trans } from "@mongez/localization";
 
 interface FirstRowProps {
   column: Column[];
@@ -64,7 +65,7 @@ export default function FirstRow({ column }: FirstRowProps) {
                     asChild
                     size={"lg"}
                     className="rounded-full text-black font-bold text-xs">
-                    <Link href={URLS.collections}>SHOP NOW</Link>
+                    <Link href={URLS.collections}>{trans("SHOP NOW")}</Link>
                   </Button>
                 </div>
               </CarouselItem>

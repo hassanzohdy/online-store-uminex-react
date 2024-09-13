@@ -7,11 +7,13 @@ import {
 import accountTranslation from "shared/localization/account.json";
 import checkoutTranslation from "shared/localization/checkout.json";
 import indexTranslation from "shared/localization/index.json";
+import homeTranslation from "shared/localization/home.json";
 
 // DO NOT IMPORT IT IF THE PROJECT IS NOT LARGE
 groupedTranslations(indexTranslation);
 groupedTranslations(checkoutTranslation);
 groupedTranslations(accountTranslation);
+groupedTranslations(homeTranslation);
 
 extend("en", { validation: enValidationTranslation });
 extend("ar", { validation: arValidationTranslation });

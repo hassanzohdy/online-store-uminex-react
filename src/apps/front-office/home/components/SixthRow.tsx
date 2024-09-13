@@ -5,6 +5,7 @@ import URLS from "app/utils/urls";
 import { Column } from "design-system/utils/types";
 import { CarouselProducts } from "./CarouselProducts";
 import Heading from "./heading";
+import { trans } from "@mongez/localization";
 
 interface SixthRowProps {
   column: Column[];
@@ -18,7 +19,7 @@ export default function SixthRow({ column }: SixthRowProps) {
         <Link
           to={URLS.collections}
           className="flex items-center gap-1 text-sm text-gray">
-          View All Products <FaChevronRight className="w-3 h-3" />
+          {trans("View All Products")} <FaChevronRight className="w-3 h-3" />
         </Link>
       </div>
       <div className="w-full">
