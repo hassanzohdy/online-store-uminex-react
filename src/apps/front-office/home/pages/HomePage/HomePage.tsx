@@ -1,4 +1,6 @@
-import { preload } from "@mongez/react-utils";
+import { trans } from "@mongez/localization";
+import { preload, setPreloadConfiguration } from "@mongez/react-utils";
+import { LuLoader2 } from "react-icons/lu";
 
 import FifthRow from "app/home/components/FifthRow";
 import FirstRow from "app/home/components/FirstRow";
@@ -14,6 +16,27 @@ interface HomePageProps {
     rows: Row[];
   };
 }
+
+setPreloadConfiguration({
+  loadingErrorComponent: ({isLoading, error}) => {
+    if(isLoading){
+      return (
+        <div className="w-full min-h-full flex items-center justify-center pt-16">
+          <LuLoader2 className="w-10 h-10 animate-spin text-blue" />
+        </div>
+      )
+    }
+    else if(error){
+      return (
+        <div className="w-full h-full flex items-center justify-center">
+          <h1 className="text-center text-red text-lg font-semibold">
+            {trans("Something went wrong, Try Again Later.")}
+          </h1>
+        </div>
+      )
+    }
+  }
+});
 
 function _HomePage({ data }: HomePageProps) {
   const rows = data.rows;

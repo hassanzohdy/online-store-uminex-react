@@ -1,11 +1,11 @@
 import { Link } from "@mongez/react-router";
 import { FaChevronRight } from "react-icons/fa";
 
+import { trans } from "@mongez/localization";
 import URLS from "app/utils/urls";
 import { Column } from "design-system/utils/types";
 import { CarouselProducts } from "./CarouselProducts";
 import Heading from "./heading";
-import { trans } from "@mongez/localization";
 
 interface SixthRowProps {
   column: Column[];

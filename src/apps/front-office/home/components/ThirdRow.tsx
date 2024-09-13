@@ -1,8 +1,8 @@
+import { trans } from "@mongez/localization";
 import { Column } from "design-system/utils/types";
 import { useTimer } from "../hooks/useTimer";
 import { CarouselProducts } from "./CarouselProducts";
 import Heading from "./heading";
-import { trans } from "@mongez/localization";
 
 interface ThirdRowProps {
   column: Column[];

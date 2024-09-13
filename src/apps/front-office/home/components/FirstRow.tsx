@@ -1,6 +1,7 @@
 import Autoplay from "embla-carousel-autoplay";
 import React from "react";
 
+import { trans } from "@mongez/localization";
 import { Link } from "@mongez/react-router";
 import { isLTR } from "app/utils/helpers";
 import URLS from "app/utils/urls";
@@ -13,7 +14,6 @@ import {
   CarouselPrevious,
 } from "design-system/components/ui/carousel";
 import { Column } from "design-system/utils/types";
-import { trans } from "@mongez/localization";
 
 interface FirstRowProps {
   column: Column[];
