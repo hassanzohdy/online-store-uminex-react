@@ -1,12 +1,14 @@
 import { trans } from "@mongez/localization";
+import { useState } from "react";
+
 import { cartAtom } from "design-system/atoms/cart-atom";
 import { formatPrice } from "design-system/lib/formats";
-import { useState } from "react";
 import CartSheetSidebar from "../sheets/cart-sidebar-sheet";
 
 export default function CartContainer() {
-  const [_, setTick] = useState(0);
   const cart = cartAtom.useValue();
+  const [_, setTick] = useState(0);
+
   const changeTicks = () => {
     setTick(prev => prev + 1);
   };

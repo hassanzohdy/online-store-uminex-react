@@ -35,7 +35,7 @@ export default function Navbar() {
                   onMouseEnter={() => setIsOpen(true)}
                   onMouseLeave={() => setIsOpen(false)}
                   className="absolute left-0 top-5 bg-white rounded-md p-4
-                   shadow-md w-[200px] flex flex-col items-start gap-3">
+                   shadow-md w-[200px] flex flex-col items-start gap-3 z-50">
                   <li
                     className="text-slate-500 font-semibold text-sm hover:text-blue
                    hover:ml-3 transition-all">
@@ -72,7 +72,7 @@ export default function Navbar() {
             </li>
           </ul>
         </div>
-        <div className="flex items-center gap-2 min-w-[250px]">
+        <div className="hidden xl:flex items-center gap-2 min-w-[250px] ">
           <img src={discountSvg} alt="discount" />
           <span className="text-sm text-black font-semibold hover:text-blue transition">
             {trans("sale")}

@@ -40,6 +40,7 @@ export function guardedRoutes(routes: Route[]) {
  */
 export function reverseGuardedRoutes(routes: Route[]) {
   return router.group({
+    layout: BaseLayout,
     middleware: [ReverseGuardian],
     routes,
   });

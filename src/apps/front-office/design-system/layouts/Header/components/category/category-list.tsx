@@ -63,7 +63,7 @@ export default function CategoryLists() {
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}>
             {(isOpen || isHovered) && (
-              <Separator className="bg-blue transition h-[1px] absolute top-0 w-full max-w-[270px]" />
+              <Separator className="bg-blue transition-all h-[1px] absolute top-0 w-full max-w-[270px]" />
             )}
             <Button
               variant={"ghost"}

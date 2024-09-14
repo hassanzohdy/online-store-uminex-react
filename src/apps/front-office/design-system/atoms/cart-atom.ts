@@ -1,8 +1,9 @@
 import cache from "@mongez/cache";
 import { atom } from "@mongez/react-atom";
-import { deleteItem, updateItem } from "../services/cart-services";
+
+import { addItem, deleteItem, updateItem } from "../services/cart-services";
 import { calculateCartTotals } from "../utils/cart-utils";
-import { CartType } from "../utils/types";
+import { CartType, Product } from "../utils/types";
 
 export const cartAtom = atom<CartType>({
   key: "cart",
@@ -12,6 +13,43 @@ export const cartAtom = atom<CartType>({
     return cart;
   },
   actions: {
+    addToCart: async (product: Product) => {
+      const cart = cartAtom.value;
+
+      const existingItem = cart.items.find(
+        item => item.product.id === product.id,
+      );
+
+      if (existingItem) {
+        existingItem.quantity += 1;
+
+        existingItem.total.finalPrice =
+          existingItem.quantity * existingItem.salePrice;
+        existingItem.total.price = existingItem.quantity * product.price;
+        existingItem.total.discount = existingItem.quantity * product.discount;
+      } else {
+        const newItem = {
+          product,
+          quantity: 1,
+          id: Math.floor(Math.random() * 10000000),
+          salePrice: product.salePrice,
+          total: {
+            discount: product.discount,
+            finalPrice: product.salePrice,
+            price: product.price,
+            salePrice: product.salePrice,
+          },
+        };
+        cart.items.push(newItem);
+      }
+
+      await addItem(product.id, 1);
+
+      calculateCartTotals(cart);
+
+      cache.set("cart", cart);
+      return cartAtom.update(cart);
+    },
     updateQuantity(itemId: number, quantity: number) {
       const cart = cartAtom.value;
       const existingItem = cart.items.find(item => item.id === itemId);

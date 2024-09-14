@@ -47,12 +47,12 @@ export type User = {
   userType: "user" | "guest" | "admin";
 };
 
-//product
-type LocalizedText = {
+export type LocalizedText = {
   localeCode: string;
   value: string;
 };
 
+//product
 type Image = {
   name: string;
   hash: string;
@@ -64,11 +64,6 @@ type Image = {
   width: number;
   height: number;
   path: string;
-};
-
-type Discount = {
-  percentage: number;
-  amount: number;
 };
 
 type Purchase = {
@@ -88,13 +83,14 @@ export type Category = {
   name: LocalizedText[];
   image: Image;
   slug: string;
+  totalProducts?: number;
 };
 
 export type Product = {
   id: number;
   brand: Brand;
   category: Category;
-  discount: Discount;
+  discount: any;
   images: Image[];
   inCart: boolean;
   inCompare: boolean;
@@ -222,4 +218,52 @@ export type CategoriesResponse = {
   languages: string[];
   categories: Category[];
   user: UserInfo;
+};
+
+type ColumnImage = {
+  localeCode: string;
+  value: Image;
+};
+
+type Banner = {
+  id: number;
+  name: string;
+  isActive: boolean;
+  title: LocalizedText[];
+  image: ColumnImage[];
+  type: string;
+};
+
+type Slider = {
+  id: number;
+  isActive: boolean;
+  name: LocalizedText[];
+  banners: Banner[];
+};
+
+export type Column = {
+  id: number;
+  isActive: boolean;
+  module: {
+    id: number;
+    isActive: boolean;
+    name: string;
+    slider?: Slider;
+    banner?: Banner;
+    categories?: Category[];
+    products?: Product[];
+    shortDescription: LocalizedText[];
+    type: string;
+    title: LocalizedText[];
+  };
+  name: string;
+  style: {
+    size: string;
+  };
+};
+
+export type Row = {
+  sortOrder: number;
+  columns: Column[];
+  style: any;
 };

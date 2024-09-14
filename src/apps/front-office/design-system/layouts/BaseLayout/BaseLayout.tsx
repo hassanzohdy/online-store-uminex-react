@@ -15,7 +15,7 @@ export type BaseLayoutProps = {
  */
 export default function BaseLayout({ children }: BaseLayoutProps) {
   return (
-    <div className="w-full bg-lightGray scrollbar-hide">
+    <div className="w-full scrollbar-hide">
       <div className="bg-white">
         <TopBanner />
         <div className="w-full max-w-[1480px] mx-auto px-4 hidden lg:block">
@@ -31,7 +31,7 @@ export default function BaseLayout({ children }: BaseLayoutProps) {
         </div>
         <Separator />
       </div>
-      <main className="w-full  mx-auto ">{children}</main>
+      <main className="w-full mx-auto">{children}</main>
 
       <Footer />
       <Toaster />

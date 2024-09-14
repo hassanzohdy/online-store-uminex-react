@@ -1,32 +1,27 @@
-import { useAddresses } from "design-system/hooks/useAddress";
-import { LuLoader2 } from "react-icons/lu";
+import { addressesAtom } from "app/account/atoms/address-atom";
+import { useState } from "react";
 import AddressDetailsCard from "./AddressDetailsCard";
 
 export default function AddressesDetails() {
-  const { data: addresses, isLoading, error } = useAddresses();
+  const [_, setTicks] = useState(0);
+  const addresses = addressesAtom.useValue();
 
-  if (isLoading) {
-    return (
-      <div className="flex items-center justify-center flex-col gap-5 p-5 bg-white rounded-lg">
-        <LuLoader2 className="w-6 h-6 animate-spin" />
-      </div>
-    );
-  }
+  const updateData = () => {
+    setTicks(prev => prev + 1);
+  };
 
-  if (error) {
-    return (
-      <p className="text-center text-red text-lg font-medium">Error: {error}</p>
-    );
-  }
-
-  if (!addresses || addresses.length === 0) {
+  if (addresses.length === 0) {
     return null;
   }
 
   return (
     <div className="flex items-start flex-col gap-10 p-5 bg-white rounded-lg">
       {addresses.map(address => (
-        <AddressDetailsCard key={address.id} address={address} />
+        <AddressDetailsCard
+          key={address.id}
+          address={address}
+          updateData={updateData}
+        />
       ))}
     </div>
   );

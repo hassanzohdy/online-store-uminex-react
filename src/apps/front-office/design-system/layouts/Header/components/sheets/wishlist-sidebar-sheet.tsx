@@ -1,6 +1,6 @@
 import { trans } from "@mongez/localization";
-import { current } from "@mongez/react";
 import { Link } from "@mongez/react-router";
+import { isRTL } from "app/utils/helpers";
 import URLS from "app/utils/urls";
 import { Button } from "design-system/components/ui/button";
 import { Separator } from "design-system/components/ui/separator";
@@ -28,14 +28,14 @@ export default function WishListSheetSidebar({
   data,
   changeStatus,
 }: WishlistSidebarSheetProps) {
-  const language = current("localeCode");
+  // const language = current("localeCode");
 
   return (
     <Sheet>
       <SheetTrigger asChild>{children}</SheetTrigger>
       <SheetContent
         className="p-2 w-full md:max-w-sm"
-        side={language === "ar" ? "left" : "right"}>
+        side={isRTL() ? "left" : "right"}>
         <SheetHeader className="bg-slate-100 p-3">
           <SheetTitle className="text-slate-900 font-semibold text-md">
             {trans("wishlist")}

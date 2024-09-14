@@ -1,9 +1,10 @@
 import Endpoint, { setCurrentEndpoint } from "@mongez/http";
 import { navigateTo } from "@mongez/react-router";
+import { AxiosResponse } from "axios";
+
 import user from "app/account/user";
 import URLS from "app/utils/urls";
-import { AxiosResponse } from "axios";
-import { apiBaseUrl } from "./flags";
+import { apiBaseUrl, endpointClientId } from "./flags";
 
 import { apiOS } from "./flags";
 
@@ -21,6 +22,7 @@ const endpointEvents = endpoint.events;
 endpointEvents.beforeSending(config => {
   const headers: any = config.headers;
   headers["os"] = apiOS;
+  headers["client-id"] = endpointClientId;
 });
 
 endpointEvents.onSuccess((response: AxiosResponse) => {
