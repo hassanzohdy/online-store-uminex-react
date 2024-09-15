@@ -1,15 +1,19 @@
 import { trans } from "@mongez/localization";
-import { Link } from "@mongez/react-router";
+import { Link, queryString } from "@mongez/react-router";
+
 import { isLTR } from "app/utils/helpers";
 import { Category } from "design-system/utils/types";
+import URLS from "app/utils/urls";
 
 interface CategoryCardProps {
   category: Category;
 }
 
 export default function CategoryCard({ category }: CategoryCardProps) {
+  const query = queryString.toQueryString({ category:category.id})
+
   return (
-    <Link to="#" className="flex items-center justify-center flex-col">
+    <Link to={`${URLS.products.root}?${query}`} className="flex items-center justify-center flex-col">
       <div className="bg-lightGray rounded-full w-[100px] h-[100px] flex items-center justify-center m-auto">
         <img
           src={category.image.url}

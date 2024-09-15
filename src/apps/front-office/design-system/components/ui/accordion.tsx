@@ -1,5 +1,4 @@
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
-import { ChevronDownIcon } from "@radix-ui/react-icons";
 import { cn } from "design-system/lib/utils";
 import PropTypes from "prop-types";
 import React from "react";
@@ -26,25 +25,30 @@ AccordionItem.propTypes = {
 
 const AccordionTrigger = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Trigger>,
-  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger>
->(({ className, children, ...props }, ref) => (
+  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger> & { icon: React.ElementType }
+>(({ className, children, icon: Icon, ...props }, ref) => (
   <AccordionPrimitive.Header className="flex">
     <AccordionPrimitive.Trigger
       ref={ref}
       className={cn(
         "flex flex-1 items-center justify-between py-4 text-sm font-medium transition-all hover:underline [&[data-state=open]>svg]:rotate-180",
-        className,
+        className
       )}
-      {...props}>
-      {children}
-      <ChevronDownIcon className="h-4 w-4 shrink-0 text-slate-500 transition-transform duration-200 dark:text-slate-400" />
-    </AccordionPrimitive.Trigger>
+      {...props}
+    >
+        {children}
+      {Icon && <Icon className="h-4 w-4 shrink-0 text-slate-500 transition-transform duration-200 dark:text-slate-400" />}
+      </AccordionPrimitive.Trigger>
   </AccordionPrimitive.Header>
 ));
+
 AccordionTrigger.displayName = AccordionPrimitive.Trigger.displayName;
+
 AccordionTrigger.propTypes = {
   className: PropTypes.string,
+  icon: PropTypes.elementType as any,
 };
+
 
 const AccordionContent = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Content>,

@@ -9,11 +9,6 @@ import { FiLayers } from "react-icons/fi";
 
 export default function CompareModelContainer() {
   const { data, isLoading, error } = useCompare();
-  const [_, setTicks] = useState(false);
-
-  const updateData = () => {
-    setTicks(prev => !prev);
-  };
 
   if (isLoading) {
     return (
@@ -37,13 +32,8 @@ export default function CompareModelContainer() {
   if (data) {
     compareAtom.update(data);
 
-    const deleteItem = (id: number) => {
-      compareAtom.deleteItem(id);
-      updateData();
-    };
-
     return (
-      <CompareModel deleteItem={deleteItem}>
+      <CompareModel>
         <div className="flex items-center gap-1">
           <div className="flex items-center gap-2">
             <FiLayers className="w-4 h-4" />

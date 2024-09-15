@@ -14,7 +14,7 @@ export default function Navbar() {
       <div className="hidden lg:flex items-center justify-between">
         <div className="flex items-center gap-4 w-full">
           <CategoryLists />
-          <ul className="flex items-center gap-8 ml-5">
+          <ul className="flex items-center gap-6 ml-5">
             <li className="text-black text-sm font-semibold hover:hover:text-blue">
               <Link href={URLS.home}>{trans("home")}</Link>
             </li>

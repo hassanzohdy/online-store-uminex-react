@@ -54,14 +54,14 @@ export default function LanguageConverter() {
           variant={"ghost"}
           className="hover:bg-transparent flex items-center gap-2 px-0 focus:ring-0 focus-visible:ring-0">
           <img
-            className="h-4 w-5"
+            className="h-3 w-4"
             src={languageFlagMap[language]}
             alt="Language Flag"
           />
-          <span className="text-sm font-semibold text-slate-700">
+          <span className="text-sm font-medium text-gray">
             {language === "en" ? "English" : "العربيه"}
           </span>
-          <FaAngleDown className="mx-2 text-slate-600" />
+          <FaAngleDown className="mx-2 text-gray" />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
@@ -71,8 +71,8 @@ export default function LanguageConverter() {
             className={cn(
               "py-1 cursor-pointer flex items-center gap-3 w-full px-0",
               locale.localeCode === language
-                ? "bg-slate-100 text-slate-900"
-                : "text-slate-700",
+                ? "bg-lightGray text-slate-900"
+                : "text-gray",
               "hover:bg-slate-900 hover:text-slate-100",
             )}
             onClick={() => changeLanguage(locale.localeCode)}>
@@ -81,7 +81,7 @@ export default function LanguageConverter() {
               src={languageFlagMap[locale.localeCode]}
               alt="Language Flag"
             />
-            <span className="text-sm font-semibold text-slate-700">
+            <span className="text-sm font-semibold text-gray">
               {locale.name}
             </span>
           </DropdownMenuItem>

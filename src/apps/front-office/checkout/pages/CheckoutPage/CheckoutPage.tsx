@@ -1,4 +1,5 @@
 import { trans } from "@mongez/localization";
+import { ChevronDownIcon } from "@radix-ui/react-icons";
 import { useState } from "react";
 
 import {
@@ -24,7 +25,9 @@ export default function CheckoutPage() {
             value={isOpen}
             onValueChange={setIsOpen}>
             <AccordionItem value="item-1">
-              <AccordionTrigger className="text-lightAqua px-3">
+              <AccordionTrigger
+                icon={ChevronDownIcon}
+                className="text-lightAqua px-3">
                 {isOpen === "item-1"
                   ? trans("hideOrderSummary")
                   : trans("showOrderSummary")}

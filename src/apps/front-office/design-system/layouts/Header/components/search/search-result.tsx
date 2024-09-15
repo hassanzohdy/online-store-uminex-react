@@ -28,7 +28,7 @@ export default function SearchResult({
   };
 
   const searchProducts = () => {
-    navigateTo(URLS.search.search("product", params));
+    navigateTo(URLS.searchRoute.search("product", params));
   };
 
   return (
@@ -47,7 +47,7 @@ export default function SearchResult({
                 onClick={() => viewProduct(product.id)}>
                 <div className="w-12 h-12 md:min-w-16 md:h-16 cursor-pointer">
                   <img
-                    src={product.images[0].url}
+                    src={product.images ? product.images[0].url :""}
                     alt={trans(
                       product.name.find(n => n.localeCode === "en")?.value ||
                         product.name[0].value,

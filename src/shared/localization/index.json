@@ -183,6 +183,10 @@
     "en": "Create Account",
     "ar": "إنشاء حساب"
   },
+  "Product Categories":{
+    "en": "Product Categories",
+    "ar": "تصنيفات المنتجات"
+  },
   "sendPasswordResetLink": {
     "en": "Send Password Reset Link",
     "ar": "إرسال رابط إعادة تعيين كلمة المرور"

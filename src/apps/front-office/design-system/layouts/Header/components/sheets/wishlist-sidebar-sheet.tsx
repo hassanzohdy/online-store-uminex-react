@@ -36,7 +36,7 @@ export default function WishListSheetSidebar({
       <SheetContent
         className="p-2 w-full md:max-w-sm"
         side={isRTL() ? "left" : "right"}>
-        <SheetHeader className="bg-slate-100 p-3">
+        <SheetHeader className="bg-lightGray p-3">
           <SheetTitle className="text-slate-900 font-semibold text-md">
             {trans("wishlist")}
           </SheetTitle>

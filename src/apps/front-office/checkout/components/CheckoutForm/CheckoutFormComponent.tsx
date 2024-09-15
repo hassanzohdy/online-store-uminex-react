@@ -1,6 +1,10 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { trans } from "@mongez/localization";
 import { Link } from "@mongez/react-router";
+import { ChevronDownIcon } from "@radix-ui/react-icons";
+import { useForm } from "react-hook-form";
+import z from "zod";
+
 import { isLTR } from "app/utils/helpers";
 import URLS from "app/utils/urls";
 import {
@@ -13,9 +17,7 @@ import { Button } from "design-system/components/ui/button";
 import { Form } from "design-system/components/ui/form";
 import { cn } from "design-system/lib/utils";
 import { Address, User } from "design-system/utils/types";
-import { useForm } from "react-hook-form";
 import { checkoutFormSchema } from "shared/schemas/CheckoutFormSchema";
-import z from "zod";
 import CardDetailsInputs from "./CardDetailsInputs";
 import DeliveryInputs from "./DeliveryInputs";
 import ShippingMethod from "./ShippingMethod";
@@ -78,6 +80,7 @@ export default function CheckoutFormComponent({
                            focus-visible:ring-lightAqua ring-lightAqua ring-offset-0 inset-0">
               <AccordionItem value="item-1">
                 <AccordionTrigger
+                  icon={ChevronDownIcon}
                   className="w-full h-16 text-base focus:ring-lightAqua
                            focus-visible:ring-lightAqua ring-lightAqua ring-offset-0 inset-0">
                   <div className="flex items-start flex-col gap-1">

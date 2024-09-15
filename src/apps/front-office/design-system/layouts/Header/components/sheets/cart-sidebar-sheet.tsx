@@ -54,7 +54,7 @@ export default function CartSheetSidebar({
       <SheetContent
         className="p-0 w-full md:max-w-sm overflow-y-auto overflow-x-hidden scrollbar"
         side={language === "ar" ? "left" : "right"}>
-        <SheetHeader className="bg-slate-100 p-3">
+        <SheetHeader className="bg-lightGray p-3">
           <SheetTitle className="text-slate-900 font-semibold text-md">
             {trans("shoppingCart")}
           </SheetTitle>
@@ -74,7 +74,7 @@ export default function CartSheetSidebar({
                 </div>
               ))}
             </div>
-            <div className="absolute bottom-0 p-5 w-full bg-slate-100 flex flex-col items-start gap-4">
+            <div className="absolute bottom-0 p-5 w-full bg-lightGray flex flex-col items-start gap-4">
               <div className="flex items-center justify-between w-full">
                 <h1 className="text-xs font-semibold text-black">
                   {trans("Subtotal")}:

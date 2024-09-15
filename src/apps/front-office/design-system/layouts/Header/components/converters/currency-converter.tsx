@@ -31,13 +31,13 @@ export default function CurrencyConverter() {
       <DropdownMenuTrigger asChild>
         <Button
           variant={"ghost"}
-          className="hover:bg-transparent flex items-center gap-1 font-normal px-0
-           focus:ring-0 focus-visible:ring-0">
+          className="hover:bg-transparent flex items-center font-medium px-0
+           focus:ring-0 focus-visible:ring-0 text-gray">
           {currencyCountryMap[currentCurrency]}(
-          <span className="text-sm text-black">{currentCurrency}</span>
-          <span className="text-md">{currencySymbolMap[currentCurrency]}</span>
+          <span className="text-sm text-gray">{currentCurrency}</span>
+          <span className="text-md ml-1">{currencySymbolMap[currentCurrency]}</span>
           )
-          <FaAngleDown className="mx-2 text-slate-600" />
+          <FaAngleDown className="mx-2 text-gray" />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
@@ -46,7 +46,7 @@ export default function CurrencyConverter() {
             key={currency}
             className={cn(
               "py-1 cursor-pointer flex items-center gap-3 w-full px-0 font-semibold",
-              currency === currentCurrency ? "text-blue" : "text-black",
+              currency === currentCurrency ? "text-blue" : "text-primary",
             )}
             onClick={() => changeCurrency(currency)}>
             <Button

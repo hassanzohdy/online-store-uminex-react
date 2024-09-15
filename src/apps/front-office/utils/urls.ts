@@ -1,6 +1,8 @@
 // append urls here, DO NOT remove this line
 
 const URLS = {
+  products: "/products",
+  search: "/search",
   shop: "/shop",
   cart: "/cart",
   checkout: "/checkout",
@@ -17,7 +19,7 @@ const URLS = {
     viewRoute: "/products/:id",
     view: (productId: number) => `/products/${productId}`,
   },
-  search: {
+  searchRoute: {
     root: "/search",
     search: (type: "product" | "blog", query: string) =>
       `/search?type=${type}&${query}`,

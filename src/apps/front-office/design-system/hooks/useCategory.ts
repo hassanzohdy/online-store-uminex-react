@@ -33,6 +33,7 @@ export const useCategory = () => {
       });
     }
   };
+  
   useOnce(() => {
     fetchCategory();
   });
