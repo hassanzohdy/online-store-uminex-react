@@ -34,7 +34,6 @@
         "argsIgnorePattern": "^_"
       }
     ],
-    "all": "off",
     "react/react-in-jsx-scope": "off",
     "unused-imports/no-unused-imports": "error"
   }
