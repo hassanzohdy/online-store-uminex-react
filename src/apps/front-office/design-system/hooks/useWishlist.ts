@@ -28,7 +28,7 @@ export const useWishlist = () => {
       setState({
         data: null,
         isLoading: false,
-        error: null,
+        error: error,
       });
     }
   };

@@ -1,6 +1,6 @@
 import { queryString } from "@mongez/react-router";
 import { debounce } from "@mongez/reinforcements";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 export interface Filters {
   sort: string;
@@ -35,12 +35,12 @@ export function useFilters() {
     );
   };
 
-  const updateURLParams = (newFilters: Omit<Filters, "sort">) => {
+  const updateURLParams = useCallback((newFilters: Omit<Filters, "sort">) => {
     const cleanedFilters = cleanFilters(newFilters);
     const queryParams = queryString.toQueryString(cleanedFilters);
     setParams(queryParams);
     queryString.update(cleanedFilters);
-  };
+  }, []);
 
   const updateNumber = (newNumber: number) => {
     const updatedFilters = { ...filters, page: newNumber };
@@ -145,7 +145,7 @@ export function useFilters() {
 
     setFilters(allFilters);
     updateURLParams(initialURLFilters);
-  }, []);
+  }, [updateURLParams]);
 
   return {
     filters,

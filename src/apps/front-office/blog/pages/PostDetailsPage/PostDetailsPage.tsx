@@ -1,7 +1,4 @@
-export type PostDetailsPageProps = {
-  // props go here
-};
-export default function PostDetailsPage(_props: PostDetailsPageProps) {
+export default function PostDetailsPage() {
   return (
     <>
       <h1>PostDetailsPage</h1>

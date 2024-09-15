@@ -1,7 +1,4 @@
-export type LoginPageProps = {
-  // props go here
-};
-export default function LoginPage(_props: LoginPageProps) {
+export default function LoginPage() {
   return (
     <>
       <h1>LoginPage</h1>

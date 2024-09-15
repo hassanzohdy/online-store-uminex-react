@@ -7,7 +7,7 @@
     "dev": "rm -rf ./node_modules/.vite && unlink yarn.lock && yarn update && yarn install && yarn start",
     "update": "npx ncu -u",
     "lint": "npx eslint .",
-    "fix": "npx eslint --fix -c ./.eslintrc.json ./src",
+    "fix": "npx eslint --fix ./src",
     "format": "npx prettier --write ./src --config ./.prettierrc.json",
     "start": "vite --host",
     "build": "tsc && vite build",
@@ -71,6 +71,9 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@eslint/compat": "^1.1.1",
+    "@eslint/eslintrc": "^3.1.0",
+    "@eslint/js": "^9.10.0",
     "@mongez/vite": "^2.0.4",
     "@types/crypto-js": "^4.2.2",
     "@types/node": "^22.5.5",
@@ -88,6 +91,7 @@
     "eslint-plugin-react": "^7.36.1",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-unused-imports": "^4.1.4",
+    "globals": "^15.9.0",
     "husky": "^9.1.6",
     "npm-check-updates": "^17.1.1",
     "postcss": "^8.4.47",

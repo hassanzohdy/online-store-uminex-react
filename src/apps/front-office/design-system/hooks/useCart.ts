@@ -28,7 +28,7 @@ export const useCart = () => {
       setState({
         data: null,
         isLoading: false,
-        error: null,
+        error: error,
       });
     }
   };

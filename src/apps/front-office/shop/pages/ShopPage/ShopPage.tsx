@@ -1,9 +1,6 @@
 import React from "react";
 
-export type ShopPageProps = {
-  // props go here
-};
-function _ShopPage(_props: ShopPageProps) {
+function _ShopPage() {
   return (
     <>
       <h1>ShopPage</h1>

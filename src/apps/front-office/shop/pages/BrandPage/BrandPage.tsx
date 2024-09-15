@@ -1,7 +1,4 @@
-export type BrandPageProps = {
-  // props go here
-};
-export default function BrandPage(_props: BrandPageProps) {
+export default function BrandPage() {
   return (
     <>
       <h1>BrandPage</h1>

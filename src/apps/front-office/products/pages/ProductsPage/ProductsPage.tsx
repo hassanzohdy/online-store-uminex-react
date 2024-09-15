@@ -26,7 +26,7 @@ function _ProductsPage() {
 
   useEffect(() => {
     if (data?.products) {
-      let products = [...data.products];
+      const products = [...data.products];
       if (filters.sort === "price_asc") {
         products.sort((a, b) => a.price - b.price);
       } else if (filters.sort === "price_dsc") {
@@ -61,17 +61,19 @@ function _ProductsPage() {
       </div>
       <div className="w-full h-full bg-lightGray">
         <div className="max-w-[1400px] mx-auto py-10 px-4 flex flex-col items-center justify-center gap-1">
-          <ProductsList
-            products={filteredProducts}
-            updateCategory={updateCategory}
-            updateInStock={updateInStock}
-            updateMaxPrice={updateMaxPrice}
-            updateMinPrice={updateMinPrice}
-            updateSortOptions={updateSortOptions}
-            filters={filters}
-            paginationInfo={data?.paginationInfo!}
-            resetFiltersExceptQuery={resetFiltersExceptQuery}
-          />
+          {data?.paginationInfo && (
+            <ProductsList
+              products={filteredProducts}
+              updateCategory={updateCategory}
+              updateInStock={updateInStock}
+              updateMaxPrice={updateMaxPrice}
+              updateMinPrice={updateMinPrice}
+              updateSortOptions={updateSortOptions}
+              filters={filters}
+              paginationInfo={data.paginationInfo}
+              resetFiltersExceptQuery={resetFiltersExceptQuery}
+            />
+          )}
         </div>
       </div>
     </div>
