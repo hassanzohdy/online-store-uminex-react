@@ -2,13 +2,13 @@ import { useState } from "react";
 import { TbGridDots } from "react-icons/tb";
 import { TfiLayoutGrid4 } from "react-icons/tfi";
 
+import { trans } from "@mongez/localization";
 import { Filters } from "design-system/hooks/use-filters";
 import { cn } from "design-system/lib/utils";
 import { SORT_OPTIONS } from "design-system/utils/data";
 import { Product } from "design-system/utils/types";
 import FiltersSection from "./FiltersSection";
 import ProductCard from "./ProductCard";
-import { trans } from "@mongez/localization";
 
 type paginationInfoType = {
   limit: number;

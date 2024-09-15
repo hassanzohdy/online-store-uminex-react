@@ -15,25 +15,23 @@ import {
   TableHeader,
   TableRow,
 } from "design-system/components/ui/table";
+import { useState } from "react";
 import { compareAtom } from "../../atoms/compare-atom";
 import CompareTableHead from "../../layouts/Header/components/compare/compare-table-head";
 import { Product } from "../../utils/types";
-import { useState } from "react";
 
 interface CompareModelProps {
   children: React.ReactNode;
 }
 
-export default function CompareModel({
-  children,
-}: CompareModelProps) {
-  const [_ , setTicks] = useState(0)
+export default function CompareModel({ children }: CompareModelProps) {
+  const [_, setTicks] = useState(0);
   const compareProducts = compareAtom.useValue();
   const currentLanguage = current("localeCode");
 
-  const updateState = () =>{
-    setTicks(prevTicks => prevTicks + 1)
-  }
+  const updateState = () => {
+    setTicks(prevTicks => prevTicks + 1);
+  };
 
   return (
     <Dialog>

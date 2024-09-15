@@ -19,7 +19,7 @@ function _ProductsPage() {
     updateMaxPrice,
     updateSortOptions,
     updateInStock,
-    resetFiltersExceptQuery
+    resetFiltersExceptQuery,
   } = useFilters();
 
   const { data, isLoading, error } = useProduct(params);
@@ -54,12 +54,10 @@ function _ProductsPage() {
     );
   }
 
-
-
   return (
     <div>
       <div className="w-full">
-        <Breadcrumbs title="products" image/>
+        <Breadcrumbs title="products" image />
       </div>
       <div className="w-full h-full bg-lightGray">
         <div className="max-w-[1400px] mx-auto py-10 px-4 flex flex-col items-center justify-center gap-1">

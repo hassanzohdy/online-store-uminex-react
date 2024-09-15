@@ -1,13 +1,14 @@
 import { trans } from "@mongez/localization";
 import { Link } from "@mongez/react-router";
 import { CheckIcon, Cross1Icon, HeartIcon } from "@radix-ui/react-icons";
-import { FaRegEye } from "react-icons/fa";
-import { IoGitCompare } from "react-icons/io5";
 import { useState } from "react";
+import { FaRegEye } from "react-icons/fa";
 import { FiCheck } from "react-icons/fi";
+import { IoGitCompare } from "react-icons/io5";
 import { LuLoader2 } from "react-icons/lu";
 
 import { isLTR } from "app/utils/helpers";
+import URLS from "app/utils/urls";
 import { cartAtom } from "design-system/atoms/cart-atom";
 import { compareAtom } from "design-system/atoms/compare-atom";
 import { wishlistAtom } from "design-system/atoms/wishlist-atom";
@@ -15,7 +16,6 @@ import { formatPrice } from "design-system/lib/formats";
 import { cn } from "design-system/lib/utils";
 import { Product } from "design-system/utils/types";
 import { Button } from "./ui/button";
-import URLS from "app/utils/urls";
 
 type TProduct = {
   product: Product;
@@ -142,9 +142,7 @@ export default function ProductCard({ product, oneRow, grid }: TProduct) {
         <img
           className="absolute w-full h-[170px] lg:h-[200px] md:max-w-48 aspect-square "
           src={
-            product.images[1]
-              ? product.images[1].url
-              : product.images[0].url
+            product.images[1] ? product.images[1].url : product.images[0].url
           }
           alt=""
         />

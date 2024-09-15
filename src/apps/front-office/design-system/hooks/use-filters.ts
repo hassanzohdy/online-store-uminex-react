@@ -73,15 +73,15 @@ export function useFilters() {
   };
 
   const updateMinPrice = debounce((newMinPrice: number | null) => {
-      if (newMinPrice === 0) {
-        const updatedFilters = { ...filters, minPrice: null };
-        setFilters(updatedFilters);
-        updateURLParams(updatedFilters);
-        return;
-      }
-      const updatedFilters = { ...filters, minPrice: newMinPrice };
+    if (newMinPrice === 0) {
+      const updatedFilters = { ...filters, minPrice: null };
       setFilters(updatedFilters);
       updateURLParams(updatedFilters);
+      return;
+    }
+    const updatedFilters = { ...filters, minPrice: newMinPrice };
+    setFilters(updatedFilters);
+    updateURLParams(updatedFilters);
   }, 500);
 
   const updateMaxPrice = debounce((newMaxPrice: number | null) => {

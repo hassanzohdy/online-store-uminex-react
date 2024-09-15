@@ -16,7 +16,6 @@ import { FaMinus } from "react-icons/fa6";
 import { Button } from "./ui/button";
 import { Checkbox } from "./ui/checkbox";
 import { Input } from "./ui/input";
-import { Separator } from "./ui/separator";
 import { Skeleton } from "./ui/skeleton";
 
 interface FiltersSectionProps {
@@ -67,7 +66,10 @@ const FiltersSection = ({
   };
 
   return (
-    <Accordion type="multiple" className="w-full" defaultValue={["categories" , "price" , "availability"]}>
+    <Accordion
+      type="multiple"
+      className="w-full"
+      defaultValue={["categories", "price", "availability"]}>
       <div className="col-span-1 p-4 bg-white flex flex-col items-start gap-8 rounded-md w-full">
         <div className="flex flex-col items-start gap-5 w-full">
           {(filters.category ||
@@ -115,7 +117,9 @@ const FiltersSection = ({
           </AccordionItem>
         </div>
         <AccordionItem value="price" className="w-full">
-          <AccordionTrigger icon={FaMinus} className="uppercase text-sm text-primary font-bold w-full">
+          <AccordionTrigger
+            icon={FaMinus}
+            className="uppercase text-sm text-primary font-bold w-full">
             {trans("Product Price")}
           </AccordionTrigger>
           <AccordionContent className="flex items-center gap-2 w-full">
@@ -137,7 +141,9 @@ const FiltersSection = ({
           </AccordionContent>
         </AccordionItem>
         <AccordionItem value="availability" className="w-full">
-          <AccordionTrigger icon={FaMinus} className="uppercase text-sm text-primary font-bold w-full ">
+          <AccordionTrigger
+            icon={FaMinus}
+            className="uppercase text-sm text-primary font-bold w-full ">
             {trans("Product Availability")}
           </AccordionTrigger>
           <AccordionContent className="flex flex-col items-start gap-3 w-full">

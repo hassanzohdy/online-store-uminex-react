@@ -19,7 +19,7 @@ function _SearchPage() {
     updateMaxPrice,
     updateSortOptions,
     updateInStock,
-    resetFiltersExceptQuery
+    resetFiltersExceptQuery,
   } = useFilters();
 
   const { data, isLoading, error } = useProduct(params);
@@ -53,8 +53,6 @@ function _SearchPage() {
       </div>
     );
   }
-
-
 
   return (
     <div>

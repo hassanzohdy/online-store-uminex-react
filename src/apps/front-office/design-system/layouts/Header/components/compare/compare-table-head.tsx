@@ -7,19 +7,18 @@ import { FiTrash2 } from "react-icons/fi";
 
 interface CompareTableHeadProps {
   compareItem: Product;
-  updateState:()=>void
+  updateState: () => void;
 }
 
 export default function CompareTableHead({
   compareItem,
-  updateState
+  updateState,
 }: CompareTableHeadProps) {
   const currentLanguage = current("localeCode");
 
- 
   const handleDeleteCompareItem = () => {
-    compareAtom.deleteItem(compareItem.id)
-    updateState()
+    compareAtom.deleteItem(compareItem.id);
+    updateState();
   };
 
   return (

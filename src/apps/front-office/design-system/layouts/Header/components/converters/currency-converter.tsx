@@ -35,7 +35,9 @@ export default function CurrencyConverter() {
            focus:ring-0 focus-visible:ring-0 text-gray">
           {currencyCountryMap[currentCurrency]}(
           <span className="text-sm text-gray">{currentCurrency}</span>
-          <span className="text-md ml-1">{currencySymbolMap[currentCurrency]}</span>
+          <span className="text-md ml-1">
+            {currencySymbolMap[currentCurrency]}
+          </span>
           )
           <FaAngleDown className="mx-2 text-gray" />
         </Button>
