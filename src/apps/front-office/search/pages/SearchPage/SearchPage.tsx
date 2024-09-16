@@ -20,6 +20,7 @@ function _SearchPage() {
     updateSortOptions,
     updateInStock,
     resetFiltersExceptQuery,
+    updatePageNumber,
   } = useFilters();
 
   const { data, isLoading, error } = useProduct(params);
@@ -34,7 +35,7 @@ function _SearchPage() {
       }
       setFilteredProducts(products);
     }
-  }, [data, filters]);
+  }, [data, filters.sort]);
 
   if (isLoading) {
     return (
@@ -75,6 +76,7 @@ function _SearchPage() {
               filters={filters}
               paginationInfo={data.paginationInfo}
               resetFiltersExceptQuery={resetFiltersExceptQuery}
+              updatePageNumber={updatePageNumber}
             />
           )}
         </div>

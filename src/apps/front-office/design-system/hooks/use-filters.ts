@@ -42,7 +42,7 @@ export function useFilters() {
     queryString.update(cleanedFilters);
   }, []);
 
-  const updateNumber = (newNumber: number) => {
+  const updatePageNumber = (newNumber: number) => {
     const updatedFilters = { ...filters, page: newNumber };
     setFilters(updatedFilters);
     updateURLParams(updatedFilters);
@@ -138,19 +138,18 @@ export function useFilters() {
       inStock,
     };
 
-    const allFilters: Filters = {
-      sort: "none",
+    setFilters(currentFilters => ({
+      ...currentFilters,
       ...initialURLFilters,
-    };
+    }));
 
-    setFilters(allFilters);
     updateURLParams(initialURLFilters);
   }, [updateURLParams]);
 
   return {
     filters,
     params,
-    updateNumber,
+    updatePageNumber,
     updateCategory,
     updateMinPrice,
     updateMaxPrice,

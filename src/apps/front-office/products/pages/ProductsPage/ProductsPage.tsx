@@ -20,6 +20,7 @@ function _ProductsPage() {
     updateSortOptions,
     updateInStock,
     resetFiltersExceptQuery,
+    updatePageNumber,
   } = useFilters();
 
   const { data, isLoading, error } = useProduct(params);
@@ -72,6 +73,7 @@ function _ProductsPage() {
               filters={filters}
               paginationInfo={data.paginationInfo}
               resetFiltersExceptQuery={resetFiltersExceptQuery}
+              updatePageNumber={updatePageNumber}
             />
           )}
         </div>

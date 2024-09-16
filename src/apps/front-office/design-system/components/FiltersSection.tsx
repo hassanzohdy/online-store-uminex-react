@@ -87,7 +87,7 @@ const FiltersSection = ({
           <AccordionItem value="categories" className=" w-full">
             <AccordionTrigger
               icon={FaMinus}
-              className="w-full uppercase text-sm text-primary font-bold">
+              className="w-full uppercase text-sm md:text-xs xl:text-sm text-primary font-bold">
               {trans("Product Categories")}
             </AccordionTrigger>
             <AccordionContent className="flex flex-col items-start gap-3">
@@ -103,7 +103,8 @@ const FiltersSection = ({
                     className="flex items-center gap-2 flex-wrap">
                     <Checkbox
                       id={category.slug}
-                      className="border-darkGray w-4 h-4 md:w-3 md:h-3 2xl:w-4 2xl:h-4 data-[state=checked]:bg-blue data-[state=checked]:border-blue"
+                      className="border-darkGray w-4 h-4 md:w-3 md:h-3 2xl:w-4 2xl:h-4
+                       data-[state=checked]:bg-blue data-[state=checked]:border-blue"
                       checked={category.id === filters.category}
                     />
                     <p className="text-sm md:text-xs 2xl:text-sm font-medium text-primary cursor-pointer">
@@ -119,10 +120,10 @@ const FiltersSection = ({
         <AccordionItem value="price" className="w-full">
           <AccordionTrigger
             icon={FaMinus}
-            className="uppercase text-sm text-primary font-bold w-full">
+            className="uppercase text-sm md:text-xs xl:text-sm text-primary font-bold w-full">
             {trans("Product Price")}
           </AccordionTrigger>
-          <AccordionContent className="flex items-center gap-2 w-full">
+          <AccordionContent className="flex items-center gap-2 w-full flex-nowrap md:flex-wrap xl:flex-nowrap">
             <p className="text-base text-primary">$</p>
             <Input
               id="minPrice"
@@ -143,7 +144,7 @@ const FiltersSection = ({
         <AccordionItem value="availability" className="w-full">
           <AccordionTrigger
             icon={FaMinus}
-            className="uppercase text-sm text-primary font-bold w-full ">
+            className="uppercase text-sm md:text-xs xl:text-sm text-primary font-bold w-full ">
             {trans("Product Availability")}
           </AccordionTrigger>
           <AccordionContent className="flex flex-col items-start gap-3 w-full">
@@ -152,7 +153,8 @@ const FiltersSection = ({
               className="flex items-center gap-2 flex-wrap">
               <Checkbox
                 id="inStock"
-                className="border-darkGray w-4 h-4 md:w-3 md:h-3 2xl:w-4 2xl:h-4 data-[state=checked]:bg-blue data-[state=checked]:border-blue"
+                className="border-darkGray w-4 h-4 md:w-3 md:h-3 2xl:w-4 2xl:h-4
+                 data-[state=checked]:bg-blue data-[state=checked]:border-blue"
                 checked={filters.inStock === true}
               />
               <p className="text-sm md:text-xs 2xl:text-sm font-medium text-primary cursor-pointer">

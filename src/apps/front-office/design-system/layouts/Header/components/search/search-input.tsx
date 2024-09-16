@@ -1,5 +1,7 @@
 import { trans } from "@mongez/localization";
+import { navigateTo, queryString } from "@mongez/react-router";
 import { isLTR } from "app/utils/helpers";
+import URLS from "app/utils/urls";
 import { Button } from "design-system/components/ui/button";
 import { Input } from "design-system/components/ui/input";
 import { useSearch } from "design-system/hooks/useSearch";
@@ -16,6 +18,19 @@ export default function SearchInput() {
     selectCategory,
     OnClose,
   } = useSearch();
+
+  const params = queryString.toQueryString({ q: value, category: categoryId });
+
+  const handleSearch = () => {
+    console.log(category);
+    navigateTo(URLS.searchRoute.search("product", params));
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      handleSearch();
+    }
+  };
 
   return (
     <div className="flex items-center gap-2 w-full relative">
@@ -36,11 +51,13 @@ export default function SearchInput() {
         onChange={storeInputValue}
         type="search"
         value={value}
+        onKeyDown={handleKeyDown}
       />
       <Button
         variant={"primary"}
         size={"lg"}
-        className={cn("absolute", isLTR() ? "right-0" : "left-0")}>
+        className={cn("absolute", isLTR() ? "right-0" : "left-0")}
+        onClick={handleSearch}>
         {trans("searchBtn")}
       </Button>
       <div
