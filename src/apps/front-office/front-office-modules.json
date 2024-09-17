@@ -39,6 +39,14 @@
     {
       "entry": ["/shop"],
       "name": "shop"
+    },
+    {
+      "entry": ["/search"],
+      "name": "search"
+    },
+    {
+      "entry": ["/products"],
+      "name": "products"
     }
   ]
 }

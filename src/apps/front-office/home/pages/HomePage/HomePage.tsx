@@ -2,12 +2,12 @@ import { trans } from "@mongez/localization";
 import { preload, setPreloadConfiguration } from "@mongez/react-utils";
 import { LuLoader2 } from "react-icons/lu";
 
+import CategoriesRow from "app/home/components/CategoriesRow";
+import DealsRow from "app/home/components/DealsRow";
 import MiddleBannerRow from "app/home/components/MiddleBannerRow";
+import RecommendedRow from "app/home/components/RecommendedRow";
 import SliderRow from "app/home/components/SliderRow";
 import TopSellingRow from "app/home/components/TopSellingRow";
-import CategoriesRow from "app/home/components/CategoriesRow";
-import RecommendedRow from "app/home/components/RecommendedRow";
-import DealsRow from "app/home/components/DealsRow";
 import { getHome } from "app/home/services/home-service";
 import { Row } from "design-system/utils/types";
 
@@ -27,7 +27,7 @@ setPreloadConfiguration({
       );
     } else if (error) {
       return (
-        <div className="w-full h-full flex items-center justify-center">
+        <div className="w-full h-full flex items-center justify-center pt-16">
           <h1 className="text-center text-red text-lg font-semibold">
             {trans("Something went wrong, Try Again Later.")}
           </h1>
@@ -39,6 +39,7 @@ setPreloadConfiguration({
 
 function _HomePage({ data }: HomePageProps) {
   const rows = data.rows;
+
   const sliderRow = rows[0];
   const categoriesRow = rows[1];
   const dealsRow = rows[2];
@@ -52,7 +53,7 @@ function _HomePage({ data }: HomePageProps) {
         <SliderRow column={sliderRow.columns} />
         <CategoriesRow column={categoriesRow.columns} />
       </div>
-      <div className="my-5 bg-slate-100 w-full py-10">
+      <div className="my-5 bg-lightGray w-full py-10">
         <div className="flex flex-col items-start gap-14 max-w-[1400px] mx-auto py-6 px-4">
           <DealsRow column={dealsRow.columns} />
           <TopSellingRow column={topSellingRow.columns} />

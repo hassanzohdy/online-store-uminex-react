@@ -1,7 +1,4 @@
-export type CategoryPageProps = {
-  // props go here
-};
-export default function CategoryPage(_props: CategoryPageProps) {
+export default function CategoryPage() {
   return (
     <>
       <h1>CategoryPage</h1>

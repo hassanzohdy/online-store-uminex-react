@@ -1,7 +1,4 @@
-export type SearchPageProps = {
-  // props go here
-};
-export default function SearchPage(_props: SearchPageProps) {
+export default function SearchPage() {
   return (
     <>
       <h1>SearchPage</h1>

@@ -56,7 +56,7 @@ export default function CartItem({ cartItem, changeQuantity }: CartItemProps) {
               <FaMinus className="w-full h-4 text-black" />
             </Button>
             <Input
-              className="bg-slate-100 text-center font-medium h-7 w-[80px] rounded-sm"
+              className="bg-lightGray text-center font-medium h-7 w-[80px] rounded-sm"
               value={formatNumber(quantity)}
               readOnly
             />

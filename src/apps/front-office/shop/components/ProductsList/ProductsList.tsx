@@ -1,7 +1,4 @@
-export type ProductsListProps = {
-  // props go here
-};
-export default function ProductsList(_props: ProductsListProps) {
+export default function ProductsList() {
   return (
     <>
       <h1>ProductsList</h1>

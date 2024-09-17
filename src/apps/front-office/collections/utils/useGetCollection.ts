@@ -31,6 +31,7 @@ const useGetCollections = () => {
           };
         });
       } catch (error) {
+        console.log(error);
         setLoading("failed");
       }
     }

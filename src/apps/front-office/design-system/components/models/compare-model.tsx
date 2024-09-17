@@ -15,28 +15,30 @@ import {
   TableHeader,
   TableRow,
 } from "design-system/components/ui/table";
+import { useState } from "react";
 import { compareAtom } from "../../atoms/compare-atom";
 import CompareTableHead from "../../layouts/Header/components/compare/compare-table-head";
 import { Product } from "../../utils/types";
 
 interface CompareModelProps {
   children: React.ReactNode;
-  deleteItem: (id: number) => void;
 }
 
-export default function CompareModel({
-  children,
-  deleteItem,
-}: CompareModelProps) {
+export default function CompareModel({ children }: CompareModelProps) {
+  const [_, setTicks] = useState(0);
   const compareProducts = compareAtom.useValue();
   const currentLanguage = current("localeCode");
+
+  const updateState = () => {
+    setTicks(prevTicks => prevTicks + 1);
+  };
 
   return (
     <Dialog>
       <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent
         className="flex flex-col gap-5 items-center justify-start p-0
-       max-h-[650px] max-w-full md:max-w-[750px]">
+       max-h-[650px] max-w-full md:min-w-[750px]">
         <DialogHeader className="w-full bg-slate-100 py-3">
           <DialogTitle className="text-black text-center">
             {trans("compare")}
@@ -55,7 +57,7 @@ export default function CompareModel({
                   <TableHead key={product.id} className="py-4 relative">
                     <CompareTableHead
                       compareItem={product}
-                      deleteItem={deleteItem}
+                      updateState={updateState}
                     />
                   </TableHead>
                 ))}

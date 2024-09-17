@@ -2,9 +2,7 @@ import { trans } from "@mongez/localization";
 import { Button } from "design-system/components/ui/button";
 import { MdDiscount } from "react-icons/md";
 import styles from "./styles.module.scss";
-export type CartTotalsProps = {
-  // props go here
-};
+
 export default function CartTotals() {
   return (
     <div className={`${styles.total} border-blue border-2 rounded-lg p-7`}>

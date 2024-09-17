@@ -4,16 +4,10 @@ import CompareModel from "design-system/components/models/compare-model";
 import { Button } from "design-system/components/ui/button";
 import { useCompare } from "design-system/hooks/useCompare";
 import { formatNumber } from "design-system/lib/formats";
-import { useState } from "react";
 import { FiLayers } from "react-icons/fi";
 
 export default function CompareModelContainer() {
   const { data, isLoading, error } = useCompare();
-  const [_, setTicks] = useState(false);
-
-  const updateData = () => {
-    setTicks(prev => !prev);
-  };
 
   if (isLoading) {
     return (
@@ -37,13 +31,8 @@ export default function CompareModelContainer() {
   if (data) {
     compareAtom.update(data);
 
-    const deleteItem = (id: number) => {
-      compareAtom.deleteItem(id);
-      updateData();
-    };
-
     return (
-      <CompareModel deleteItem={deleteItem}>
+      <CompareModel>
         <div className="flex items-center gap-1">
           <div className="flex items-center gap-2">
             <FiLayers className="w-4 h-4" />

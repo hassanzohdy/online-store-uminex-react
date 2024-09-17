@@ -23,9 +23,9 @@ export const compareAtom = atom<Product[]>({
     },
     async deleteItem(itemId: number) {
       const compare = compareAtom.value;
+      await deleteItem(itemId);
       compare.filter(item => item.id !== itemId);
       cache.set("compare", compare);
-      await deleteItem(itemId);
       return compareAtom.update(compare);
     },
   },

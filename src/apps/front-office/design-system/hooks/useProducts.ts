@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-
 import { getProducts } from "../services/product-services";
 import { ProductsResponse } from "../utils/types";
 
@@ -17,11 +16,13 @@ export const useProduct = (params: string) => {
   });
 
   useEffect(() => {
+    if (!params) return;
+
     const fetchProducts = async () => {
       try {
         const { data } = await getProducts(params);
         setState({
-          data: data,
+          data,
           isLoading: false,
           error: null,
         });

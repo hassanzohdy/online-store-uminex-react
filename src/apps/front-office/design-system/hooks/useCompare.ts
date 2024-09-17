@@ -29,7 +29,7 @@ export const useCompare = () => {
       setState({
         data: null,
         isLoading: false,
-        error: null,
+        error: error,
       });
     }
   };

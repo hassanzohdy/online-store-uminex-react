@@ -1,7 +1,4 @@
-export type ForgetPasswordProps = {
-  // props go here
-};
-export default function ForgetPassword(_props: ForgetPasswordProps) {
+export default function ForgetPassword() {
   return (
     <>
       <h1>ForgetPassword</h1>

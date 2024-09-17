@@ -1,7 +1,4 @@
-export type RegisterPageProps = {
-  // props go here
-};
-export default function RegisterPage(_props: RegisterPageProps) {
+export default function RegisterPage() {
   return (
     <>
       <h1>RegisterPage</h1>

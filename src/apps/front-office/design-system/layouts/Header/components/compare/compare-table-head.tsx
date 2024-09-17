@@ -1,4 +1,5 @@
 import { current } from "@mongez/react";
+import { compareAtom } from "design-system/atoms/compare-atom";
 import { Button } from "design-system/components/ui/button";
 import { formatPrice } from "design-system/lib/formats";
 import { Product } from "design-system/utils/types";
@@ -6,17 +7,18 @@ import { FiTrash2 } from "react-icons/fi";
 
 interface CompareTableHeadProps {
   compareItem: Product;
-  deleteItem: (id: number) => void;
+  updateState: () => void;
 }
 
 export default function CompareTableHead({
   compareItem,
-  deleteItem,
+  updateState,
 }: CompareTableHeadProps) {
   const currentLanguage = current("localeCode");
 
   const handleDeleteCompareItem = () => {
-    deleteItem(compareItem.id);
+    compareAtom.deleteItem(compareItem.id);
+    updateState();
   };
 
   return (

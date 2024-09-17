@@ -1,6 +1,7 @@
 import { trans } from "@mongez/localization";
 import { current } from "@mongez/react";
 import { Link } from "@mongez/react-router";
+import { isRTL } from "app/utils/helpers";
 import URLS from "app/utils/urls";
 import { cartAtom } from "design-system/atoms/cart-atom";
 import { Button } from "design-system/components/ui/button";
@@ -24,7 +25,6 @@ interface CartSheetSidebarProps {
 export default function CartSheetSidebar({
   changeTicks,
 }: CartSheetSidebarProps) {
-  const language = current("localeCode");
   const cart = cartAtom.useValue();
 
   const changeQuantity = () => {
@@ -53,8 +53,8 @@ export default function CartSheetSidebar({
       </SheetTrigger>
       <SheetContent
         className="p-0 w-full md:max-w-sm overflow-y-auto overflow-x-hidden scrollbar"
-        side={language === "ar" ? "left" : "right"}>
-        <SheetHeader className="bg-slate-100 p-3">
+        side={isRTL() ? "left" : "right"}>
+        <SheetHeader className="bg-lightGray p-3">
           <SheetTitle className="text-slate-900 font-semibold text-md">
             {trans("shoppingCart")}
           </SheetTitle>
@@ -74,7 +74,7 @@ export default function CartSheetSidebar({
                 </div>
               ))}
             </div>
-            <div className="absolute bottom-0 p-5 w-full bg-slate-100 flex flex-col items-start gap-4">
+            <div className="absolute bottom-0 p-5 w-full bg-lightGray flex flex-col items-start gap-4">
               <div className="flex items-center justify-between w-full">
                 <h1 className="text-xs font-semibold text-black">
                   {trans("Subtotal")}:
