@@ -5,15 +5,19 @@ import {
 } from "@mongez/react-form";
 
 import accountTranslation from "shared/localization/account.json";
+import cartTranslation from "shared/localization/cart.json";
 import checkoutTranslation from "shared/localization/checkout.json";
 import homeTranslation from "shared/localization/home.json";
 import indexTranslation from "shared/localization/index.json";
+import productsTranslation from "shared/localization/products.json";
 
 // DO NOT IMPORT IT IF THE PROJECT IS NOT LARGE
 groupedTranslations(indexTranslation);
 groupedTranslations(checkoutTranslation);
 groupedTranslations(accountTranslation);
 groupedTranslations(homeTranslation);
+groupedTranslations(productsTranslation);
+groupedTranslations(cartTranslation);
 
 extend("en", { validation: enValidationTranslation });
 extend("ar", { validation: arValidationTranslation });

@@ -1,5 +1,4 @@
 import { trans } from "@mongez/localization";
-import { current } from "@mongez/react";
 import { isLTR } from "app/utils/helpers";
 import { Button } from "design-system/components/ui/button";
 import {
@@ -54,7 +53,6 @@ function CategoryListLoadingComponent() {
 }
 
 export default function CategoryMenu({ selectCategory }: CategoryMenuProps) {
-  const currentLanguage = current("localeCode");
   const { data, isLoading, error } = useCategory();
 
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
@@ -107,14 +105,14 @@ export default function CategoryMenu({ selectCategory }: CategoryMenuProps) {
             {trans("allCategories")}
           </SelectItem>
           {data?.map(category => {
-            const categoryName =
-              category.name.find(name => name.localeCode === currentLanguage)
-                ?.value || category.name[0].value;
+            const categoryName = isLTR()
+              ? category.name.find(n => n.localeCode === "en")?.value
+              : category.name.find(n => n.localeCode === "ar")?.value;
 
             return (
               <SelectItem
                 key={category.id}
-                value={categoryName}
+                value={categoryName!}
                 className="text-[14px] cursor-pointer hover:bg-transparent py-1 font-normal text-black">
                 {categoryName}
               </SelectItem>

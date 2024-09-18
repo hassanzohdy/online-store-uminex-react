@@ -1,5 +1,4 @@
 import { trans } from "@mongez/localization";
-import { current } from "@mongez/react";
 import { Link } from "@mongez/react-router";
 import { isLTR } from "app/utils/helpers";
 import { Button } from "design-system/components/ui/button";
@@ -16,7 +15,6 @@ import { useState } from "react";
 import { FiMenu } from "react-icons/fi";
 
 export default function CategoryLists() {
-  const currentLanguage = current("localeCode");
   const [isOpen, setIsOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -89,9 +87,9 @@ export default function CategoryLists() {
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}>
           {data.map((category, index: number) => {
-            const categoryName =
-              category.name.find(name => name.localeCode === currentLanguage)
-                ?.value || category.name[0].value;
+            const categoryName = isLTR()
+              ? category.name.find(n => n.localeCode === "en")?.value
+              : category.name.find(n => n.localeCode === "ar")?.value;
 
             return (
               <Link

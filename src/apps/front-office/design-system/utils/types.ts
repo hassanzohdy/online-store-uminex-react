@@ -159,6 +159,7 @@ export type CartTotals = {
   tax: number;
   shippingFees?: number;
   [key: string]: number | undefined;
+  finalPrice: number;
 };
 
 export type TotalsText = {

@@ -1,5 +1,4 @@
-import { useOnce } from "@mongez/react-hooks";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { getCart } from "../services/cart-services";
 import { CartType } from "../utils/types";
@@ -9,6 +8,7 @@ type State = {
   error: any | null;
   data: CartType | null;
 };
+
 export const useCart = () => {
   const [state, setState] = useState<State>({
     isLoading: true,
@@ -19,6 +19,7 @@ export const useCart = () => {
   const fetchCart = async () => {
     try {
       const { data } = await getCart();
+      console.log(data);
       setState({
         data: data.cart,
         isLoading: false,
@@ -33,9 +34,9 @@ export const useCart = () => {
     }
   };
 
-  useOnce(() => {
+  useEffect(() => {
     fetchCart();
-  });
+  }, []);
 
   return state;
 };

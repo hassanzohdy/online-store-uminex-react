@@ -2,6 +2,7 @@ import { trans } from "@mongez/localization";
 import { ChevronDownIcon } from "@radix-ui/react-icons";
 import { useState } from "react";
 
+import Helmet from "@mongez/react-helmet";
 import {
   Accordion,
   AccordionContent,
@@ -16,6 +17,7 @@ export default function CheckoutPage() {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 w-full min-h-screen">
+      <Helmet title="Checkout Page" />
       <div className="w-full flex md:items-end flex-col gap-5">
         <div className="block md:hidden w-full">
           <Accordion

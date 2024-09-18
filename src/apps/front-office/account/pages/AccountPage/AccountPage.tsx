@@ -1,4 +1,5 @@
 import { trans } from "@mongez/localization";
+import Helmet from "@mongez/react-helmet";
 import { Separator } from "design-system/components/ui/separator";
 import AccountContainer from "../../components/account/AccountContainer";
 import AccountSidebar from "../../components/account/AccountSidebar";
@@ -6,6 +7,7 @@ import AccountSidebar from "../../components/account/AccountSidebar";
 export default function AccountPage() {
   return (
     <div className="px-4">
+      <Helmet title="Account Page" />
       <div
         className="w-full max-w-[1450px] mx-auto md:px-4 py-8 my-10 bg-white rounded-lg
         flex flex-col items-center justify-center gap-5">

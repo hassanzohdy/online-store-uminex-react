@@ -1,5 +1,6 @@
 import { trans } from "@mongez/localization";
 import { navigateTo, queryString } from "@mongez/react-router";
+
 import { isLTR } from "app/utils/helpers";
 import URLS from "app/utils/urls";
 import { Button } from "design-system/components/ui/button";
@@ -22,12 +23,13 @@ export default function SearchInput() {
   const params = queryString.toQueryString({ q: value, category: categoryId });
 
   const handleSearch = () => {
-    console.log(category);
+    OnClose();
     navigateTo(URLS.searchRoute.search("product", params));
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
+      OnClose();
       handleSearch();
     }
   };
@@ -49,7 +51,7 @@ export default function SearchInput() {
           isLTR() ? " xl:pl-56 pr-28" : "pr-5 lg:pl-60 xl:pr-60 xl:pl-60",
         )}
         onChange={storeInputValue}
-        type="search"
+        type="text"
         value={value}
         onKeyDown={handleKeyDown}
       />

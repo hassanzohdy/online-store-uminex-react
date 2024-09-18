@@ -3,6 +3,7 @@ export function calculateCartTotals(
   itemId?: number,
   newQuantity?: number,
 ) {
+  // Update item quantity and totals if itemId and newQuantity are provided
   if (itemId !== undefined && newQuantity !== undefined) {
     const item = cart.items.find(item => item.id === itemId);
     if (item) {
@@ -21,7 +22,22 @@ export function calculateCartTotals(
   }, 0);
 
   const tax = (cart.taxRate / 100) * subtotal;
-  const finalPrice = subtotal + tax;
+
+  const discount = cart.totals.discount || 0;
+  const additionalPrice = cart.totals.additionalPrice || 0;
+  const commission = cart.totals.commission || 0;
+  const coupon = cart.totals.coupon || 0;
+  const paymentFees = cart.totals.paymentFees || 0;
+  const shippingFees = cart.totals.shippingFees || 0;
+
+  const finalPrice =
+    subtotal +
+    tax -
+    discount +
+    additionalPrice +
+    commission +
+    paymentFees +
+    shippingFees;
 
   const totalQuantity = cart.items.reduce((acc, item) => {
     return acc + item.quantity;
@@ -33,5 +49,11 @@ export function calculateCartTotals(
     finalPrice,
     salePrice: finalPrice,
     quantity: totalQuantity,
+    additionalPrice,
+    commission,
+    coupon,
+    discount,
+    paymentFees,
+    shippingFees,
   };
 }

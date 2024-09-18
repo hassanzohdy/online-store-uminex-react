@@ -27,14 +27,14 @@ interface FiltersSectionProps {
   filters: Filters;
 }
 
-const FiltersSection = ({
+export default function FiltersSection({
   updateCategory,
   updateInStock,
   filters,
   updateMinPrice,
   updateMaxPrice,
   resetFiltersExceptQuery,
-}: FiltersSectionProps) => {
+}: FiltersSectionProps) {
   const { data, isLoading } = useCategory();
   const [localMinPrice, setLocalMinPrice] = useState(filters.minPrice || 0);
   const [localMaxPrice, setLocalMaxPrice] = useState(filters.maxPrice || 0);
@@ -166,6 +166,4 @@ const FiltersSection = ({
       </div>
     </Accordion>
   );
-};
-
-export default FiltersSection;
+}

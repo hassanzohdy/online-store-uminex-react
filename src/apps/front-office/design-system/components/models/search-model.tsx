@@ -35,7 +35,7 @@ export default function SearchModel() {
             placeholder={trans("searchInputModelPlaceHolder")}
             className="rounded-md h-10 border-slate-300"
             onChange={storeInputValue}
-            type="search"
+            type="text"
             value={value}
           />
 

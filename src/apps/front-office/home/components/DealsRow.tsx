@@ -15,19 +15,19 @@ export default function DealsRow({ column }: DealsRowProps) {
     <div className="flex flex-col items-start gap-y-1 w-full">
       <div className="w-full p-3 bg-white flex items-center justify-between flex-wrap gap-y-3">
         <Heading title={column[1]?.module?.title} />
-        <div className="flex items-center justify-center gap-2 text-red-600 font-semibold text-sm text-gray">
+        <div className="flex items-center justify-center gap-2 text-red-600 font-semibold text-xs md:text-sm text-gray">
           <span>{trans("Hurry up! Offer ends in")}:</span>
           <div className="flex gap-2">
-            <span className="bg-red text-white py-1 px-2 text-sm">
+            <span className="bg-red text-white py-1 px-2 text-xs md:text-sm">
               {timeLeft.days}
             </span>
-            <span className="bg-red text-white py-1 px-2 text-sm">
+            <span className="bg-red text-white py-1 px-2 text-xs md:text-sm">
               {timeLeft.hours}
             </span>
-            <span className="bg-red text-white py-1 px-2 text-sm">
+            <span className="bg-red text-white py-1 px-2 text-xs md:text-sm">
               {timeLeft.minutes}
             </span>
-            <span className="bg-red text-white py-1 px-2 text-sm">
+            <span className="bg-red text-white py-1 px-2 text-xs md:text-sm">
               {timeLeft.seconds}
             </span>
           </div>
