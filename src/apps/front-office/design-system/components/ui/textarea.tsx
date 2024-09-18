@@ -1,5 +1,5 @@
+import PropTypes from "prop-types";
 import * as React from "react";
-import PropTypes from 'prop-types'
 
 import { cn } from "../../lib/utils";
 
@@ -22,6 +22,6 @@ Textarea.displayName = "Textarea";
 
 Textarea.propTypes = {
   className: PropTypes.string,
-}
+};
 
 export { Textarea };
