@@ -48,7 +48,6 @@ const URLS = {
     viewRoute: "/pages/:slug",
     view: (page: any) => `/pages/${page.id}/${page.slug}`,
   },
-  wishlist: "/wishlist",
 };
 
 export default URLS;
