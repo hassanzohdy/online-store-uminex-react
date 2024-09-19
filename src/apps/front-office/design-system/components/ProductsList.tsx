@@ -56,7 +56,6 @@ export default function ProductsList({
     setGridLayout(columns);
   };
 
-  console.log(paginationInfo);
   return (
     <>
       <div className="w-full p-3 text-right bg-white rounded-md mt-4 hidden md:flex items-center justify-end gap-4">

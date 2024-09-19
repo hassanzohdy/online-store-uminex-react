@@ -122,7 +122,7 @@ ToastViewport.propTypes = {
 
 Toast.propTypes = {
   className: PropTypes.string,
-  variant: PropTypes.oneOf(["default", "destructive"]),
+  variant: PropTypes.oneOf(["default", "destructive", "success"]),
 };
 
 ToastAction.propTypes = {

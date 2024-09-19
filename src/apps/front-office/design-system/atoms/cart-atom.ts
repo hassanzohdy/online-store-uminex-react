@@ -19,7 +19,7 @@ export const cartAtom = atom<CartType>({
     return cart;
   },
   actions: {
-    addToCart: async (product: Product) => {
+    addToCart: async (product: Product, quantity?: number) => {
       try {
         const cart = cartAtom.value;
 
@@ -31,10 +31,10 @@ export const cartAtom = atom<CartType>({
           item => item.product.id === product.id,
         );
 
-        await addItem(product.id, 1);
+        await addItem(product.id, quantity || 1);
 
         if (existingItem) {
-          existingItem.quantity += 1;
+          existingItem.quantity += quantity || 1;
           existingItem.total.finalPrice =
             existingItem.quantity * existingItem.salePrice;
           existingItem.total.price = existingItem.quantity * product.price;
@@ -43,7 +43,7 @@ export const cartAtom = atom<CartType>({
         } else {
           const newItem = {
             product,
-            quantity: 1,
+            quantity: quantity || 1,
             id: Math.floor(Math.random() * 10000000),
             salePrice: product.salePrice,
             total: {
@@ -58,11 +58,10 @@ export const cartAtom = atom<CartType>({
 
         calculateCartTotals(cart);
         cartAtom.update(cart);
-        console.log(cartAtom.value);
         cache.set("cart", cart);
         return cartAtom.update(cart);
       } catch (error: any) {
-        console.log(error.response.data.error);
+        console.log(error);
         toast({
           title: "Error",
           description: error.response.data.error,
@@ -83,7 +82,7 @@ export const cartAtom = atom<CartType>({
       return cart;
     },
 
-    deleteItem(itemId: number) {
+    async deleteItem(itemId: number) {
       const cart = cartAtom.value;
       cart.items = cart.items.filter(item => item.id !== itemId);
       calculateCartTotals(cart);

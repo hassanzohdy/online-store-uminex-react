@@ -5,15 +5,13 @@ import { cartAtom } from "design-system/atoms/cart-atom";
 import { formatPrice } from "design-system/lib/formats";
 import CartSheetSidebar from "../sheets/cart-sidebar-sheet";
 
-export default function CartContainer() {
+export default function CartSidebar() {
   const cart = cartAtom.useValue();
   const [_, setTick] = useState(0);
 
   const changeTicks = () => {
     setTick(prev => prev + 1);
   };
-
-  console.log(cart);
 
   return (
     <div className="flex items-center">

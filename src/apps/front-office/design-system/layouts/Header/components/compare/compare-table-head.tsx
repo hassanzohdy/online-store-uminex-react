@@ -23,10 +23,10 @@ export default function CompareTableHead({
 
   return (
     <>
-      <div className="relative max-h-[230px] max-w-[200px] mx-auto">
+      <div className="relative mx-auto">
         <img
           src={compareItem.images[0].url}
-          className="w-full h-full"
+          className="max-h-[230px] max-w-[200px] mx-auto"
           alt={
             compareItem.name.find(n => n.localeCode === currentLanguage)?.value
           }

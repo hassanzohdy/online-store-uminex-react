@@ -19,7 +19,6 @@ export const useCart = () => {
   const fetchCart = async () => {
     try {
       const { data } = await getCart();
-      console.log(data);
       setState({
         data: data.cart,
         isLoading: false,

@@ -14,6 +14,8 @@ export default function CartPage() {
     setTicks(prev => prev + 1);
   };
 
+  console.log(cart);
+
   return (
     <div className="w-full">
       <Breadcrumbs title="Your Cart" center />

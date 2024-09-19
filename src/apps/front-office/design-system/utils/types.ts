@@ -104,6 +104,9 @@ export type Product = {
   slug: string;
   type: string;
   purchase: Purchase;
+  rating?: number;
+  reviews?: number;
+  description?: LocalizedText[];
 };
 
 type Breadcrumb = {

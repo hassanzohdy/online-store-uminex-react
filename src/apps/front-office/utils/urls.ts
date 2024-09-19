@@ -15,7 +15,7 @@ const URLS = {
   },
   products: {
     root: "/products",
-    viewRoute: "/products/:id",
+    viewProduct: "/products/:id",
     view: (productId: number) => `/products/${productId}`,
   },
   searchRoute: {

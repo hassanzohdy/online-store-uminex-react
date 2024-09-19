@@ -3,9 +3,9 @@ import { IoCartOutline } from "react-icons/io5";
 import { cartAtom } from "design-system/atoms/cart-atom";
 import { Button } from "design-system/components/ui/button";
 import { useCart } from "design-system/hooks/useCart";
-import CartContainer from "./cart-sidebar-container";
+import CartSidebar from "./cart-sidebar";
 
-export default function CartSidebar() {
+export default function CartSidebarContainer() {
   const { data, isLoading, error } = useCart();
 
   if (isLoading) {
@@ -26,7 +26,7 @@ export default function CartSidebar() {
     cartAtom.update(data);
     return (
       <div className="flex items-center">
-        <CartContainer />
+        <CartSidebar />
       </div>
     );
   }

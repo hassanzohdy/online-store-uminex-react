@@ -11,12 +11,10 @@ import { Separator } from "design-system/components/ui/separator";
 import { formatPrice } from "design-system/lib/formats";
 import { cartOrderAtom } from "../atoms/cart-order-atom";
 
-const CartOrderDetails = () => {
+export default function CartOrderDetails() {
   const [isChecked, setIsChecked] = useState(false);
   const [value, setValue] = useState("");
   const cart = cartAtom.value;
-
-  console.log(cart);
 
   if (!cart.items || cart.items.length === 0) {
     return null;
@@ -118,6 +116,4 @@ const CartOrderDetails = () => {
       </div>
     </div>
   );
-};
-
-export default CartOrderDetails;
+}

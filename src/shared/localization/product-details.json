@@ -1,0 +1,58 @@
+{
+  "Buy It Now": {
+    "en": "Buy It Now",
+    "ar": "اشتريه الان"
+  },
+  "Share": {
+    "en": "Share",
+    "ar": "مشاركة"
+  },
+  "Copy Link": {
+    "en": "Copy Link",
+    "ar": "نسخ الرابط"
+  },
+  "tax_rule": {
+    "en": "Return within 30 days of purchase. Taxes are non-refundable.",
+    "ar": "استرجاع في خلال 30 يوما من وقت الدفع , الضرائب لا تسترد"
+  },
+  "Estimated Delivery": {
+    "en": "Estimated Delivery",
+    "ar": "توقيت التسليم"
+  },
+  "Availability": {
+    "en": "Availability",
+    "ar": "التوفر"
+  },
+  "Brand": {
+    "en": "Brand",
+    "ar": "الماركة"
+  },
+  "Type": {
+    "en": "Type",
+    "ar": "النوع"
+  },
+  "Shipping & Return": {
+    "en": "Shipping & Return",
+    "ar": "شحن وارجاع"
+  },
+  "Reviews": {
+    "en": "Reviews",
+    "ar": "التعليقات"
+  },
+  "No Description": {
+    "en": "This Product Does not Have a Description",
+    "ar": "هذا المنتج ليس لديه وصف"
+  },
+  "Description": {
+    "en": "Description",
+    "ar": "وصف"
+  },
+  "Shipping": {
+    "en": "Shipping",
+    "ar": "شحن"
+  },
+  "Category": {
+    "en": "Category",
+    "ar": "التصنيف"
+  }
+}
