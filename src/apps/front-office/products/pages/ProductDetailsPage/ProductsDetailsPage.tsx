@@ -38,7 +38,9 @@ export default function ProductsDetailsPage({
       <Helmet title="Products Page" />
       <div className="w-full max-w-[1400px] mx-auto pt-5 ">
         <Breadcrumbs
-          title={data?.name.find(n => n.localeCode === currentLocale)?.value || ""}
+          title={
+            data?.name.find(n => n.localeCode === currentLocale)?.value || ""
+          }
         />
       </div>
       <ProductDetails product={data!} />

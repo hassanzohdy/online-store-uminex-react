@@ -2,17 +2,17 @@ import { trans } from "@mongez/localization";
 import { Link } from "@mongez/react-router";
 
 import { isLTR } from "app/utils/helpers";
+import URLS from "app/utils/urls";
 import { cn } from "design-system/lib/utils";
 import { AiOutlineUser } from "react-icons/ai";
-import { useUser } from "../../hooks/useUser";
-import URLS from "app/utils/urls";
 import parseError from "../../../utils/parse-error";
 import Logo from "../../components/Logo";
+import { useUser } from "../../hooks/useUser";
+import CartSidebarContainer from "./components/cart/cart-sidebar-container";
 import SearchInput from "./components/search/search-input";
 import MobileSidebarSheet from "./components/sheets/mobile-sidebar-sheet";
 import SkeletonHeaderLoading from "./components/SkeletonLoading/skeleton-header";
 import WishlistSidebarContainer from "./components/wishlist/wishlist-sidebar-container";
-import CartSidebarContainer from "./components/cart/cart-sidebar-container";
 
 export default function Header() {
   const { data, isLoading, error } = useUser();

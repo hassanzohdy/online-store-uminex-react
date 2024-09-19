@@ -1,5 +1,5 @@
 import ReactHtmlParser from "react-html-parser";
-import "react-quill/dist/quill.bubble.css";
+import DOMPurify from 'dompurify';
 
 interface PreviewProps {
   value: string;
@@ -10,7 +10,6 @@ export const Preview = ({ value }: PreviewProps) => {
   return (
     <div>
       {ReactHtmlParser(cleanHtml)}
-      {/* <ReactQuill theme="bubble" value={value} readOnly /> */}
     </div>
   );
 };
