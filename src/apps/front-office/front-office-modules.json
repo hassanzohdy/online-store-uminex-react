@@ -47,6 +47,10 @@
     {
       "entry": ["/products"],
       "name": "products"
+    },
+    {
+      "entry": ["/wishlist"],
+      "name": "wishlist"
     }
   ]
 }

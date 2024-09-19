@@ -131,13 +131,13 @@ export default function DisplayProductData({
         <div className="flex items-center justify-between w-full text-primary flex-wrap gap-4">
           <div className="flex items-center gap-4">
             <div
-              className="flex items-center gap-1 text-xs font-semibold uppercase cursor-pointer"
+              className="flex items-center gap-1 text-xs font-semibold uppercase cursor-pointer hover:text-blue"
               onClick={addToWishlist}>
               <FaRegHeart className="w-4 h-4" />
               {trans("Add to Wishlist")}
             </div>
             <div
-              className="flex items-center gap-1 text-xs font-semibold uppercase cursor-pointer"
+              className="flex items-center gap-1 text-xs font-semibold uppercase cursor-pointer hover:text-blue"
               onClick={addToCompare}>
               <FiLayers className="w-4 h-4" />
               {trans("Add to Compare")}
