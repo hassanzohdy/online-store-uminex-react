@@ -11,6 +11,7 @@ import homeTranslation from "shared/localization/home.json";
 import indexTranslation from "shared/localization/index.json";
 import productDetailsTranslation from "shared/localization/product-details.json";
 import productsTranslation from "shared/localization/products.json";
+import aboutTranslation from "shared/localization/about.json";
 
 // DO NOT IMPORT IT IF THE PROJECT IS NOT LARGE
 groupedTranslations(indexTranslation);
@@ -20,6 +21,7 @@ groupedTranslations(homeTranslation);
 groupedTranslations(productsTranslation);
 groupedTranslations(cartTranslation);
 groupedTranslations(productDetailsTranslation);
+groupedTranslations(aboutTranslation);
 
 extend("en", { validation: enValidationTranslation });
 extend("ar", { validation: arValidationTranslation });
