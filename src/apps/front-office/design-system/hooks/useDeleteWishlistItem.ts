@@ -4,14 +4,16 @@ import { wishlistAtom } from "../atoms/wishlist-atom";
 
 export const useDeleteWishlistItem = (
   wishlistItemId: number,
-  onItemDeleted: () => void,
+  onItemDeleted?: () => void,
 ) => {
   const [isDeleting, setIsDeleting] = useState<boolean>(false);
 
   const deleteItem = async () => {
     setIsDeleting(true);
     await wishlistAtom.deleteItem(wishlistItemId);
-    onItemDeleted();
+    if (onItemDeleted) {
+      onItemDeleted();
+    }
     setIsDeleting(false);
   };
 

@@ -16,8 +16,8 @@ export default function CompareTableHead({
 }: CompareTableHeadProps) {
   const currentLanguage = current("localeCode");
 
-  const handleDeleteCompareItem = () => {
-    compareAtom.deleteItem(compareItem.id);
+  const handleDeleteCompareItem = async () => {
+    await compareAtom.deleteItem(compareItem.id);
     updateState();
   };
 
@@ -26,7 +26,7 @@ export default function CompareTableHead({
       <div className="relative mx-auto">
         <img
           src={compareItem.images[0].url}
-          className="max-h-[230px] max-w-[200px] mx-auto"
+          className="max-h-[230px] min-w-[200px] mx-auto"
           alt={
             compareItem.name.find(n => n.localeCode === currentLanguage)?.value
           }

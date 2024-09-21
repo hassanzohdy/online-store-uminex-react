@@ -1,15 +1,16 @@
 import { trans } from "@mongez/localization";
 import { current } from "@mongez/react";
+import { FiX } from "react-icons/fi";
+
 import { currencyAtom } from "design-system/atoms/currency-atom";
 import { Button } from "design-system/components/ui/button";
 import { useDeleteWishlistItem } from "design-system/hooks/useDeleteWishlistItem";
 import { formatPrice } from "design-system/lib/formats";
 import { Product } from "design-system/utils/types";
-import { FiX } from "react-icons/fi";
 
 interface WishlistItemProps {
   wishlistItem: Product;
-  changeStatus: () => void;
+  changeStatus?: () => void;
 }
 
 export default function WishlistItem({

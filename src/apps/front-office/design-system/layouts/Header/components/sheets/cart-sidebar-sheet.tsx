@@ -1,10 +1,10 @@
 import { trans } from "@mongez/localization";
 import { Link } from "@mongez/react-router";
-import { IoCartOutline } from "react-icons/io5";
 
 import { isRTL } from "app/utils/helpers";
 import URLS from "app/utils/urls";
 import { cartAtom } from "design-system/atoms/cart-atom";
+import { modalAtom } from "design-system/atoms/model-atom";
 import { Button } from "design-system/components/ui/button";
 import { Separator } from "design-system/components/ui/separator";
 import {
@@ -12,45 +12,35 @@ import {
   SheetContent,
   SheetHeader,
   SheetTitle,
-  SheetTrigger,
 } from "design-system/components/ui/sheet";
-import { formatNumber, formatPrice } from "design-system/lib/formats";
+import { formatPrice } from "design-system/lib/formats";
+import { useState } from "react";
 import EmptyCartIcon from "shared/assets/images/empty-cart.svg";
 import CartItem from "../cart/cart-item";
 
-interface CartSheetSidebarProps {
-  changeTicks: () => void;
-}
+export default function CartSheetSidebar() {
+  const [_, setTick] = useState(0);
 
-export default function CartSheetSidebar({
-  changeTicks,
-}: CartSheetSidebarProps) {
+  const data = modalAtom.useValue();
   const cart = cartAtom.useValue();
 
   const changeQuantity = () => {
-    changeTicks();
+    setTick(prev => prev + 1);
+  };
+
+  const isModalOpen = data.isOpen && data.type === "cart";
+  if (!isModalOpen) {
+    return null;
+  }
+
+  const handleClose = () => {
+    modalAtom.onClose();
   };
 
   const items = cart.items;
 
   return (
-    <Sheet>
-      <SheetTrigger asChild>
-        <Button variant={"ghost"} className="hover:bg-transparent">
-          <div className="relative">
-            <IoCartOutline className="h-8 w-8 text-black" />
-            {items && items.length > 0 && (
-              <div
-                className="absolute -top-1 -right-2 bg-rose-600 rounded-full 
-                text-[5px] h-[16px] w-[17px] flex items-center justify-center">
-                <span className="text-xs text-center text-slate-50 ">
-                  {formatNumber(cart.totals.quantity ?? 0)}
-                </span>
-              </div>
-            )}
-          </div>
-        </Button>
-      </SheetTrigger>
+    <Sheet open={data.isOpen} onOpenChange={handleClose}>
       <SheetContent
         className="p-0 w-full md:max-w-sm overflow-y-auto overflow-x-hidden scrollbar"
         side={isRTL() ? "left" : "right"}>
@@ -86,13 +76,15 @@ export default function CartSheetSidebar({
               <Button
                 asChild
                 variant={"outline"}
-                className="w-full rounded-full p-6">
+                className="w-full rounded-full p-6"
+                onClick={handleClose}>
                 <Link href={URLS.cart}>{trans("ViewCart")}</Link>
               </Button>
               <Button
                 asChild
                 variant={"primary"}
-                className="w-full rounded-full p-6">
+                className="w-full rounded-full p-6"
+                onClick={handleClose}>
                 <Link href={URLS.checkout}>{trans("CheckOut")}</Link>
               </Button>
             </div>
@@ -107,7 +99,8 @@ export default function CartSheetSidebar({
               asChild
               variant={"primary"}
               size={"lg"}
-              className="rounded-full">
+              className="rounded-full"
+              onClick={handleClose}>
               <Link to={URLS.collections}>{trans("emptyCartBtn")}</Link>
             </Button>
           </div>

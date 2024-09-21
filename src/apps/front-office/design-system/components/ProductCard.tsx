@@ -11,6 +11,7 @@ import { isLTR } from "app/utils/helpers";
 import URLS from "app/utils/urls";
 import { cartAtom } from "design-system/atoms/cart-atom";
 import { compareAtom } from "design-system/atoms/compare-atom";
+import { modalAtom } from "design-system/atoms/model-atom";
 import { wishlistAtom } from "design-system/atoms/wishlist-atom";
 import { formatPrice } from "design-system/lib/formats";
 import { cn } from "design-system/lib/utils";
@@ -39,6 +40,7 @@ export default function ProductCard({ product, oneRow, grid }: TProduct) {
     if (product.inStock) {
       setIsLoading(true);
       await cartAtom.addToCart(product);
+      modalAtom.onOpen("cart");
     } else {
       return;
     }
@@ -49,6 +51,7 @@ export default function ProductCard({ product, oneRow, grid }: TProduct) {
     if (!isInWishlist) {
       setIsLoading(true);
       await wishlistAtom.addToWishlist(product);
+      modalAtom.onOpen("wishlist");
       setIsInWishlist(true);
     }
     setIsLoading(false);
@@ -58,6 +61,7 @@ export default function ProductCard({ product, oneRow, grid }: TProduct) {
     if (!isInCompare) {
       setIsLoading(true);
       await compareAtom.addToCompare(product);
+      modalAtom.onOpen("compare");
       setIsInCompare(true);
     }
     setIsLoading(false);

@@ -1,6 +1,7 @@
 import { useOnce } from "@mongez/react-hooks";
 import { getGuestToken } from "app/account/services/auth";
 import user from "app/account/user";
+import ModalProvider from "design-system/providers/model-provider";
 import NextTopLoader from "nextjs-toploader";
 import React, { useState } from "react";
 
@@ -26,6 +27,7 @@ export default function App({ children }: AppProps) {
 
   return (
     <>
+      <ModalProvider />
       <NextTopLoader color="white" />
       {children}
     </>

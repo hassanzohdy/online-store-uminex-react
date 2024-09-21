@@ -3,6 +3,7 @@ import { navigateTo } from "@mongez/react-router";
 import URLS from "app/utils/urls";
 import { cartAtom } from "design-system/atoms/cart-atom";
 import { compareAtom } from "design-system/atoms/compare-atom";
+import { modalAtom } from "design-system/atoms/model-atom";
 import { wishlistAtom } from "design-system/atoms/wishlist-atom";
 import { toast } from "design-system/hooks/use-toast";
 import { Product } from "design-system/utils/types";
@@ -29,8 +30,9 @@ export const useProductActions = (product: Product, currentLocale: string) => {
     }
   };
 
-  const handleAddToCart = () => {
-    cartAtom.addToCart(product, quantity);
+  const handleAddToCart = async () => {
+    await cartAtom.addToCart(product, quantity);
+    modalAtom.onOpen("cart");
     toast({
       variant: "success",
       title: trans("Added To Cart"),
@@ -38,8 +40,9 @@ export const useProductActions = (product: Product, currentLocale: string) => {
     });
   };
 
-  const addToCompare = () => {
-    compareAtom.addToCompare(product);
+  const addToCompare = async () => {
+    await compareAtom.addToCompare(product);
+    modalAtom.onOpen("compare");
     toast({
       variant: "success",
       title: trans("Added To Compare"),
@@ -47,8 +50,9 @@ export const useProductActions = (product: Product, currentLocale: string) => {
     });
   };
 
-  const addToWishlist = () => {
-    wishlistAtom.addToWishlist(product);
+  const addToWishlist = async () => {
+    await wishlistAtom.addToWishlist(product);
+    modalAtom.onOpen("wishlist");
     toast({
       variant: "success",
       title: trans("Added To Wishlist"),

@@ -1,11 +1,13 @@
 import { trans } from "@mongez/localization";
 import { current } from "@mongez/react";
+import { useState } from "react";
+
+import { modalAtom } from "design-system/atoms/model-atom";
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "design-system/components/ui/dialog";
 import {
   Table,
@@ -15,37 +17,42 @@ import {
   TableHeader,
   TableRow,
 } from "design-system/components/ui/table";
-import { useState } from "react";
 import { compareAtom } from "../../atoms/compare-atom";
 import CompareTableHead from "../../layouts/Header/components/compare/compare-table-head";
 import { Product } from "../../utils/types";
 
-interface CompareModelProps {
-  children: React.ReactNode;
-}
-
-export default function CompareModel({ children }: CompareModelProps) {
+export default function CompareModel() {
+  const data = modalAtom.useValue();
   const [_, setTicks] = useState(0);
   const compareProducts = compareAtom.useValue();
+
   const currentLanguage = current("localeCode");
 
   const updateState = () => {
     setTicks(prevTicks => prevTicks + 1);
   };
 
+  const isModalOpen = data.isOpen && data.type === "compare";
+  if (!isModalOpen) {
+    return null;
+  }
+
+  const handleClose = () => {
+    modalAtom.onClose();
+  };
+
   return (
-    <Dialog>
-      <DialogTrigger asChild>{children}</DialogTrigger>
+    <Dialog open={data.isOpen} onOpenChange={handleClose}>
       <DialogContent
         className="flex flex-col gap-5 items-center justify-start p-0
-       max-h-[650px] max-w-full md:min-w-[750px]">
+       max-h-[650px] max-w-full md:w-[750px]">
         <DialogHeader className="w-full bg-slate-100 py-3">
           <DialogTitle className="text-black text-center">
             {trans("compare")}
           </DialogTitle>
         </DialogHeader>
         {compareProducts.length > 0 ? (
-          <Table className="border-[.5px] border-slate-300 m-5">
+          <Table className="border-[.5px] border-slate-300 m-5 scrollbar">
             <TableHeader>
               <TableRow>
                 <TableHead

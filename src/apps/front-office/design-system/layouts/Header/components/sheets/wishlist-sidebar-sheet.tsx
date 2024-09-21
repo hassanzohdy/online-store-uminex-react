@@ -1,7 +1,11 @@
 import { trans } from "@mongez/localization";
 import { Link } from "@mongez/react-router";
+import { useState } from "react";
+
 import { isRTL } from "app/utils/helpers";
 import URLS from "app/utils/urls";
+import { modalAtom } from "design-system/atoms/model-atom";
+import { wishlistAtom } from "design-system/atoms/wishlist-atom";
 import { Button } from "design-system/components/ui/button";
 import { Separator } from "design-system/components/ui/separator";
 import {
@@ -9,30 +13,31 @@ import {
   SheetContent,
   SheetHeader,
   SheetTitle,
-  SheetTrigger,
 } from "design-system/components/ui/sheet";
-import { Product } from "design-system/utils/types";
 import EmptyWishList from "shared/assets/images/empty-wishlist.svg";
 import WishlistItem from "../wishlist/wishlist-item";
 
-interface WishlistSidebarSheetProps {
-  children: React.ReactNode;
-  data: {
-    products: Product[];
-  };
-  changeStatus: () => void;
-}
+export default function WishListSheetSidebar() {
+  const [status, setStatus] = useState(false);
 
-export default function WishListSheetSidebar({
-  children,
-  data,
-  changeStatus,
-}: WishlistSidebarSheetProps) {
-  // const language = current("localeCode");
+  const data = modalAtom.useValue();
+  const wishlist = wishlistAtom.useValue();
+
+  const isModalOpen = data.isOpen && data.type === "wishlist";
+  if (!isModalOpen) {
+    return null;
+  }
+
+  const changeStatus = () => {
+    setStatus(!status);
+  };
+
+  const handleClose = () => {
+    modalAtom.onClose();
+  };
 
   return (
-    <Sheet>
-      <SheetTrigger asChild>{children}</SheetTrigger>
+    <Sheet open={data.isOpen} onOpenChange={handleClose}>
       <SheetContent
         className="p-2 w-full md:max-w-sm"
         side={isRTL() ? "left" : "right"}>
@@ -41,9 +46,9 @@ export default function WishListSheetSidebar({
             {trans("wishlist")}
           </SheetTitle>
         </SheetHeader>
-        {data && data.products.length > 0 ? (
+        {wishlist && wishlist.products.length > 0 ? (
           <>
-            {data.products.map(product => (
+            {wishlist.products.map(product => (
               <div
                 className="flex items-start gap-5 flex-col p-5"
                 key={product.id}>
@@ -57,7 +62,8 @@ export default function WishListSheetSidebar({
             <Button
               variant={"primary"}
               size={"lg"}
-              className="h-12 text-sm rounded-full w-full">
+              className="h-12 text-sm rounded-full w-full"
+              onClick={handleClose}>
               <Link href={URLS.wishlist}>{trans("View Wishlist")}</Link>
             </Button>
           </>
