@@ -8,7 +8,7 @@ import { AiOutlineUser } from "react-icons/ai";
 import parseError from "../../../utils/parse-error";
 import Logo from "../../components/Logo";
 import { useUser } from "../../hooks/useUser";
-import CartSidebar from "./components/cart/cart-sidebar";
+import CartSidebarContainer from "./components/cart/cart-sidebar-container";
 import SearchInput from "./components/search/search-input";
 import MobileSidebarSheet from "./components/sheets/mobile-sidebar-sheet";
 import SkeletonHeaderLoading from "./components/SkeletonLoading/skeleton-header";
@@ -65,7 +65,7 @@ export default function Header() {
             </Link>
             <WishlistSidebarContainer />
           </div>
-          <CartSidebar />
+          <CartSidebarContainer />
         </div>
       </div>
     </div>

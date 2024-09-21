@@ -104,6 +104,9 @@ export type Product = {
   slug: string;
   type: string;
   purchase: Purchase;
+  rating?: number;
+  reviews?: number;
+  description?: LocalizedText[];
 };
 
 type Breadcrumb = {
@@ -159,6 +162,7 @@ export type CartTotals = {
   tax: number;
   shippingFees?: number;
   [key: string]: number | undefined;
+  finalPrice: number;
 };
 
 export type TotalsText = {

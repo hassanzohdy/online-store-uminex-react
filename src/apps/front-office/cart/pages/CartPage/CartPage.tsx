@@ -1,22 +1,35 @@
 import Helmet from "@mongez/react-helmet";
-import CartDetails from "./CartDetails";
-import CartTotals from "./CartTotals";
-import styles from "./styles.module.scss";
+import { useState } from "react";
+
+import CartOrderDetails from "app/cart/components/CartOrderDetails";
+import CartProductsDetails from "app/cart/components/CartProductsDetails";
+import { cartAtom } from "design-system/atoms/cart-atom";
+import Breadcrumbs from "design-system/components/Breadcrumbs";
+import { cn } from "design-system/lib/utils";
 
 export default function CartPage() {
+  const cart = cartAtom.value;
+  const [_, setTicks] = useState(0);
+  const updateData = () => {
+    setTicks(prev => prev + 1);
+  };
+
+  console.log(cart);
+
   return (
-    <>
+    <div className="w-full">
+      <Breadcrumbs title="Your Cart" center />
       <Helmet title="Cart Page" />
       <div
-        className={`${styles.cartWrapper} container flex justify-between bg-white  py-8 px-0 my-7`}>
-        <div className="container">
-          <div
-            className={`${styles.cartWrapper} container flex justify-between bg-white  p-0`}>
-            <CartDetails />
-            <CartTotals />
-          </div>
-        </div>
+        className={cn(
+          "w-full max-w-[1440px] mx-auto px-4 py-6 gap-10",
+          cart.items && cart.items.length > 0
+            ? "grid grid-cols-1 lg:grid-cols-4 "
+            : " flex items-center justify-center",
+        )}>
+        <CartProductsDetails handleUpdateData={updateData} />
+        <CartOrderDetails />
       </div>
-    </>
+    </div>
   );
 }

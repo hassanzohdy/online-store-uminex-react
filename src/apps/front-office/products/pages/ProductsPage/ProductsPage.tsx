@@ -2,6 +2,7 @@ import { trans } from "@mongez/localization";
 import React, { useEffect, useState } from "react";
 import { LuLoader2 } from "react-icons/lu";
 
+import Helmet from "@mongez/react-helmet";
 import Breadcrumbs from "design-system/components/Breadcrumbs";
 import ProductsList from "design-system/components/ProductsList";
 import { useFilters } from "design-system/hooks/use-filters";
@@ -57,6 +58,7 @@ function _ProductsPage() {
 
   return (
     <div>
+      <Helmet title="Products Page" />
       <div className="w-full">
         <Breadcrumbs title="products" image />
       </div>

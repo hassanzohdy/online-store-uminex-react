@@ -97,17 +97,19 @@ export default function ProductCard({ product, oneRow, grid }: TProduct) {
                 onClick={addToWishlist}
               />
               <p className="inline-block pointer-events-none absolute bg-primary text-white right-11 text-xs px-2 py-1 rounded-sm w-max opacity-0 group-hover/wishlist:opacity-100 translate-x-2 group-hover/wishlist:translate-x-0 transition-all duration-500 after:content-[''] after:-right-2 after:top-1/2 after:-translate-y-1/2 after:size-2 after:bg-primary after:absolute after:clip-triangle after:rotate-90">
-                {trans("Add Wishlist")}
+                {trans("Add to Wishlist")}
               </p>
             </>
           )}
         </div>
-        <div className="hidden  group/show size-9 xl:flex items-center justify-center rounded-full shadow  hover:bg-blue transition-all duration-300">
+        <Link
+          href={URLS.products.view(product.id)}
+          className="hidden  group/show size-9 xl:flex items-center justify-center rounded-full shadow  hover:bg-blue transition-all duration-300">
           <FaRegEye className="size-4 group-hover/show:text-white transition-all duration-300" />
-          <p className="inline-block  pointer-events-none  absolute bg-primary text-white right-11 text-xs px-2 py-1 rounded-sm w-max opacity-0 group-hover/show:opacity-100 translate-x-2 group-hover/show:translate-x-0 transition-all duration-500 after:content-[''] after:-right-2 after:top-1/2 after:-translate-y-1/2 after:size-2 after:bg-primary after:absolute after:clip-triangle after:rotate-90">
+          <p className="inline-block pointer-events-none absolute bg-primary text-white right-11 text-xs px-2 py-1 rounded-sm w-max opacity-0 group-hover/show:opacity-100 translate-x-2 group-hover/show:translate-x-0 transition-all duration-500 after:content-[''] after:-right-2 after:top-1/2 after:-translate-y-1/2 after:size-2 after:bg-primary after:absolute after:clip-triangle after:rotate-90">
             {trans("Quick View")}
           </p>
-        </div>
+        </Link>
         <div
           className={cn(
             "hidden  group/compare size-9 xl:flex items-center justify-center rounded-full shadow  hover:bg-blue transition-all duration-300",
@@ -127,7 +129,7 @@ export default function ProductCard({ product, oneRow, grid }: TProduct) {
                 onClick={addToCompare}
               />
               <p className="inline-block  pointer-events-none  absolute bg-primary text-white right-11 text-xs px-2 py-1 rounded-sm w-max opacity-0 group-hover/compare:opacity-100 translate-x-2 group-hover/compare:translate-x-0 transition-all duration-500 after:content-[''] after:-right-2 after:top-1/2 after:-translate-y-1/2 after:size-2 after:bg-primary after:absolute after:clip-triangle after:rotate-90">
-                {trans("Add Compare")}
+                {trans("Add to Compare")}
               </p>
             </>
           )}
@@ -174,12 +176,12 @@ export default function ProductCard({ product, oneRow, grid }: TProduct) {
           {product.inStock ? (
             <>
               <CheckIcon className="text-green size-5" />
-              <p className="text-green text-sm">{trans("in stock")}</p>
+              <p className="text-green text-sm">{trans("In Stock")}</p>
             </>
           ) : (
             <>
               <Cross1Icon className="text-red size-3" />
-              <p className="text-red text-sm">{trans("out stock")}</p>
+              <p className="text-red text-sm">{trans("Out Of Stock")}</p>
             </>
           )}
         </div>

@@ -24,10 +24,16 @@ export default function SearchResult({
   const { data, isLoading, params } = useDebouncedSearch({ value, category });
 
   const viewProduct = (id: number) => {
+    if (OnClose) {
+      OnClose();
+    }
     navigateTo(URLS.products.view(id));
   };
 
   const searchProducts = () => {
+    if (OnClose) {
+      OnClose();
+    }
     navigateTo(URLS.searchRoute.search("product", params));
   };
 

@@ -1,6 +1,7 @@
 import { trans } from "@mongez/localization";
-import { current } from "@mongez/react";
 import { Link } from "@mongez/react-router";
+import { IoCartOutline } from "react-icons/io5";
+
 import { isRTL } from "app/utils/helpers";
 import URLS from "app/utils/urls";
 import { cartAtom } from "design-system/atoms/cart-atom";
@@ -14,7 +15,6 @@ import {
   SheetTrigger,
 } from "design-system/components/ui/sheet";
 import { formatNumber, formatPrice } from "design-system/lib/formats";
-import { IoCartOutline } from "react-icons/io5";
 import EmptyCartIcon from "shared/assets/images/empty-cart.svg";
 import CartItem from "../cart/cart-item";
 

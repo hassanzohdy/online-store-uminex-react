@@ -15,3 +15,7 @@ export function updateItem(itemId: number, quantity: number) {
 export function addItem(product: number, quantity: number) {
   return endpoint.post(`/cart`, { product, quantity });
 }
+
+export function flushCart() {
+  return endpoint.delete(`/cart`);
+}

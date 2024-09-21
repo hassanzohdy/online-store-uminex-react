@@ -47,6 +47,34 @@
     "en": "View Cart",
     "ar": "عرض السلة"
   },
+  "Add To Cart": {
+    "en": "Add To Cart",
+    "ar": "اضافة الى السلة"
+  },
+  "In Stock": {
+    "en": "In Stock",
+    "ar": "متوفر"
+  },
+  "Added to Wishlist": {
+    "en": "Added to Wishlist",
+    "ar": "تم اضافة المنتج الى المفضلة"
+  },
+  "Add to Wishlist": {
+    "en": "Add to Wishlist",
+    "ar": "اضافة المنتج الى المفضلة"
+  },
+  "Added to Compare": {
+    "en": "Added to compare",
+    "ar": "تم اضافة المنتج الى المقارنه"
+  },
+  "Add to Compare": {
+    "en": "Add to compare",
+    "ar": "اضافة المنتج الى المقارنه"
+  },
+  "َQuick View": {
+    "en": "Quick View",
+    "ar": "رؤيه سريعه"
+  },
   "contact": {
     "en": "Contact Us",
     "ar": "اتصل بنا"
@@ -206,6 +234,10 @@
   "verificationCodeSentPhone": {
     "en": "Before proceeding, please check your phone for a verification code.",
     "ar": "قبل المتابعة ، يرجى التحقق من هاتفك لرمز التحقق."
+  },
+  "Out Of Stock": {
+    "en": "Out of Stock",
+    "ar": "نفذت من المخزن"
   },
   "test": {
     "en": "Test",

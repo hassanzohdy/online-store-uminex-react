@@ -2,6 +2,7 @@ import Autoplay from "embla-carousel-autoplay";
 import React from "react";
 
 import { trans } from "@mongez/localization";
+import { current } from "@mongez/react";
 import { Link } from "@mongez/react-router";
 import { isLTR } from "app/utils/helpers";
 import URLS from "app/utils/urls";
@@ -20,6 +21,7 @@ interface SliderRowProps {
 }
 
 export default function SliderRow({ column }: SliderRowProps) {
+  const currentLang = current("localeCode");
   const plugin = React.useRef(
     Autoplay({ delay: 2000, stopOnInteraction: true }),
   );
@@ -56,9 +58,8 @@ export default function SliderRow({ column }: SliderRowProps) {
                 />
                 <div className="absolute top-32 left-5 md:left-10 xl:left-28 flex flex-col items-start gap-5 text-white w-[300px] lg:w-[360px]">
                   <h1 className="text-2xl lg:text-4xl font-bold">
-                    {isLTR()
-                      ? banner.title.find(n => n.localeCode === "en")?.value
-                      : banner.title.find(n => n.localeCode === "ar")?.value}
+                    {banner.title.find(n => n.localeCode === currentLang)
+                      ?.value || banner.title[0].value}
                   </h1>
                   <Button
                     variant={"outline"}

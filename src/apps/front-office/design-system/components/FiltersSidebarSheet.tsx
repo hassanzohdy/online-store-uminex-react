@@ -31,7 +31,8 @@ interface FiltersSidebarSheetProps {
   filters: Filters;
   paginationInfo: paginationInfoType;
 }
-const FiltersSidebarSheet = ({
+
+export default function FiltersSidebarSheet({
   updateCategory,
   updateInStock,
   updateMinPrice,
@@ -40,7 +41,7 @@ const FiltersSidebarSheet = ({
   resetFiltersExceptQuery,
   filters,
   paginationInfo,
-}: FiltersSidebarSheetProps) => {
+}: FiltersSidebarSheetProps) {
   const handleSortChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     updateSortOptions(e.target.value);
   };
@@ -96,6 +97,4 @@ const FiltersSidebarSheet = ({
       </SheetContent>
     </Sheet>
   );
-};
-
-export default FiltersSidebarSheet;
+}

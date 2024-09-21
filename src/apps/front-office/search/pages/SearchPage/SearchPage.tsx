@@ -2,6 +2,7 @@ import { trans } from "@mongez/localization";
 import React, { useEffect, useState } from "react";
 import { LuLoader2 } from "react-icons/lu";
 
+import Helmet from "@mongez/react-helmet";
 import Breadcrumbs from "design-system/components/Breadcrumbs";
 import ProductsList from "design-system/components/ProductsList";
 import { useFilters } from "design-system/hooks/use-filters";
@@ -57,13 +58,15 @@ function _SearchPage() {
 
   return (
     <div>
+      <Helmet title="Search Page" />
       <div className="w-full bg-white max-w-[1400px] mx-auto py-4 px-4">
         <Breadcrumbs title="search" />
       </div>
       <div className="w-full h-full bg-lightGray">
         <div className="max-w-[1400px] mx-auto py-10 px-4 flex flex-col items-center justify-center gap-1">
           <h1 className="text-primary text-[28px] font-semibold text-center uppercase">
-            {data?.paginationInfo.total} Results for &quot;{filters.q}&quot;
+            {data?.paginationInfo.total} {trans("Results for")} &quot;
+            {filters.q}&quot;
           </h1>
           {data?.paginationInfo && (
             <ProductsList

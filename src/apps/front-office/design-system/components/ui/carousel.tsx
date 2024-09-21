@@ -5,6 +5,7 @@ import useEmblaCarousel, {
 import PropTypes from "prop-types";
 import * as React from "react";
 
+import { isLTR } from "app/utils/helpers";
 import { Button } from "design-system/components/ui/button";
 import { cn } from "../../lib/utils";
 
@@ -61,6 +62,7 @@ const Carousel = React.forwardRef<
       {
         ...opts,
         axis: orientation === "horizontal" ? "x" : "y",
+        direction: isLTR() ? "ltr" : "rtl",
       },
       plugins,
     );
@@ -77,11 +79,19 @@ const Carousel = React.forwardRef<
     }, []);
 
     const scrollPrev = React.useCallback(() => {
-      api?.scrollPrev();
+      if (isLTR()) {
+        api?.scrollPrev();
+      } else {
+        api?.scrollNext();
+      }
     }, [api]);
 
     const scrollNext = React.useCallback(() => {
-      api?.scrollNext();
+      if (isLTR()) {
+        api?.scrollNext();
+      } else {
+        api?.scrollPrev();
+      }
     }, [api]);
 
     const handleKeyDown = React.useCallback(
@@ -181,7 +191,16 @@ const CarouselPrevious = React.forwardRef<
   HTMLButtonElement,
   React.ComponentProps<typeof Button>
 >(({ className, variant = "outline", size = "icon", ...props }, ref) => {
-  const { scrollPrev, canScrollPrev } = useCarousel();
+  const { scrollPrev, canScrollPrev, canScrollNext } = useCarousel();
+
+  // Check if the language is LTR or RTL
+  const isLTRMode = isLTR();
+
+  // Use the correct scroll function based on the direction
+  const handlePrev = scrollPrev;
+
+  // Determine if scrolling is possible in the correct direction
+  const canScroll = isLTRMode ? canScrollPrev : canScrollNext;
 
   return (
     <Button
@@ -192,8 +211,8 @@ const CarouselPrevious = React.forwardRef<
         "absolute h-8 w-8 rounded-full -left-12 top-1/2 -translate-y-1/2",
         className,
       )}
-      disabled={!canScrollPrev}
-      onClick={scrollPrev}
+      disabled={!canScroll}
+      onClick={handlePrev} // Use the adjusted scroll function
       {...props}>
       <ArrowLeftIcon className="h-4 w-4" />
       <span className="sr-only">Previous slide</span>
@@ -206,7 +225,16 @@ const CarouselNext = React.forwardRef<
   HTMLButtonElement,
   React.ComponentProps<typeof Button>
 >(({ className, variant = "outline", size = "icon", ...props }, ref) => {
-  const { scrollNext, canScrollNext } = useCarousel();
+  const { scrollNext, canScrollNext, canScrollPrev } = useCarousel();
+
+  // Check if the language is LTR or RTL
+  const isLTRMode = isLTR();
+
+  // Use the correct scroll function based on the direction
+  const handleNext = scrollNext;
+
+  // Determine if scrolling is possible in the correct direction
+  const canScroll = isLTRMode ? canScrollNext : canScrollPrev;
 
   return (
     <Button
@@ -217,8 +245,8 @@ const CarouselNext = React.forwardRef<
         "absolute h-8 w-8 rounded-full -right-12 top-1/2 -translate-y-1/2",
         className,
       )}
-      disabled={!canScrollNext}
-      onClick={scrollNext}
+      disabled={!canScroll}
+      onClick={handleNext}
       {...props}>
       <ArrowRightIcon className="h-4 w-4" />
       <span className="sr-only">Next slide</span>

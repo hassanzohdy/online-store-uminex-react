@@ -50,7 +50,7 @@ export default function CompareModel({ children }: CompareModelProps) {
               <TableRow>
                 <TableHead
                   className="border-r-[.5px] border-slate-300 text-base
-                 font-normal text-slate-900">
+                 font-normal text-primary">
                   {trans("Products")}
                 </TableHead>
                 {compareProducts.map((product: Product) => (
@@ -67,33 +67,33 @@ export default function CompareModel({ children }: CompareModelProps) {
               <TableRow>
                 <TableCell
                   className="table-cell
-                 text-base font-normal text-slate-900">
+                 text-base font-normal text-primary">
                   {trans("Description")}
                 </TableCell>
                 {compareProducts.map((product: Product) => (
                   <TableCell
                     key={product.id}
                     className="table-cell
-                     text-center py-8 text-slate-600">
-                    {
-                      product.shortDescription.find(
-                        n => n.localeCode === currentLanguage,
-                      )?.value
-                    }
+                     text-center py-8 text-gray ">
+                    {product.shortDescription.length > 0
+                      ? product.shortDescription.find(
+                          n => n.localeCode === currentLanguage,
+                        )?.value
+                      : "no Description"}
                   </TableCell>
                 ))}
               </TableRow>
               <TableRow>
                 <TableCell
                   className="table-cell
-                 text-base font-normal text-slate-900">
+                 text-base font-normal text-primary">
                   {trans("Category")}
                 </TableCell>
                 {compareProducts.map((product: Product) => (
                   <TableCell
                     key={product.id}
                     className="table-cell
-                     text-center py-8 text-slate-600">
+                     text-center py-8 text-gray">
                     {
                       product.category.name.find(
                         n => n.localeCode === currentLanguage,
@@ -105,7 +105,7 @@ export default function CompareModel({ children }: CompareModelProps) {
               <TableRow>
                 <TableCell
                   className="table-cell
-                 text-base font-normal text-slate-900">
+                 text-base font-normal text-primary">
                   {trans("Availability")}
                 </TableCell>
                 {compareProducts.map((product: Product) => (
@@ -113,7 +113,7 @@ export default function CompareModel({ children }: CompareModelProps) {
                     key={product.id}
                     className="table-cell 
                     text-center 
-                     py-8 text-slate-600">
+                     py-8 text-gray">
                     {product.inStock ? (
                       <span className="text-emerald-600">
                         {trans("In Stock")}
@@ -127,14 +127,14 @@ export default function CompareModel({ children }: CompareModelProps) {
               <TableRow>
                 <TableCell
                   className="table-cell
-                  text-base font-normal text-slate-900">
+                  text-base font-normal text-primary">
                   {trans("Type")}
                 </TableCell>
                 {compareProducts.map((product: Product) => (
                   <TableCell
                     key={product.id}
                     className="table-cell 
-                    text-center py-8 text-slate-600">
+                    text-center py-8 text-gray">
                     {product.type}
                   </TableCell>
                 ))}
@@ -142,14 +142,14 @@ export default function CompareModel({ children }: CompareModelProps) {
               <TableRow>
                 <TableCell
                   className="table-cell
-                  text-base font-normal text-slate-900">
+                  text-base font-normal text-primary">
                   {trans("Discount")}
                 </TableCell>
                 {compareProducts.map((product: Product) => (
                   <TableCell
                     key={product.id}
                     className="table-cell 
-                    text-center py-8 text-slate-600">
+                    text-center py-8 text-gray">
                     {product.discount
                       ? `${product.discount.percentage}% off`
                       : trans("No Discount")}

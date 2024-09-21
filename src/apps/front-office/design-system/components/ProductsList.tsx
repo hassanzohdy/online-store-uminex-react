@@ -56,7 +56,6 @@ export default function ProductsList({
     setGridLayout(columns);
   };
 
-  console.log(paginationInfo);
   return (
     <>
       <div className="w-full p-3 text-right bg-white rounded-md mt-4 hidden md:flex items-center justify-end gap-4">
@@ -161,7 +160,7 @@ export default function ProductsList({
               ))
             ) : (
               <p className="text-center col-span-full mt-5 italic">
-                {trans("No products found.")}
+                {trans("notFoundProducts")}
               </p>
             )}
           </div>
@@ -173,7 +172,7 @@ export default function ProductsList({
               <span className="block md:hidden">
                 <FaArrowLeftLong className="w-3 h-3" />
               </span>
-              <span className="hidden md:block">Previous</span>
+              <span className="hidden md:block">{trans("Previous")}</span>
             </Button>
             <div
               className="max-w-[300px] md:max-w-[470px] overflow-x-auto flex items-center gap-1"
@@ -195,7 +194,7 @@ export default function ProductsList({
               <span className="block md:hidden">
                 <FaArrowRightLong className="w-3 h-3" />
               </span>
-              <span className="hidden md:block">Next</span>
+              <span className="hidden md:block">{trans("Next")}</span>
             </Button>
           </div>
         </div>

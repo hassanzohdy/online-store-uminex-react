@@ -1,0 +1,66 @@
+{
+  "Cart Totals": {
+    "en": "Cart Totals",
+    "ar": "مجموع سله التسوق"
+  },
+  "Add Coupon": {
+    "en": "Add Coupon",
+    "ar": "اضافة كوبون"
+  },
+  "Coupon code will work on checkout page.": {
+    "en": "Coupon code will work on checkout page.",
+    "ar": "كود الكوبون سيعمل على صفحة الدفع."
+  },
+  "Coupon Code": {
+    "en": "Coupon Code",
+    "ar": "كود الكوبون"
+  },
+  "Total Taxes": {
+    "en": "Total Taxes",
+    "ar": "الضرائب الكلية"
+  },
+  "Shipping Fees": {
+    "en": "Shipping Fees",
+    "ar": "تكلفة الشحن"
+  },
+  "You Save in Total": {
+    "en": "You Save in Total",
+    "ar": "انت وفرت في المجموع"
+  },
+  "Order Total": {
+    "en": "Order Total",
+    "ar": "المجموع الكلي"
+  },
+  "I agree with": {
+    "en": "I agree with",
+    "ar": "أوافق مع"
+  },
+  "Terms & Conditions": {
+    "en": "Terms & Conditions",
+    "ar": "شروط الاستخدام والاحكام"
+  },
+  "Add Order Notes": {
+    "en": "Add Order Notes",
+    "ar": "اضافة ملاحظات على الطلب"
+  },
+  "Continue Shopping": {
+    "en": "Continue Shopping",
+    "ar": "استمر في التسوق"
+  },
+  "Product": {
+    "en": "Product",
+    "ar": "المنتج"
+  },
+  "Quantity": {
+    "en": "Quantity",
+    "ar": "الكمية"
+  },
+  "How Can We Help You!": {
+    "en": "How Can We Help You!",
+    "ar": "كيف يمكننا مساعدتك!"
+  },
+  "Cart": {
+    "en": "Cart",
+    "ar": "سلة التسوق"
+  }
+}

@@ -2,6 +2,7 @@ import { trans } from "@mongez/localization";
 import { preload, setPreloadConfiguration } from "@mongez/react-utils";
 import { LuLoader2 } from "react-icons/lu";
 
+import Helmet from "@mongez/react-helmet";
 import CategoriesRow from "app/home/components/CategoriesRow";
 import DealsRow from "app/home/components/DealsRow";
 import MiddleBannerRow from "app/home/components/MiddleBannerRow";
@@ -49,6 +50,7 @@ function _HomePage({ data }: HomePageProps) {
 
   return (
     <div className="overflow-hidden">
+      <Helmet title="Home Page" />
       <div className="flex flex-col items-start gap-5 w-full max-w-[1400px] mx-auto py-6 px-4 ">
         <SliderRow column={sliderRow.columns} />
         <CategoriesRow column={categoriesRow.columns} />

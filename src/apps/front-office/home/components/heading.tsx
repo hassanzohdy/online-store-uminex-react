@@ -7,7 +7,7 @@ type HeadingProps = {
 
 export default function Heading({ title }: HeadingProps) {
   return (
-    <h1 className="font-bold text-md text-primary uppercase">
+    <h1 className="font-bold text-sm md:text-md text-primary uppercase">
       {isRTL()
         ? title.find(n => n.localeCode === "ar")?.value
         : title.find(n => n.localeCode === "en")?.value}

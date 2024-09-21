@@ -1,6 +1,7 @@
 // append urls here, DO NOT remove this line
 
 const URLS = {
+  wishlist: "/wishlist",
   search: "/search",
   shop: "/shop",
   cart: "/cart",
@@ -15,7 +16,7 @@ const URLS = {
   },
   products: {
     root: "/products",
-    viewRoute: "/products/:id",
+    viewProduct: "/products/:id",
     view: (productId: number) => `/products/${productId}`,
   },
   searchRoute: {
@@ -47,7 +48,6 @@ const URLS = {
     viewRoute: "/pages/:slug",
     view: (page: any) => `/pages/${page.id}/${page.slug}`,
   },
-  wishlist: "/wishlist",
 };
 
 export default URLS;
