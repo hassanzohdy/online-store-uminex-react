@@ -47,10 +47,10 @@ export const cartAtom = atom<CartType>({
             id: Math.floor(Math.random() * 10000000),
             salePrice: product.salePrice,
             total: {
-              discount: product.discount,
-              finalPrice: product.salePrice,
+              discount: product.discount || 0,
+              finalPrice: product.salePrice || product.price,
               price: product.price,
-              salePrice: product.salePrice,
+              salePrice: product.salePrice ||  product.price,
             },
           };
           cart.items.push(newItem);
@@ -64,7 +64,7 @@ export const cartAtom = atom<CartType>({
         console.log(error);
         toast({
           title: "Error",
-          description: error.response.data.error,
+          description: "something went wrong",
           variant: "destructive",
         });
       }

@@ -1,8 +1,8 @@
 import { trans } from "@mongez/localization";
 import React from "react";
 
-import { Separator } from "design-system/components/ui/separator";
 import Breadcrumbs from "design-system/components/Breadcrumbs";
+import { Separator } from "design-system/components/ui/separator";
 import mainAboutImage from "shared/assets/images/img_about.webp";
 import about1Image from "shared/assets/images/img_about_1.webp";
 import about2Image from "shared/assets/images/img_about_2.webp";
@@ -140,7 +140,6 @@ function _AboutPage() {
 
         <Separator className="my-5" />
 
-
         <div className="w-full max-w-[600px]">
           <p className="text-xs uppercase font-bold text-blue text-center">
             {trans("Our perfect team")}
@@ -167,10 +166,8 @@ function _AboutPage() {
             <h1 className="text-primary text-sm font-semibold">
               {trans("Michael Antony")}
             </h1>
-            <span className="text-sm text-gray">{("Founder/CEO")}</span>
-            <p className="text-gray text-md">
-              {trans("short_about_us")}
-            </p>
+            <span className="text-sm text-gray">{"Founder/CEO"}</span>
+            <p className="text-gray text-md">{trans("short_about_us")}</p>
           </div>
           <div className="flex flex-col items-center justify-center gap-3 rounded-full text-center">
             <div className="overflow-hidden rounded-full">
@@ -185,10 +182,8 @@ function _AboutPage() {
             <h1 className="text-primary text-sm font-semibold">
               {trans("Alexandra Miller")}
             </h1>
-            <span className="text-sm text-gray">{("Founder/CEO")}</span>
-            <p className="text-gray text-md">
-              {trans("short_about_us")}
-            </p>
+            <span className="text-sm text-gray">{"Founder/CEO"}</span>
+            <p className="text-gray text-md">{trans("short_about_us")}</p>
           </div>
           <div className="flex flex-col items-center justify-center gap-3 rounded-full text-center">
             <div className="overflow-hidden rounded-full">
@@ -203,10 +198,8 @@ function _AboutPage() {
             <h1 className="text-primary text-sm font-semibold">
               {trans("Frank ge bruyne")}
             </h1>
-            <span className="text-sm text-gray">{("Founder/CEO")}</span>
-            <p className="text-gray text-md">
-              {trans("short_about_us")}
-            </p>
+            <span className="text-sm text-gray">{"Founder/CEO"}</span>
+            <p className="text-gray text-md">{trans("short_about_us")}</p>
           </div>
         </div>
       </div>
