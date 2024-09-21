@@ -1,7 +1,6 @@
-
 import { publicRoutes } from "app/utils/router";
-import ContactUsPage from "./pages/ContactUsPage";
 import URLS from "app/utils/urls";
+import ContactUsPage from "./pages/ContactUsPage";
 
 publicRoutes([
   {

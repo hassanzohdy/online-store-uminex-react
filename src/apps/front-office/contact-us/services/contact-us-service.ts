@@ -18,6 +18,6 @@ export function getContactUs(id: string | number) {
   return endpoint.get("/contact-us/" + id);
 }
 
-export function createContact(data:z.infer<typeof ContactFormSchema>){
-  return endpoint.post("/contact-us", {...data});
+export function createContact(data: z.infer<typeof ContactFormSchema>) {
+  return endpoint.post("/contact-us", { ...data });
 }

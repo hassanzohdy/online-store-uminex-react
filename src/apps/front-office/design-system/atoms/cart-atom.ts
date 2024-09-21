@@ -50,7 +50,7 @@ export const cartAtom = atom<CartType>({
               discount: product.discount || 0,
               finalPrice: product.salePrice || product.price,
               price: product.price,
-              salePrice: product.salePrice ||  product.price,
+              salePrice: product.salePrice || product.price,
             },
           };
           cart.items.push(newItem);

@@ -1,9 +1,10 @@
 import { zodResolver } from "@hookform/resolvers/zod";
+import { trans } from "@mongez/localization";
+import { navigateTo } from "@mongez/react-router";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { navigateTo } from "@mongez/react-router";
-import { trans } from "@mongez/localization";
 
+import URLS from "app/utils/urls";
 import { Button } from "design-system/components/ui/button";
 import {
   Form,
@@ -14,10 +15,9 @@ import {
 } from "design-system/components/ui/form";
 import { Input } from "design-system/components/ui/input";
 import { Textarea } from "design-system/components/ui/textarea";
+import { toast } from "design-system/hooks/use-toast";
 import { ContactFormSchema } from "shared/schemas/ContactFormSchema";
 import { createContact } from "../services/contact-us-service";
-import { toast } from "design-system/hooks/use-toast";
-import URLS from "app/utils/urls";
 
 export default function ContactForm() {
   const form = useForm<z.infer<typeof ContactFormSchema>>({
@@ -33,14 +33,14 @@ export default function ContactForm() {
 
   const isSubmitting = form.formState.isSubmitting;
 
-  const onSubmit = async(data: z.infer<typeof ContactFormSchema>) => {
+  const onSubmit = async (data: z.infer<typeof ContactFormSchema>) => {
     try {
-      await createContact(data)
+      await createContact(data);
       toast({
         variant: "success",
         title: trans("Thank you for your message"),
-      })
-      return navigateTo(URLS.home)
+      });
+      return navigateTo(URLS.home);
     } catch (error) {
       console.error(error);
       toast({

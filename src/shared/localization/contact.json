@@ -1,49 +1,49 @@
 {
-  "Get in Touch":{
+  "Get in Touch": {
     "en": "Get in Touch",
     "ar": "اتصل بنا"
   },
-  "Your email address will not be published. Required fields are marked *":{
+  "Your email address will not be published. Required fields are marked *": {
     "en": "Your email address will not be published. Required fields are marked *",
     "ar": "عنوان البريد الالكتروني لن يتم النشر. الحقول المطلوبة مشيدة بالنص *"
   },
-  "name *":{
+  "name *": {
     "en": "name *",
     "ar": "الاسم *"
   },
-  "email *":{
+  "email *": {
     "en": "email *",
     "ar": "البريد الالكتروني *"
   },
-  "Phone Number *":{
+  "Phone Number *": {
     "en": "Phone Number *",
     "ar": "رقم الهاتف *"
   },
-  "message *":{
+  "message *": {
     "en": "message *",
     "ar": "الرسالة *"
   },
-  "Send Message":{
+  "Send Message": {
     "en": "Send Message",
-    "ar":"ارسال الرسالة"
+    "ar": "ارسال الرسالة"
   },
-  "Contact Information":{
+  "Contact Information": {
     "en": "Contact Information",
     "ar": "معلومات التواصل"
   },
-  "Location store":{
+  "Location store": {
     "en": "Location store",
     "ar": "موقع المتجر"
   },
-  "Work time":{
+  "Work time": {
     "en": "Work time",
     "ar": "وقت العمل"
   },
-  "Phone Number":{
+  "Phone Number": {
     "en": "Phone Number",
     "ar": "رقم الهاتف"
   },
-  "Email Address":{
+  "Email Address": {
     "en": "Email Address",
     "ar": "عنوان البريد الالكتروني"
   }
