@@ -1,5 +1,4 @@
 import { atom } from "@mongez/react-atom";
-import { CartType, Wishlist } from "design-system/utils/types";
 
 export type ModalType = "cart" | "wishlist" | "compare";
 

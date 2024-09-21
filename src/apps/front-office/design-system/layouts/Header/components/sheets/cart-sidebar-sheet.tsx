@@ -70,7 +70,7 @@ export default function CartSheetSidebar() {
                   {trans("Subtotal")}:
                 </h1>
                 <p className="text-base text-red font-semibold">
-                  {formatPrice(cart.totals.subtotal)}
+                  {formatPrice(cart.totals.subtotal || 0)}
                 </p>
               </div>
               <Button

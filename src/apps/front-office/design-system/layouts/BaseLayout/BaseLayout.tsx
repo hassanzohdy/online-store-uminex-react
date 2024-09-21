@@ -4,6 +4,7 @@ import Footer from "../Footer";
 import Header from "../Header";
 import LanguageCurrencyConverterHeader from "../Header/LanguageCurrencyConverterHeader";
 import Navbar from "../Header/Navbar";
+import ResponsiveNavbar from "../Header/ResponsiveNavbar";
 import TopBanner from "../Header/TopBanner";
 
 export type BaseLayoutProps = {
@@ -15,7 +16,7 @@ export type BaseLayoutProps = {
  */
 export default function BaseLayout({ children }: BaseLayoutProps) {
   return (
-    <div className="w-full scrollbar-hide">
+    <div className="w-full scrollbar-hide relative">
       <div className="bg-white">
         <TopBanner />
         <div className="w-full max-w-[1480px] mx-auto px-4 hidden lg:block">
@@ -30,9 +31,9 @@ export default function BaseLayout({ children }: BaseLayoutProps) {
           <Navbar />
         </div>
         <Separator />
+        <ResponsiveNavbar />
       </div>
       <main className="w-full mx-auto">{children}</main>
-
       <Footer />
       <Toaster />
     </div>
