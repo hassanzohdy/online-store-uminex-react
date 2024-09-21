@@ -1,29 +1,8 @@
 import { trans } from "@mongez/localization";
-import { useUser } from "design-system/hooks/useUser";
-import { LuLoader2 } from "react-icons/lu";
+import user from "user";
 import AccountDetails from "./AccountDetails";
 
 export default function AccountContainer() {
-  const { data, isLoading, error } = useUser();
-
-  if (isLoading) {
-    return (
-      <div className="h-full w-full flex items-center justify-center">
-        <LuLoader2 className="w-6 h-6 animate-spin" />
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <p className="text-center text-red text-lg font-semibold">
-        Error: {error}
-      </p>
-    );
-  }
-
-  const user = data!;
-
   return (
     <div className="flex items-start flex-col gap-5 px-5">
       <div className="flex items-start gap-4 flex-col">
@@ -38,7 +17,7 @@ export default function AccountContainer() {
         </div>
       </div>
       <h1 className="text-lg font-semibold">{trans("Account Details")}: </h1>
-      <AccountDetails user={user} />
+      <AccountDetails />
     </div>
   );
 }

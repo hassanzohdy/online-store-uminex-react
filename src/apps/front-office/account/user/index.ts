@@ -22,7 +22,21 @@ class User extends BaseUser implements UserInterface {
    * Determine if current user is guest
    */
   public isGuest(): boolean {
-    return this.get("type") === "guest";
+    return this.get("userType") === "guest";
+  }
+
+  /**
+   * Check if user has an access token
+   */
+  public get hasAccessToken(): boolean {
+    return !!this.get("accessToken");
+  }
+
+  /**
+   * Get user name
+   */
+  public get name(): string {
+    return this.get("name");
   }
 }
 

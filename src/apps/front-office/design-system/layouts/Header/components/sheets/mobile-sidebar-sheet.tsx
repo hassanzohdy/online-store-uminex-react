@@ -11,20 +11,16 @@ import {
   SheetContent,
   SheetTrigger,
 } from "design-system/components/ui/sheet";
-import { User } from "design-system/utils/types";
 import { FiUsers } from "react-icons/fi";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoLogOutOutline } from "react-icons/io5";
+import user from "user";
 import CompareModelContainer from "../compare/compare-model-container";
 import CurrencyConverter from "../converters/currency-converter";
 import LanguageConverter from "../converters/language-converter";
 import WishlistSidebarContainer from "../wishlist/wishlist-sidebar-container";
 
-interface MobileSidebarSheetProps {
-  user: User;
-}
-
-export default function MobileSidebarSheet({ user }: MobileSidebarSheetProps) {
+export default function MobileSidebarSheet() {
   const language = current("localeCode");
 
   return (
@@ -51,7 +47,7 @@ export default function MobileSidebarSheet({ user }: MobileSidebarSheetProps) {
             <SearchModel />
           </div>
           <div className="flex items-start flex-col gap-3 w-full py-5">
-            {user.userType == "guest" && (
+            {user.isGuest() && (
               <div className="flex items-center gap-1">
                 <div className="flex items-center gap-2">
                   <FiUsers className="w-4 h-4" />
@@ -63,7 +59,7 @@ export default function MobileSidebarSheet({ user }: MobileSidebarSheetProps) {
                 </Link>
               </div>
             )}
-            {user.userType == "user" && (
+            {!user.isGuest() && (
               <div className="flex items-start gap-4 flex-col">
                 <Link
                   href={"#"}
@@ -79,7 +75,7 @@ export default function MobileSidebarSheet({ user }: MobileSidebarSheetProps) {
                       <Link
                         href={URLS.auth.root}
                         className="text-[14px] font-semibold text-primary underline">
-                        {user.name}
+                        {user.get("name")}
                       </Link>
                     ),
                   })}
