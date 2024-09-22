@@ -28,13 +28,13 @@ export default function AccountSidebar() {
       label: trans("Address"),
       path: URLS.auth.addresses,
       icon: <IoLocationOutline className="w-5 h-5" />,
-      data: addresses && addresses.length || 0,
+      data: (addresses && addresses.length) || 0,
     },
     {
       label: trans("Wishlist"),
       path: URLS.wishlist,
       icon: <FaRegHeart className="w-5 h-5" />,
-      data: wishlist && wishlist.totalWishlist || 0,
+      data: (wishlist && wishlist.totalWishlist) || 0,
     },
     {
       label: trans("logout"),
