@@ -1,7 +1,7 @@
 import { trans } from "@mongez/localization";
 import { Link } from "@mongez/react-router";
 import URLS from "app/utils/urls";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { FaAngleDown } from "react-icons/fa";
 import discountSvg from "shared/assets/images/discount.svg";
 import CategoryLists from "./components/category/category-list";
@@ -63,7 +63,9 @@ export default function Navbar() {
                     <Link href={URLS.pages.faq}>{trans("faq")}</Link>
                   </li>
                   <li className="text-slate-500 font-semibold text-sm hover:text-blue hover:ml-3 transition-all">
-                    <Link href={URLS.pages.termsConditions}>{trans("terms")}</Link>
+                    <Link href={URLS.pages.termsConditions}>
+                      {trans("terms")}
+                    </Link>
                   </li>
                   <li className="text-slate-500 font-semibold text-sm hover:text-blue hover:ml-3 transition-all">
                     <Link href={URLS.pages.team}>{trans("team")}</Link>

@@ -76,58 +76,64 @@ export default function DisplayProductData({
             )?.value
           }
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-4 w-full gap-5 my-3">
-          <div className="col-span-1 border-[1px] border-slate-200 rounded-full flex items-center py-2 px-5 justify-between">
-            <FaMinus
-              className="w-4 h-4 mr-1 cursor-pointer text-primary "
-              onClick={handleDecreaseQuantity}
-            />
-            <Input
-              type="number"
-              value={quantity < 10 ? `0${quantity}` : `${quantity}`}
-              className="border-0 focus:ring-0 focus-visible:ring-0 ring-0 ring-offset-0 w-10 h-5 py-0 px-1 
+        {product.inStock && (
+          <>
+            <div className="grid grid-cols-1 md:grid-cols-4 w-full gap-5 my-3">
+              <div className="col-span-1 border-[1px] border-slate-200 rounded-full flex items-center py-2 px-5 justify-between">
+                <FaMinus
+                  className="w-4 h-4 mr-1 cursor-pointer text-primary "
+                  onClick={handleDecreaseQuantity}
+                />
+                <Input
+                  type="number"
+                  value={quantity < 10 ? `0${quantity}` : `${quantity}`}
+                  className="border-0 focus:ring-0 focus-visible:ring-0 ring-0 ring-offset-0 w-10 h-5 py-0 px-1 
                text-primary font-semibold"
-              onChange={handleQuantityChange}
-            />
-            <FaPlus
-              className="w-4 h-4 ml-1 cursor-pointer text-primary "
-              onClick={handleIncreaseQuantity}
-            />
-          </div>
-          <div className="col-span-1 md:col-span-3 w-full">
-            <Button
-              variant={"primary"}
-              className="rounded-full h-12 w-full uppercase"
-              onClick={handleAddToCart}>
-              {trans("Add To Cart")}
-            </Button>
-          </div>
-        </div>
-        <div className="flex items-start flex-col gap-3 w-full">
-          <div
-            className="flex items-center gap-2"
-            onClick={handleCheckboxChange}>
-            <Checkbox checked={isChecked} id="agree" className="h-3 w-3" />
-            <label
-              htmlFor="agree"
-              className="text-darkGray text-sm font-medium">
-              {trans("I agree with")}{" "}
-              <Link
-                className="text-gray underline italic"
-                href={URLS.pages.termsConditions}>
-                {trans("Terms & Conditions")}
-              </Link>
-            </label>
-          </div>
-          <Button
-            variant={"default"}
-            className="w-full rounded-full h-12 text-sm uppercase mb-3"
-            size={"lg"}
-            disabled={!isChecked}
-            onClick={goToCheckout}>
-            {trans("Buy It Now")}
-          </Button>
-        </div>
+                  onChange={handleQuantityChange}
+                />
+                <FaPlus
+                  className="w-4 h-4 ml-1 cursor-pointer text-primary "
+                  onClick={handleIncreaseQuantity}
+                />
+              </div>
+              <div className="col-span-1 md:col-span-3 w-full">
+                <Button
+                  variant={"primary"}
+                  className="rounded-full h-12 w-full uppercase"
+                  onClick={handleAddToCart}>
+                  {trans("Add To Cart")}
+                </Button>
+              </div>
+            </div>
+
+            <div className="flex items-start flex-col gap-3 w-full">
+              <div
+                className="flex items-center gap-2"
+                onClick={handleCheckboxChange}>
+                <Checkbox checked={isChecked} id="agree" className="h-3 w-3" />
+                <label
+                  htmlFor="agree"
+                  className="text-darkGray text-sm font-medium">
+                  {trans("I agree with")}{" "}
+                  <Link
+                    className="text-gray underline italic"
+                    href={URLS.pages.termsConditions}>
+                    {trans("Terms & Conditions")}
+                  </Link>
+                </label>
+              </div>
+              <Button
+                variant={"default"}
+                className="w-full rounded-full h-12 text-sm uppercase mb-3"
+                size={"lg"}
+                disabled={!isChecked}
+                onClick={goToCheckout}>
+                {trans("Buy It Now")}
+              </Button>
+            </div>
+          </>
+        )}
+
         <div className="flex items-center justify-between w-full text-primary flex-wrap gap-4">
           <div className="flex items-center gap-4">
             <div

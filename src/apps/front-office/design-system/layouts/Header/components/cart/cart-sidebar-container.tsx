@@ -1,6 +1,5 @@
 import { IoCartOutline } from "react-icons/io5";
 
-import { cartAtom } from "design-system/atoms/cart-atom";
 import { Button } from "design-system/components/ui/button";
 import { useCart } from "design-system/hooks/useCart";
 import CartSidebar from "./cart-sidebar";
@@ -23,7 +22,6 @@ export default function CartSidebarContainer() {
   }
 
   if (data) {
-    cartAtom.update(data);
     return (
       <div className="flex items-center">
         <CartSidebar />

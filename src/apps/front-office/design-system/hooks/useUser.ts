@@ -17,7 +17,7 @@ export const useUser = () => {
     data: user.all() as User | null,
   });
 
-  const fetchCategory = async () => {
+  const fetchUser = async () => {
     try {
       const { data } = await getMe();
       setState({
@@ -39,7 +39,7 @@ export const useUser = () => {
   useOnce(() => {
     if (user.isLoggedIn()) return;
 
-    fetchCategory();
+    fetchUser();
   });
 
   return state;

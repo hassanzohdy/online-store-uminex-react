@@ -51,7 +51,7 @@ export default function CartSheetSidebar() {
         </SheetHeader>
         {items && items.length > 0 ? (
           <div className="w-full">
-            <div className="h-[600px] overflow-y-auto w-full flex flex-col items-start gap-4 p-5 scrollbar">
+            <div className="h-[700px] overflow-y-auto w-full flex flex-col items-start gap-4 p-5 scrollbar">
               {items.map(cartItem => (
                 <div
                   key={cartItem.id}

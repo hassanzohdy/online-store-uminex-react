@@ -1,10 +1,10 @@
 import { trans } from "@mongez/localization";
-import { compareAtom } from "design-system/atoms/compare-atom";
+import { FiLayers } from "react-icons/fi";
+
 import { modalAtom } from "design-system/atoms/model-atom";
 import { Button } from "design-system/components/ui/button";
 import { useCompare } from "design-system/hooks/useCompare";
 import { formatNumber } from "design-system/lib/formats";
-import { FiLayers } from "react-icons/fi";
 
 export default function CompareModelContainer() {
   const { data, isLoading, error } = useCompare();
@@ -33,8 +33,6 @@ export default function CompareModelContainer() {
   }
 
   if (data) {
-    compareAtom.update(data);
-
     return (
       <div className="flex items-center gap-1" onClick={openSheet}>
         <div className="flex items-center gap-2">

@@ -1,7 +1,6 @@
 import { trans } from "@mongez/localization";
 import { FaRegHeart } from "react-icons/fa";
 
-import { wishlistAtom } from "design-system/atoms/wishlist-atom";
 import { Button } from "design-system/components/ui/button";
 import { useWishlist } from "design-system/hooks/useWishlist";
 import { formatNumber } from "design-system/lib/formats";
@@ -47,7 +46,6 @@ export default function WishlistSidebarContainer({
   }
 
   if (data) {
-    wishlistAtom.update(data);
     return <WishlistSidebar navbar={navbar} />;
   }
 }
