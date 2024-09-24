@@ -5,13 +5,9 @@ import {
   TableCell,
   TableRow,
 } from "design-system/components/ui/table";
-import { User } from "design-system/utils/types";
+import user from "user";
 
-interface AccountDetailsProps {
-  user: User;
-}
-
-export default function AccountDetails({ user }: AccountDetailsProps) {
+export default function AccountDetails() {
   return (
     <Table className="border-[.5px] border-slate-300">
       <TableBody>
@@ -20,7 +16,7 @@ export default function AccountDetails({ user }: AccountDetailsProps) {
             {trans("firstName")}
           </TableCell>
           <TableCell className="table-cell py-3 text-slate-600">
-            {user.firstName}
+            {user.name}
           </TableCell>
         </TableRow>
         <TableRow>
@@ -28,7 +24,7 @@ export default function AccountDetails({ user }: AccountDetailsProps) {
             {trans("LastName")}
           </TableCell>
           <TableCell className="table-cell py-3 text-slate-600">
-            {user.lastName}
+            {user.name}
           </TableCell>
         </TableRow>
         <TableRow>
@@ -36,7 +32,7 @@ export default function AccountDetails({ user }: AccountDetailsProps) {
             {trans("email")}
           </TableCell>
           <TableCell className="table-cell py-3 text-slate-600">
-            {user.email}
+            {user.get("email")}
           </TableCell>
         </TableRow>
         <TableRow>
@@ -44,7 +40,7 @@ export default function AccountDetails({ user }: AccountDetailsProps) {
             {trans("phoneNumber")}
           </TableCell>
           <TableCell className="table-cell py-3 text-slate-600">
-            {user.phoneNumber}
+            {user.get("phoneNumber")}
           </TableCell>
         </TableRow>
         <TableRow>
@@ -52,15 +48,7 @@ export default function AccountDetails({ user }: AccountDetailsProps) {
             {trans("Gender")}
           </TableCell>
           <TableCell className="table-cell py-3 text-slate-600">
-            {user.gender}
-          </TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell className="table-cell text-sm font-normal text-slate-900 min-w-[200px] md:w-[300px]">
-            {trans("status")}
-          </TableCell>
-          <TableCell className="table-cell py-3 text-slate-600">
-            {user.isActive ? "Active" : "Inactive"}
+            {user.get("gender")}
           </TableCell>
         </TableRow>
         <TableRow>
@@ -68,7 +56,7 @@ export default function AccountDetails({ user }: AccountDetailsProps) {
             {trans("Total Cart Products")}
           </TableCell>
           <TableCell className="table-cell py-3 text-slate-600">
-            {user.totalCart}
+            {user.get("totalCart")}
           </TableCell>
         </TableRow>
         <TableRow>
@@ -76,7 +64,7 @@ export default function AccountDetails({ user }: AccountDetailsProps) {
             {trans("Total Wishlist Products")}
           </TableCell>
           <TableCell className="table-cell py-3 text-slate-600">
-            {user.totalWishlist}
+            {user.get("totalWishlist")}
           </TableCell>
         </TableRow>
       </TableBody>

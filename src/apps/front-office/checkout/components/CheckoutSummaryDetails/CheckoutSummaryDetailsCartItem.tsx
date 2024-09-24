@@ -1,5 +1,4 @@
-import { trans } from "@mongez/localization";
-import { current } from "@mongez/react";
+import { translateText } from "app/products/utils/translate-text";
 import { currencyAtom } from "design-system/atoms/currency-atom";
 import { formatPrice } from "design-system/lib/formats";
 import { CartItemType } from "design-system/utils/types";
@@ -11,7 +10,6 @@ interface CheckoutSummaryDetailsCartItemProps {
 export default function CheckoutSummaryDetailsCartItem({
   item,
 }: CheckoutSummaryDetailsCartItemProps) {
-  const currentLanguage = current("localeCode");
   const currentCurrency = currencyAtom.useValue();
 
   return (
@@ -20,11 +18,7 @@ export default function CheckoutSummaryDetailsCartItem({
         <div className="w-22 h-16 relative">
           <img
             src={item.product.images[0].url}
-            alt={trans(
-              item.product.name.find(
-                name => name.localeCode === currentLanguage,
-              )?.value || "",
-            )}
+            alt={translateText(item.product.name)}
             className="w-full h-full"
           />
           <div
@@ -34,13 +28,7 @@ export default function CheckoutSummaryDetailsCartItem({
           </div>
         </div>
         <div className="flex flex-col gap-2 items-start">
-          <h1 className="line-clamp-1">
-            {trans(
-              item.product.name.find(
-                name => name.localeCode === currentLanguage,
-              )?.value || "",
-            )}
-          </h1>
+          <h1 className="line-clamp-1">{translateText(item.product.name)}</h1>
         </div>
       </div>
       <h1>{formatPrice(item.total.finalPrice, currentCurrency)}</h1>

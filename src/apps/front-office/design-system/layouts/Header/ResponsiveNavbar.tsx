@@ -10,7 +10,7 @@ import { modalAtom } from "design-system/atoms/model-atom";
 export default function ResponsiveNavbar() {
   return (
     <div className="fixed bottom-0 lg:hidden w-full bg-white shadow-md z-50">
-      <div className="flex items-center justify-between px-0 md:px-4 py-5 relative">
+      <div className="flex items-center justify-between py-5 relative">
         <div className="flex items-center justify-evenly gap-2 md:gap-5 w-full">
           <Link href={URLS.home}>
             <BiHomeAlt2 className="w-6 h-6 sm:w-7 sm:h-7" />

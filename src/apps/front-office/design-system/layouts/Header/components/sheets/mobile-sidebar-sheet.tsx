@@ -1,6 +1,11 @@
 import { trans } from "@mongez/localization";
 import { current } from "@mongez/react";
 import { Link } from "@mongez/react-router";
+import { FiUsers } from "react-icons/fi";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { IoLogOutOutline } from "react-icons/io5";
+
+import { isLTR } from "app/utils/helpers";
 import URLS from "app/utils/urls";
 import SearchModel from "design-system/components/models/search-model";
 import { Button } from "design-system/components/ui/button";
@@ -11,21 +16,13 @@ import {
   SheetContent,
   SheetTrigger,
 } from "design-system/components/ui/sheet";
-import { User } from "design-system/utils/types";
-import { FiUsers } from "react-icons/fi";
-import { GiHamburgerMenu } from "react-icons/gi";
-import { IoLogOutOutline } from "react-icons/io5";
+import user from "user";
 import CompareModelContainer from "../compare/compare-model-container";
 import CurrencyConverter from "../converters/currency-converter";
 import LanguageConverter from "../converters/language-converter";
-import WishlistSidebarContainer from "../wishlist/wishlist-sidebar-container";
+import WishlistSidebar from "../wishlist/wishlist-sidebar";
 
-interface MobileSidebarSheetProps {
-  user: User;
-}
-
-export default function MobileSidebarSheet({ user }: MobileSidebarSheetProps) {
-  const language = current("localeCode");
+export default function MobileSidebarSheet() {
 
   return (
     <Sheet>
@@ -39,7 +36,7 @@ export default function MobileSidebarSheet({ user }: MobileSidebarSheetProps) {
 
       <SheetContent
         className="w-full lg:max-w-sm"
-        side={language === "ar" ? "right" : "left"}>
+        side={isLTR() ? "left" : "right"}>
         <DialogHeader>
           <DialogTitle></DialogTitle>
         </DialogHeader>
@@ -51,7 +48,7 @@ export default function MobileSidebarSheet({ user }: MobileSidebarSheetProps) {
             <SearchModel />
           </div>
           <div className="flex items-start flex-col gap-3 w-full py-5">
-            {user.userType == "guest" && (
+            {user.isGuest() && (
               <div className="flex items-center gap-1">
                 <div className="flex items-center gap-2">
                   <FiUsers className="w-4 h-4" />
@@ -63,7 +60,7 @@ export default function MobileSidebarSheet({ user }: MobileSidebarSheetProps) {
                 </Link>
               </div>
             )}
-            {user.userType == "user" && (
+            {!user.isGuest() && (
               <div className="flex items-start gap-4 flex-col">
                 <Link
                   href={"#"}
@@ -79,7 +76,7 @@ export default function MobileSidebarSheet({ user }: MobileSidebarSheetProps) {
                       <Link
                         href={URLS.auth.root}
                         className="text-[14px] font-semibold text-primary underline">
-                        {user.name}
+                        {user.get("name")}
                       </Link>
                     ),
                   })}
@@ -111,7 +108,7 @@ export default function MobileSidebarSheet({ user }: MobileSidebarSheetProps) {
               </Link>
             </div>
             <Separator className="my-1" />
-            <WishlistSidebarContainer navbar={true} />
+            <WishlistSidebar navbar={true} />
             <Separator className="my-1" />
             <CompareModelContainer />
             <Separator className="my-1" />

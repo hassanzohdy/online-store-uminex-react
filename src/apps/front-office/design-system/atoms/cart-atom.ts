@@ -31,12 +31,13 @@ export const cartAtom = atom<CartType>({
           item => item.product.id === product.id,
         );
 
-        await addItem(product.id, quantity || 1);
+        addItem(product.id, quantity || 1);
 
         if (existingItem) {
           existingItem.quantity += quantity || 1;
           existingItem.total.finalPrice =
-            existingItem.quantity * existingItem.salePrice;
+            existingItem.quantity *
+            (existingItem.salePrice || existingItem.total.price);
           existingItem.total.price = existingItem.quantity * product.price;
           existingItem.total.discount =
             existingItem.quantity * product.discount;

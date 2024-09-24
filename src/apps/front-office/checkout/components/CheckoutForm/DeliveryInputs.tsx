@@ -80,29 +80,13 @@ export default function DeliveryInputs({ form }: DeliveryInputsProps) {
       <div className="flex items-center gap-3 w-full flex-wrap lg:flex-nowrap">
         <FormField
           control={form.control}
-          name="firstName"
+          name="name"
           render={({ field }) => (
             <FormItem className="w-full h-14 md:h-16 text-base focus:ring-lightAqua focus-visible:ring-lightAqua ring-lightAqua ring-offset-0 inset-0">
               <FormControl>
                 <Input
                   className="w-full h-14 md:h-16 text-base focus:ring-lightAqua focus-visible:ring-lightAqua ring-lightAqua ring-offset-0 inset-0"
-                  placeholder={trans("firstName")}
-                  {...field}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="lastName"
-          render={({ field }) => (
-            <FormItem className="w-full h-14 md:h-16 text-base focus:ring-lightAqua focus-visible:ring-lightAqua ring-lightAqua ring-offset-0 inset-0">
-              <FormControl>
-                <Input
-                  className="w-full h-14 md:h-16 text-base focus:ring-lightAqua focus-visible:ring-lightAqua ring-lightAqua ring-offset-0 inset-0"
-                  placeholder={trans("lastName")}
+                  placeholder={trans("Name")}
                   {...field}
                 />
               </FormControl>

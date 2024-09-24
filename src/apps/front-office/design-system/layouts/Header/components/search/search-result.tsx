@@ -1,13 +1,14 @@
 import { trans } from "@mongez/localization";
 import { navigateTo } from "@mongez/react-router";
-import { isLTR } from "app/utils/helpers";
+import { FiX } from "react-icons/fi";
+
+import { translateText } from "app/products/utils/translate-text";
 import URLS from "app/utils/urls";
 import { Button } from "design-system/components/ui/button";
 import { ScrollArea } from "design-system/components/ui/scroll-area";
 import { useDebouncedSearch } from "design-system/hooks/useDebouncedSearch";
 import { formatPrice } from "design-system/lib/formats";
 import { Product } from "design-system/utils/types";
-import { FiX } from "react-icons/fi";
 import SkeletonSearchCard from "../SkeletonLoading/skeleton-search-card";
 
 type SearchResultProps = {
@@ -54,18 +55,13 @@ export default function SearchResult({
                 <div className="w-12 h-12 md:min-w-16 md:h-16 cursor-pointer">
                   <img
                     src={product.images ? product.images[0].url : ""}
-                    alt={trans(
-                      product.name.find(n => n.localeCode === "en")?.value ||
-                        product.name[0].value,
-                    )}
+                    alt={translateText(product.name)}
                     className="w-full h-full truncate"
                   />
                 </div>
                 <div className="flex items-start flex-col gap-1">
                   <h1 className="text-[14px] md:text-[15px] font-semibold hover:text-blue cursor-pointer">
-                    {isLTR()
-                      ? product.name.find(n => n.localeCode === "en")?.value
-                      : product.name.find(n => n.localeCode === "ar")?.value}
+                    {translateText(product.name)}
                   </h1>
                   <div className="flex items-center gap-1 text-xs md:text-sm">
                     {!product.salePrice ||

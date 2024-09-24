@@ -1,5 +1,6 @@
 import { trans } from "@mongez/localization";
 import { navigateTo } from "@mongez/react-router";
+import { translateText } from "app/products/utils/translate-text";
 import URLS from "app/utils/urls";
 import { cartAtom } from "design-system/atoms/cart-atom";
 import { compareAtom } from "design-system/atoms/compare-atom";
@@ -9,7 +10,7 @@ import { toast } from "design-system/hooks/use-toast";
 import { Product } from "design-system/utils/types";
 import { useEffect, useState } from "react";
 
-export const useProductActions = (product: Product, currentLocale: string) => {
+export const useProductActions = (product: Product) => {
   const [estimatedDelivery, setEstimatedDelivery] = useState("");
 
   const [isChecked, setIsChecked] = useState(false);
@@ -36,7 +37,7 @@ export const useProductActions = (product: Product, currentLocale: string) => {
     toast({
       variant: "success",
       title: trans("Added To Cart"),
-      description: `${product.name.find(name => name.localeCode === currentLocale)?.value} has Been Added Successfully`,
+      description: `${translateText(product.name)} has Been Added Successfully`,
     });
   };
 
@@ -46,7 +47,7 @@ export const useProductActions = (product: Product, currentLocale: string) => {
     toast({
       variant: "success",
       title: trans("Added To Compare"),
-      description: `${product.name.find(name => name.localeCode === currentLocale)?.value} has Been Added Successfully`,
+      description: `${translateText(product.name)} has Been Added Successfully`,
     });
   };
 
@@ -56,7 +57,27 @@ export const useProductActions = (product: Product, currentLocale: string) => {
     toast({
       variant: "success",
       title: trans("Added To Wishlist"),
-      description: `${product.name.find(name => name.localeCode === currentLocale)?.value} has Been Added Successfully`,
+      description: `${translateText(product.name)} has Been Added Successfully`,
+    });
+  };
+
+  const removeFromWishlist = async () => {
+    await wishlistAtom.deleteItem(product.id);
+    modalAtom.onOpen("wishlist");
+    toast({
+      variant: "destructive",
+      title: trans("Removed From Wishlist"),
+      description: `${translateText(product.name)} has Been removed Successfully`,
+    });
+  };
+
+  const removeFromCompare = () => {
+    compareAtom.deleteItem(product.id);
+    modalAtom.onOpen("compare");
+    toast({
+      variant: "destructive",
+      title: trans("Removed From Compare"),
+      description: `${translateText(product.name)} has Been removed Successfully`,
     });
   };
 
@@ -95,7 +116,9 @@ export const useProductActions = (product: Product, currentLocale: string) => {
     handleAddToCart,
     addToCompare,
     addToWishlist,
+    removeFromWishlist,
     handleCheckboxChange,
+    removeFromCompare,
     goToCheckout,
     isChecked,
     quantity,

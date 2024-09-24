@@ -1,9 +1,10 @@
 import { trans } from "@mongez/localization";
+import { FaRegHeart } from "react-icons/fa";
+
 import { modalAtom } from "design-system/atoms/model-atom";
 import { wishlistAtom } from "design-system/atoms/wishlist-atom";
 import { Button } from "design-system/components/ui/button";
 import { formatNumber } from "design-system/lib/formats";
-import { FaRegHeart } from "react-icons/fa";
 
 interface WishlistSidebarProps {
   navbar?: boolean;

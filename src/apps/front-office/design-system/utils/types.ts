@@ -53,7 +53,7 @@ export type LocalizedText = {
 };
 
 //product
-type Image = {
+export type Image = {
   name: string;
   hash: string;
   mimeType: string;
@@ -107,6 +107,7 @@ export type Product = {
   rating?: number;
   reviews?: number;
   description?: LocalizedText[];
+  relatedProducts?: Product[];
 };
 
 type Breadcrumb = {

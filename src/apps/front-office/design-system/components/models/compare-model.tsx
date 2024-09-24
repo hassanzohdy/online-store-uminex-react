@@ -1,7 +1,7 @@
 import { trans } from "@mongez/localization";
-import { current } from "@mongez/react";
 import { useState } from "react";
 
+import { translateText } from "app/products/utils/translate-text";
 import { modalAtom } from "design-system/atoms/model-atom";
 import {
   Dialog,
@@ -25,8 +25,6 @@ export default function CompareModel() {
   const data = modalAtom.useValue();
   const [_, setTicks] = useState(0);
   const compareProducts = compareAtom.useValue();
-
-  const currentLanguage = current("localeCode");
 
   const updateState = () => {
     setTicks(prevTicks => prevTicks + 1);
@@ -83,9 +81,7 @@ export default function CompareModel() {
                     className="table-cell
                      text-center py-8 text-gray ">
                     {product.shortDescription.length > 0
-                      ? product.shortDescription.find(
-                          n => n.localeCode === currentLanguage,
-                        )?.value
+                      ? translateText(product.shortDescription)
                       : "no Description"}
                   </TableCell>
                 ))}
@@ -101,11 +97,7 @@ export default function CompareModel() {
                     key={product.id}
                     className="table-cell
                      text-center py-8 text-gray">
-                    {
-                      product.category.name.find(
-                        n => n.localeCode === currentLanguage,
-                      )?.value
-                    }
+                    {translateText(product.category.name)}
                   </TableCell>
                 ))}
               </TableRow>

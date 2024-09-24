@@ -1,5 +1,5 @@
 import { trans } from "@mongez/localization";
-import { current } from "@mongez/react";
+import { translateText } from "app/products/utils/translate-text";
 
 import { Preview } from "design-system/components/Preview";
 import {
@@ -15,8 +15,6 @@ interface ProductDetailsProps {
 }
 
 export default function ProductInformation({ product }: ProductDetailsProps) {
-  const currentLocale = current("localeCode");
-
   return (
     <div className="my-5 w-full max-w-[1400px] mx-auto py-5 px-4 bg-white">
       <Tabs
@@ -43,12 +41,7 @@ export default function ProductInformation({ product }: ProductDetailsProps) {
           <TabsContent
             value="description"
             className="w-full text-gray font-medium text-base">
-            <Preview
-              value={
-                product.description?.find(p => p.localeCode === currentLocale)
-                  ?.value || ""
-              }
-            />
+            <Preview value={translateText(product.description) || ""} />
           </TabsContent>
         ) : (
           <TabsContent

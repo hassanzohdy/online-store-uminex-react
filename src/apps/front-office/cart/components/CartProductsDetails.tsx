@@ -39,6 +39,7 @@ export default function CartProductsDetails({
             {trans("emptyCart")}
           </p>
           <Button
+            asChild
             variant={"primary"}
             size={"lg"}
             className="rounded-full h-12 w-60">

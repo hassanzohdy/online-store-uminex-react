@@ -8,8 +8,7 @@ export type CheckoutFormType = UseFormReturn<{
   cvv: string;
   address: string;
   email: string;
-  firstName: string;
-  lastName: string;
+  name: string;
   phone: string;
   country: string;
   state: string;

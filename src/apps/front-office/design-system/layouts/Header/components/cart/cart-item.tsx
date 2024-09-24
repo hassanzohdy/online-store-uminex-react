@@ -1,8 +1,7 @@
-import { trans } from "@mongez/localization";
-import { current } from "@mongez/react";
 import { FaMinus } from "react-icons/fa6";
 import { FiTrash2 } from "react-icons/fi";
 
+import { translateText } from "app/products/utils/translate-text";
 import { Button } from "design-system/components/ui/button";
 import { Input } from "design-system/components/ui/input";
 import { useCartQuantity } from "design-system/hooks/useCartQuantity";
@@ -16,7 +15,6 @@ interface CartItemProps {
 }
 
 export default function CartItem({ cartItem, changeQuantity }: CartItemProps) {
-  const currentLanguage = current("localeCode");
   const { quantity, isLoading, increaseQuantity, decreaseQuantity } =
     useCartQuantity(cartItem.id, cartItem.quantity, changeQuantity);
 
@@ -37,11 +35,7 @@ export default function CartItem({ cartItem, changeQuantity }: CartItemProps) {
         </div>
         <div className="flex items-start flex-col gap-3">
           <h1 className="text-primary text-sm font-semibold line-clamp-2">
-            {trans(
-              cartItem.product.name.find(
-                name => name.localeCode === currentLanguage,
-              )?.value || "",
-            )}
+            {translateText(cartItem.product.name)}
           </h1>
           <h2 className="text-blue text-sm font-semibold">
             {formatPrice(cartItem.total.finalPrice)}

@@ -1,4 +1,7 @@
-import { current } from "@mongez/react";
+import { FaMinus } from "react-icons/fa6";
+import { LuTrash2 } from "react-icons/lu";
+
+import { translateText } from "app/products/utils/translate-text";
 import { Button } from "design-system/components/ui/button";
 import { Input } from "design-system/components/ui/input";
 import { TableCell } from "design-system/components/ui/table";
@@ -6,8 +9,6 @@ import { useCartQuantity } from "design-system/hooks/useCartQuantity";
 import { useDeleteCartItem } from "design-system/hooks/useDeleteCartItem";
 import { formatNumber, formatPrice } from "design-system/lib/formats";
 import { CartItemType } from "design-system/utils/types";
-import { FaMinus } from "react-icons/fa6";
-import { LuTrash2 } from "react-icons/lu";
 
 interface CartProductsDetailsCardProps {
   item: CartItemType;
@@ -18,29 +19,23 @@ export default function CartProductsDetailsCard({
   item,
   changeQuantity,
 }: CartProductsDetailsCardProps) {
-  const currentLanguage = current("localeCode");
-
   const { quantity, isLoading, increaseQuantity, decreaseQuantity } =
     useCartQuantity(item.id, item.quantity, changeQuantity);
 
   const { isDeleting, deleteItem } = useDeleteCartItem(item.id, changeQuantity);
+
   return (
     <>
       <TableCell className="flex items-center gap-5">
         <img
           src={item.product.images[0].url}
-          alt={
-            item.product.name.find(n => n.localeCode === currentLanguage)?.value
-          }
+          alt={translateText(item.product.name)}
           className="w-[100px] h-[100px] object-cover"
           loading="lazy"
         />
         <div className="flex flex-col items-start gap-1 max-w-[60%]">
           <h1 className="text-sm text-primary font-semibold">
-            {
-              item.product.name.find(n => n.localeCode === currentLanguage)
-                ?.value
-            }
+            {translateText(item.product.name)}
           </h1>
           {item.product.price && item.product.salePrice ? (
             <div className="flex gap-2 items-center">

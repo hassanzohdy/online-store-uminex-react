@@ -1,5 +1,6 @@
 import { trans } from "@mongez/localization";
 import { Link } from "@mongez/react-router";
+import { translateText } from "app/products/utils/translate-text";
 import { isLTR } from "app/utils/helpers";
 import { Button } from "design-system/components/ui/button";
 import {
@@ -87,9 +88,7 @@ export default function CategoryLists() {
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}>
           {data.map((category, index: number) => {
-            const categoryName = isLTR()
-              ? category.name.find(n => n.localeCode === "en")?.value
-              : category.name.find(n => n.localeCode === "ar")?.value;
+            const categoryName = translateText(category.name);
 
             return (
               <Link

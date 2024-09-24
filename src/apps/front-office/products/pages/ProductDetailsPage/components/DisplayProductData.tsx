@@ -1,19 +1,18 @@
 import { trans } from "@mongez/localization";
-import { current } from "@mongez/react";
 import { Button } from "design-system/components/ui/button";
-import { Input } from "design-system/components/ui/input";
 import { Separator } from "design-system/components/ui/separator";
 import { formatPrice } from "design-system/lib/formats";
 import { Product } from "design-system/utils/types";
 import { FaRecycle, FaRegHeart } from "react-icons/fa";
-import { FaMinus, FaPlus } from "react-icons/fa6";
 import { FiLayers } from "react-icons/fi";
 import { LuShip } from "react-icons/lu";
 
 import { Link } from "@mongez/react-router";
 import { useProductActions } from "app/products/hooks/useProductActions";
+import { translateText } from "app/products/utils/translate-text";
 import URLS from "app/utils/urls";
 import { Checkbox } from "design-system/components/ui/checkbox";
+import HandleProductQuantity from "./HandleProductQuantity";
 import Rating from "./Rating";
 import ShareModel from "./ShareModel";
 
@@ -24,27 +23,21 @@ interface DisplayProductDataProps {
 export default function DisplayProductData({
   product,
 }: DisplayProductDataProps) {
-  const currentLocale = current("localeCode");
   const {
     addToCompare,
     addToWishlist,
     goToCheckout,
-    handleAddToCart,
     handleCheckboxChange,
-    handleDecreaseQuantity,
-    handleIncreaseQuantity,
-    handleQuantityChange,
     isChecked,
-    quantity,
     estimatedDelivery,
-  } = useProductActions(product, currentLocale);
+  } = useProductActions(product);
 
   const link = `${window.location.origin}${URLS.products.view(product.id)}`;
 
   return (
     <div className="flex flex-col items-start gap-5">
       <h1 className="text-primary text-lg lg:text-[24px] font-medium">
-        {product.name.find(name => name.localeCode === currentLocale)?.value}
+        {translateText(product.name)}
       </h1>
       <Rating rating={product.rating || 0} reviews={product.reviews || 0} />
       <Separator />
@@ -70,70 +63,35 @@ export default function DisplayProductData({
           </p>
         )}
         <p className="text-gray text-base">
-          {
-            product.shortDescription.find(
-              name => name.localeCode === currentLocale,
-            )?.value
-          }
+          {translateText(product.shortDescription)}
         </p>
-        {product.inStock && (
-          <>
-            <div className="grid grid-cols-1 md:grid-cols-4 w-full gap-5 my-3">
-              <div className="col-span-1 border-[1px] border-slate-200 rounded-full flex items-center py-2 px-5 justify-between">
-                <FaMinus
-                  className="w-4 h-4 mr-1 cursor-pointer text-primary "
-                  onClick={handleDecreaseQuantity}
-                />
-                <Input
-                  type="number"
-                  value={quantity < 10 ? `0${quantity}` : `${quantity}`}
-                  className="border-0 focus:ring-0 focus-visible:ring-0 ring-0 ring-offset-0 w-10 h-5 py-0 px-1 
-               text-primary font-semibold"
-                  onChange={handleQuantityChange}
-                />
-                <FaPlus
-                  className="w-4 h-4 ml-1 cursor-pointer text-primary "
-                  onClick={handleIncreaseQuantity}
-                />
-              </div>
-              <div className="col-span-1 md:col-span-3 w-full">
-                <Button
-                  variant={"primary"}
-                  className="rounded-full h-12 w-full uppercase"
-                  onClick={handleAddToCart}>
-                  {trans("Add To Cart")}
-                </Button>
-              </div>
-            </div>
 
-            <div className="flex items-start flex-col gap-3 w-full">
-              <div
-                className="flex items-center gap-2"
-                onClick={handleCheckboxChange}>
-                <Checkbox checked={isChecked} id="agree" className="h-3 w-3" />
-                <label
-                  htmlFor="agree"
-                  className="text-darkGray text-sm font-medium">
-                  {trans("I agree with")}{" "}
-                  <Link
-                    className="text-gray underline italic"
-                    href={URLS.pages.termsConditions}>
-                    {trans("Terms & Conditions")}
-                  </Link>
-                </label>
-              </div>
-              <Button
-                variant={"default"}
-                className="w-full rounded-full h-12 text-sm uppercase mb-3"
-                size={"lg"}
-                disabled={!isChecked}
-                onClick={goToCheckout}>
-                {trans("Buy It Now")}
-              </Button>
-            </div>
-          </>
-        )}
-
+        <HandleProductQuantity product={product} />
+        <div className="flex items-start flex-col gap-3 w-full">
+          <div
+            className="flex items-center gap-2"
+            onClick={handleCheckboxChange}>
+            <Checkbox checked={isChecked} id="agree" className="h-3 w-3" />
+            <label
+              htmlFor="agree"
+              className="text-darkGray text-sm font-medium">
+              {trans("I agree with")}{" "}
+              <Link
+                className="text-gray underline italic"
+                href={URLS.pages.termsConditions}>
+                {trans("Terms & Conditions")}
+              </Link>
+            </label>
+          </div>
+          <Button
+            variant={"default"}
+            className="w-full rounded-full h-12 text-sm uppercase mb-3"
+            size={"lg"}
+            disabled={!isChecked}
+            onClick={goToCheckout}>
+            {trans("Buy It Now")}
+          </Button>
+        </div>
         <div className="flex items-center justify-between w-full text-primary flex-wrap gap-4">
           <div className="flex items-center gap-4">
             <div
@@ -178,21 +136,13 @@ export default function DisplayProductData({
           <Link
             href={`${URLS.products.root}?category=${product.category.id}`}
             className="text-primary hover:text-blue">
-            {
-              product.category.name.find(n => n.localeCode === currentLocale)
-                ?.value
-            }
+            {translateText(product.category.name)}
           </Link>
         </div>
         {product.brand && (
           <div className="flex items-center justify-between w-full text-sm text-gray font-medium">
             <h1>{trans("Brand")}:</h1>
-            <p className="text-gray">
-              {
-                product.brand.name.find(n => n.localeCode === currentLocale)
-                  ?.value
-              }
-            </p>
+            <p className="text-gray">{translateText(product.brand.name)}</p>
           </div>
         )}
         {product.type && (

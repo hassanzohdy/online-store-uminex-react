@@ -1,5 +1,12 @@
+import { useEffect, useState } from "react";
+import { MdOutlineZoomOutMap } from "react-icons/md";
+import InnerImageZoom from "react-inner-image-zoom";
+
+import { modalAtom } from "design-system/atoms/model-atom";
+import { Button } from "design-system/components/ui/button";
 import { cn } from "design-system/lib/utils";
 import { Product } from "design-system/utils/types";
+import "react-inner-image-zoom/lib/InnerImageZoom/styles.css";
 
 interface ProductImagesProps {
   cartProduct: {
@@ -8,10 +15,34 @@ interface ProductImagesProps {
   };
   setCurrentImage: (imageUrl: string) => void;
 }
+
 export default function ProductImages({
   cartProduct,
   setCurrentImage,
 }: ProductImagesProps) {
+  const [isHovered, setIsHovered] = useState(false);
+  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setCursorPosition({ x: e.clientX, y: e.clientY });
+    };
+
+    if (isHovered) {
+      window.addEventListener("mousemove", handleMouseMove);
+    } else {
+      window.removeEventListener("mousemove", handleMouseMove);
+    }
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, [isHovered]);
+
+  const handleOpenModel = () => {
+    modalAtom.onOpen("images", cartProduct.product.images);
+  };
+
   return (
     <div className="grid grd-cols-1 md:grid-cols-5 gap-6 ">
       <div className="col-span-1 flex flex-row md:flex-col items-center justify-start gap-2 w-full">
@@ -19,7 +50,7 @@ export default function ProductImages({
           <img
             key={image.id}
             src={image.url}
-            alt=""
+            alt="Product thumbnail"
             className={cn(
               "w-16 h-16 border rounded-md p-1 cursor-pointer",
               cartProduct.selectedImage === image.url
@@ -30,8 +61,33 @@ export default function ProductImages({
           />
         ))}
       </div>
-      <div className="md:col-span-4 max-w-[500px] h-[500px]">
-        <img src={cartProduct.selectedImage} alt="" className="w-full h-full" />
+      <div
+        className="md:col-span-4 max-w-[500px] h-[500px] relative"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}>
+        <InnerImageZoom
+          src={cartProduct.selectedImage}
+          zoomSrc={cartProduct.selectedImage}
+          alt="Selected Product Image"
+          zoomType="hover"
+          className="w-full h-full"
+        />
+        {isHovered && (
+          <div
+            className="cursor-outline"
+            style={{
+              left: `${cursorPosition.x}px`,
+              top: `${cursorPosition.y}px`,
+            }}
+          />
+        )}
+        <Button
+          variant={"ghost"}
+          size={"icon"}
+          className="absolute top-0 right-0 border border-slate-200 rounded-full"
+          onClick={handleOpenModel}>
+          <MdOutlineZoomOutMap className="w-5 h-5" />
+        </Button>
       </div>
     </div>
   );

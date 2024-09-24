@@ -3,7 +3,7 @@ import { debounce } from "@mongez/reinforcements";
 import { useState } from "react";
 import { LuX } from "react-icons/lu";
 
-import { isLTR } from "app/utils/helpers";
+import { translateText } from "app/products/utils/translate-text";
 import {
   Accordion,
   AccordionContent,
@@ -81,7 +81,7 @@ export default function FiltersSection({
               size={"sm"}
               onClick={removeAllFilters}>
               <LuX className="w-3 h-3 mr-1" />
-              {trans("Remove Filter")}
+              {trans("Remove Filters")}
             </Button>
           )}
           <AccordionItem value="categories" className=" w-full">
@@ -108,9 +108,7 @@ export default function FiltersSection({
                       checked={category.id === filters.category}
                     />
                     <p className="text-sm md:text-xs 2xl:text-sm font-medium text-primary cursor-pointer">
-                      {isLTR()
-                        ? category.name.find(n => n.localeCode === "en")?.value
-                        : category.name.find(n => n.localeCode === "ar")?.value}
+                      {translateText(category.name)}
                     </p>
                   </li>
                 ))}

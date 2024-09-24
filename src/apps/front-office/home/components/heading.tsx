@@ -1,4 +1,4 @@
-import { isRTL } from "app/utils/helpers";
+import { translateText } from "app/products/utils/translate-text";
 import { LocalizedText } from "design-system/utils/types";
 
 type HeadingProps = {
@@ -8,9 +8,7 @@ type HeadingProps = {
 export default function Heading({ title }: HeadingProps) {
   return (
     <h1 className="font-bold text-sm md:text-md text-primary uppercase">
-      {isRTL()
-        ? title.find(n => n.localeCode === "ar")?.value
-        : title.find(n => n.localeCode === "en")?.value}
+      {translateText(title)}
     </h1>
   );
 }

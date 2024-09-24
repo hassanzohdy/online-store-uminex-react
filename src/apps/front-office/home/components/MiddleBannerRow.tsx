@@ -1,4 +1,4 @@
-import { isLTR } from "app/utils/helpers";
+import { translateText } from "app/products/utils/translate-text";
 
 import { Column } from "design-system/utils/types";
 
@@ -19,11 +19,7 @@ export default function MiddleBannerRow({ column }: MiddleBannerRowProps) {
             className="transform transition-transform duration-300 ease-in-out group-hover:scale-105"
           />
           <h1 className="absolute top-[30%] left-3 text-white text-lg md:text-xl font-medium w-[150px]">
-            {isLTR()
-              ? column.module.banner?.title.find(t => t.localeCode === "en")
-                  ?.value
-              : column.module.banner?.title.find(t => t.localeCode === "ar")
-                  ?.value}
+            {translateText(column.module.banner?.title || "")}
           </h1>
         </div>
       ))}

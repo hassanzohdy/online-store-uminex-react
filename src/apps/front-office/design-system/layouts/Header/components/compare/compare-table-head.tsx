@@ -1,9 +1,10 @@
-import { current } from "@mongez/react";
+import { FiTrash2 } from "react-icons/fi";
+
+import { translateText } from "app/products/utils/translate-text";
 import { compareAtom } from "design-system/atoms/compare-atom";
 import { Button } from "design-system/components/ui/button";
 import { formatPrice } from "design-system/lib/formats";
 import { Product } from "design-system/utils/types";
-import { FiTrash2 } from "react-icons/fi";
 
 interface CompareTableHeadProps {
   compareItem: Product;
@@ -14,8 +15,6 @@ export default function CompareTableHead({
   compareItem,
   updateState,
 }: CompareTableHeadProps) {
-  const currentLanguage = current("localeCode");
-
   const handleDeleteCompareItem = async () => {
     await compareAtom.deleteItem(compareItem.id);
     updateState();
@@ -27,14 +26,12 @@ export default function CompareTableHead({
         <img
           src={compareItem.images[0].url}
           className="max-h-[230px] min-w-[200px] mx-auto"
-          alt={
-            compareItem.name.find(n => n.localeCode === currentLanguage)?.value
-          }
+          alt={translateText(compareItem.name)}
         />
       </div>
       <div className="mt-2 mx-auto">
         <h1 className="text-black text-base text-center line-clamp-2">
-          {compareItem.name.find(n => n.localeCode === currentLanguage)?.value}
+          {translateText(compareItem.name)}
         </h1>
         <h1 className="text-center">
           {compareItem.salePrice ? (

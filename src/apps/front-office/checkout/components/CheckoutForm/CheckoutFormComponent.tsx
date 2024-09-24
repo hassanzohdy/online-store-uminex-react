@@ -16,32 +16,30 @@ import {
 import { Button } from "design-system/components/ui/button";
 import { Form } from "design-system/components/ui/form";
 import { cn } from "design-system/lib/utils";
-import { Address, User } from "design-system/utils/types";
+import { Address } from "design-system/utils/types";
 import { checkoutFormSchema } from "shared/schemas/CheckoutFormSchema";
+import user from "user";
 import CardDetailsInputs from "./CardDetailsInputs";
 import DeliveryInputs from "./DeliveryInputs";
 import ShippingMethod from "./ShippingMethod";
 
 interface CheckoutFormComponentProps {
-  user: User;
   address?: Address;
 }
 
 export default function CheckoutFormComponent({
-  user,
   address,
 }: CheckoutFormComponentProps) {
   const form = useForm<z.infer<typeof checkoutFormSchema>>({
     resolver: zodResolver(checkoutFormSchema),
     defaultValues: {
-      firstName: user.firstName || "",
-      lastName: user.lastName || "",
-      email: user.email || "",
+      name: user.get("name"),
+      email: user.get("email") || "",
       country: "",
       city: "",
       state: "",
       zipCode: "",
-      phone: user.phoneNumber || "",
+      phone: user.get("phoneNumber") || "",
       address: "",
       apartment: "",
       shippingMethod: "economy",
@@ -71,7 +69,7 @@ export default function CheckoutFormComponent({
         isLTR() ? "md:ml-auto" : "md:mr-auto",
       )}>
       <div className="flex flex-col gap-8 w-full py-5">
-        {user.userType === "user" && (
+        {!user.isGuest() && (
           <div className="flex items-center justify-between w-full">
             <Accordion
               type="single"
@@ -87,7 +85,7 @@ export default function CheckoutFormComponent({
                     <h1 className="text-md text-slate-600 block">
                       {trans("account")}
                     </h1>
-                    <h1 className="block">{user.email}</h1>
+                    <h1 className="block">{user.get("email")}</h1>
                   </div>
                 </AccordionTrigger>
                 <AccordionContent>

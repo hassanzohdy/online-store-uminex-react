@@ -7,12 +7,9 @@ import { FiCheck } from "react-icons/fi";
 import { IoGitCompare } from "react-icons/io5";
 import { LuLoader2 } from "react-icons/lu";
 
-import { isLTR } from "app/utils/helpers";
+import { useProductActions } from "app/products/hooks/useProductActions";
+import { translateText } from "app/products/utils/translate-text";
 import URLS from "app/utils/urls";
-import { cartAtom } from "design-system/atoms/cart-atom";
-import { compareAtom } from "design-system/atoms/compare-atom";
-import { modalAtom } from "design-system/atoms/model-atom";
-import { wishlistAtom } from "design-system/atoms/wishlist-atom";
 import { formatPrice } from "design-system/lib/formats";
 import { cn } from "design-system/lib/utils";
 import { Product } from "design-system/utils/types";
@@ -28,6 +25,13 @@ export default function ProductCard({ product, oneRow, grid }: TProduct) {
   const [isLoading, setIsLoading] = useState(false);
   const [isInWishlist, setIsInWishlist] = useState(product.inWishlist);
   const [isInCompare, setIsInCompare] = useState(product.inCompare);
+  const {
+    addToCompare,
+    addToWishlist,
+    handleAddToCart,
+    removeFromWishlist,
+    removeFromCompare,
+  } = useProductActions(product);
 
   let discount = 0;
   if (product.price && product.salePrice) {
@@ -39,30 +43,45 @@ export default function ProductCard({ product, oneRow, grid }: TProduct) {
   const addItemToCart = async () => {
     if (product.inStock) {
       setIsLoading(true);
-      await cartAtom.addToCart(product);
-      modalAtom.onOpen("cart");
+      handleAddToCart();
     } else {
       return;
     }
     setIsLoading(false);
   };
 
-  const addToWishlist = async () => {
+  const handleAddToWishlist = async () => {
     if (!isInWishlist) {
       setIsLoading(true);
-      await wishlistAtom.addToWishlist(product);
-      modalAtom.onOpen("wishlist");
+      addToWishlist();
       setIsInWishlist(true);
     }
     setIsLoading(false);
   };
 
-  const addToCompare = async () => {
+  const handleAddToCompare = async () => {
     if (!isInCompare) {
       setIsLoading(true);
-      await compareAtom.addToCompare(product);
-      modalAtom.onOpen("compare");
+      addToCompare();
       setIsInCompare(true);
+    }
+    setIsLoading(false);
+  };
+
+  const handleRemoveFromWishlist = () => {
+    if (isInWishlist) {
+      setIsLoading(true);
+      removeFromWishlist();
+      setIsInWishlist(false);
+    }
+    setIsLoading(false);
+  };
+
+  const handleRemoveFromCompare = () => {
+    if (isInCompare) {
+      setIsLoading(true);
+      removeFromCompare();
+      setIsInCompare(false);
     }
     setIsLoading(false);
   };
@@ -89,7 +108,10 @@ export default function ProductCard({ product, oneRow, grid }: TProduct) {
           )}>
           {isInWishlist ? (
             <>
-              <FiCheck className="size-4 group-hover/wishlist:text-white transition-all duration-300" />
+              <FiCheck
+                className="size-4 group-hover/wishlist:text-white transition-all duration-300"
+                onClick={handleRemoveFromWishlist}
+              />
               <p className="inline-block pointer-events-none absolute bg-primary text-white right-11 text-xs px-2 py-1 rounded-sm w-max opacity-0 group-hover/wishlist:opacity-100 translate-x-2 group-hover/wishlist:translate-x-0 transition-all duration-500 after:content-[''] after:-right-2 after:top-1/2 after:-translate-y-1/2 after:size-2 after:bg-primary after:absolute after:clip-triangle after:rotate-90">
                 {trans("Added to Wishlist")}
               </p>
@@ -98,7 +120,7 @@ export default function ProductCard({ product, oneRow, grid }: TProduct) {
             <>
               <HeartIcon
                 className="size-4 group-hover/wishlist:text-white transition-all duration-300"
-                onClick={addToWishlist}
+                onClick={handleAddToWishlist}
               />
               <p className="inline-block pointer-events-none absolute bg-primary text-white right-11 text-xs px-2 py-1 rounded-sm w-max opacity-0 group-hover/wishlist:opacity-100 translate-x-2 group-hover/wishlist:translate-x-0 transition-all duration-500 after:content-[''] after:-right-2 after:top-1/2 after:-translate-y-1/2 after:size-2 after:bg-primary after:absolute after:clip-triangle after:rotate-90">
                 {trans("Add to Wishlist")}
@@ -121,7 +143,10 @@ export default function ProductCard({ product, oneRow, grid }: TProduct) {
           )}>
           {isInCompare ? (
             <>
-              <FiCheck className="size-4 group-hover/compare:text-white transition-all duration-300" />
+              <FiCheck
+                className="size-4 group-hover/compare:text-white transition-all duration-300"
+                onClick={handleRemoveFromCompare}
+              />
               <p className="inline-block pointer-events-none absolute bg-primary text-white right-11 text-xs px-2 py-1 rounded-sm w-max opacity-0 group-hover/compare:opacity-100 translate-x-2 group-hover/wishlist:translate-x-0 transition-all duration-500 after:content-[''] after:-right-2 after:top-1/2 after:-translate-y-1/2 after:size-2 after:bg-primary after:absolute after:clip-triangle after:rotate-90">
                 {trans("Added to Compare")}
               </p>
@@ -130,7 +155,7 @@ export default function ProductCard({ product, oneRow, grid }: TProduct) {
             <>
               <IoGitCompare
                 className="size-4 group-hover/compare:text-white transition-all duration-300"
-                onClick={addToCompare}
+                onClick={handleAddToCompare}
               />
               <p className="inline-block  pointer-events-none  absolute bg-primary text-white right-11 text-xs px-2 py-1 rounded-sm w-max opacity-0 group-hover/compare:opacity-100 translate-x-2 group-hover/compare:translate-x-0 transition-all duration-500 after:content-[''] after:-right-2 after:top-1/2 after:-translate-y-1/2 after:size-2 after:bg-primary after:absolute after:clip-triangle after:rotate-90">
                 {trans("Add to Compare")}
@@ -157,9 +182,7 @@ export default function ProductCard({ product, oneRow, grid }: TProduct) {
         <Link
           to={URLS.products.view(product.id)}
           className="line-clamp-2 h-10 mt-2 leading-5 font-semibold text-sm hover:text-blue  transition-colors duration-200">
-          {isLTR()
-            ? product.name.find(n => n.localeCode === "en")?.value
-            : product.name.find(n => n.localeCode === "ar")?.value}
+          {translateText(product.name)}
         </Link>
         {product.price && product.salePrice ? (
           <div className="flex gap-2 items-end">

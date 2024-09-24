@@ -3,7 +3,6 @@ export function calculateCartTotals(
   itemId?: number,
   newQuantity?: number,
 ) {
-  // Update item quantity and totals if itemId and newQuantity are provided
   if (itemId !== undefined && newQuantity !== undefined) {
     const item = cart.items.find(item => item.id === itemId);
     if (item) {

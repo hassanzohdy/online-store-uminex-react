@@ -34,9 +34,24 @@ html {
 html {
   scrollbar-width: thin;
   scrollbar-color: #2b38d1 #e0e0e0;
+  cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAABCAIAAAANZmMAAAAHElEQVRIDbXBAQEAAAABIP6P6z21CkL4tMDIwF8J9pCgw1QFCgMYAABgAAXn8k8EAAAAAElFTkSuQmCC"),
+    auto; /* This creates a custom cursor */
 }
 
 .scrollbar {
   scrollbar-width: thin;
   scrollbar-color: #2b38d1 #e0e0e0;
+}
+
+.cursor-outline {
+  width: 250px;
+  height: 250px;
+  background-color: #ffffff07;
+  border: 2px solid #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  pointer-events: none;
 }

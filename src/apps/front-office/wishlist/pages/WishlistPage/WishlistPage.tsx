@@ -1,5 +1,6 @@
 import React from "react";
 
+import { trans } from "@mongez/localization";
 import Breadcrumbs from "design-system/components/Breadcrumbs";
 import { Skeleton } from "design-system/components/ui/skeleton";
 import { useWishlist } from "design-system/hooks/useWishlist";
@@ -28,16 +29,22 @@ function _WishlistPage() {
     return <div>Error: {error.message}</div>;
   }
 
-  if (wishlist) {
-    return (
-      <div className="bg-lightGray w-full h-full">
-        <div className="w-full max-w-[1440px] mx-auto py-6 px-4 flex flex-col items-start gap-5">
-          <Breadcrumbs title="wishlist" />
+  return (
+    <div className="bg-lightGray w-full h-full">
+      <div className="w-full max-w-[1440px] mx-auto py-6 px-4 flex flex-col items-start gap-5">
+        <Breadcrumbs title="wishlist" />
+        {wishlist && wishlist?.products?.length > 0 ? (
           <WishlistProductsContainer products={wishlist?.products} />
-        </div>
+        ) : (
+          <div className="flex w-full gap-4 items-center justify-center">
+            <h1 className="text-md italic text-center text-gray">
+              {trans("emptyWishlist")}
+            </h1>
+          </div>
+        )}
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 const WishlistPage = React.memo(_WishlistPage);

@@ -17,6 +17,12 @@ export const wishlistAtom = atom<Wishlist>({
 
     addToWishlist: async (product: Product) => {
       const wishlist = wishlistAtom.value;
+      const isProductExists = wishlist.products.some(
+        item => item.id === product.id,
+      );
+      if (isProductExists) {
+        return;
+      }
       wishlist.totalWishlist += 1;
       await addItem(product.id);
       wishlist.products.push(product);

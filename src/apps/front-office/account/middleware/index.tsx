@@ -1,13 +1,12 @@
 import { navigateTo } from "@mongez/react-router";
 import user from "app/account/user";
 import URLS from "app/utils/urls";
-import { resetPasswordAtom } from "../atoms";
 
 /**
  * Use this middleware if the page requires the user to be logged in
  */
 export function Guardian() {
-  if (!user.isLoggedIn() || user.isGuest()) {
+  if (!user.hasAccessToken || user.isGuest()) {
     return navigateTo(URLS.auth.login);
   }
 }
@@ -16,21 +15,7 @@ export function Guardian() {
  * Use this middleware if you want to redirect the user to the home page if he/she is logged in
  */
 export function ReverseGuardian() {
-  // const {userData} = user
-  // console.log(userData.userType)
-  // console.log(user.isGuest())
-  if (user.isLoggedIn() && !user.isGuest()) {
+  if (user.hasAccessToken && !user.isGuest()) {
     return navigateTo(URLS.home);
-  }
-}
-
-/**
- * Use this middleware if the forget password and reset password are in two different routes
- * This should check if the user has the OTP code in the reset password atom
- * If not then he/she should be redirected to the forget password page
- */
-export function hasOTP() {
-  if (!resetPasswordAtom.get("code")) {
-    return navigateTo(URLS.auth.forgetPassword);
   }
 }

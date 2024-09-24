@@ -1,25 +1,27 @@
-import { navigateBack } from "@mongez/react-router";
-
 import { addressesAtom } from "app/account/atoms/address-atom";
-import { useUser } from "design-system/hooks/useUser";
+import { useEffect, useState } from "react";
 import CheckoutFormComponent from "./CheckoutFormComponent";
 import CheckoutFormLoadingComponent from "./CheckoutFormLoadingComponent";
 
 export default function CheckoutFormContainer() {
-  const { data: user, isLoading, error } = useUser();
+  const [isLoading, setIsLoading] = useState(true);
   const addresses = addressesAtom.value;
 
   const defaultAddress = addresses?.find(address => address.isPrimary);
+
+  useEffect(() => {
+    const fetchData = () => {
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 2000);
+    };
+
+    fetchData();
+  }, []);
 
   if (isLoading) {
     return <CheckoutFormLoadingComponent />;
   }
 
-  if (error) {
-    return navigateBack();
-  }
-
-  if (user) {
-    return <CheckoutFormComponent user={user} address={defaultAddress} />;
-  }
+  return <CheckoutFormComponent address={defaultAddress} />;
 }

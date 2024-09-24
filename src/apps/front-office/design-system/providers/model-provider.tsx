@@ -1,4 +1,5 @@
 import CompareModel from "design-system/components/models/compare-model";
+import ImagesModel from "design-system/components/models/images-model";
 import CartSheetSidebar from "design-system/layouts/Header/components/sheets/cart-sidebar-sheet";
 import WishListSheetSidebar from "design-system/layouts/Header/components/sheets/wishlist-sidebar-sheet";
 import { useEffect, useState } from "react";
@@ -18,6 +19,7 @@ const ModalProvider = () => {
       <CartSheetSidebar />
       <WishListSheetSidebar />
       <CompareModel />
+      <ImagesModel />
     </>
   );
 };

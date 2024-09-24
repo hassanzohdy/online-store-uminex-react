@@ -3,7 +3,7 @@ import Is from "@mongez/supportive-is";
 
 export const LingualMode: "array" | "object" = "array";
 
-export function getLocalizedValue(
+export function translateText(
   value: any,
   localeCode: string = current("localeCode"),
   localeCodeKey = "localeCode",

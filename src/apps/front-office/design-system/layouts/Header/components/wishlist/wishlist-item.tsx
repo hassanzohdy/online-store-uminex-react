@@ -1,7 +1,6 @@
-import { trans } from "@mongez/localization";
-import { current } from "@mongez/react";
 import { FiX } from "react-icons/fi";
 
+import { translateText } from "app/products/utils/translate-text";
 import { currencyAtom } from "design-system/atoms/currency-atom";
 import { Button } from "design-system/components/ui/button";
 import { useDeleteWishlistItem } from "design-system/hooks/useDeleteWishlistItem";
@@ -17,7 +16,6 @@ export default function WishlistItem({
   wishlistItem,
   changeStatus,
 }: WishlistItemProps) {
-  const currentLanguage = current("localeCode");
   const currentCurrency = currencyAtom.useValue();
 
   const { deleteItem, isDeleting } = useDeleteWishlistItem(
@@ -37,11 +35,7 @@ export default function WishlistItem({
         </div>
         <div className="flex items-start flex-col gap-1">
           <h1 className="text-black text-sm font-semibold line-clamp-3">
-            {trans(
-              wishlistItem.name.find(
-                name => name.localeCode === currentLanguage,
-              )?.value || "",
-            )}
+            {translateText(wishlistItem.name)}
           </h1>
           <h2 className="text-blue text-sm font-semibold">
             {formatPrice(wishlistItem.price, currentCurrency)}

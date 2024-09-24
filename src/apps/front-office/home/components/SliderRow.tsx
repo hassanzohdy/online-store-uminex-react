@@ -2,9 +2,8 @@ import Autoplay from "embla-carousel-autoplay";
 import React from "react";
 
 import { trans } from "@mongez/localization";
-import { current } from "@mongez/react";
 import { Link } from "@mongez/react-router";
-import { isLTR } from "app/utils/helpers";
+import { translateText } from "app/products/utils/translate-text";
 import URLS from "app/utils/urls";
 import { Button } from "design-system/components/ui/button";
 import {
@@ -21,7 +20,6 @@ interface SliderRowProps {
 }
 
 export default function SliderRow({ column }: SliderRowProps) {
-  const currentLang = current("localeCode");
   const plugin = React.useRef(
     Autoplay({ delay: 2000, stopOnInteraction: true }),
   );
@@ -58,8 +56,7 @@ export default function SliderRow({ column }: SliderRowProps) {
                 />
                 <div className="absolute top-32 left-5 md:left-10 xl:left-28 flex flex-col items-start gap-5 text-white w-[300px] lg:w-[360px]">
                   <h1 className="text-2xl lg:text-4xl font-bold">
-                    {banner.title.find(n => n.localeCode === currentLang)
-                      ?.value || banner.title[0].value}
+                    {translateText(banner.title)}
                   </h1>
                   <Button
                     variant={"outline"}
@@ -85,13 +82,7 @@ export default function SliderRow({ column }: SliderRowProps) {
           />
           <div className="absolute top-5 left-5 md:top-10 md:left-10 flex flex-col items-start gap-5 text-white w-[190px]">
             <h1 className="text-xl md:text-2xl font-medium">
-              {isLTR()
-                ? column[1].module.banner?.title.find(
-                    n => n.localeCode === "en",
-                  )?.value
-                : column[1].module.banner?.title.find(
-                    n => n.localeCode === "ar",
-                  )?.value}
+              {translateText(column[1].module.banner?.title || "")}
             </h1>
           </div>
         </div>
@@ -103,13 +94,7 @@ export default function SliderRow({ column }: SliderRowProps) {
           />
           <div className="absolute top-5 left-5 md:top-10 md:left-10 flex flex-col items-start gap-5 text-white w-[190px]">
             <h1 className="text-xl md:text-2xl font-medium">
-              {isLTR()
-                ? column[2].module.banner?.title.find(
-                    n => n.localeCode === "en",
-                  )?.value
-                : column[2].module.banner?.title.find(
-                    n => n.localeCode === "ar",
-                  )?.value}
+              {translateText(column[2].module.banner?.title || "")}
             </h1>
           </div>
         </div>
