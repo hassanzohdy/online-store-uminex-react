@@ -22,6 +22,7 @@ export default function CollectionCard({ image, title }: CollectionCardProps) {
           className="hover:scale-110 transition-transform duration-1000 ease-linear w-full h-full"
           src={image}
           alt=""
+          loading="lazy"
         />
       </Link>
 

@@ -54,6 +54,7 @@ export default function SearchResult({
                 onClick={() => viewProduct(product.id)}>
                 <div className="w-12 h-12 md:min-w-16 md:h-16 cursor-pointer">
                   <img
+                    loading="lazy"
                     src={product.images ? product.images[0].url : ""}
                     alt={translateText(product.name)}
                     className="w-full h-full truncate"

@@ -1,5 +1,7 @@
 import { setCurrentLocaleCode } from "@mongez/localization";
 import { current } from "@mongez/react";
+import { FaAngleDown } from "react-icons/fa";
+
 import { Button } from "design-system/components/ui/button";
 import {
   DropdownMenu,
@@ -8,7 +10,6 @@ import {
   DropdownMenuTrigger,
 } from "design-system/components/ui/dropdown-menu";
 import { cn } from "design-system/lib/utils";
-import { FaAngleDown } from "react-icons/fa";
 
 const languageFlagMap = {
   en: "//demo-uminex.myshopify.com/cdn/shop/t/4/assets/flag_en.png?v=14076981825125011091681116945",
@@ -54,6 +55,7 @@ export default function LanguageConverter() {
           variant={"ghost"}
           className="hover:bg-transparent flex items-center gap-2 px-0 focus:ring-0 focus-visible:ring-0">
           <img
+            loading="lazy"
             className="h-3 w-4"
             src={languageFlagMap[language]}
             alt="Language Flag"
@@ -77,6 +79,7 @@ export default function LanguageConverter() {
             )}
             onClick={() => changeLanguage(locale.localeCode)}>
             <img
+              loading="lazy"
               className="h-4 w-5 mx-2"
               src={languageFlagMap[locale.localeCode]}
               alt="Language Flag"

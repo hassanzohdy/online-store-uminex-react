@@ -16,7 +16,7 @@ export const useProduct = (params: string) => {
   });
 
   useEffect(() => {
-    if (!params) return;
+    if (params === "q=&") return;
 
     const fetchProducts = async () => {
       try {

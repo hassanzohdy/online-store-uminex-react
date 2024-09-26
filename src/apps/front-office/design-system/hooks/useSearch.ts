@@ -1,3 +1,5 @@
+import { navigateTo, queryString } from "@mongez/react-router";
+import URLS from "app/utils/urls";
 import { ChangeEvent, useRef, useState } from "react";
 
 type UseSearchResult = {
@@ -10,6 +12,11 @@ type UseSearchResult = {
     selectedCategoryId: number | null,
   ) => void;
   OnClose: () => void;
+  handleKeyDown: (
+    e: React.KeyboardEvent<HTMLInputElement>,
+    handleClose?: () => void,
+  ) => void;
+  handleSearch: () => void;
 };
 
 export const useSearch = (): UseSearchResult => {
@@ -17,6 +24,7 @@ export const useSearch = (): UseSearchResult => {
   const [category, setCategory] = useState("");
   const [categoryId, setCategoryId] = useState<number | null>(null);
   const searchValueMap = useRef<Map<number | null, string>>(new Map());
+  const params = queryString.toQueryString({ q: value, category: categoryId });
 
   const storeInputValue = (e: ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value;
@@ -48,6 +56,26 @@ export const useSearch = (): UseSearchResult => {
     setCategoryId(selectedCategoryId || null);
   };
 
+  const handleSearch = () => {
+    if (value.trim() === "" && !categoryId) return;
+    OnClose();
+    navigateTo(URLS.searchRoute.search("product", params));
+  };
+
+  const handleKeyDown = (
+    e: React.KeyboardEvent<HTMLInputElement>,
+    handleClose?: () => void,
+  ) => {
+    if (value.trim() === "" && !categoryId) return;
+    if (e.key === "Enter") {
+      OnClose();
+      handleSearch();
+      if (handleClose) {
+        handleClose();
+      }
+    }
+  };
+
   const OnClose = () => {
     setValue("");
     setCategory("");
@@ -61,5 +89,7 @@ export const useSearch = (): UseSearchResult => {
     storeInputValue,
     selectCategory,
     OnClose,
+    handleKeyDown,
+    handleSearch,
   };
 };

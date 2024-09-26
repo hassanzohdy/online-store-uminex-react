@@ -44,10 +44,11 @@ export default function ProductImages({
   };
 
   return (
-    <div className="grid grd-cols-1 md:grid-cols-5 gap-6 ">
+    <div className="grid grd-cols-1 md:grid-cols-5 gap-10 relative">
       <div className="col-span-1 flex flex-row md:flex-col items-center justify-start gap-2 w-full">
         {cartProduct.product.images.map(image => (
           <img
+            loading="lazy"
             key={image.id}
             src={image.url}
             alt="Product thumbnail"
@@ -62,7 +63,7 @@ export default function ProductImages({
         ))}
       </div>
       <div
-        className="md:col-span-4 max-w-[500px] h-[500px] relative"
+        className="md:col-span-4 max-w-[500px] h-[500px] "
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}>
         <InnerImageZoom

@@ -31,6 +31,7 @@ export default function WishlistItem({
             src={wishlistItem.images[0].url}
             alt={wishlistItem.slug}
             className="w-full h-full"
+            loading="lazy"
           />
         </div>
         <div className="flex items-start flex-col gap-1">

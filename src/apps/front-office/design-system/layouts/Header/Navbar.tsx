@@ -1,6 +1,8 @@
 import { trans } from "@mongez/localization";
 import { Link } from "@mongez/react-router";
+import { isLTR } from "app/utils/helpers";
 import URLS from "app/utils/urls";
+import { cn } from "design-system/lib/utils";
 import { useEffect, useState } from "react";
 import { FaAngleDown } from "react-icons/fa";
 import discountSvg from "shared/assets/images/discount.svg";
@@ -56,18 +58,34 @@ export default function Navbar() {
                   onMouseEnter={() => setIsOpen(true)}
                   onMouseLeave={() => setIsOpen(false)}
                   className="absolute left-0 top-5 bg-white rounded-md p-4 shadow-md w-[200px] flex flex-col items-start gap-3 z-50">
-                  <li className="text-slate-500 font-semibold text-sm hover:text-blue hover:ml-3 transition-all">
+                  <li
+                    className={cn(
+                      "text-slate-500 font-semibold text-sm hover:text-blue transition-all",
+                      isLTR() ? " hover:ml-3" : " hover:mr-3",
+                    )}>
                     <Link href={URLS.pages.aboutUs}>{trans("about")}</Link>
                   </li>
-                  <li className="text-slate-500 font-semibold text-sm hover:text-blue hover:ml-3 transition-all">
+                  <li
+                    className={cn(
+                      "text-slate-500 font-semibold text-sm hover:text-blue transition-all",
+                      isLTR() ? " hover:ml-3" : " hover:mr-3",
+                    )}>
                     <Link href={URLS.pages.faq}>{trans("faq")}</Link>
                   </li>
-                  <li className="text-slate-500 font-semibold text-sm hover:text-blue hover:ml-3 transition-all">
+                  <li
+                    className={cn(
+                      "text-slate-500 font-semibold text-sm hover:text-blue transition-all",
+                      isLTR() ? " hover:ml-3" : " hover:mr-3",
+                    )}>
                     <Link href={URLS.pages.termsConditions}>
                       {trans("terms")}
                     </Link>
                   </li>
-                  <li className="text-slate-500 font-semibold text-sm hover:text-blue hover:ml-3 transition-all">
+                  <li
+                    className={cn(
+                      "text-slate-500 font-semibold text-sm hover:text-blue transition-all",
+                      isLTR() ? " hover:ml-3" : " hover:mr-3",
+                    )}>
                     <Link href={URLS.pages.team}>{trans("team")}</Link>
                   </li>
                 </ul>
@@ -85,7 +103,7 @@ export default function Navbar() {
           </ul>
         </div>
         <div className="hidden xl:flex items-center gap-2 min-w-[250px] ">
-          <img src={discountSvg} alt="discount" />
+          <img src={discountSvg} alt="discount" loading="lazy" />
           <span className="text-sm text-black font-semibold hover:text-blue transition">
             {trans("sale")}
           </span>

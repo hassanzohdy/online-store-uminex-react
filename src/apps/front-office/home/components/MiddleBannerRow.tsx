@@ -14,6 +14,7 @@ export default function MiddleBannerRow({ column }: MiddleBannerRowProps) {
           className="relative group overflow-hidden rounded-md"
           key={column.id}>
           <img
+            loading="lazy"
             src={column.module.banner?.image[0].value.url}
             alt=""
             className="transform transition-transform duration-300 ease-in-out group-hover:scale-105"

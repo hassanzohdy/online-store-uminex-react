@@ -19,6 +19,7 @@ export default function NotFoundPage() {
 
       <div className="flex flex-col justify-center items-center bg-white min-h-80 px-2 pt-8 mx-auto">
         <img
+          loading="lazy"
           src={pageNotFoundImage}
           alt="PAGE NOT FOUND"
           className="w-[500px] my-10"

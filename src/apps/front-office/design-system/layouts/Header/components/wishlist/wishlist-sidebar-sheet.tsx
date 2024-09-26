@@ -15,7 +15,7 @@ import {
   SheetTitle,
 } from "design-system/components/ui/sheet";
 import EmptyWishList from "shared/assets/images/empty-wishlist.svg";
-import WishlistItem from "../wishlist/wishlist-item";
+import WishlistItem from "./wishlist-item";
 
 export default function WishListSheetSidebar() {
   const [status, setStatus] = useState(false);
@@ -69,7 +69,7 @@ export default function WishListSheetSidebar() {
           </>
         ) : (
           <div className="flex items-center justify-center flex-col gap-5 py-5">
-            <img src={EmptyWishList} alt="empty cart" />
+            <img src={EmptyWishList} alt="empty cart" loading="lazy" />
             <p className="text-sm font-semibold text-black ">
               {trans("emptyWishlist")}
             </p>

@@ -16,7 +16,7 @@ import {
 import { formatPrice } from "design-system/lib/formats";
 import { useState } from "react";
 import EmptyCartIcon from "shared/assets/images/empty-cart.svg";
-import CartItem from "../cart/cart-item";
+import CartItem from "./cart-item";
 
 export default function CartSheetSidebar() {
   const [_, setTick] = useState(0);
@@ -67,7 +67,7 @@ export default function CartSheetSidebar() {
             <div className="absolute bottom-0 p-5 w-full bg-lightGray flex flex-col items-start gap-4">
               <div className="flex items-center justify-between w-full">
                 <h1 className="text-xs font-semibold text-black">
-                  {trans("Subtotal")}:
+                  {trans("subtotal")}:
                 </h1>
                 <p className="text-base text-red font-semibold">
                   {formatPrice(cart.totals.subtotal || 0)}
@@ -91,7 +91,7 @@ export default function CartSheetSidebar() {
           </div>
         ) : (
           <div className="flex items-center justify-center flex-col gap-5 py-5">
-            <img src={EmptyCartIcon} alt="empty cart" />
+            <img src={EmptyCartIcon} alt="empty cart" loading="lazy" />
             <p className="text-sm font-semibold text-black ">
               {trans("emptyCart")}
             </p>

@@ -1,6 +1,12 @@
 import { atom } from "@mongez/react-atom";
 
-export type ModalType = "cart" | "wishlist" | "compare" | "images";
+export type ModalType =
+  | "cart"
+  | "wishlist"
+  | "compare"
+  | "images"
+  | "mobileSidebar"
+  | "search";
 
 type ModalAtomType = {
   type: ModalType | null;

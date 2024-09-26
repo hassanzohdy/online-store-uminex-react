@@ -1,5 +1,6 @@
-import { addressesAtom } from "app/account/atoms/address-atom";
 import { useEffect, useState } from "react";
+
+import { addressesAtom } from "app/account/atoms/address-atom";
 import CheckoutFormComponent from "./CheckoutFormComponent";
 import CheckoutFormLoadingComponent from "./CheckoutFormLoadingComponent";
 

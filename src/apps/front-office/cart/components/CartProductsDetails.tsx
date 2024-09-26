@@ -34,7 +34,12 @@ export default function CartProductsDetails({
     return (
       <div className="w-full">
         <div className="flex items-center justify-center flex-col gap-5 py-5">
-          <img src={EmptyCartIcon} alt="empty cart" className="w-24 h-24" />
+          <img
+            src={EmptyCartIcon}
+            alt="empty cart"
+            className="w-24 h-24"
+            loading="lazy"
+          />
           <p className="text-sm font-semibold text-primary ">
             {trans("emptyCart")}
           </p>

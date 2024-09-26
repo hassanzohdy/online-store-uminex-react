@@ -20,6 +20,7 @@ export default function CheckoutSummaryDetailsCartItem({
             src={item.product.images[0].url}
             alt={translateText(item.product.name)}
             className="w-full h-full"
+            loading="lazy"
           />
           <div
             className="absolute -top-3 -right-3 w-6 h-6 bg-slate-800 opacity-50 text-white

@@ -36,6 +36,7 @@ export default function DealsRow({ column }: DealsRowProps) {
 
       <div className="flex flex-col md:flex-row items-start gap-y-2 w-full">
         <img
+          loading="lazy"
           src={column[0].module.banner?.image[0].value.url}
           alt=""
           className="w-full md:w-[33%] md:h-[400px] object-cover"

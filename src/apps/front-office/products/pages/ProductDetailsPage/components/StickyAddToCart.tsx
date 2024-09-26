@@ -1,6 +1,6 @@
+import { translateText } from "app/products/utils/translate-text";
 import { formatPrice } from "design-system/lib/formats";
 import { Product } from "design-system/utils/types";
-import { translateText } from "app/products/utils/translate-text";
 import HandleProductQuantity from "./HandleProductQuantity";
 
 interface StickyAddToCartProps {
@@ -13,6 +13,7 @@ export default function StickyAddToCart({ product }: StickyAddToCartProps) {
       <div className="flex justify-between items-center w-full max-w-[1440px] mx-auto">
         <div className="flex items-start gap-3">
           <img
+            loading="lazy"
             src={product.images[0].url}
             alt={""}
             className="w-16 h-16 object-cover border border-slate-300 rounded-md p-1"

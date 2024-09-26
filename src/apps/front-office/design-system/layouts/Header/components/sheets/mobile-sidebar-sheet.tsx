@@ -1,55 +1,60 @@
 import { trans } from "@mongez/localization";
-import { current } from "@mongez/react";
 import { Link } from "@mongez/react-router";
 import { FiUsers } from "react-icons/fi";
-import { GiHamburgerMenu } from "react-icons/gi";
 import { IoLogOutOutline } from "react-icons/io5";
 
 import { isLTR } from "app/utils/helpers";
 import URLS from "app/utils/urls";
-import SearchModel from "design-system/components/models/search-model";
-import { Button } from "design-system/components/ui/button";
+import { modalAtom } from "design-system/atoms/model-atom";
 import { DialogHeader, DialogTitle } from "design-system/components/ui/dialog";
 import { Separator } from "design-system/components/ui/separator";
-import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
-} from "design-system/components/ui/sheet";
+import { Sheet, SheetContent } from "design-system/components/ui/sheet";
 import user from "user";
 import CompareModelContainer from "../compare/compare-model-container";
 import CurrencyConverter from "../converters/currency-converter";
 import LanguageConverter from "../converters/language-converter";
 import WishlistSidebar from "../wishlist/wishlist-sidebar";
+import { Input } from "design-system/components/ui/input";
 
 export default function MobileSidebarSheet() {
+  const data = modalAtom.useValue();
+
+  const isModalOpen = data.isOpen && data.type === "mobileSidebar";
+  if (!isModalOpen) {
+    return null;
+  }
+
+  const handleClose = () => {
+    modalAtom.onClose();
+  };
+
+  const handleOpenModel = () =>{
+    modalAtom.onOpen("search")
+  }
 
   return (
-    <Sheet>
-      <SheetTrigger asChild>
-        <Button
-          variant={"ghost"}
-          className="hover:bg-transparent block lg:hidden">
-          <GiHamburgerMenu className="h-7 w-7 text-black" />
-        </Button>
-      </SheetTrigger>
-
+    <Sheet open={isModalOpen} onOpenChange={handleClose}>
       <SheetContent
         className="w-full lg:max-w-sm"
         side={isLTR() ? "left" : "right"}>
         <DialogHeader>
-          <DialogTitle></DialogTitle>
+          <DialogTitle asChild></DialogTitle>
         </DialogHeader>
         <div className="flex flex-col items-start gap-4 my-5">
           <div className="flex flex-col items-center gap-4 justify-center w-full">
             <h1 className="font-semibold text-primary text-lg text-center">
               {trans("searchModelTitle")}
             </h1>
-            <SearchModel />
+            <div className="relative w-full" onClick={handleOpenModel}>
+              <Input
+                placeholder={trans("searchInputModelPlaceHolder")}
+                className="rounded-full"
+              />
+            </div>
           </div>
           <div className="flex items-start flex-col gap-3 w-full py-5">
             {user.isGuest() && (
-              <div className="flex items-center gap-1">
+              <div className="flex items-center gap-1" onClick={handleClose}>
                 <div className="flex items-center gap-2">
                   <FiUsers className="w-4 h-4" />
                 </div>
@@ -61,7 +66,9 @@ export default function MobileSidebarSheet() {
               </div>
             )}
             {!user.isGuest() && (
-              <div className="flex items-start gap-4 flex-col">
+              <div
+                className="flex items-start gap-4 flex-col"
+                onClick={handleClose}>
                 <Link
                   href={"#"}
                   className="text-[14px] font-semibold text-primary">
@@ -84,7 +91,7 @@ export default function MobileSidebarSheet() {
               </div>
             )}
             <Separator className="my-1" />
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-1" onClick={handleClose}>
               <Link
                 href={URLS.home}
                 className="text-[14px] font-semibold text-primary">
@@ -92,7 +99,7 @@ export default function MobileSidebarSheet() {
               </Link>
             </div>
             <Separator className="my-1" />
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-1" onClick={handleClose}>
               <Link
                 href={URLS.collections}
                 className="text-[14px] font-semibold text-primary">
@@ -100,7 +107,7 @@ export default function MobileSidebarSheet() {
               </Link>
             </div>
             <Separator className="my-1" />
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-1" onClick={handleClose}>
               <Link
                 href={URLS.blog.root}
                 className="text-[14px] font-semibold text-primary">
@@ -112,7 +119,7 @@ export default function MobileSidebarSheet() {
             <Separator className="my-1" />
             <CompareModelContainer />
             <Separator className="my-1" />
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-1" onClick={handleClose}>
               <Link
                 href={URLS.contactUs}
                 className="text-[14px] font-semibold text-primary">

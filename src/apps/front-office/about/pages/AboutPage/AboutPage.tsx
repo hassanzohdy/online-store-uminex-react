@@ -26,6 +26,7 @@ function _AboutPage() {
         </div>
         <div className="overflow-hidden rounded-xl">
           <img
+            loading="lazy"
             src={mainAboutImage}
             alt="About Image"
             className="w-full h-full max-h-[500px] transform transition-transform duration-300 ease-in-out hover:scale-105"
@@ -94,6 +95,7 @@ function _AboutPage() {
           <div className="flex flex-col items-start justify-start gap-3 rounded-xl w-full">
             <div className="overflow-hidden">
               <img
+                loading="lazy"
                 src={about1Image}
                 alt=""
                 className=" w-full h-[550px] transform transition-transform duration-300 ease-in-out hover:scale-105"
@@ -109,6 +111,7 @@ function _AboutPage() {
           <div className="flex flex-col items-start justify-start gap-3 rounded-xl w-full">
             <div className="overflow-hidden">
               <img
+                loading="lazy"
                 src={about2Image}
                 alt=""
                 className=" w-full h-[550px] transform transition-transform duration-300 ease-in-out hover:scale-105"
@@ -124,6 +127,7 @@ function _AboutPage() {
           <div className="flex flex-col items-start justify-start gap-3 rounded-xl w-full">
             <div className="overflow-hidden">
               <img
+                loading="lazy"
                 src={about3Image}
                 alt=""
                 className=" w-full h-[550px] transform transition-transform duration-300 ease-in-out hover:scale-105"
@@ -156,6 +160,7 @@ function _AboutPage() {
           <div className="flex flex-col items-center justify-center gap-3 rounded-full text-center">
             <div className="overflow-hidden rounded-full">
               <img
+                loading="lazy"
                 src={
                   "https://demo-uminex.myshopify.com/cdn/shop/files/img_our_team_360x.png?v=1677665288"
                 }
@@ -172,6 +177,7 @@ function _AboutPage() {
           <div className="flex flex-col items-center justify-center gap-3 rounded-full text-center">
             <div className="overflow-hidden rounded-full">
               <img
+                loading="lazy"
                 src={
                   "https://demo-uminex.myshopify.com/cdn/shop/files/img_our_team_3_360x.png?v=1677665306"
                 }
@@ -188,6 +194,7 @@ function _AboutPage() {
           <div className="flex flex-col items-center justify-center gap-3 rounded-full text-center">
             <div className="overflow-hidden rounded-full">
               <img
+                loading="lazy"
                 src={
                   "https://demo-uminex.myshopify.com/cdn/shop/files/img_our_team_2_360x.png?v=1677665299"
                 }

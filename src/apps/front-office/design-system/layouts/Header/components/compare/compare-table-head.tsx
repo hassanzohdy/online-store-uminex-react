@@ -27,6 +27,7 @@ export default function CompareTableHead({
           src={compareItem.images[0].url}
           className="max-h-[230px] min-w-[200px] mx-auto"
           alt={translateText(compareItem.name)}
+          loading="lazy"
         />
       </div>
       <div className="mt-2 mx-auto">

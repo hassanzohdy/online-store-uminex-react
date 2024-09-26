@@ -31,6 +31,7 @@ export default function CartItem({ cartItem, changeQuantity }: CartItemProps) {
             src={cartItem.product.images[0].url}
             alt={cartItem.product.slug}
             className="w-full h-full"
+            loading="lazy"
           />
         </div>
         <div className="flex items-start flex-col gap-3">

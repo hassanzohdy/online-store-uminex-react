@@ -167,6 +167,7 @@ export default function Footer() {
             {trans("payment")}
           </span>
           <img
+            loading="lazy"
             className="h-auto block mb-3"
             src="https://demo-uminex.myshopify.com/cdn/shop/files/payment.png?v=1676023904&width=2000"
             alt="Payment Methods"

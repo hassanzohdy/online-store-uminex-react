@@ -18,21 +18,11 @@ export default function SearchInput() {
     storeInputValue,
     selectCategory,
     OnClose,
+    handleKeyDown,
+    handleSearch
   } = useSearch();
 
-  const params = queryString.toQueryString({ q: value, category: categoryId });
 
-  const handleSearch = () => {
-    OnClose();
-    navigateTo(URLS.searchRoute.search("product", params));
-  };
-
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") {
-      OnClose();
-      handleSearch();
-    }
-  };
 
   return (
     <div className="flex items-center gap-2 w-full relative">

@@ -50,6 +50,7 @@ export default function SliderRow({ column }: SliderRowProps) {
                   height: banner.image[0].value.height,
                 }}>
                 <img
+                  loading="lazy"
                   src={banner.image[0].value.url}
                   alt=""
                   className="w-full h-full rounded-md"
@@ -76,6 +77,7 @@ export default function SliderRow({ column }: SliderRowProps) {
       <div className="flex flex-col sm:flex-row md:items-center lg:flex-col gap-2 h-full justify-between w-full">
         <div className="relative max-h-[200px] lg:h-full w-full overflow-hidden group">
           <img
+            loading="lazy"
             src={column[1].module.banner?.image[0].value.url}
             alt=""
             className="w-full h-full transform transition-transform duration-300 ease-in-out group-hover:scale-105"
@@ -88,6 +90,7 @@ export default function SliderRow({ column }: SliderRowProps) {
         </div>
         <div className="relative max-h-[200px] lg:h-full w-full overflow-hidden group">
           <img
+            loading="lazy"
             src={column[2].module.banner?.image[0].value.url}
             alt=""
             className="w-full h-full transform transition-transform duration-300 ease-in-out group-hover:scale-105"

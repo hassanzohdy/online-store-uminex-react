@@ -169,6 +169,7 @@ export default function ProductCard({ product, oneRow, grid }: TProduct) {
           className=" w-full h-[170px] lg:h-[200px] md:max-w-48 z-10  aspect-square opacity-100 hover:opacity-0 transition-opacity duration-300 ease-out"
           src={product.images[0].url}
           alt=""
+          loading="lazy"
         />
         <img
           className="absolute w-full h-[170px] lg:h-[200px] md:max-w-48 aspect-square "
@@ -176,6 +177,7 @@ export default function ProductCard({ product, oneRow, grid }: TProduct) {
             product.images[1] ? product.images[1].url : product.images[0].url
           }
           alt=""
+          loading="lazy"
         />
       </div>
       <div className="bg-white z-20 relative translate-y-[50px] group-hover:-translate-y-6 lg:translate-y-6 lg:group-hover:-translate-y-16 transition-all duration-500 py-1 text-left">

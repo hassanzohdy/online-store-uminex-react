@@ -27,22 +27,21 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
         const [entry] = entries;
         setIsStickyVisible(!entry.isIntersecting);
       },
-      { threshold: 0 }
+      { threshold: 0 },
     );
-  
-    const currentRef = displayProductDataRef.current; 
-  
+
+    const currentRef = displayProductDataRef.current;
+
     if (currentRef) {
       observer.observe(currentRef);
     }
-  
+
     return () => {
       if (currentRef) {
-        observer.unobserve(currentRef); 
+        observer.unobserve(currentRef);
       }
     };
   }, []);
-  
 
   return (
     <div className="w-full max-w-[1400px] mx-auto py-5 px-4 bg-white relative">

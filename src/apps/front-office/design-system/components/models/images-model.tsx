@@ -61,21 +61,18 @@ export default function ImagesModel() {
                   src={image.url}
                   alt={image.name}
                   className="object-contain max-w-full max-h-[80vh]"
+                  loading="lazy"
                 />
               </CarouselItem>
             ))}
           </CarouselContent>
-
-          <CarouselPrevious className="w-14 h-14 text-white bg-gray-800 rounded-full flex items-center justify-center left-0 md:left-12">
-            &#9664;
-          </CarouselPrevious>
-          <CarouselNext className="w-14 h-14 text-white bg-gray-800 rounded-full flex items-center justify-center right-0 md:right-2">
-            &#9654;
-          </CarouselNext>
+          <CarouselPrevious className="md:w-14 md:h-14 text-white bg-gray-800 rounded-full flex items-center justify-center left-0 md:left-12"></CarouselPrevious>
+          <CarouselNext className="md:w-14 md:h-14 text-white bg-gray-800 rounded-full flex items-center justify-center right-0 md:right-2"></CarouselNext>
         </Carousel>
         <div className="flex items-center justify-center w-full gap-1">
           {data.data.map((image: Image, index) => (
             <img
+              loading="lazy"
               key={image.id}
               src={image.url}
               alt={image.name}

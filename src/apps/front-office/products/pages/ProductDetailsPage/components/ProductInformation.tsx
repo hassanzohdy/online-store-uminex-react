@@ -1,5 +1,6 @@
 import { trans } from "@mongez/localization";
 import { translateText } from "app/products/utils/translate-text";
+import { isLTR } from "app/utils/helpers";
 
 import { Preview } from "design-system/components/Preview";
 import {
@@ -18,6 +19,7 @@ export default function ProductInformation({ product }: ProductDetailsProps) {
   return (
     <div className="my-5 w-full max-w-[1400px] mx-auto py-5 px-4 bg-white">
       <Tabs
+        dir={isLTR() ? "ltr" : "rtl"}
         defaultValue="description"
         className="w-full md:px-10 overflow-x-auto overflow-y-hidden scrollbar">
         <TabsList className="min-w-full bg-white border-b border-slate-200 gap-10 rounded-none mb-5 overflow-y-hidden overflow-x-auto scrollbar">

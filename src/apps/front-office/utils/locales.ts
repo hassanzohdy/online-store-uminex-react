@@ -9,6 +9,7 @@ import accountTranslation from "shared/localization/account.json";
 import cartTranslation from "shared/localization/cart.json";
 import checkoutTranslation from "shared/localization/checkout.json";
 import contactTranslation from "shared/localization/contact.json";
+import headerTranslation from "shared/localization/header.json";
 import homeTranslation from "shared/localization/home.json";
 import indexTranslation from "shared/localization/index.json";
 import productDetailsTranslation from "shared/localization/product-details.json";
@@ -24,6 +25,7 @@ groupedTranslations(cartTranslation);
 groupedTranslations(productDetailsTranslation);
 groupedTranslations(aboutTranslation);
 groupedTranslations(contactTranslation);
+groupedTranslations(headerTranslation);
 
 extend("en", { validation: enValidationTranslation });
 extend("ar", { validation: arValidationTranslation });

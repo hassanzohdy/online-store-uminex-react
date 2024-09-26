@@ -18,6 +18,7 @@ export default function CategoryCard({ category }: CategoryCardProps) {
       className="flex items-center justify-center flex-col">
       <div className="bg-lightGray rounded-full w-[100px] h-[100px] flex items-center justify-center m-auto">
         <img
+          loading="lazy"
           src={category.image.url}
           alt={translateText(category.name)}
           className="rounded-full transition-offset duration-300 outline outline-transparent outline-1 -outline-offset-8 hover:outline-blue hover:outline-offset-0"
