@@ -3,8 +3,8 @@ import { Link } from "@mongez/react-router";
 import { AiOutlineUser } from "react-icons/ai";
 
 import { isLTR } from "app/utils/helpers";
-import URLS from "app/utils/urls";
 import { cn } from "design-system/lib/utils";
+import URLS from "app/utils/urls";
 import user from "user";
 import Logo from "../../components/Logo";
 import CartSidebar from "./components/cart/cart-sidebar";
@@ -54,3 +54,4 @@ export default function Header() {
     </div>
   );
 }
+

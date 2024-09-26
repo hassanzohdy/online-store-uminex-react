@@ -1,5 +1,4 @@
 import { trans } from "@mongez/localization";
-import { current } from "@mongez/react";
 import { Link } from "@mongez/react-router";
 import { FiUsers } from "react-icons/fi";
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -23,7 +22,6 @@ import LanguageConverter from "../converters/language-converter";
 import WishlistSidebar from "../wishlist/wishlist-sidebar";
 
 export default function MobileSidebarSheet() {
-
   return (
     <Sheet>
       <SheetTrigger asChild>
@@ -131,3 +129,4 @@ export default function MobileSidebarSheet() {
     </Sheet>
   );
 }
+
