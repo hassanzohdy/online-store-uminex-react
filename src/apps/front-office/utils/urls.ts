@@ -1,6 +1,7 @@
 // append urls here, DO NOT remove this line
 
 const URLS = {
+  contactUs: "/contact-us",
   about: "/about",
   wishlist: "/wishlist",
   search: "/search",
@@ -39,7 +40,6 @@ const URLS = {
     addresses: "/account/addresses",
   },
   settings: "/settings",
-  contactUs: "/contact",
   pages: {
     aboutUs: "/about",
     termsConditions: "/terms-conditions",

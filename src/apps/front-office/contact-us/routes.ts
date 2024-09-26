@@ -1,10 +1,10 @@
 import { publicRoutes } from "app/utils/router";
 import URLS from "app/utils/urls";
-import AboutPage from "./pages/AboutPage";
+import ContactUsPage from "./pages/ContactUsPage";
 
 publicRoutes([
   {
-    path: URLS.about,
-    component: AboutPage,
+    path: URLS.contactUs,
+    component: ContactUsPage,
   },
 ]);
