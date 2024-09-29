@@ -1,10 +1,11 @@
 import Endpoint, { setCurrentEndpoint } from "@mongez/http";
 import { navigateTo } from "@mongez/react-router";
-import user from "app/account/user";
-import URLS from "app/utils/urls";
+
 import { AxiosResponse } from "axios";
 import { apiBaseUrl, endpointClientId } from "./flags";
 
+import user from "app/account/user";
+import URLS from "shared/utils/urls";
 import { apiOS } from "./flags";
 
 const endpoint = new Endpoint({
