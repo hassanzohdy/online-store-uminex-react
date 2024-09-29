@@ -11,7 +11,7 @@
     "prefix": ""
   },
   "aliases": {
-    "components": "/src/apps/front-office/design-system/components",
-    "utils": "/src/lib/utils"
+    "components": "design-system/components",
+    "utils": "shared/lib/utils"
   }
 }

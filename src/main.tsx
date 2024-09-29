@@ -1,6 +1,5 @@
 import startApplication from "@mongez/react";
+import "./config";
 import "./main.css";
-import "./shared/apps-list";
-import "./shared/config";
 
 startApplication();
