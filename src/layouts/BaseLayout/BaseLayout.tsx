@@ -7,6 +7,7 @@ import LanguageCurrencyConverterHeader from "./components/Header/LanguageCurrenc
 import Navbar from "./components/Header/Navbar";
 import ResponsiveNavbar from "./components/Header/ResponsiveNavbar";
 import TopBanner from "./components/Header/TopBanner";
+import ScrollToTopButton from "layouts/BaseLayout/components/ScrollToTopButton";
 
 export default function BaseLayout({ children }: PropsWithChildren) {
   return (
@@ -30,6 +31,7 @@ export default function BaseLayout({ children }: PropsWithChildren) {
       <main className="w-full mx-auto">{children}</main>
       <Footer />
       <Toaster />
+      <ScrollToTopButton />
     </div>
   );
 }

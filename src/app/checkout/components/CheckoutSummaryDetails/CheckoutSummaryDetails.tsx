@@ -67,7 +67,9 @@ export default function CheckoutSummaryDetails() {
       <div className="flex items-center justify-between w-full">
         <h1 className="text-black text-md">{trans("Subtotal")}</h1>
         <h1 className="text-black text-md">
-          {formatPrice(productId ? data[0].total.salePrice : cart.totals.salePrice)}
+          {formatPrice(
+            productId ? data[0].total.salePrice : cart.totals.salePrice,
+          )}
         </h1>
       </div>
       <div className="flex items-center justify-between w-full">
@@ -76,7 +78,11 @@ export default function CheckoutSummaryDetails() {
           <span className="text-slate-700 text-sm font-normal mx-2">
             {currentCurrency}
           </span>
-          {formatPrice(productId ? data[0].total.finalPrice : cart.totals.finalPrice ?? 0)}
+          {formatPrice(
+            productId
+              ? data[0].total.finalPrice
+              : (cart.totals.finalPrice ?? 0),
+          )}
         </h1>
       </div>
     </div>
