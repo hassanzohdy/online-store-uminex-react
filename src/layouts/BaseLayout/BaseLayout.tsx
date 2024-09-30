@@ -1,3 +1,4 @@
+import ScrollToTopButton from "layouts/BaseLayout/components/ScrollToTopButton";
 import { PropsWithChildren } from "react";
 import { Separator } from "../../design-system/components/ui/separator";
 import { Toaster } from "../../design-system/components/ui/toaster";
@@ -7,7 +8,6 @@ import LanguageCurrencyConverterHeader from "./components/Header/LanguageCurrenc
 import Navbar from "./components/Header/Navbar";
 import ResponsiveNavbar from "./components/Header/ResponsiveNavbar";
 import TopBanner from "./components/Header/TopBanner";
-import ScrollToTopButton from "layouts/BaseLayout/components/ScrollToTopButton";
 
 export default function BaseLayout({ children }: PropsWithChildren) {
   return (

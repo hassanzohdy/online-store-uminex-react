@@ -1,4 +1,4 @@
-import CategoryPage from "app/shop/pages/CategoryPage";
+import CategoryPage from "app/shop/pages/CollectionsPage";
 import ProductDetailsPage from "app/shop/pages/ProductDetailsPage";
 import ProductsPage from "app/shop/pages/ProductsPage";
 import SearchPage from "app/shop/pages/SearchPage";

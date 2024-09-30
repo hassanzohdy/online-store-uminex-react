@@ -1,6 +1,6 @@
 import { trans } from "@mongez/localization";
 import { navigateBack, queryString } from "@mongez/react-router";
-import { useProductsDetails } from "app/shop/hooks/useProductDetails";
+import { useProductsDetails } from "shared/hooks/use-product-details";
 import { cartAtom } from "design-system/atoms/cart-atom";
 import { currencyAtom } from "design-system/atoms/currency-atom";
 import { Separator } from "design-system/components/ui/separator";

@@ -5,19 +5,27 @@ export function calculateCartTotals(
 ) {
   if (itemId !== undefined && newQuantity !== undefined) {
     const item = cart.items.find(item => item.id === itemId);
+
     if (item) {
+      const productPrice = item.product.salePrice ?? item.product.price;
+
       item.quantity = newQuantity;
+
       item.total = {
         discount: item.total.discount,
-        finalPrice: item.total.salePrice * item.quantity,
-        price: item.total.price,
-        salePrice: item.total.salePrice * item.quantity,
+        finalPrice: productPrice * item.quantity,
+        price: item.product.price * item.quantity,
+        salePrice: item.product.salePrice
+          ? item.product.salePrice * item.quantity
+          : null,
       };
+    } else {
+      console.error(`Item with id ${itemId} not found in the cart.`);
     }
   }
 
   const subtotal = cart.items.reduce((acc, item) => {
-    return acc + item.total.salePrice * (item.quantity || 1);
+    return acc + (item.product.salePrice || item.product.price) * (item.quantity || 1);
   }, 0);
 
   const tax = (cart.taxRate / 100) * subtotal;
@@ -39,7 +47,7 @@ export function calculateCartTotals(
     shippingFees;
 
   const totalQuantity = cart.items.reduce((acc, item) => {
-    return acc + item.quantity;
+    return acc + (item.quantity || 0);
   }, 0);
 
   cart.totals = {
