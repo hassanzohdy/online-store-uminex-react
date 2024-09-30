@@ -85,8 +85,8 @@ export const useProductActions = (product: Product) => {
     setIsChecked(!isChecked);
   };
 
-  const goToCheckout = () => {
-    return navigateTo(URLS.checkout);
+  const goToCheckout = (id?:number) => {
+    return navigateTo(`${URLS.checkout}?productId=${id}`);
   };
 
   useEffect(() => {

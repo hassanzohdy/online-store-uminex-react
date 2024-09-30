@@ -37,7 +37,7 @@ export const cartAtom = atom<CartType>({
           existingItem.quantity += quantity || 1;
           existingItem.total.finalPrice =
             existingItem.quantity *
-            (existingItem.salePrice || existingItem.total.price);
+            (existingItem.total.salePrice || existingItem.total.price);
           existingItem.total.price = existingItem.quantity * product.price;
           existingItem.total.discount =
             existingItem.quantity * product.discount;

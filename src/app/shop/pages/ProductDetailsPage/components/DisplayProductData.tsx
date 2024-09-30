@@ -38,6 +38,7 @@ export default function DisplayProductData({
     modalAtom.onOpen("share", link);
   };
 
+
   return (
     <div className="flex flex-col items-start gap-5">
       <h1 className="text-primary text-lg lg:text-[24px] font-medium">
@@ -92,7 +93,7 @@ export default function DisplayProductData({
             className="w-full rounded-full h-12 text-sm uppercase mb-3"
             size={"lg"}
             disabled={!isChecked}
-            onClick={goToCheckout}>
+            onClick={()=>goToCheckout(product.id)}>
             {trans("Buy It Now")}
           </Button>
         </div>

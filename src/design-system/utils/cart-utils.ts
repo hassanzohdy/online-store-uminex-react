@@ -9,16 +9,17 @@ export function calculateCartTotals(
       item.quantity = newQuantity;
       item.total = {
         discount: item.total.discount,
-        finalPrice: (item.salePrice || item.price) * item.quantity,
+        finalPrice: (item.total.salePrice) * item.quantity,
         price: item.total.price,
-        salePrice: (item.salePrice || item.price) * item.quantity,
+        salePrice: (item.total.salePrice) * item.quantity,
       };
     }
   }
 
   const subtotal = cart.items.reduce((acc, item) => {
-    return acc + (item.salePrice || item.price) * item.quantity;
+    return acc + ((item.total.salePrice) * (item.quantity || 1));
   }, 0);
+  
 
   const tax = (cart.taxRate / 100) * subtotal;
 
