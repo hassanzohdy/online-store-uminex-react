@@ -40,7 +40,8 @@ export const useProduct = (params: string) => {
     };
 
     fetchProducts();
-  }, [params , state]);
+    // eslint-disable-next-line
+  }, [params]);
 
   return state;
 };
