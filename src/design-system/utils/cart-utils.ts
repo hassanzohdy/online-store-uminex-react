@@ -55,4 +55,6 @@ export function calculateCartTotals(
     paymentFees,
     shippingFees,
   };
+
+  return cart;
 }

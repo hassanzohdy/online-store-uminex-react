@@ -29,10 +29,6 @@
       "name": "cart"
     },
     {
-      "entry": ["/collections"],
-      "name": "collections"
-    },
-    {
       "entry": ["/blog"],
       "name": "blog"
     },
@@ -41,16 +37,8 @@
       "name": "checkout"
     },
     {
-      "entry": ["/shop"],
+      "entry": ["/shop", "/products", "/search", "/collections"],
       "name": "shop"
-    },
-    {
-      "entry": ["/search"],
-      "name": "search"
-    },
-    {
-      "entry": ["/products"],
-      "name": "products"
     },
     {
       "entry": ["/wishlist"],

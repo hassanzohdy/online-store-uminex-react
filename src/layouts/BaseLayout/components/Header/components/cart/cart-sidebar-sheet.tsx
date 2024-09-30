@@ -101,7 +101,7 @@ export default function CartSheetSidebar() {
               size={"lg"}
               className="rounded-full"
               onClick={handleClose}>
-              <Link to={URLS.collections}>{trans("emptyCartBtn")}</Link>
+              <Link to={URLS.shop.collections}>{trans("emptyCartBtn")}</Link>
             </Button>
           </div>
         )}

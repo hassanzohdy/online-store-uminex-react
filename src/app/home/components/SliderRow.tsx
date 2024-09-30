@@ -64,7 +64,9 @@ export default function SliderRow({ column }: SliderRowProps) {
                     asChild
                     size={"lg"}
                     className="rounded-full text-black font-bold text-xs">
-                    <Link href={URLS.collections}>{trans("SHOP NOW")}</Link>
+                    <Link href={URLS.shop.collections}>
+                      {trans("SHOP NOW")}
+                    </Link>
                   </Button>
                 </div>
               </CarouselItem>

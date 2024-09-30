@@ -5,10 +5,18 @@ const URLS = {
   about: "/about",
   wishlist: "/wishlist",
   search: "/search",
-  shop: "/shop",
+  shop: {
+    root: "/shop",
+    products: "/products",
+    search: "/search",
+    product: "/products/:id",
+    viewSearch: (type: "product" | "blog", query: string) =>
+      `/search?type=${type}&${query}`,
+    viewProduct: (productId: number) => `/products/${productId}`,
+    collections: "/collections",
+  },
   cart: "/cart",
   checkout: "/checkout",
-  collections: "/collections",
   home: "/",
   notFound: "/404",
   blog: {
@@ -16,11 +24,7 @@ const URLS = {
     viewRoute: "/blog/:id/:slug",
     view: (post: any) => `/blog/${post.id}/${post.slug}`,
   },
-  products: {
-    root: "/products",
-    viewProduct: "/products/:id",
-    view: (productId: number) => `/products/${productId}`,
-  },
+
   searchRoute: {
     root: "/search",
     search: (type: "product" | "blog", query: string) =>

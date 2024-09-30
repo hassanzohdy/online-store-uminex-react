@@ -1,6 +1,6 @@
 import Helmet from "@mongez/react-helmet";
 
-import { useProductsDetails } from "app/products/hooks/useProductDetails";
+import { useProductsDetails } from "app/shop/hooks/useProductDetails";
 import Breadcrumbs from "design-system/components/Breadcrumbs";
 import { Skeleton } from "design-system/components/ui/skeleton";
 import { translateText } from "shared/utils/translate-text";

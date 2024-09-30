@@ -29,12 +29,18 @@ function _ProductsPage() {
   useEffect(() => {
     if (data?.products) {
       const products = [...data.products];
+
       if (filters.sort === "price_asc") {
         products.sort((a, b) => a.price - b.price);
       } else if (filters.sort === "price_dsc") {
         products.sort((a, b) => b.price - a.price);
       }
-      setFilteredProducts(products);
+
+      const filtered = filters.category
+        ? products.filter(product => product.category.id === filters.category)
+        : products;
+
+      setFilteredProducts(filtered);
     }
   }, [data, filters]);
 

@@ -19,7 +19,7 @@ export default function TopSellingRow({ column }: TopSellingRowProps) {
       <div className="w-full p-3 bg-white flex items-center justify-between">
         <Heading title={column[0]?.module?.title} />
         <Link
-          to={URLS.products.root}
+          to={URLS.shop.products}
           className="flex items-center gap-1 text-xs md:text-sm text-gray">
           {trans("View All Products")}{" "}
           {isLTR() ? (

@@ -126,7 +126,7 @@ export default function ProductCard({ product, grid }: TProduct) {
           )}
         </div>
         <Link
-          href={URLS.products.view(product.id)}
+          href={URLS.shop.viewProduct(product.id)}
           className="hidden  group/show size-9 xl:flex items-center justify-center rounded-full shadow  hover:bg-blue transition-all duration-300">
           <FaRegEye className="size-4 group-hover/show:text-white transition-all duration-300" />
           <p className="inline-block pointer-events-none absolute bg-primary text-white right-11 text-xs px-2 py-1 rounded-sm w-max opacity-0 group-hover/show:opacity-100 translate-x-2 group-hover/show:translate-x-0 transition-all duration-500 after:content-[''] after:-right-2 after:top-1/2 after:-translate-y-1/2 after:size-2 after:bg-primary after:absolute after:clip-triangle after:rotate-90">
@@ -179,7 +179,7 @@ export default function ProductCard({ product, grid }: TProduct) {
       </div>
       <div className="bg-white z-20 relative translate-y-[50px] group-hover:-translate-y-6 lg:translate-y-6 lg:group-hover:-translate-y-16 transition-all duration-500 py-1 text-left">
         <Link
-          to={URLS.products.view(product.id)}
+          to={URLS.shop.viewProduct(product.id)}
           className="line-clamp-2 h-10 mt-2 leading-5 font-semibold text-sm hover:text-blue  transition-colors duration-200">
           {translateText(product.name)}
         </Link>

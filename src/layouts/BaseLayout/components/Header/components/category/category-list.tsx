@@ -1,5 +1,4 @@
 import { trans } from "@mongez/localization";
-import { Link } from "@mongez/react-router";
 import { Button } from "design-system/components/ui/button";
 import {
   DropdownMenu,
@@ -92,9 +91,7 @@ export default function CategoryLists() {
             const categoryName = translateText(category.name);
 
             return (
-              <Link
-                href={`/products?category=${category.id}`}
-                key={category.id}>
+              <a href={`/products?category=${category.id}`} key={category.id}>
                 <DropdownMenuItem
                   className={cn(
                     "text-sm cursor-pointer focus:bg-transparent focus:text-blue font-medium",
@@ -103,7 +100,7 @@ export default function CategoryLists() {
                   )}>
                   {categoryName}
                 </DropdownMenuItem>
-              </Link>
+              </a>
             );
           })}
         </DropdownMenuContent>

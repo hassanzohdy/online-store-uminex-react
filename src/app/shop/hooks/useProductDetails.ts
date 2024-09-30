@@ -1,6 +1,6 @@
+import { getProduct } from "app/shop/services/product-services";
 import { useEffect, useState } from "react";
 import { Product } from "shared/utils/types";
-import { getProduct } from "../services/products-service";
 
 type StateType = {
   isLoading: boolean;

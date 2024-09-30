@@ -59,7 +59,7 @@ export const useSearch = (): UseSearchResult => {
   const handleSearch = () => {
     if (value.trim() === "" && !categoryId) return;
     OnClose();
-    navigateTo(URLS.searchRoute.search("product", params));
+    navigateTo(URLS.shop.viewSearch("product", params));
   };
 
   const handleKeyDown = (

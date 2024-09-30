@@ -2,7 +2,7 @@ import { trans } from "@mongez/localization";
 import { isLTR } from "shared/utils/helpers";
 import { translateText } from "shared/utils/translate-text";
 
-import { Preview } from "app/products/pages/ProductDetailsPage/components/Preview";
+import { Preview } from "app/shop/pages/ProductDetailsPage/components/Preview";
 import {
   Tabs,
   TabsContent,

@@ -28,14 +28,14 @@ export default function SearchResult({
     if (OnClose) {
       OnClose();
     }
-    navigateTo(URLS.products.view(id));
+    navigateTo(URLS.shop.viewProduct(id));
   };
 
   const searchProducts = () => {
     if (OnClose) {
       OnClose();
     }
-    navigateTo(URLS.searchRoute.search("product", params));
+    navigateTo(URLS.shop.viewSearch("product", params));
   };
 
   return (

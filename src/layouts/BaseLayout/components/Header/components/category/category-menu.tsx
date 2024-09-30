@@ -21,6 +21,7 @@ import { FaAngleDown } from "react-icons/fa";
 import { useFetchData } from "shared/hooks/use-fetch-data";
 import { cn } from "shared/lib/utils";
 import { isLTR } from "shared/utils/helpers";
+import { translateText } from "shared/utils/translate-text";
 
 type CategoryMenuProps = {
   selectCategory: (value: string, id: number | null) => void;
@@ -106,9 +107,7 @@ export default function CategoryMenu({ selectCategory }: CategoryMenuProps) {
             {trans("allCategories")}
           </SelectItem>
           {data?.categories?.map(category => {
-            const categoryName = isLTR()
-              ? category.name.find(n => n.localeCode === "en")?.value
-              : category.name.find(n => n.localeCode === "ar")?.value;
+            const categoryName = translateText(category.name);
 
             return (
               <SelectItem

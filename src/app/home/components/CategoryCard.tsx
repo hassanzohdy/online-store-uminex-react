@@ -14,7 +14,7 @@ export default function CategoryCard({ category }: CategoryCardProps) {
 
   return (
     <Link
-      to={`${URLS.products.root}?${query}`}
+      to={`${URLS.shop.products}?${query}`}
       className="flex items-center justify-center flex-col">
       <div className="bg-lightGray rounded-full w-[100px] h-[100px] flex items-center justify-center m-auto">
         <img

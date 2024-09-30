@@ -1,9 +1,9 @@
 import cache from "@mongez/cache";
 import { atom } from "@mongez/react-atom";
 
+import { calculateCartTotals } from "design-system/utils/cart-utils";
 import { toast } from "shared/hooks/use-toast";
-import { calculateCartTotals } from "../../shared/utils/cart-utils";
-import { CartType, Product } from "../../shared/utils/types";
+import { CartType, Product } from "shared/utils/types";
 import {
   addItem,
   deleteItem,
@@ -57,10 +57,10 @@ export const cartAtom = atom<CartType>({
           cart.items.push(newItem);
         }
 
-        calculateCartTotals(cart);
-        cartAtom.update(cart);
-        cache.set("cart", cart);
-        return cartAtom.update(cart);
+        const updatedCart = calculateCartTotals(cart);
+        cartAtom.update(updatedCart);
+        cache.set("cart", updatedCart);
+        return cartAtom.update(updatedCart);
       } catch (error: any) {
         console.log(error);
         toast({

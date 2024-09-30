@@ -43,7 +43,7 @@ export default function Navbar() {
               <Link href={URLS.home}>{trans("home")}</Link>
             </li>
             <li className="text-black text-sm font-semibold hover:text-blue">
-              <Link href={URLS.collections}>{trans("shop")}</Link>
+              <Link href={URLS.shop.collections}>{trans("shop")}</Link>
             </li>
             <div className="relative">
               <li

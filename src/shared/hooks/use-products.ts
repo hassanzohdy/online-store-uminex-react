@@ -16,10 +16,14 @@ export const useProduct = (params: string) => {
   });
 
   useEffect(() => {
-    if (params === "q=&") return;
+    if (!params || params === "") return;
 
     const fetchProducts = async () => {
       try {
+        setState({
+          ...state,
+          isLoading: true,
+        });
         const { data } = await getProducts(params);
         setState({
           data,
@@ -36,7 +40,7 @@ export const useProduct = (params: string) => {
     };
 
     fetchProducts();
-  }, [params]);
+  }, [params , state]);
 
   return state;
 };

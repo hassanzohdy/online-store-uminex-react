@@ -48,7 +48,7 @@ export default function CartProductsDetails({
             variant={"primary"}
             size={"lg"}
             className="rounded-full h-12 w-60">
-            <Link href={URLS.products.root}>{trans("Continue Shopping")}</Link>
+            <Link href={URLS.shop.products}>{trans("Continue Shopping")}</Link>
           </Button>
         </div>
       </div>
@@ -112,7 +112,7 @@ export default function CartProductsDetails({
       </Table>
       <div className="flex items-center justify-between w-full flex-wrap my-5 py-5 border-b border-t border-slate-200">
         <Button variant={"primary"} size={"lg"} className="rounded-full h-12">
-          <Link href={URLS.products.root}>{trans("Continue Shopping")}</Link>
+          <Link href={URLS.shop.products}>{trans("Continue Shopping")}</Link>
         </Button>
         <Button
           variant={"primary"}

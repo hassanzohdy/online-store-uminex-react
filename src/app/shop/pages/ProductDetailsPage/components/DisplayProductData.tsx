@@ -34,7 +34,7 @@ export default function DisplayProductData({
   } = useProductActions(product);
 
   const handleOpenModel = () => {
-    const link = `${window.location.origin}${URLS.products.view(product.id)}`;
+    const link = `${window.location.origin}${URLS.shop.viewProduct(product.id)}`;
     modalAtom.onOpen("share", link);
   };
 
@@ -143,7 +143,7 @@ export default function DisplayProductData({
         <div className="flex items-center justify-between w-full text-sm text-gray font-medium">
           <h1>{trans("Category")}:</h1>
           <Link
-            href={`${URLS.products.root}?category=${product.category.id}`}
+            href={`${URLS.shop.products}?category=${product.category.id}`}
             className="text-primary hover:text-blue">
             {translateText(product.category.name)}
           </Link>
