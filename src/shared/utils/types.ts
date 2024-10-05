@@ -2,7 +2,7 @@ type AffiliateStatus = {
   status: string;
 };
 
-type TimestampDetails = {
+export type TimestampDetails = {
   format: string;
   timestamp: number;
   offset: number;
@@ -271,4 +271,16 @@ export type Row = {
   sortOrder: number;
   columns: Column[];
   style: any;
+};
+
+export type Review = {
+  id: number;
+  rating: number;
+  title: string;
+  review: string;
+  createdAt: TimestampDetails;
+  createdBy: User;
+  updatedAt: TimestampDetails;
+  updatedBy: User;
+  productId: number;
 };

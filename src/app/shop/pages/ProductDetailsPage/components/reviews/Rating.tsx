@@ -2,7 +2,7 @@ import { IoIosStarOutline, IoMdStar } from "react-icons/io";
 
 export type RatingProps = {
   rating: number;
-  reviews: number;
+  reviews?: number;
 };
 
 export default function Rating({ rating, reviews }: RatingProps) {
@@ -11,7 +11,7 @@ export default function Rating({ rating, reviews }: RatingProps) {
   const hasHalfStar = rating % 1 !== 0;
 
   return (
-    <div className="flex items-center gap-1">
+    <div className="flex items-center">
       {[...Array(filledStars)].map((_, index) => (
         <Star key={index} filled />
       ))}
@@ -24,7 +24,11 @@ export default function Rating({ rating, reviews }: RatingProps) {
         ),
       )}
 
-      <span className="text-sm text-gray font-semibold">{reviews} reviews</span>
+      {reviews && (
+        <span className="text-sm text-gray font-semibold">
+          {reviews} reviews
+        </span>
+      )}
     </div>
   );
 }

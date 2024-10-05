@@ -8,7 +8,7 @@ import { Button } from "design-system/components/ui/button";
 import { Form } from "design-system/components/ui/form";
 import { useState } from "react";
 import { toast } from "shared/hooks/use-toast";
-import { AddressFormSchema } from "shared/schemas/AddressFormSchema";
+import { AddressFormSchema } from "shared/schemas/address-form-schema";
 import AddressFormInputs from "./AddressFormInputs";
 
 export default function AddAddressForm({

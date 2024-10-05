@@ -3,6 +3,7 @@ import { isLTR } from "shared/utils/helpers";
 import { translateText } from "shared/utils/translate-text";
 
 import { Preview } from "app/shop/pages/ProductDetailsPage/components/Preview";
+import Reviews from "app/shop/pages/ProductDetailsPage/components/reviews/Reviews";
 import {
   Tabs,
   TabsContent,
@@ -94,7 +95,9 @@ export default function ProductInformation({ product }: ProductDetailsProps) {
             </div>
           </div>
         </TabsContent>
-        <TabsContent value="reviews">Change your password here.</TabsContent>
+        <TabsContent value="reviews">
+          <Reviews productId={product.id} />
+        </TabsContent>
       </Tabs>
     </div>
   );

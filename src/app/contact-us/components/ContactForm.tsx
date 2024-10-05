@@ -15,7 +15,7 @@ import {
 import { Input } from "design-system/components/ui/input";
 import { Textarea } from "design-system/components/ui/textarea";
 import { toast } from "shared/hooks/use-toast";
-import { ContactFormSchema } from "shared/schemas/ContactFormSchema";
+import { ContactFormSchema } from "shared/schemas/contact-form-schema";
 import URLS from "shared/utils/urls";
 import { createContact } from "../services/contact-us-service";
 

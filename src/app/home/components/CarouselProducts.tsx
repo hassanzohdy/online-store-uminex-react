@@ -25,12 +25,12 @@ export function CarouselProducts({ products }: CarouselProductsProps) {
         ))}
       </CarouselContent>
       <CarouselPrevious
-        className="z-50 bg-blue/30 hover:bg-blue text-white
+        className="z-40 bg-blue/30 hover:bg-blue text-white
        h-12 w-12 hover:text-white border-none left-2 
        lg:-left-5 hidden group-hover/buttons:flex transition-all"
       />
       <CarouselNext
-        className="z-50 bg-blue/30 hover:bg-blue text-white
+        className="z-40 bg-blue/30 hover:bg-blue text-white
        h-12 w-12 hover:text-white border-none right-2
         lg:-right-5 hidden group-hover/buttons:flex transition-all"
       />

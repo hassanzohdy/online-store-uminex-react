@@ -11,7 +11,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaRegEdit, FaRegTrashAlt } from "react-icons/fa";
 import { toast } from "shared/hooks/use-toast";
-import { AddressFormSchema } from "shared/schemas/AddressFormSchema";
+import { AddressFormSchema } from "shared/schemas/address-form-schema";
 import { Address } from "shared/utils/types";
 import { z } from "zod";
 import AddressFormInputs from "./AddressFormInputs";

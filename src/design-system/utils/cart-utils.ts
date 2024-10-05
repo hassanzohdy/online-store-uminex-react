@@ -25,7 +25,10 @@ export function calculateCartTotals(
   }
 
   const subtotal = cart.items.reduce((acc, item) => {
-    return acc + (item.product.salePrice || item.product.price) * (item.quantity || 1);
+    return (
+      acc +
+      (item.product.salePrice || item.product.price) * (item.quantity || 1)
+    );
   }, 0);
 
   const tax = (cart.taxRate / 100) * subtotal;

@@ -26,7 +26,7 @@ AccordionItem.propTypes = {
 const AccordionTrigger = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Trigger>,
   React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger> & {
-    icon: React.ElementType;
+    icon?: React.ElementType;
   }
 >(({ className, children, icon: Icon, ...props }, ref) => (
   <AccordionPrimitive.Header className="flex">

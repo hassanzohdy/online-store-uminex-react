@@ -22,9 +22,20 @@ export default function StickyAddToCart({ product }: StickyAddToCartProps) {
             <h1 className="text-primary font-bold text-sm line-clamp-2">
               {translateText(product.name)}
             </h1>
-            <p className="text-sm text-blue font-semibold">
-              {formatPrice(product.price)}
-            </p>
+            {product.price && product.salePrice ? (
+              <div className="flex gap-3 items-end">
+                <span className="text-blue font-semibold text-md">
+                  {formatPrice(product.salePrice)}
+                </span>
+                <span className="text-darkGray line-through text-dm ">
+                  {formatPrice(product.price)}
+                </span>
+              </div>
+            ) : (
+              <span className="text-md text-blue font-semibold">
+                {formatPrice(product.price)}
+              </span>
+            )}
           </div>
         </div>
         <div className="w-full max-w-[500px]">

@@ -1,5 +1,5 @@
 import endpoint from "shared/endpoint";
-import { ContactFormSchema } from "shared/schemas/ContactFormSchema";
+import { ContactFormSchema } from "shared/schemas/contact-form-schema";
 import { z } from "zod";
 
 /**

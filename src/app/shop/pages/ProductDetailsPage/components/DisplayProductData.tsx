@@ -15,7 +15,7 @@ import { translateText } from "shared/utils/translate-text";
 import { Product } from "shared/utils/types";
 import URLS from "shared/utils/urls";
 import HandleProductQuantity from "./HandleProductQuantity";
-import Rating from "./Rating";
+import Rating from "./reviews/Rating";
 
 interface DisplayProductDataProps {
   product: Product;

@@ -1,10 +1,10 @@
 import { trans } from "@mongez/localization";
 import { navigateBack, queryString } from "@mongez/react-router";
-import { useProductsDetails } from "shared/hooks/use-product-details";
 import { cartAtom } from "design-system/atoms/cart-atom";
 import { currencyAtom } from "design-system/atoms/currency-atom";
 import { Separator } from "design-system/components/ui/separator";
 import { useEffect, useState } from "react";
+import { useProductsDetails } from "shared/hooks/use-product-details";
 import { formatPrice } from "shared/lib/formats";
 import { CartItemType } from "shared/utils/types";
 import CheckoutSummaryDetailsCartItem from "./CheckoutSummaryDetailsCartItem";

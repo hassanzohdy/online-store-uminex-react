@@ -15,7 +15,7 @@ import {
 import { Button } from "design-system/components/ui/button";
 import { Form } from "design-system/components/ui/form";
 import { cn } from "shared/lib/utils";
-import { checkoutFormSchema } from "shared/schemas/CheckoutFormSchema";
+import { checkoutFormSchema } from "shared/schemas/checkout-form-schema";
 import { isLTR } from "shared/utils/helpers";
 import { Address } from "shared/utils/types";
 import URLS from "shared/utils/urls";
