@@ -1,0 +1,56 @@
+{
+  "path": "/",
+  "name": "front-office",
+  "modules": [
+    {
+      "entry": [
+        "/account",
+        "/login",
+        "/register",
+        "/forget-password",
+        "/rest-password"
+      ],
+      "name": "account"
+    },
+    {
+      "entry": ["/"],
+      "name": "home"
+    },
+    {
+      "entry": ["/404"],
+      "name": "404"
+    },
+    {
+      "entry": ["/about-us", "/privacy-policy", "/terms-conditions"],
+      "name": "informative-pages"
+    },
+    {
+      "entry": ["/cart"],
+      "name": "cart"
+    },
+    {
+      "entry": ["/blog"],
+      "name": "blog"
+    },
+    {
+      "entry": ["/checkout"],
+      "name": "checkout"
+    },
+    {
+      "entry": ["/shop", "/products", "/search", "/collections"],
+      "name": "shop"
+    },
+    {
+      "entry": ["/wishlist"],
+      "name": "wishlist"
+    },
+    {
+      "entry": ["/about"],
+      "name": "about"
+    },
+    {
+      "entry": ["/contact-us"],
+      "name": "contact-us"
+    }
+  ]
+}

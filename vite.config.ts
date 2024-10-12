@@ -20,5 +20,8 @@ export default defineConfig({
       filename: "bundle.analyze.html",
     }),
   ],
+  optimizeDeps: {
+    include: ['react-medium-image-zoom', 'react-image-magnify'],
+  },
   envPrefix: "APP_",
 });
