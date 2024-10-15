@@ -1,4 +1,9 @@
 import { trans } from "@mongez/localization";
+import { useState } from "react";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import { FaAngleDown } from "react-icons/fa";
+
+import { categoryAtom } from "design-system/atoms/category-atom";
 import { Button } from "design-system/components/ui/button";
 import {
   DropdownMenu,
@@ -15,9 +20,6 @@ import {
   SelectValue,
 } from "design-system/components/ui/select";
 import { getCategories } from "design-system/services/category-services";
-import { useState } from "react";
-import { AiOutlineLoading3Quarters } from "react-icons/ai";
-import { FaAngleDown } from "react-icons/fa";
 import { useFetchData } from "shared/hooks/use-fetch-data";
 import { cn } from "shared/lib/utils";
 import { isLTR } from "shared/utils/helpers";
@@ -81,6 +83,8 @@ export default function CategoryMenu({ selectCategory }: CategoryMenuProps) {
   if (error) {
     return <div className="text-red-500">Something went wrong</div>;
   }
+
+  categoryAtom.update(data?.categories);
 
   return (
     <Select

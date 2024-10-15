@@ -1,17 +1,20 @@
 import { trans } from "@mongez/localization";
+
 import StarRating from "app/shop/pages/ProductDetailsPage/components/reviews/StarRating";
+import { ReviewFormElementsType } from "app/shop/utils/types";
 import { Button } from "design-system/components/ui/button";
 import {
   FormControl,
   FormField,
   FormItem,
   FormLabel,
+  FormMessage,
 } from "design-system/components/ui/form";
 import { Input } from "design-system/components/ui/input";
 import { Textarea } from "design-system/components/ui/textarea";
 
 interface ReviewFormElementsProps {
-  form: any;
+  form: ReviewFormElementsType;
 }
 
 export default function ReviewFormElements({ form }: ReviewFormElementsProps) {
@@ -27,6 +30,7 @@ export default function ReviewFormElements({ form }: ReviewFormElementsProps) {
               <FormControl>
                 <StarRating value={field.value} onChange={field.onChange} />
               </FormControl>
+              <FormMessage />
             </FormItem>
           )}
         />
@@ -38,8 +42,9 @@ export default function ReviewFormElements({ form }: ReviewFormElementsProps) {
             <FormItem>
               <FormLabel>{trans("Review Title")}</FormLabel>
               <FormControl>
-                <Input {...field} placeholder="Title" />
+                <Input {...field} placeholder={trans("title")} />
               </FormControl>
+              <FormMessage />
             </FormItem>
           )}
         />
@@ -51,8 +56,9 @@ export default function ReviewFormElements({ form }: ReviewFormElementsProps) {
             <FormItem>
               <FormLabel>{trans("Review Comment")}</FormLabel>
               <FormControl>
-                <Textarea {...field} placeholder="Write your review" />
+                <Textarea {...field} placeholder={trans("Write your review")} />
               </FormControl>
+              <FormMessage />
             </FormItem>
           )}
         />
@@ -63,7 +69,7 @@ export default function ReviewFormElements({ form }: ReviewFormElementsProps) {
         variant={"primary"}
         size={"lg"}
         className="w-full h-10">
-        {trans("Submit")}
+        {trans("Add Review")}
       </Button>
     </>
   );

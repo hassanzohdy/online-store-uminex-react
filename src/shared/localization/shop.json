@@ -1,0 +1,174 @@
+{
+  "notFoundProducts": {
+    "en": "There are no products matching your keywords",
+    "ar": "لا توجد منتجات تتوافق مع بحثك"
+  },
+  "notFoundProduct": {
+    "en": "Product Not Found",
+    "ar": "المنتج غير موجود"
+  },
+  "Results": {
+    "en": "Results",
+    "ar": "نتائج"
+  },
+  "Sort By": {
+    "en": "Sort By",
+    "ar": "ترتيب حسب"
+  },
+  "showing": {
+    "en": "showing",
+    "ar": "عرض"
+  },
+  "of": {
+    "en": "of",
+    "ar": "من"
+  },
+  "Products": {
+    "en": "Products",
+    "ar": "منتجات"
+  },
+  "Next": {
+    "en": "Next",
+    "ar": "التالي"
+  },
+  "Previous": {
+    "en": "Previous",
+    "ar": "السابق"
+  },
+  "Filter and Sort": {
+    "en": "Filter and Sort",
+    "ar": "تصفية وترتيب"
+  },
+  "Relevance": {
+    "en": "Relevance",
+    "ar": "الصله"
+  },
+  "Price High to Low": {
+    "en": "Price: High to Low",
+    "ar": "السعر: من الاعلي الى الاقل"
+  },
+  "Price Low to High": {
+    "en": "Price: Low to High",
+    "ar": "السعر: من الأقل الى الأعلى"
+  },
+  "Product Price": {
+    "en": "Products Price",
+    "ar": "سعر المنتجات"
+  },
+  "Product Availability": {
+    "en": "Product Availability",
+    "ar": "توافر المنتجات"
+  },
+  "Results for": {
+    "en": "Results for",
+    "ar": "نتائج للبحث عن"
+  },
+  "Remove Filters": {
+    "en": "Remove Filters",
+    "ar": "ازالة التصفيات"
+  },
+  "Buy It Now": {
+    "en": "Buy It Now",
+    "ar": "اشتريه الان"
+  },
+  "Share": {
+    "en": "Share",
+    "ar": "مشاركة"
+  },
+  "Copy Link": {
+    "en": "Copy Link",
+    "ar": "نسخ الرابط"
+  },
+  "tax_rule": {
+    "en": "Return within 30 days of purchase. Taxes are non-refundable.",
+    "ar": "استرجاع في خلال 30 يوما من وقت الدفع , الضرائب لا تسترد"
+  },
+  "Estimated Delivery": {
+    "en": "Estimated Delivery",
+    "ar": "توقيت التسليم"
+  },
+  "Availability": {
+    "en": "Availability",
+    "ar": "التوفر"
+  },
+  "Brand": {
+    "en": "Brand",
+    "ar": "الماركة"
+  },
+  "Type": {
+    "en": "Type",
+    "ar": "النوع"
+  },
+  "Shipping & Return": {
+    "en": "Shipping & Return",
+    "ar": "شحن وارجاع"
+  },
+  "Reviews": {
+    "en": "Reviews",
+    "ar": "التعليقات"
+  },
+  "No Description": {
+    "en": "This Product Does not Have a Description",
+    "ar": "هذا المنتج ليس لديه وصف"
+  },
+  "Description": {
+    "en": "Description",
+    "ar": "وصف"
+  },
+  "Shipping": {
+    "en": "Shipping",
+    "ar": "شحن"
+  },
+  "Category": {
+    "en": "Category",
+    "ar": "التصنيف"
+  },
+  "Related Products": {
+    "en": "Related Products",
+    "ar": "منتجات ذات صلة"
+  },
+  "Rating": {
+    "en": "Rating",
+    "ar": "تصنيف"
+  },
+  "Review Title": {
+    "en": "Review Title",
+    "ar": "عنوان التعليق"
+  },
+  "Review Comment": {
+    "en": "Review Comment",
+    "ar": "محتوي التعليق"
+  },
+  "Customers Reviews": {
+    "en": "Customers Reviews",
+    "ar": "تعليقات العملاء"
+  },
+  "Add Review": {
+    "en": "Add Review",
+    "ar": "اضافة تعليق"
+  },
+  "Out of 5": {
+    "en": "Out of 5",
+    "ar": "من 5"
+  },
+  "Stars": {
+    "en": "Stars",
+    "ar": "التصنيفات"
+  },
+  "How customer reviews and ratings work": {
+    "en": "How customer reviews and ratings work",
+    "ar": "كيف تعمل تعليقات العملاء والتصنيفات"
+  },
+  "reviewMechanism": {
+    "en": "Customer Reviews, including Product Star Ratings help customers to learn more about the product and decide whether it is the right product for them. To calculate the overall star rating and percentage breakdown by star, we don&apos;t use a simple average. Instead, our system considers things like how recent a review is and if the reviewer bought the item on Amazon. It also analyzed reviews to verify trustworthiness.",
+    "ar": "تعليقات العملاء، مثل تصنيفات المنتجات التي تساعد العملاء على معرفة المزيد عن المنتج وتخيله إذا كان هذا المنتج الصحيح لهم. لتحسين تقييم المنتج"
+  },
+  "Write your review": {
+    "en": "Write your review",
+    "ar": "أكتب تعليقك"
+  },
+  "No reviews found": {
+    "en": "No reviews found",
+    "ar": "لا توجد تعليقات"
+  }
+}

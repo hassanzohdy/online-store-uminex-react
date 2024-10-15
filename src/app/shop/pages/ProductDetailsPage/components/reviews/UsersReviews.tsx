@@ -16,9 +16,15 @@ export default function UsersReviews({ productId }: UsersReviewsProps) {
         {trans("Customers Reviews")}
       </h1>
       <div className="flex flex-col items-start gap-3 w-full">
-        {productReviews.map(review => (
-          <ReviewCard review={review} key={review.id} />
-        ))}
+        {productReviews.length > 0 ? (
+          productReviews.map(review => (
+            <ReviewCard review={review} key={review.id} />
+          ))
+        ) : (
+          <p className="text-center text-md italic text-gray">
+            {trans("No reviews found")}!
+          </p>
+        )}
       </div>
     </div>
   );

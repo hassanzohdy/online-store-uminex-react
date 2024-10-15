@@ -43,18 +43,18 @@ export default function ProductInformation({ product }: ProductDetailsProps) {
         {product.description && product.description[0].value ? (
           <TabsContent
             value="description"
-            className="w-full text-gray font-medium text-base">
+            className="w-full text-gray font-medium text-base pb-4">
             <Preview value={translateText(product.description) || ""} />
           </TabsContent>
         ) : (
           <TabsContent
             value="description"
-            className="w-full text-gray font-medium text-sm italic">
+            className="w-full text-gray font-medium text-sm italic pb-4">
             {trans("No Description")}
           </TabsContent>
         )}
 
-        <TabsContent value="shipping">
+        <TabsContent value="shipping" className="pb-4">
           <div className="flex flex-col items-start gap-4">
             <h1 className="text-sm uppercase text-primary font-bold">
               {trans("Shipping")}
@@ -95,7 +95,7 @@ export default function ProductInformation({ product }: ProductDetailsProps) {
             </div>
           </div>
         </TabsContent>
-        <TabsContent value="reviews">
+        <TabsContent value="reviews" className="pb-4">
           <Reviews productId={product.id} />
         </TabsContent>
       </Tabs>

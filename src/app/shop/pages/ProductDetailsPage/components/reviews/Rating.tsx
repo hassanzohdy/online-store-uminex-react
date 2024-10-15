@@ -1,3 +1,4 @@
+import { trans } from "@mongez/localization";
 import { IoIosStarOutline, IoMdStar } from "react-icons/io";
 
 export type RatingProps = {
@@ -16,8 +17,6 @@ export default function Rating({ rating, reviews }: RatingProps) {
         <Star key={index} filled />
       ))}
 
-      {hasHalfStar && <Star half />}
-
       {[...Array(maxRating - filledStars - (hasHalfStar ? 1 : 0))].map(
         (__, index) => (
           <Star key={index + filledStars} />
@@ -26,7 +25,7 @@ export default function Rating({ rating, reviews }: RatingProps) {
 
       {reviews && (
         <span className="text-sm text-gray font-semibold">
-          {reviews} reviews
+          {reviews} {trans("Reviews")}
         </span>
       )}
     </div>
@@ -35,15 +34,10 @@ export default function Rating({ rating, reviews }: RatingProps) {
 
 type StarProps = {
   filled?: boolean;
-  half?: boolean;
 };
 
-const Star = ({ filled, half }: StarProps) => {
+const Star = ({ filled }: StarProps) => {
   if (filled) {
-    return <IoMdStar className="w-5 h-5 text-yellow" />;
-  }
-
-  if (half) {
     return <IoMdStar className="w-5 h-5 text-yellow" />;
   }
 

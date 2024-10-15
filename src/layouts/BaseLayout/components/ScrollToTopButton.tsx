@@ -30,7 +30,7 @@ export default function ScrollToTopButton() {
       variant={"primary"}
       size={"icon"}
       className={cn(
-        "rounded-full fixed bottom-24 right-8 flex items-center justify-center h-12 w-12 p-0",
+        "rounded-full fixed bottom-24 right-8 flex items-center justify-center h-12 w-12 p-0 z-50",
         isVisible ? "block" : "hidden",
       )}
       onClick={scrollTop}>

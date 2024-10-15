@@ -3,21 +3,19 @@ import { debounce } from "@mongez/reinforcements";
 import { useState } from "react";
 import { LuX } from "react-icons/lu";
 
+import { categoryAtom } from "design-system/atoms/category-atom";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "design-system/components/ui/accordion";
-import { getCategories } from "design-system/services/category-services";
 import { FaMinus } from "react-icons/fa6";
-import { useFetchData } from "shared/hooks/use-fetch-data";
 import { Filters } from "shared/hooks/use-filters";
 import { translateText } from "shared/utils/translate-text";
 import { Button } from "../ui/button";
 import { Checkbox } from "../ui/checkbox";
 import { Input } from "../ui/input";
-import { Skeleton } from "../ui/skeleton";
 
 interface FiltersSectionProps {
   updateCategory: (categoryId: number) => void;
@@ -36,7 +34,7 @@ export default function FiltersSection({
   updateMaxPrice,
   resetFiltersExceptQuery,
 }: FiltersSectionProps) {
-  const { data, isLoading } = useFetchData(getCategories);
+  const data = categoryAtom.value;
   const [localMinPrice, setLocalMinPrice] = useState(filters.minPrice || 0);
   const [localMaxPrice, setLocalMaxPrice] = useState(filters.maxPrice || 0);
 
@@ -92,12 +90,8 @@ export default function FiltersSection({
               {trans("Product Categories")}
             </AccordionTrigger>
             <AccordionContent className="flex flex-col items-start gap-3">
-              {isLoading &&
-                Array.from({ length: 8 }).map((_, index) => (
-                  <Skeleton key={index} className="w-full h-5" />
-                ))}
               {data &&
-                data.categories.map(category => (
+                data.map(category => (
                   <li
                     onClick={() => updateCategory(category.id)}
                     key={category.id}

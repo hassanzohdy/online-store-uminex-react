@@ -122,7 +122,7 @@ export function useFilters() {
   };
 
   useEffect(() => {
-    const category = queryString.get("category");
+    const category = queryString.get("category") || null;
     const page = queryString.get("page") || 1;
     const minPrice = queryString.get("minPrice") || null;
     const maxPrice = queryString.get("maxPrice") || null;

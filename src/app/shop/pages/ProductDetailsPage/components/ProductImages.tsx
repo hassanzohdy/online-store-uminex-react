@@ -6,6 +6,7 @@ import { modalAtom } from "design-system/atoms/model-atom";
 import { Button } from "design-system/components/ui/button";
 import "react-inner-image-zoom/lib/InnerImageZoom/styles.css";
 import { cn } from "shared/lib/utils";
+import { isLTR } from "shared/utils/helpers";
 import { Product } from "shared/utils/types";
 
 interface ProductImagesProps {
@@ -85,7 +86,10 @@ export default function ProductImages({
         <Button
           variant={"ghost"}
           size={"icon"}
-          className="absolute top-0 right-0 border border-slate-200 rounded-full"
+          className={cn(
+            "absolute top-0 border border-slate-200 rounded-full",
+            isLTR() ? "right-2" : "left-2",
+          )}
           onClick={handleOpenModel}>
           <MdOutlineZoomOutMap className="w-5 h-5" />
         </Button>
