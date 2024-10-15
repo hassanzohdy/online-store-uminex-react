@@ -1,46 +1,45 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IoIosStarOutline, IoMdStar } from "react-icons/io";
 
-function StarRating({
-  value,
-  onChange,
-}: {
+interface StarRatingProps {
   value: number;
   onChange: (rating: number) => void;
-}) {
-  const [hoverValue, setHoverValue] = useState<number | null>(null);
-  const stars = Array(5).fill(0);
+}
 
-  const handleClick = (index: number) => {
-    onChange(index + 1);
-  };
+export default function StarRating({ value, onChange }: StarRatingProps) {
+  const [hoveredValue, setHoveredValue] = useState<number | null>(null);
+  const stars = 5;
 
-  const handleMouseOver = (index: number) => {
-    setHoverValue(index + 1);
-  };
+  useEffect(() => {
+    const handleOnKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowRight") {
+        onChange(value + 1);
+      } else if (e.key === "ArrowLeft") {
+        onChange(value - 1);
+      }
+    };
 
-  const handleMouseLeave = () => {
-    setHoverValue(null);
-  };
+    window.addEventListener("keydown", handleOnKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleOnKeyDown);
+    };
+  }, [value, onChange]);
 
   return (
     <div className="flex items-center space-x-2">
-      {stars.map((_, index) => (
+      {Array.from({ length: stars }).map((_, index) => (
         <span
           key={index}
-          className="cursor-pointer"
-          onClick={() => handleClick(index)}
-          onMouseOver={() => handleMouseOver(index)}
-          onMouseLeave={handleMouseLeave}>
-          {(hoverValue || value) > index ? (
-            <IoMdStar className="text-yellow" size={20} />
+          onMouseOver={() => setHoveredValue(index + 1)}
+          onMouseLeave={() => setHoveredValue(null)}
+          onClick={() => onChange(index + 1)}>
+          {index < (hoveredValue || value) ? (
+            <IoMdStar className="w-4 h-4 text-yellow" />
           ) : (
-            <IoIosStarOutline className="text-gray" size={20} />
+            <IoIosStarOutline className="w-4 h-4" />
           )}
         </span>
       ))}
     </div>
   );
 }
-
-export default StarRating;

@@ -12,17 +12,15 @@ import contactTranslation from "shared/localization/contact.json";
 import headerTranslation from "shared/localization/header.json";
 import homeTranslation from "shared/localization/home.json";
 import indexTranslation from "shared/localization/index.json";
-import productDetailsTranslation from "shared/localization/product-details.json";
-import productsTranslation from "shared/localization/products.json";
+import ShopTranslation from "shared/localization/shop.json";
 
 // DO NOT IMPORT IT IF THE PROJECT IS NOT LARGE
 groupedTranslations(indexTranslation);
 groupedTranslations(checkoutTranslation);
 groupedTranslations(accountTranslation);
 groupedTranslations(homeTranslation);
-groupedTranslations(productsTranslation);
+groupedTranslations(ShopTranslation);
 groupedTranslations(cartTranslation);
-groupedTranslations(productDetailsTranslation);
 groupedTranslations(aboutTranslation);
 groupedTranslations(contactTranslation);
 groupedTranslations(headerTranslation);

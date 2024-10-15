@@ -33,7 +33,7 @@ export default function HandleProductQuantity({
               type="number"
               value={quantity < 10 ? `0${quantity}` : `${quantity}`}
               className="border-0 focus:ring-0 focus-visible:ring-0 ring-0 ring-offset-0 w-10 h-5 py-0 px-1 
-               text-primary font-semibold"
+               text-primary font-semibold text-center"
               onChange={handleQuantityChange}
             />
             <FaPlus
