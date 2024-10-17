@@ -19,14 +19,8 @@ import URLS from "shared/utils/urls";
 import CartItem from "./cart-item";
 
 export default function CartSheetSidebar() {
-  const [_, setTick] = useState(0);
-
   const data = modalAtom.useValue();
   const cart = cartAtom.useValue();
-
-  const changeQuantity = () => {
-    setTick(prev => prev + 1);
-  };
 
   const isModalOpen = data.isOpen && data.type === "cart";
   if (!isModalOpen) {
@@ -36,8 +30,6 @@ export default function CartSheetSidebar() {
   const handleClose = () => {
     modalAtom.onClose();
   };
-
-  const items = cart.items;
 
   return (
     <Sheet open={data.isOpen} onOpenChange={handleClose}>
@@ -49,16 +41,15 @@ export default function CartSheetSidebar() {
             {trans("shoppingCart")}
           </SheetTitle>
         </SheetHeader>
-        {items && items.length > 0 ? (
+        {cart && cart.items ? (
           <div className="w-full">
             <div className="h-[700px] overflow-y-auto w-full flex flex-col items-start gap-4 p-5 scrollbar">
-              {items.map(cartItem => (
+              {cart.items.map(cartItem => (
                 <div
                   key={cartItem.id}
                   className=" flex flex-col items-start gap-4 ">
                   <CartItem
                     cartItem={cartItem}
-                    changeQuantity={changeQuantity}
                   />
                   <Separator />
                 </div>

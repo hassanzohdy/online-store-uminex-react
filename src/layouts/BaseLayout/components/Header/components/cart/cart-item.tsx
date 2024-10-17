@@ -11,17 +11,13 @@ import { CartItemType } from "shared/utils/types";
 
 interface CartItemProps {
   cartItem: CartItemType;
-  changeQuantity: () => void;
 }
 
-export default function CartItem({ cartItem, changeQuantity }: CartItemProps) {
+export default function CartItem({ cartItem }: CartItemProps) {
   const { quantity, isLoading, increaseQuantity, decreaseQuantity } =
-    useCartQuantity(cartItem.id, cartItem.quantity, changeQuantity);
+    useCartQuantity(cartItem.id, cartItem.quantity);
 
-  const { isDeleting, deleteItem } = useDeleteCartItem(
-    cartItem.id,
-    changeQuantity,
-  );
+  const { isDeleting, deleteItem } = useDeleteCartItem(cartItem.id);
 
   return (
     <div className="flex items-start justify-between gap-3 relative w-full">

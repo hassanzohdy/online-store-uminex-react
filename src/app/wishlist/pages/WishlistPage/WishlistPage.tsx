@@ -1,14 +1,21 @@
-import React from "react";
-
 import { trans } from "@mongez/localization";
+import { wishlistAtom } from "design-system/atoms/wishlist-atom";
 import Breadcrumbs from "design-system/components/Breadcrumbs";
 import { Skeleton } from "design-system/components/ui/skeleton";
-import { getWishlist } from "design-system/services/wishlist-services";
-import { useFetchData } from "shared/hooks/use-fetch-data";
+import React, { useEffect, useState } from "react";
 import WishlistProductsContainer from "./components/WishlistProductsContainer";
 
 function _WishlistPage() {
-  const { data: wishlist, isLoading, error } = useFetchData(getWishlist);
+  const wishlist = wishlistAtom.useValue();
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, [wishlist]);
 
   if (isLoading) {
     return (
@@ -26,15 +33,11 @@ function _WishlistPage() {
     );
   }
 
-  if (error) {
-    return <div>Error: {error.message}</div>;
-  }
-
   return (
     <div className="bg-lightGray w-full h-full">
       <div className="w-full max-w-[1440px] mx-auto py-6 px-4 flex flex-col items-start gap-5">
         <Breadcrumbs title="wishlist" />
-        {wishlist && wishlist?.products?.length > 0 ? (
+        {wishlist.products && wishlist?.products?.length > 0 ? (
           <WishlistProductsContainer products={wishlist?.products} />
         ) : (
           <div className="flex w-full gap-4 items-center justify-center">

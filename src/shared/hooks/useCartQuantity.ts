@@ -4,7 +4,6 @@ import { useState } from "react";
 export const useCartQuantity = (
   cartItemId: number,
   initialQuantity: number,
-  onQuantityChange: () => void,
 ) => {
   const [quantity, setQuantity] = useState<number>(initialQuantity);
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -13,7 +12,6 @@ export const useCartQuantity = (
     setIsLoading(true);
     setQuantity(newQuantity);
     cartAtom.updateQuantity(cartItemId, newQuantity);
-    onQuantityChange();
     setIsLoading(false);
   };
 

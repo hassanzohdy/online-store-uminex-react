@@ -1,8 +1,8 @@
 import { trans } from "@mongez/localization";
+import Helmet from "@mongez/react-helmet";
 import { preload, setPreloadConfiguration } from "@mongez/react-utils";
 import { LuLoader2 } from "react-icons/lu";
 
-import Helmet from "@mongez/react-helmet";
 import CategoriesRow from "app/home/components/CategoriesRow";
 import DealsRow from "app/home/components/DealsRow";
 import MiddleBannerRow from "app/home/components/MiddleBannerRow";

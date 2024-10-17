@@ -12,17 +12,15 @@ import { CartItemType } from "shared/utils/types";
 
 interface CartProductsDetailsCardProps {
   item: CartItemType;
-  changeQuantity: () => void;
 }
 
 export default function CartProductsDetailsCard({
   item,
-  changeQuantity,
 }: CartProductsDetailsCardProps) {
   const { quantity, isLoading, increaseQuantity, decreaseQuantity } =
-    useCartQuantity(item.id, item.quantity, changeQuantity);
+    useCartQuantity(item.id, item.quantity);
 
-  const { isDeleting, deleteItem } = useDeleteCartItem(item.id, changeQuantity);
+  const { isDeleting, deleteItem } = useDeleteCartItem(item.id);
 
   return (
     <>
@@ -61,7 +59,7 @@ export default function CartProductsDetailsCard({
             size={"sm"}
             className="text-md rounded-sm h-7 w-8 px-0 border-0 shadow-none"
             onClick={decreaseQuantity}
-            disabled={isDeleting || isLoading || quantity <= 1}>
+            disabled={quantity <= 1 || isLoading || isDeleting}>
             <FaMinus className="w-full h-4 text-black" />
           </Button>
           <Input
@@ -73,8 +71,8 @@ export default function CartProductsDetailsCard({
             variant={"outline"}
             size={"sm"}
             className="text-lg rounded-sm h-7 w-8 px-0 border-0 shadow-none"
-            onClick={increaseQuantity}
-            disabled={isDeleting || isLoading}>
+            disabled={isLoading || isDeleting}
+            onClick={increaseQuantity}>
             +
           </Button>
         </div>
@@ -87,7 +85,7 @@ export default function CartProductsDetailsCard({
         <Button
           variant={"ghost"}
           onClick={deleteItem}
-          disabled={isDeleting}
+          disabled={isLoading || isDeleting}
           className="text-primary font-semibold cursor-pointer ">
           <LuTrash2 className="w-4 h-4" />
         </Button>
