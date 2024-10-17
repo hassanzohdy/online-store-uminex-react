@@ -9,19 +9,12 @@ import { Product } from "shared/utils/types";
 
 interface WishlistItemProps {
   wishlistItem: Product;
-  changeStatus?: () => void;
 }
 
-export default function WishlistItem({
-  wishlistItem,
-  changeStatus,
-}: WishlistItemProps) {
+export default function WishlistItem({ wishlistItem }: WishlistItemProps) {
   const currentCurrency = currencyAtom.useValue();
 
-  const { deleteItem, isDeleting } = useDeleteWishlistItem(
-    wishlistItem.id,
-    changeStatus,
-  );
+  const { deleteItem, isDeleting } = useDeleteWishlistItem(wishlistItem.id);
 
   return (
     <div className="flex items-start justify-between gap-3 relative w-full">

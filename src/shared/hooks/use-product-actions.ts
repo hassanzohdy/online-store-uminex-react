@@ -41,6 +41,15 @@ export const useProductActions = (product: Product) => {
     });
   };
 
+  const handleRemoveFromCart = async () => {
+    await cartAtom.deleteItem(product, quantity);
+    toast({
+      variant: "destructive",
+      title: trans("Removed from Cart"),
+      description: `${translateText(product.name)} has Been Removed`,
+    });
+  };
+
   const addToCompare = async () => {
     await compareAtom.addToCompare(product);
     modalAtom.onOpen("compare");
@@ -123,5 +132,6 @@ export const useProductActions = (product: Product) => {
     isChecked,
     quantity,
     estimatedDelivery,
+    handleRemoveFromCart,
   };
 };

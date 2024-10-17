@@ -1,7 +1,6 @@
 import cache from "@mongez/cache";
 import { atom } from "@mongez/react-atom";
 
-import { calculateCartTotals } from "design-system/utils/cart-utils";
 import { toast } from "shared/hooks/use-toast";
 import { CartType, Product } from "shared/utils/types";
 import {
@@ -21,46 +20,10 @@ export const cartAtom = atom<CartType>({
   actions: {
     addToCart: async (product: Product, quantity?: number) => {
       try {
-        const cart = cartAtom.value;
+        const newCart = await addItem(product.id, quantity || 1);
 
-        if (!cart.items) {
-          cart.items = [];
-        }
-
-        const existingItem = cart.items.find(
-          item => item.product.id === product.id,
-        );
-
-        addItem(product.id, quantity || 1);
-
-        if (existingItem) {
-          existingItem.quantity += quantity || 1;
-          existingItem.total.finalPrice =
-            existingItem.quantity *
-            (existingItem.total.salePrice || existingItem.total.price);
-          existingItem.total.price = existingItem.quantity * product.price;
-          existingItem.total.discount =
-            existingItem.quantity * product.discount;
-        } else {
-          const newItem = {
-            product,
-            quantity: quantity || 1,
-            id: Math.floor(Math.random() * 10000000),
-            salePrice: product.salePrice,
-            total: {
-              discount: product.discount || 0,
-              finalPrice: product.salePrice || product.price,
-              price: product.price,
-              salePrice: product.salePrice || product.price,
-            },
-          };
-          cart.items.push(newItem);
-        }
-
-        const updatedCart = calculateCartTotals(cart);
-        cartAtom.update(updatedCart);
-        cache.set("cart", updatedCart);
-        return cartAtom.update(updatedCart);
+        cache.set("cart", newCart.data.cart);
+        return cartAtom.update(newCart.data.cart);
       } catch (error: any) {
         console.log(error);
         toast({
@@ -70,42 +33,23 @@ export const cartAtom = atom<CartType>({
         });
       }
     },
-    updateQuantity(itemId: number, quantity: number) {
-      const cart = cartAtom.value;
-      const existingItem = cart.items.find(item => item.id === itemId);
-      if (existingItem) {
-        existingItem.quantity = quantity;
-        calculateCartTotals(cart, existingItem.id, quantity);
-        cache.set("cart", cart);
-        cartAtom.update(cart);
-        return updateItem(existingItem.id, existingItem.quantity);
-      }
-      return cart;
+
+    async updateQuantity(itemId: number, quantity: number) {
+      const newCart = await updateItem(itemId, quantity);
+      cache.set("cart", newCart.data.cart);
+      cartAtom.update(newCart.data.cart);
     },
 
     async deleteItem(itemId: number) {
-      const cart = cartAtom.value;
-      cart.items = cart.items.filter(item => item.id !== itemId);
-      calculateCartTotals(cart);
-      cache.set("cart", cart);
-      deleteItem(itemId);
-      return cartAtom.update(cart);
+      const newCart = await deleteItem(itemId);
+      cache.set("cart", newCart.data.cart);
+      return cartAtom.update(newCart.data.cart);
     },
 
     deleteAllItems: async () => {
-      const cart = cartAtom.value;
-      cart.items = [];
-      cart.totals = {
-        discount: 0,
-        finalPrice: 0,
-        price: 0,
-        salePrice: 0,
-        subtotal: 0,
-        tax: 0,
-      };
-      await flushCart();
-      cache.set("cart", cart);
-      return cartAtom.update(cart);
+      const newCart = await flushCart();
+      cache.set("cart", newCart.data.cart);
+      return cartAtom.update(newCart.data.cart);
     },
   },
 });
