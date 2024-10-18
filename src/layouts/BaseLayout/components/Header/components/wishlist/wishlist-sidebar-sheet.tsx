@@ -1,6 +1,5 @@
 import { trans } from "@mongez/localization";
 import { Link } from "@mongez/react-router";
-import { useState } from "react";
 
 import { modalAtom } from "design-system/atoms/model-atom";
 import { wishlistAtom } from "design-system/atoms/wishlist-atom";
@@ -18,8 +17,6 @@ import URLS from "shared/utils/urls";
 import WishlistItem from "./wishlist-item";
 
 export default function WishListSheetSidebar() {
-  const [status, setStatus] = useState(false);
-
   const data = modalAtom.useValue();
   const wishlist = wishlistAtom.useValue();
 
@@ -27,10 +24,6 @@ export default function WishListSheetSidebar() {
   if (!isModalOpen) {
     return null;
   }
-
-  const changeStatus = () => {
-    setStatus(!status);
-  };
 
   const handleClose = () => {
     modalAtom.onClose();
@@ -46,16 +39,13 @@ export default function WishListSheetSidebar() {
             {trans("wishlist")}
           </SheetTitle>
         </SheetHeader>
-        {wishlist && wishlist.products.length > 0 ? (
+        {wishlist && wishlist.products && wishlist.products.length > 0 ? (
           <>
             {wishlist.products.map(product => (
               <div
                 className="flex items-start gap-5 flex-col p-5"
                 key={product.id}>
-                <WishlistItem
-                  wishlistItem={product}
-                  changeStatus={changeStatus}
-                />
+                <WishlistItem wishlistItem={product} />
                 <Separator className="my-2" />
               </div>
             ))}

@@ -16,27 +16,15 @@ export const wishlistAtom = atom<Wishlist>({
     },
 
     addToWishlist: async (product: Product) => {
-      const wishlist = wishlistAtom.value;
-      const isProductExists = wishlist.products.some(
-        item => item.id === product.id,
-      );
-      if (isProductExists) {
-        return;
-      }
-      wishlist.totalWishlist += 1;
-      await addItem(product.id);
-      wishlist.products.push(product);
-      cache.set("wishlist", wishlist);
-      return wishlistAtom.update(wishlist);
+      const newWishlist = await addItem(product.id);
+      cache.set("wishlist", newWishlist.data);
+      return wishlistAtom.update(newWishlist.data);
     },
 
-    deleteItem: (itemId: number) => {
-      const wishlist = wishlistAtom.value;
-      wishlist.totalWishlist -= 1;
-      wishlist.products = wishlist.products.filter(item => item.id !== itemId);
-      cache.set("wishlist", wishlist);
-      deleteItem(itemId);
-      return wishlistAtom.update(wishlist);
+    deleteItem: async (itemId: number) => {
+      const newWishlist = await deleteItem(itemId);
+      cache.set("wishlist", newWishlist.data);
+      return wishlistAtom.update(newWishlist.data);
     },
   },
 });

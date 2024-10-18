@@ -13,51 +13,15 @@ import {
   TableRow,
 } from "design-system/components/ui/table";
 import { Textarea } from "design-system/components/ui/textarea";
-import EmptyCartIcon from "shared/assets/images/empty-cart.svg";
 import { cn } from "shared/lib/utils";
 import { isLTR } from "shared/utils/helpers";
 import URLS from "shared/utils/urls";
 import { cartOrderAtom } from "../atoms/cart-order-atom";
 import CartProductsDetailsCard from "./CartProductsDetailsCard";
 
-interface CartProductDetailsProps {
-  handleUpdateData: () => void;
-}
-
-export default function CartProductsDetails({
-  handleUpdateData,
-}: CartProductDetailsProps) {
+export default function CartProductsDetails() {
   const [value, setValue] = useState("");
-  const cartItems = cartAtom.value;
-
-  if (!cartItems.items || cartItems.items.length === 0) {
-    return (
-      <div className="w-full">
-        <div className="flex items-center justify-center flex-col gap-5 py-5">
-          <img
-            src={EmptyCartIcon}
-            alt="empty cart"
-            className="w-24 h-24"
-            loading="lazy"
-          />
-          <p className="text-sm font-semibold text-primary ">
-            {trans("emptyCart")}
-          </p>
-          <Button
-            asChild
-            variant={"primary"}
-            size={"lg"}
-            className="rounded-full h-12 w-60">
-            <Link href={URLS.shop.products}>{trans("Continue Shopping")}</Link>
-          </Button>
-        </div>
-      </div>
-    );
-  }
-
-  const changeQuantity = () => {
-    handleUpdateData();
-  };
+  const cart = cartAtom.useValue();
 
   const handleNoteChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     const note = e.target.value;
@@ -67,7 +31,6 @@ export default function CartProductsDetails({
 
   const DeleteAllItems = () => {
     cartAtom.deleteAllItems();
-    changeQuantity();
   };
 
   return (
@@ -100,14 +63,12 @@ export default function CartProductsDetails({
           </TableRow>
         </TableHeader>
         <TableBody>
-          {cartItems.items.map(item => (
-            <TableRow className="border-slate-200" key={item.id}>
-              <CartProductsDetailsCard
-                item={item}
-                changeQuantity={changeQuantity}
-              />
-            </TableRow>
-          ))}
+          {cart.items &&
+            cart.items.map(item => (
+              <TableRow className="border-slate-200" key={item.id}>
+                <CartProductsDetailsCard item={item} />
+              </TableRow>
+            ))}
         </TableBody>
       </Table>
       <div className="flex items-center justify-between w-full flex-wrap my-5 py-5 border-b border-t border-slate-200">

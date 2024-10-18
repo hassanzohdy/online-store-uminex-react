@@ -14,11 +14,7 @@ import { cartOrderAtom } from "../atoms/cart-order-atom";
 export default function CartOrderDetails() {
   const [isChecked, setIsChecked] = useState(false);
   const [value, setValue] = useState("");
-  const cart = cartAtom.value;
-
-  if (!cart.items || cart.items.length === 0) {
-    return null;
-  }
+  const cart = cartAtom.useValue();
 
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);

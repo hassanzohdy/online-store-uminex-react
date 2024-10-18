@@ -15,25 +15,16 @@ export const compareAtom = atom<Product[]>({
       compareAtom.update(compareAtom.value);
     },
     addToCompare: async (product: Product) => {
-      const compare = compareAtom.value;
-      const isProductExists = compare.some(item => item.id === product.id);
-      if (isProductExists) {
-        return;
-      }
-      compare.push(product);
-      cache.set("compare", compare);
-      await addItem(product.id);
-      return compareAtom.update(compare);
+      const newCompare = await addItem(product.id);
+      cache.set("compare", newCompare.data);
+      return compareAtom.update(newCompare.data);
     },
 
-    deleteItem(itemId: number) {
-      const compare = compareAtom.value;
-      const updatedCompare = compare.filter(item => item.id !== itemId);
-      cache.set("compare", updatedCompare);
+    deleteItem: async (itemId: number) => {
+      const newCompare = await deleteItem(itemId);
+      cache.set("compare", newCompare.data);
 
-      deleteItem(itemId);
-
-      return compareAtom.update(updatedCompare);
+      return compareAtom.update(newCompare.data);
     },
   },
 });
