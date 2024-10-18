@@ -11,7 +11,6 @@ import {
   SheetHeader,
   SheetTitle,
 } from "design-system/components/ui/sheet";
-import { useState } from "react";
 import EmptyCartIcon from "shared/assets/images/empty-cart.svg";
 import { formatPrice } from "shared/lib/formats";
 import { isRTL } from "shared/utils/helpers";
@@ -48,9 +47,7 @@ export default function CartSheetSidebar() {
                 <div
                   key={cartItem.id}
                   className=" flex flex-col items-start gap-4 ">
-                  <CartItem
-                    cartItem={cartItem}
-                  />
+                  <CartItem cartItem={cartItem} />
                   <Separator />
                 </div>
               ))}

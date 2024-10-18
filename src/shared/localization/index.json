@@ -79,9 +79,17 @@
     "en": "Contact Us",
     "ar": "اتصل بنا"
   },
+  "Verify Email": {
+    "en": "Verify Email",
+    "ar": "تحقق من البريد الالكتروني"
+  },
   "blog": {
     "en": "Blog",
     "ar": "مدونة"
+  },
+  "accountCreatedSuccessfully": {
+    "en": "Account created successfully",
+    "ar": "تم انشاء الحساب بنجاح"
   },
   "sale": {
     "en": "Sale $20 Off Your First Order.",
@@ -897,7 +905,7 @@
   },
   "code": {
     "en": "Code",
-    "ar": "كود العملة"
+    "ar": "كود"
   },
   "catalog": {
     "en": "Catalog",
